@@ -1,0 +1,105 @@
+.stock_lesa{
+    position: absolute;
+    left: 168px;
+    top: 44px;
+    font-size: 20px;
+}
+
+.stock_tours{
+    position: absolute;
+    top: 149px;
+    left: 171px;
+    font-size: 20px;
+}
+
+.stock_texnica{
+    position: absolute;
+    top: 43px;
+    left: 164px;
+
+}
+
+
+.stock_tractor{
+    position: absolute;
+    top: 99px;
+    left: 149px;
+}
+
+.stock_gazel{
+    position: absolute;
+    left: 454px;
+}
+
+.stock_gazel_new{
+    position: relative;
+    left: 143px;
+    bottom: 47px;
+}
+
+.stock_gazel_old{
+    position: relative;
+    left: 137px;
+    bottom: 55px;
+}
+.stock_lesa_grid{
+    display: grid;
+    grid-template-columns: repeat(2, 504px);
+    grid-row-gap: 15px;
+}
+
+#finace_btn{
+    position: relative;
+    left:80%;
+    bottom: 121px;
+}
+
+#finace_btn_report{
+    position: relative;
+    left:68%;
+    bottom: 70px;
+}
+
+#finace_btn_report_lesa{
+    position: relative;
+    left:88%;
+    bottom: 38px;
+}
+
+@media screen and (max-width: 560px) {
+    .stock_gazel{
+        position: relative;
+        left: 10px;
+        top: 2px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stock_gazel_new{
+        position: absolute;
+        bottom: 90px;
+    }
+
+    .stock_gazel_old{
+        position: absolute;
+        top: 75px;
+    }
+
+    .stock_lesa_grid{
+        display: grid;
+        grid-template-columns: repeat(1, 104px);
+        grid-row-gap: 15px;
+    }
+
+    #finace_btn{
+        visibility: hidden;
+    }
+
+    #finace_btn_report{
+        visibility: hidden;
+    }
+
+    #finace_btn_report_lesa{
+        visibility: hidden;
+    }
+}

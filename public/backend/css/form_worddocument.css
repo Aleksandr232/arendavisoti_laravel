@@ -1,0 +1,19 @@
+#form-group {
+    margin-bottom: 1rem;
+    display: grid;
+    justify-content: start;
+    justify-items: stretch;
+    grid-template-columns: repeat(4,200px);
+    grid-gap: 17px;
+}
+
+@media screen and (max-width: 560px) {
+    #form-group {
+        margin-bottom: 1rem;
+        display: grid;
+        justify-content: start;
+        justify-items: stretch;
+        grid-template-columns: repeat(1,252px);
+        grid-gap: 17px;
+    }
+}

@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule (.*) /public/$1 [L]
+RewriteRule ^robots.txt$ /robots.txt [L]
+

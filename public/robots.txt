@@ -1,0 +1,36 @@
+
+
+Host: xn--80aagge2ckkol0hd.xn--p1ai
+
+User-agent: *
+Disallow: https://xn--80aagge2ckkol0hd.xn--p1ai/login
+
+User-agent: Yandex
+Allow: /
+Sitemap: https://xn--80aagge2ckkol0hd.xn--p1ai/sitemap.xml
+Sitemap: https://арендавысоты.рф/sitemap.xml
+
+
+
+User-agent: Google
+Allow: /
+Sitemap: https://xn--80aagge2ckkol0hd.xn--p1ai/sitemap.xml
+Sitemap: https://арендавысоты.рф/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Sitemap: https://xn--80aagge2ckkol0hd.xn--p1ai/sitemap.xml
+Sitemap: https://арендавысоты.рф/sitemap.xml
+Sitemap: https://арендавысоты.рф/sitemap.xml
+
+User-agent: APIs-Google
+Allow: /
+Sitemap: https://xn--80aagge2ckkol0hd.xn--p1ai/sitemap.xml
+Sitemap: https://арендавысоты.рф/sitemap.xml
+
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+Sitemap: https://xn--80aagge2ckkol0hd.xn--p1ai/sitemap.xml
+Sitemap: https://арендавысоты.рф/sitemap.xml
+
