@@ -20,10 +20,10 @@
                 <form role="form" method="post" action="{{ route('sendEmail') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="name">От кого</label>
                             <input type="text" name="name" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Введите имя">
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="email">Почта</label>
                             <input type="email" id="title" class="form-control"   placeholder="Почта" name="email">

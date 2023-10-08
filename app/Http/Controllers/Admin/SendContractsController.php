@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\MailMessage;
 use App\Mail\ContractsMail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
@@ -19,13 +20,18 @@ class SendContractsController extends Controller
     public function sendEmail(Request $request)
     {
 
-        // Получить данные из запроса контактной формы
+        // Получение данных из запроса контактной формы
     $email = $request->input('email');
-    $name = $request->input('name');
+    $name = Auth::user()->name;
+    if(Auth::user()->is_admin = true){
+        $stat = 'менеджера';
+    }elseif(Auth::user()->is_director = true){
+        $stat = 'директора';
+    }
     $message = $request->input('message');
     $file = $request->file('file');
 
-    // Сохранить данные в базу данных
+    // Сохранение данных в базу данных
     $mailmessage = new MailMessage();
     $mailmessage->name = $name;
     $mailmessage->email = $email;
@@ -37,11 +43,12 @@ class SendContractsController extends Controller
     }
     $mailmessage->save();
 
-    // Отправить почту с вложенным файлом
+    // Отправка письма с вложенным файлом
     $data = [
         'name' => $name,
         'message' => $message,
         'path' => $mailmessage->path,
+        'stat' => $stat
 
     ];
 
@@ -61,7 +68,6 @@ class SendContractsController extends Controller
             ->route('contracts.create')
             ->with('success', 'Письмо отправлено на почту');
     }
-
 
 
     /**
