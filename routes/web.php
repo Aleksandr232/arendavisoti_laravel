@@ -34,6 +34,7 @@ use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Director\DirectorController;
 use App\Http\Controllers\Director\StatController;
 use App\Http\Controllers\Director\StaffController;
+use App\Http\Controllers\Director\SendContractsDirectorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostNewsController;
 use App\Http\Controllers\OrderTgController;
@@ -132,7 +133,10 @@ Route::prefix('director')->middleware('director')->group(function () {
     Route::get('/',  [DirectorController::class, 'index'])->name('director');
     Route::resource('/stat', StatController::class);
     Route::resource('/staff', StaffController::class);
+    Route::resource('/contracts-director', SendContractsDirectorController::class);
     Route::post('/staff/{id}/update-status', [StaffController::class, 'updateStatusStaff'])->name('staff.updateStatus');
+
+    Route::post('/отправлено-на-почту', [SendContractsDirectorController::class, 'sendEmailDirector'])->name('sendEmailDirector');
 });
 
 

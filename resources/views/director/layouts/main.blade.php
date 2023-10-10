@@ -94,6 +94,39 @@
                         </p>
                     </a>
                 </div>
+                <div class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-envelope"></i>
+                        <p>
+                           Сообщения
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('contracts-director.create') }}" class="nav-link">
+                                <i class="fas fa-envelope nav-icon"></i>
+                                <p>Написать на почту</p>
+                            </a>
+                        </li>
+                    </ul>
+                    {{-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('posttg.create') }}" class="nav-link">
+                                <i class="fab fa-telegram nav-icon"></i>
+                                <p>Написать в телеграмм </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('postswats.create') }}" class="nav-link">
+                                <i class="fab fa-whatsapp nav-icon"></i>
+                                <p>Написать в whatsapp </p>
+                            </a>
+                        </li>
+                    </ul> --}}
+                </div>
                 <li class="nav-item">
                     <a href="{{ route('staff.index') }}" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>

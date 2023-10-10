@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Director;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contracts;
@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Http;
 
-class SendContractsController extends Controller
+class SendContractsDirectorController extends Controller
 {
 
-    public function sendEmail(Request $request)
+    public function sendEmailDirector(Request $request)
     {
 
         // Получение данных из запроса контактной формы
@@ -65,7 +65,7 @@ class SendContractsController extends Controller
         }
 
         return redirect()
-            ->route('contracts.create')
+            ->route('contracts-director.create')
             ->with('success', 'Письмо отправлено на почту');
     }
 
@@ -77,7 +77,7 @@ class SendContractsController extends Controller
      */
     public function index()
     {
-        return view('admin.sendingcontracts.index');
+        return view('director.sendingcontractsdirector.index');
     }
 
     /**
@@ -89,7 +89,7 @@ class SendContractsController extends Controller
     {
         $contact = Contact::all();
 
-        return view('admin.sendingcontracts.create', compact('contact'));
+        return view('director.sendingcontractsdirector.create', compact('contact'));
 
     }
 
