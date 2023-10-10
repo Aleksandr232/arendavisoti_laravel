@@ -19,7 +19,7 @@
                 РТ, г. Казань, ул. Мирхайдара Файзи, 68
             </address>
             <div class="mf-social__networks">
-                <a href="https://wa.me/+79867120059" title="Напишите нам в Whatsapp" target="_blank">
+                <a href="https://wa.me/+79867120059"  title="Напишите нам в Whatsapp" target="_blank">
                     <img src="{{ asset('frontend/img/icons/whatsapp.svg') }}" width="23" height="23" alt="леса в аренду">
                 </a>
                 <a href="https://www.instagram.com/arenda_visoti" title="Мы в Instagram" target="_blank">
