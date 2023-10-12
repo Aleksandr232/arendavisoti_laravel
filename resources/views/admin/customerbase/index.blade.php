@@ -135,7 +135,16 @@
                                         <thead>
                                             @if($post->sign == 'оплачено')
                                             <tr style="background: green; color:white">
-                                            <td >
+                                            <td title="
+                                            @if(auth()->user()->name == $post->added_by)
+                                            Клиент добавил я
+                                            @elseif(auth()->user()->name ==  $post->added_status)
+                                                Клиент обновил я
+                                            @elseif(($post->added_status))
+                                                Клиент обновил {{$post->added_status}}
+                                            @else
+                                                Клиент добавил {{$post->added_by}}
+                                            @endif" >
                                                 {{ $post->id }}
                                             </td>
                                             <td style="background: white">
@@ -286,7 +295,15 @@
                                                 </tr>
                                                 @elseif($post->sign == 'не оплачено')
                                                 <tr style="background: red; color:white">
-                                                    <td >
+                                                    <td title="@if(auth()->user()->name == $post->added_by)
+                                                        Клиент добавил я
+                                                        @elseif(auth()->user()->name ==  $post->added_status )
+                                                            Клиент обновил я
+                                                        @elseif(isset($post->added_by) || isset($post->added_status))
+                                                            Клиент обновил {{$post->added_status}}
+                                                        @else
+                                                            Клиент добавил {{$post->added_by}}
+                                                        @endif" >
                                                         {{ $post->id }}
                                                     </td>
                                                     <td style="background: white">
@@ -437,7 +454,15 @@
                                                         </tr>
                                                         @elseif($post->sign == 'хороший постоянный клиент')
                                                         <tr style="background: LightGreen; color:black">
-                                                            <td >
+                                                            <td title="@if(auth()->user()->name == $post->added_by)
+                                                                Клиент добавил я
+                                                                @elseif(auth()->user()->name ==  $post->added_status )
+                                                                    Клиент обновил я
+                                                                @elseif(isset($post->added_by) || isset($post->added_status))
+                                                                    Клиент обновил {{$post->added_status}}
+                                                                @else
+                                                                    Клиент добавил {{$post->added_by}}
+                                                                @endif" >
                                                                 {{ $post->id }}
                                                             </td>
                                                             <td style="background: white">
@@ -588,7 +613,15 @@
                                                                 </tr>
                                                                 @elseif($post->sign == 'ДОЛЖНИК')
                                                                 <tr style="background: LightCoral; color:white">
-                                                                    <td >
+                                                                    <td title="@if(auth()->user()->name == $post->added_by)
+                                                                        Клиент добавил я
+                                                                        @elseif(auth()->user()->name ==  $post->added_status )
+                                                                            Клиент обновил я
+                                                                        @elseif(isset($post->added_by) || isset($post->added_status))
+                                                                            Клиент обновил {{$post->added_status}}
+                                                                        @else
+                                                                            Клиент добавил {{$post->added_by}}
+                                                                        @endif" >
                                                                         {{ $post->id }}
                                                                     </td>
                                                                     <td style="background: white">
@@ -739,7 +772,16 @@
                                                                         </tr>
                                                                         @else
                                                                         <tr >
-                                                                            <td >
+                                                                            <td title="
+                                                                                @if(auth()->user()->name == $post->added_by)
+                                                                                Клиент добавил я
+                                                                                @elseif(auth()->user()->name ==  $post->added_status )
+                                                                                    Клиент обновил я
+                                                                                @elseif(isset($post->added_by) || isset($post->added_status))
+                                                                                    Клиент обновил {{$post->added_status}}
+                                                                                @else
+                                                                                    Клиент добавил {{$post->added_by}}
+                                                                                @endif" >
                                                                                 {{ $post->id }}
                                                                             </td>
                                                                             <td >

@@ -39,9 +39,11 @@ class CustomerBaseController extends Controller
         ->orderByDesc('id')
         ->paginate(5); // Добавить условие поиска по имени
 
+        $added_by = CustomerBase::all();
+        $added_status = CustomerBase::all();
 
 
-    return view('admin.customerbase.index', compact('base', 'stairsframes', 'equipment', 'jack', 'bash', 'alllevelpanels', 'alllevelrafters', 'singleconnections', 'doubleconnections', 'passageframes', 'stock'   ));
+    return view('admin.customerbase.index', compact('base', 'stairsframes', 'equipment', 'jack', 'bash', 'alllevelpanels', 'alllevelrafters', 'singleconnections', 'doubleconnections', 'passageframes', 'stock', 'added_by', 'added_status' ));
     }
 
     /**
@@ -83,6 +85,8 @@ class CustomerBaseController extends Controller
 
         $data = $request->all();
        /*  $data['img'] = Post::uploadImage($request); */
+       $data['added_by'] = auth()->user()->name; // Adding the user's ID who added the client
+       /* $data['added_status'] = auth()->user()->name; */
 
 
 
@@ -148,6 +152,7 @@ class CustomerBaseController extends Controller
     {
         $base = CustomerBase::find($id);
         $base->sign = 'оплачено';
+        $base['added_status'] = auth()->user()->name;
         $base->save();
 
         return redirect()->route('customerbase.index')->with('success', $base->counterparty . ' оплатил за аренду!');
@@ -157,6 +162,7 @@ class CustomerBaseController extends Controller
     {
         $base = CustomerBase::find($id);
         $base->sign = 'не оплачено';
+        $base['added_status'] = auth()->user()->name;
         $base->save();
 
         return redirect()->route('customerbase.index')->with('err',  $base->counterparty . ' не оплатил за аренду!');
@@ -166,6 +172,7 @@ class CustomerBaseController extends Controller
     {
         $base = CustomerBase::find($id);
         $base->sign = 'хороший постоянный клиент';
+        $base['added_status'] = auth()->user()->name;
         $base->save();
 
         return redirect()->route('customerbase.index')->with('success', $base->counterparty . ' наш постоянный клиент!');
@@ -175,6 +182,7 @@ class CustomerBaseController extends Controller
     {
         $base = CustomerBase::find($id);
         $base->sign = 'ДОЛЖНИК';
+        $base['added_status'] = auth()->user()->name;
         $base->save();
 
         return redirect()->route('customerbase.index')->with('err',  $base->counterparty .  ' уже давно не оплачивал!');
@@ -184,6 +192,7 @@ class CustomerBaseController extends Controller
     {
         $base = CustomerBase::find($id);
         $base->act = 'отгружено';
+        $base['added_status'] = auth()->user()->name;
         $base->save();
 
         return redirect()->route('customerbase.index')->with('info',  'Отгружено');
@@ -193,6 +202,7 @@ class CustomerBaseController extends Controller
     {
         $base = CustomerBase::find($id);
         $base->act = 'частичный возврат';
+        $base['added_status'] = auth()->user()->name;
         $base->save();
 
         return redirect()->route('customerbase.index')->with('info',  'Частичный возврат');
