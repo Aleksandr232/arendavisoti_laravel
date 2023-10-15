@@ -25,6 +25,8 @@ class ContractsMail extends Mailable
 
     public function build()
     {
+
+
         return $this->subject('Новое сообщение от ООО "Аренда высоты"')
                     /* ->view('site.mail.sendcontracts') */
                     ->markdown('site.mail.sendcontracts')

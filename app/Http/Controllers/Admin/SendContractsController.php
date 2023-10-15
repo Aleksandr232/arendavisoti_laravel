@@ -18,23 +18,23 @@ class SendContractsController extends Controller
 {
 
     public function sendEmail(Request $request)
-    {
-
-        // Получение данных из запроса контактной формы
-    $email = $request->input('email');
+{
+    // Получаем данные из запроса формы контактов
+    $emails = $request->input('emails');
     $name = Auth::user()->name;
     if(Auth::user()->is_admin == true){
-        $stat = 'менеджера';
+        $stat = 'менеджер'; // менеджер
     }elseif(Auth::user()->is_director == true){
-        $stat = 'директора';
+        $stat = 'директор'; // директор
     }
     $message = $request->input('message');
     $file = $request->file('file');
 
-    // Сохранение данных в базу данных
+    // Сохраняем данные в базе данных
     $mailmessage = new MailMessage();
     $mailmessage->name = $name;
-    $mailmessage->email = $email;
+     /* $mailmessage->emails = json_encode($emails); */
+    $mailmessage->emails = implode(',', $emails);
     $mailmessage->message = $message;
     $mailmessage->file = $file;
     if ($request->hasFile('file')) {
@@ -43,31 +43,60 @@ class SendContractsController extends Controller
     }
     $mailmessage->save();
 
-    // Отправка письма с вложенным файлом
-    $data = [
-        'name' => $name,
-        'message' => $message,
-        'path' => $mailmessage->path,
-        'stat' => $stat
+    // Отправляем электронную почту на каждый адрес электронной почты в массиве
+    foreach ($emails as $email) {
+        // Если есть только сообщение без прикрепленного файла
+        if ($message && !$request->hasFile('file')) {
+            $data =[
+                'name' => $name,
+                'message' => $message,
+                'stat' => $stat,
+                'path' => '',
+            ];
 
-    ];
+            $mail = new ContractsMail($data);
+            Mail::to($email)->send($mail);
+        }
 
-    $mail = new ContractsMail($data);
-    Mail::to($email)
-        ->send($mail, function ($message) use ($mail) {
-            if (!is_null($mail->path)) {
+        // Если есть только прикрепленный файл без сообщения
+        if (!$message && $request->hasFile('file')) {
+            $data =[
+                'name' => $name,
+                'path' => $mailmessage->path,
+                'stat' => $stat,
+                'message' => '',
+            ];
+
+            $mail = new ContractsMail($data);
+            Mail::to($email)->send($mail, function ($message) use ($mail) {
                 $message->attach($data['path']->getRealPath());
-            }
-        });
+            });
+        }
+
+        // Если есть и сообщение, и прикрепленный файл
+        if ($message && $request->hasFile('file')) {
+            $data =[
+                'name' => $name,
+                'message' => $message,
+                'path' => $mailmessage->path,
+                'stat' => $stat
+            ];
+
+            $mail = new ContractsMail($data);
+            Mail::to($email)->send($mail, function ($message) use ($mail) {
+                $message->attach($data['path']->getRealPath());
+            });
+        }
+    }
 
     if ($request->hasFile('file')) {
             Storage::disk('mail')->delete($mailmessage->path = $path);
         }
 
-        return redirect()
-            ->route('contracts.create')
-            ->with('success', 'Письмо отправлено на почту');
-    }
+    return redirect()
+        ->route('contracts.create')
+        ->with('success', 'Письмо успешно отправленно'); // Письма успешно отправлены на почту
+}
 
 
     /**

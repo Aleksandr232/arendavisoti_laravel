@@ -9,7 +9,9 @@ class MailMessage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['file', 'path', 'name', 'email', 'message'];
+    protected $fillable = ['file', 'path', 'name', 'emails', 'message'];
 
     protected $table = 'mail';
+
+    
 }

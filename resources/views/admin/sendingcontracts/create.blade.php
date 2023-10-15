@@ -25,8 +25,8 @@
                             <input type="text" name="name" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Введите имя">
                         </div> --}}
                         <div class="form-group">
-                            <label for="email">Почта</label>
-                            <input type="email" id="title" class="form-control"   placeholder="Почта" name="email">
+                            <label for="emails">Почта</label>
+                            <input name="emails[]"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"   type="email"  id="title" class="form-control"   placeholder="Почта"  multiple required>
                         </div>
                         <div class="form-group">
                             <label for="message">Cообщение</label>
