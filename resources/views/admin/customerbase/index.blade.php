@@ -200,6 +200,8 @@
                                                             <i class="fas fa-dolly-flatbed"></i>
                                                         </button>
                                                     </form>
+                                                    <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
+
                                                 </div>
 
                                             </td>
@@ -355,6 +357,7 @@
                                                                     <i class="fas fa-dolly-flatbed"></i>
                                                                 </button>
                                                             </form>
+                                                            <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
                                                         </div>
 
                                                     </td>
@@ -510,6 +513,7 @@
                                                                             <i class="fas fa-dolly-flatbed"></i>
                                                                         </button>
                                                                     </form>
+                                                                    <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
                                                                 </div>
 
                                                             </td>
@@ -666,6 +670,7 @@
                                                                                     <i class="fas fa-dolly-flatbed"></i>
                                                                                 </button>
                                                                             </form>
+                                                                            <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
                                                                         </div>
 
                                                                     </td>
@@ -822,6 +827,7 @@
                                                                                             <i class="fas fa-dolly-flatbed"></i>
                                                                                         </button>
                                                                                     </form>
+                                                                                    <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
                                                                                 </div>
 
                                                                             </td>

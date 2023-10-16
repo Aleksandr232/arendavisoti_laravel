@@ -125,6 +125,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('pdf/preview', [FinaceController::class, 'preview'])->name('pdf.preview');
     Route::get('pdf/generate', [FinaceController::class, 'generatePDF'])->name('pdf.generate');
     Route::get('pdf/generate/lesa', [CustomerBaseController::class, 'generatePDFlesa'])->name('pdf.generate.lesa');
+    Route::get('act/lesa/{id}', [CustomerBaseController::class, 'wordExport'])->name('wordExport');
     Route::get('pdf/generate/tours', [CustmerBaseToursController::class, 'generatePDFTours'])->name('pdf.generate.Tours');
 });
 

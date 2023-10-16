@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CustomerBase;
 use Illuminate\Http\Request;
 use App\Models\Stock;
+use PhpOffice\PhpWord\TemplateProcessor;
 use PDF;
 
 class CustomerBaseController extends Controller
@@ -92,7 +93,30 @@ class CustomerBaseController extends Controller
 
         $сustomerbase = CustomerBase::query()->create($data);
 
+
+
+
+
         return redirect()->route('customerbase.index')->with('success', 'Клиент добавлен');
+    }
+
+    public function wordExport($id)
+    {
+        $base = CustomerBase::find($id);
+        $template = new TemplateProcessor('actWord/act.docx');
+        $template->setValue('area', $base->area);
+        $template->setValue('stairsframes', $base->stairsframes);
+        $template->setValue('passageframes', $base->passageframes);
+        $template->setValue('doubleconnections', $base->doubleconnections);
+        $template->setValue('singleconnections', $base->singleconnections);
+        $template->setValue('alllevelrafters', $base->alllevelrafters);
+        $template->setValue('alllevelpanels', $base->alllevelpanels);
+        $template->setValue('bash', $base->bash);
+        $template->setValue('equipment', $base->equipment);
+
+        $filename = 'акт_передачи для' . $base->counterparty;
+        $template->saveAs($filename . '.docx');
+        return response()->download($filename . '.docx')->deleteFileAfterSend(true);
     }
 
     /**

@@ -51,7 +51,7 @@ class SendContractsController extends Controller
                 'name' => $name,
                 'message' => $message,
                 'stat' => $stat,
-                'path' => '',
+                'path' =>'doc/price.xlsx',
             ];
 
             $mail = new ContractsMail($data);
