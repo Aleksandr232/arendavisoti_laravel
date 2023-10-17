@@ -104,6 +104,7 @@ class CustomerBaseController extends Controller
     {
         $base = CustomerBase::find($id);
         $template = new TemplateProcessor('actWord/act.docx');
+        $template->setValue('id', $base->id);
         $template->setValue('area', $base->area);
         $template->setValue('stairsframes', $base->stairsframes);
         $template->setValue('passageframes', $base->passageframes);
@@ -114,7 +115,7 @@ class CustomerBaseController extends Controller
         $template->setValue('bash', $base->bash);
         $template->setValue('equipment', $base->equipment);
 
-        $filename = 'акт_передачи для' . $base->counterparty;
+        $filename = 'докуметы' . $base->counterparty;
         $template->saveAs($filename . '.docx');
         return response()->download($filename . '.docx')->deleteFileAfterSend(true);
     }

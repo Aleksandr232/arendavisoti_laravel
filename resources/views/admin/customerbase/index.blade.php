@@ -200,7 +200,9 @@
                                                             <i class="fas fa-dolly-flatbed"></i>
                                                         </button>
                                                     </form>
-                                                    <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
+                                                    <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
+                                                        <i class="fas fa-file-word"></i>
+                                                    </a>
 
                                                 </div>
 
@@ -357,7 +359,9 @@
                                                                     <i class="fas fa-dolly-flatbed"></i>
                                                                 </button>
                                                             </form>
-                                                            <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
+                                                            <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
+                                                                <i class="fas fa-file-word"></i>
+                                                            </a>
                                                         </div>
 
                                                     </td>
@@ -513,7 +517,9 @@
                                                                             <i class="fas fa-dolly-flatbed"></i>
                                                                         </button>
                                                                     </form>
-                                                                    <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
+                                                                    <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
+                                                                        <i class="fas fa-file-word"></i>
+                                                                    </a>
                                                                 </div>
 
                                                             </td>
@@ -670,7 +676,9 @@
                                                                                     <i class="fas fa-dolly-flatbed"></i>
                                                                                 </button>
                                                                             </form>
-                                                                            <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
+                                                                            <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
+                                                                                <i class="fas fa-file-word"></i>
+                                                                            </a>
                                                                         </div>
 
                                                                     </td>
@@ -827,7 +835,9 @@
                                                                                             <i class="fas fa-dolly-flatbed"></i>
                                                                                         </button>
                                                                                     </form>
-                                                                                    <a class="btn btn-success btn-sm"  href="{{ route('wordExport', $post->id )}}">акт</a>
+                                                                                    <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
+                                                                                        <i class="fas fa-file-word"></i>
+                                                                                    </a>
                                                                                 </div>
 
                                                                             </td>
