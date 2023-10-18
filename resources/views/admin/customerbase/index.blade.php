@@ -39,6 +39,7 @@
                                             <th>Акт</th>
                                             <th>Дата акта</th>
                                             <th>Наименование контрагента</th>
+                                            <th>Адресс доставки</th>
                                             <th>Телефон</th>
                                             <th>Сумма договора</th>
                                             <th>Доставка</th>
@@ -211,6 +212,7 @@
                                             <td>{{$post->act}}</td>
                                             <td>{{$post->dateact}}</td>
                                             <td>{{$post->counterparty}}</td>
+                                            <td>{{$post->adreess}}</td>
                                             <td>{{$post->phone}}</td>
                                             <td>
                                                 <table>
@@ -369,6 +371,7 @@
                                                     <td>{{$post->act}}</td>
                                                     <td>{{$post->dateact}}</td>
                                                     <td>{{$post->counterparty}}</td>
+                                                    <td>{{$post->adreess}}</td>
                                                     <td>{{$post->phone}}</td>
                                                     <td>
                                                         <table>
@@ -527,6 +530,7 @@
                                                             <td>{{$post->act}}</td>
                                                             <td>{{$post->dateact}}</td>
                                                             <td>{{$post->counterparty}}</td>
+                                                            <td>{{$post->adreess}}</td>
                                                             <td>{{$post->phone}}</td>
                                                             <td>
                                                                 <table>
@@ -686,6 +690,7 @@
                                                                     <td>{{$post->act}}</td>
                                                                     <td>{{$post->dateact}}</td>
                                                                     <td>{{$post->counterparty}}</td>
+                                                                    <td>{{$post->adreess}}</td>
                                                                     <td>{{$post->phone}}</td>
                                                                     <td>
                                                                         <table>
@@ -845,6 +850,7 @@
                                                                             <td>{{$post->act}}</td>
                                                                             <td>{{$post->dateact}}</td>
                                                                             <td>{{$post->counterparty}}</td>
+                                                                            <td>{{$post->adreess}}</td>
                                                                             <td>{{$post->phone}}</td>
                                                                             <td>
                                                                                 <table>

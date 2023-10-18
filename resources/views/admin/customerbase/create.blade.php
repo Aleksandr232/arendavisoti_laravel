@@ -32,6 +32,7 @@
                                             <th>Акт</th>
                                             <th>Дата акта</th>
                                             <th>Наименование контрагента</th>
+                                            <th>Адресс доставки</th>
                                             <th>Телефон</th>
                                             <th>Сумма договора</th>
                                             <th>Доставка</th>
@@ -59,6 +60,7 @@
                                         <td>
                                             <input placeholder="Введите контрагента" type="text" name="counterparty">
                                         </td>
+                                        <td><input placeholder="Введите адресс доставки" type="text" name="adreess"></td>
                                         <td>
                                             <input placeholder="Введите номер клиента" type="text-number" name="phone">
                                         </td>

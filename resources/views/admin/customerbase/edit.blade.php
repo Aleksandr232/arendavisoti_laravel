@@ -33,6 +33,7 @@
                                             <th>Акт</th>
                                             <th>Дата акта</th>
                                             <th>Наименование контрагента</th>
+                                            <th>Адресс доставки</th>
                                             <th>Телефон</th>
                                             <th>Сумма договора</th>
                                             <th>Доставка</th>
@@ -60,6 +61,7 @@
                                         <td>
                                             <input type="text" value="{{$base->counterparty}}" name="counterparty">
                                         </td>
+                                        <td><input value="{{$base->adreess}}" placeholder="Введите адресс доставки" type="text" name="adreess"></td>
                                         <td>
                                             <input type="text-number" value="{{$base->phone}}"  name="phone">
                                         </td>

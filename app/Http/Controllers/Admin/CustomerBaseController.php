@@ -115,9 +115,10 @@ class CustomerBaseController extends Controller
         $template->setValue('bash', $base->bash);
         $template->setValue('equipment', $base->equipment);
         $template->setValue('contractamount', $base->contractamount);
+        $template->setValue('adreess', $base->adreess);
         $template->setValue('weight', $base->stairsframes * 12 + $base->passageframes * 11 + $base->doubleconnections * 4 + $base->singleconnections * 2 + $base->alllevelrafters * 7 + $base->alllevelpanels * 15 + $base->bash * 0,3);
 
-        $filename = 'докуметы' . $base->counterparty;
+        $filename = ('докуметы для ' . $base->counterparty);
         $template->saveAs($filename . '.docx');
         return response()->download($filename . '.docx')->deleteFileAfterSend(true);
     }
