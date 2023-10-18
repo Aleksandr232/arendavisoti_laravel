@@ -204,6 +204,9 @@
                                                     <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
                                                         <i class="fas fa-file-word"></i>
                                                     </a>
+                                                    <a title="дополнить игформацию о клиенте" class="btn btn-info btn-sm"  href="{{ route('info', $post->id )}}">
+                                                        <i class="fas fa-user"></i>
+                                                    </a>
 
                                                 </div>
 
@@ -364,6 +367,9 @@
                                                             <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
                                                                 <i class="fas fa-file-word"></i>
                                                             </a>
+                                                            <a title="дополнить игформацию о клиенте" class="btn btn-info btn-sm"  href="{{ route('info', $post->id )}}">
+                                                                <i class="fas fa-user"></i>
+                                                            </a>
                                                         </div>
 
                                                     </td>
@@ -522,6 +528,9 @@
                                                                     </form>
                                                                     <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
                                                                         <i class="fas fa-file-word"></i>
+                                                                    </a>
+                                                                    <a title="дополнить игформацию о клиенте" class="btn btn-info btn-sm"  href="{{ route('info', $post->id )}}">
+                                                                        <i class="fas fa-user"></i>
                                                                     </a>
                                                                 </div>
 
@@ -683,6 +692,9 @@
                                                                             <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
                                                                                 <i class="fas fa-file-word"></i>
                                                                             </a>
+                                                                            <a title="дополнить игформацию о клиенте" class="btn btn-info btn-sm"  href="{{ route('info', $post->id )}}">
+                                                                                <i class="fas fa-user"></i>
+                                                                            </a>
                                                                         </div>
 
                                                                     </td>
@@ -842,6 +854,9 @@
                                                                                     </form>
                                                                                     <a title="сформировать документы" class="btn btn-warning btn-sm"  href="{{ route('wordExport', $post->id )}}">
                                                                                         <i class="fas fa-file-word"></i>
+                                                                                    </a>
+                                                                                    <a title="дополнить игформацию о клиенте" class="btn btn-info btn-sm"  href="{{ route('info', $post->id )}}">
+                                                                                        <i class="fas fa-user"></i>
                                                                                     </a>
                                                                                 </div>
 

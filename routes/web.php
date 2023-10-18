@@ -99,6 +99,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/pricetours', PostPriceToursController::class);
     Route::resource('/words', WordDocumentcontroller::class);
     Route::resource('/customerbase', CustomerBaseController::class);
+    Route::get('/customer/{id}', [CustomerBaseController::class, 'info'])->name('info');
+    Route::post('/customer-info/{id}', [CustomerBaseController::class, 'info_client'])->name('info_client');
     Route::resource('/customerbasetours', CustmerBaseToursController::class);
     Route::resource('/logistics', LogisticaController::class);
     Route::resource('/finace', FinaceController::class);

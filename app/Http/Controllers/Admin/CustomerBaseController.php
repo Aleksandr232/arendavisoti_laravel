@@ -47,6 +47,33 @@ class CustomerBaseController extends Controller
     return view('admin.customerbase.index', compact('base', 'stairsframes', 'equipment', 'jack', 'bash', 'alllevelpanels', 'alllevelrafters', 'singleconnections', 'doubleconnections', 'passageframes', 'stock', 'added_by', 'added_status' ));
     }
 
+    public function info(Request $request, $id)
+    {
+        $info = CustomerBase::query()->find($id);
+
+        return view('admin.customer.create', compact('info'));
+    }
+
+    public function info_client(Request $request, $id)
+    {
+        $info = CustomerBase::find($id);
+
+        $info->uraddress = $request->input('uraddress');
+        $info->mailaddress = $request->input('mailaddress');
+        $info->email =$request->input('email');
+        $info->orgn = $request->input('orgn');
+        $info->inn = $request->input('inn');
+        $info->kpp = $request->input('kpp');
+        $info->rs = $request->input('rs');
+        $info->ks = $request->input('ks');
+        $info->bank = $request->input('bank');
+        $info->bik = $request->input('bik');
+        $info->save();
+
+        return redirect()->route('customerbase.index')->with('success', 'Дополнительная информация о клиенте ' . $info->counterparty .  ' добавлена');
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -56,6 +83,8 @@ class CustomerBaseController extends Controller
     {
         return view('admin.customerbase.create');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
