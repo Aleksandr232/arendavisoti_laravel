@@ -145,6 +145,7 @@ class CustomerBaseController extends Controller
         $template->setValue('equipment', $base->equipment);
         $template->setValue('contractamount', $base->contractamount);
         $template->setValue('adreess', $base->adreess);
+        $template->setValue('phone', $base->phone);
         $template->setValue('uraddress', $base->uraddress);
         $template->setValue('mailaddress', $base->mailaddress);
         $template->setValue('email', $base->email);
