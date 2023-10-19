@@ -145,6 +145,16 @@ class CustomerBaseController extends Controller
         $template->setValue('equipment', $base->equipment);
         $template->setValue('contractamount', $base->contractamount);
         $template->setValue('adreess', $base->adreess);
+        $template->setValue('uraddress', $base->uraddress);
+        $template->setValue('mailaddress', $base->mailaddress);
+        $template->setValue('email', $base->email);
+        $template->setValue('orgn', $base->orgn);
+        $template->setValue('inn', $base->inn);
+        $template->setValue('kpp', $base->kpp);
+        $template->setValue('rs', $base->rs);
+        $template->setValue('ks', $base->ks);
+        $template->setValue('bank', $base->bank);
+        $template->setValue('bik', $base->bik);
         $template->setValue('weight', $base->stairsframes * 12 + $base->passageframes * 11 + $base->doubleconnections * 4 + $base->singleconnections * 2 + $base->alllevelrafters * 7 + $base->alllevelpanels * 15 + $base->bash * 0,3);
 
         $filename = ('докуметы для ' . $base->counterparty);
