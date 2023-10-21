@@ -115,9 +115,13 @@ class CustomerBaseController extends Controller
 
         $data = $request->all();
        /*  $data['img'] = Post::uploadImage($request); */
-       $data['added_by'] = auth()->user()->name; // Adding the user's ID who added the client
-       /* $data['added_status'] = auth()->user()->name; */
-
+       $data['added_by'] = auth()->user()->name;
+       $data['contractamount'] = ($data['calculation'] == 'б/н с НДС') ? ($data['contractamount'] * 0.2) + $data['contractamount'] : $data['contractamount'];
+       /* if ($data['calculation'] == 'б/н с НДС') {
+        ($data['contractamount'] * 0.2) + $data['contractamount'];
+        }else{
+            $data['contractamount'];
+        } */
 
 
         $сustomerbase = CustomerBase::query()->create($data);
@@ -156,6 +160,9 @@ class CustomerBaseController extends Controller
         $template->setValue('ks', $base->ks);
         $template->setValue('bank', $base->bank);
         $template->setValue('bik', $base->bik);
+        $template->setValue('nds', ($base->calculation == 'б/н с НДС') ? ($base->contractamount * 0.2) + $base->contractamount : $base->contractamount);
+
+
         $template->setValue('weight', $base->stairsframes * 12 + $base->passageframes * 11 + $base->doubleconnections * 4 + $base->singleconnections * 2 + $base->alllevelrafters * 7 + $base->alllevelpanels * 15 + $base->bash * 0,3);
 
         $filename = ('докуметы для ' . $base->counterparty);
@@ -212,6 +219,18 @@ class CustomerBaseController extends Controller
         ]);
 
         $base->update($request->all());
+
+        if ($base['calculation'] == 'б/н с НДС') {
+            $newContractAmount = ($base['contractamount'] * 0.2) + $base['contractamount'];
+            $base->contractamount = $newContractAmount;
+        } elseif ($base['calculation'] == 'нал') {
+            $newContractAmount = ($base['contractamount']);
+            $base->contractamount = $newContractAmount;
+        }
+
+        $base->save();
+
+
 
         return redirect()->route('customerbase.index')->with('success', 'Клиент был успешно обновлен!');
     }

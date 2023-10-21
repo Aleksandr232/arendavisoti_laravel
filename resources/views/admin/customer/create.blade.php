@@ -47,7 +47,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        {{-- <a href="{{ route('employees.index') }}" type="button" class="btn btn-success">Назад</a> --}}
+                        <a href="{{ route('customerbase.index') }}" type="button" class="btn btn-success">Назад</a>
                         <button type="submit" class="btn btn-primary">Сохранить</button>
                     </div>
                 </form>
