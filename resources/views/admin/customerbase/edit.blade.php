@@ -167,7 +167,7 @@
                                                         <th><input value="{{$base->bash}}" type="number" name="bash" id="bash"></th>
                                                         <th><input value="{{$base->jack}}" type="number" name="jack" id="jack" name="jack"></th>
                                                         <th><input value="{{$base->equipment}}" type="number" name="equipment" id="equipment" name="equipment"></th>
-                                                        <th><input value="{{$base->contract}}" type="text-number" name="contract"></th>
+                                                        <th><input value="{{$base->contract}}" type="date" name="contract"></th>
                                                     </tr>
                                                 </tbody>
                                             </table>

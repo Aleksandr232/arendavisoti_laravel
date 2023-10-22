@@ -280,7 +280,7 @@
                                                             <td>{{$post->bash}} шт</td>
                                                             <td>{{$post->jack}} шт</td>
                                                             <td>{{$post->equipment}} руб</td>
-                                                            <td>{{$post->contract}}</td>
+                                                            <td>№{{$post->id}} {{$post->contract}}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -442,7 +442,7 @@
                                                                     <td>{{$post->bash}} шт</td>
                                                                     <td>{{$post->jack}} шт</td>
                                                                     <td>{{$post->equipment}} руб</td>
-                                                                    <td>{{$post->contract}}</td>
+                                                                    <td>№{{$post->id}} {{$post->contract}}</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -604,7 +604,7 @@
                                                                             <td>{{$post->bash}} шт</td>
                                                                             <td>{{$post->jack}} шт</td>
                                                                             <td>{{$post->equipment}} руб</td>
-                                                                            <td>{{$post->contract}}</td>
+                                                                            <td>№{{$post->id}} {{$post->contract}}</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -767,7 +767,7 @@
                                                                                     <td>{{$post->bash}} шт</td>
                                                                                     <td>{{$post->jack}} шт</td>
                                                                                     <td>{{$post->equipment}} руб</td>
-                                                                                    <td>{{$post->contract}}</td>
+                                                                                    <td>№{{$post->id}} {{$post->contract}}</td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>

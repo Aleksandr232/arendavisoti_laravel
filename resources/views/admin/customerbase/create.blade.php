@@ -166,7 +166,7 @@
                                                         <th><input   type="number" name="bash" id="bash"></th>
                                                         <th><input  type="number" name="jack" id="jack" name="jack"></th>
                                                         <th><input type="number" name="equipment" id="equipment" name="equipment"></th>
-                                                        <th><input placeholder="Дата договора" type="text-number" name="contract"></th>
+                                                        <th><input placeholder="Дата договора" type="date" name="contract"></th>
                                                     </tr>
                                                 </tbody>
                                             </table>
