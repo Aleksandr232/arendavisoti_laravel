@@ -160,12 +160,18 @@ class CustomerBaseController extends Controller
         $template->setValue('ks', $base->ks);
         $template->setValue('bank', $base->bank);
         $template->setValue('bik', $base->bik);
+        $template->SetValue('contract', $base->contract);
+        $template->setValue('lesa', $lesa = 'Аренда строительных лесов (рамные ЛСПР-200)');
         /* $template->setValue('nds', ($base->calculation == 'б/н с НДС') ? ($base->contractamount * 0.2) + $base->contractamount : $base->contractamount); */
         if ($base->calculation == 'б/н с НДС') {
             $template->setValue('nds', 'С НДС');
+            $template->setValue('ndsp', '20%');
         } elseif ($base->calculation == 'нал') {
             $template->setValue('nds', 'НДС не облагается');
+            $template->setValue('ndsp', '-');
         }
+
+       
 
         $template->setValue('weight', $base->stairsframes * 12 + $base->passageframes * 11 + $base->doubleconnections * 4 + $base->singleconnections * 2 + $base->alllevelrafters * 7 + $base->alllevelpanels * 15 + $base->bash * 0,3);
 
