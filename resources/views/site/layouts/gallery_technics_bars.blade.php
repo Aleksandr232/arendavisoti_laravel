@@ -111,7 +111,14 @@
         });
     });
 </script>
+<script>
+    const dropdown = document.querySelector('.down');
+    const submenu = document.querySelector('.submenu');
 
+    dropdown.addEventListener('click', function() {
+      submenu.classList.toggle('show');
+    });
+  </script>
 
 </body>
 </html>

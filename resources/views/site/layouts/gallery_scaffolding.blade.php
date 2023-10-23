@@ -28,7 +28,7 @@
     <script defer src="{{ asset('frontend/js/script.js') }}"></script>
     <meta name="google-site-verification" content="5-H6xsRiI339Q3cQhqAO9jUexDebDY1RUvC4l9F6mSU" />
     <meta name="yandex-verification" content="28995526bf02ce7b" />
-    
+
     <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -105,6 +105,14 @@
         });
     });
 </script>
+<script>
+    const dropdown = document.querySelector('.down');
+    const submenu = document.querySelector('.submenu');
+
+    dropdown.addEventListener('click', function() {
+      submenu.classList.toggle('show');
+    });
+  </script>
 
 </body>
 </html>

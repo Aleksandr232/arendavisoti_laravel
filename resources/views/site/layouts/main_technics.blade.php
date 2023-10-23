@@ -86,6 +86,13 @@
 <!-- <script src="../../../../public/frontend/js/snowfall.js"></script>
 <script src='../../../../public/frontend/js/snow.js'></script> -->
 <script src='../../../../public/frontend/js/map.js'></script>
+<script>
+    const dropdown = document.querySelector('.down');
+    const submenu = document.querySelector('.submenu');
 
+    dropdown.addEventListener('click', function() {
+      submenu.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>

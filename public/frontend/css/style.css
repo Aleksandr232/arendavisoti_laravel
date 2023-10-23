@@ -17,6 +17,36 @@
     cursor: pointer;
 }
 
+.menu_des{
+    display: none;
+}
+
+.submenu {
+    display: none;
+  }
+
+  .submenu.show {
+    display: block;
+    position: absolute;
+  }
+
+  .submenu li {
+    padding: 10px;
+  }
+
+  .submenu li:hover {
+    background-color: #eee;
+  }
+
+  .submenu a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .submenu a:hover {
+    color: #000;
+  }
+
 #card-btn{
     z-index: 99999;
     position: fixed;
@@ -33,6 +63,10 @@
 }
 .dark-theme {
     background: hsl(0, 0%, 0%);
+}
+
+.dark-theme .down{
+    color: #B5C8CF;
 }
 
 .dark-theme .header-contacts{
@@ -1089,6 +1123,14 @@ video {
   }
 }
 @media screen and (max-width: 560px) {
+
+    .menu_des{
+        display: block;
+    }
+
+    .menu_sub{
+        display: none;
+    }
 
     .my-container {
         width: 95%;
