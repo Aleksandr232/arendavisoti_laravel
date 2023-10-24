@@ -118,6 +118,14 @@
     dropdown.addEventListener('click', function() {
       submenu.classList.toggle('show');
     });
+
+    document.addEventListener('click', function(event) {
+      const target = event.target;
+      if (!submenu.contains(target) && !dropdown.contains(target)) {
+        submenu.classList.remove('show');
+      }
+
+    });
   </script>
 
 </body>
