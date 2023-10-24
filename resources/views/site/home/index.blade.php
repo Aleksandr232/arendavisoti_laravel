@@ -47,7 +47,7 @@
                     <div class="advantage-card__insert__square"></div>
                     <div class="cta-advantage__card__content">
                         <div class="advantage-card__content__title">
-                            <img src="{{ asset('frontend/img/icons/percent.svg') }}" width="40" height="40" alt="леса в аренду">
+                            <img src="{{ asset('frontend/img/icons/percent.svg') }}" width="40" height="40" alt="аренда лесов со скидкой ">
                             <h3>Скидки</h3>
                         </div>
                         <p>Программа лояльности<br> для клиентов</p>
@@ -57,7 +57,7 @@
                     <div class="advantage-card__insert__square"></div>
                     <div class="cta-advantage__card__content">
                         <div class="advantage-card__content__title">
-                            <img src="{{ asset('frontend/img/icons/help.svg') }}" width="40" height="40" alt="леса в аренду">
+                            <img src="{{ asset('frontend/img/icons/help.svg') }}" width="40" height="40" alt="иконка хелп аренда высоты">
                             <h3>Помощь</h3>
                         </div>
                         <p>Консультации,<br> поддержка</p>
@@ -66,7 +66,7 @@
                 <div class="cta-advantage__card advantage-card__three">
                     <div class="cta-advantage__card__content">
                         <div class="advantage-card__content__title">
-                            <img src="{{ asset('frontend/img/icons/delivery.svg') }}" width="40" height="40" alt="леса в аренду">
+                            <img src="{{ asset('frontend/img/icons/delivery.svg') }}" width="40" height="40" alt="доставка строительных лесов по татарстану">
                             <h3>Доставка</h3>
                         </div>
                         <p>Оперативная доставка<br> 2-12 часов</p>

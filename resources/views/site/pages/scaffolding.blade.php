@@ -17,7 +17,7 @@
             <div class="scaffolding-image">
                 <picture>
                     <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/stroitelnye-lesa-1.webp') }}">
-                    <img src="{{ asset('frontend/img/stroitelnye-lesa/stroitelnye-lesa-1.jpg') }}" width="670" height="350" alt="аренда строительных лесов">
+                    <img src="{{ asset('frontend/img/stroitelnye-lesa/stroitelnye-lesa-1.jpg') }}" width="670" height="350" alt="аренда строительных лесов казань">
                 </picture>
             </div>
             <div class="scaffolding-content">
@@ -50,7 +50,7 @@
                 @foreach ($pricescaff -> reverse() as $post)
                 <picture>
                     {{-- <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/scaffolding-price.webp') }}"> --}}
-                    <img src="{{ asset('prices/' . $post->path) }}" title="цены аренда лесов" width="720" height="1280" alt="строительные леса казань">
+                    <img src="{{ asset('prices/' . $post->path) }}" title="цены аренда лесов" width="720" height="1280" alt=" леса казань">
                 </picture>
                 @endforeach
             </div>

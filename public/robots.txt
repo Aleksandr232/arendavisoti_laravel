@@ -3,7 +3,7 @@
 Host: xn--80aagge2ckkol0hd.xn--p1ai
 
 User-agent: *
-Disallow: https://xn--80aagge2ckkol0hd.xn--p1ai/login
+
 
 User-agent: Yandex
 Allow: /

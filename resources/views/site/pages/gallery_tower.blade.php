@@ -17,10 +17,10 @@
             @foreach ($tours -> reverse() as $post)
             <div class="gallery-card">
                 <div class="gallery-card__image">
-                    <a href="{{ 'uploads/' . $post->img }}" class="gallery-show" title="вышки-туры">
+                    <a href="{{ 'uploads/' . $post->img }}" class="gallery-show" title="вышки-туры на {{  $post->content }} ">
                         <picture>
                             <source type="image/webp" srcset="{{ 'uploads/' . $post->img }}">
-                            <img src="{{ 'uploads/' . $post->img }}" width="320" height="350" alt="вышки-туры">
+                            <img src="{{ 'uploads/' . $post->img }}" width="320" title="наши вышки-туры на {{  $post->content }} " height="350" alt="{{  $post->content }}">
                         </picture>
                     </a>
                 </div>

@@ -22,7 +22,7 @@
                     @foreach($tours->reverse() as $post)
                         @if($loop->first)
                             <source type="image/webp" srcset="{{ 'uploads/' . $post->img }}">
-                            <img src="{{ 'uploads/' . $post->img }}" width="670" height="450" alt="аренда лесов казань">
+                            <img src="{{ 'uploads/' . $post->img }}" width="670" height="450" alt="аренда вышек-тур казань">
                         @endif
                     @endforeach
                 @endif

@@ -17,10 +17,10 @@
             @foreach ($scaff -> reverse()  as $post)
             <div class="gallery-card">
                 <div class="gallery-card__image">
-                    <a href="{{ 'uploads/' . $post->img }}" class="gallery-show" title="{{$post->objects}}"  title="1">
+                    <a href="{{ 'uploads/' . $post->img }}" class="gallery-show" title="{{$post->objects}}"  title="леса на {{$post->objects}}">
                         <picture>
                             <source type="image/webp" srcset="{{ 'uploads/' . $post->img }}">
-                            <img src="{{ 'uploads/' . $post->img }}" width="320" height="350" alt="аренда лесов и тур">
+                            <img src="{{ 'uploads/' . $post->img }}" width="320" height="350" title="наши сторительные леса на {{$post->objects}}" alt="{{$post->objects}}">
                         </picture>
                     </a>
                 </div>
@@ -35,7 +35,7 @@
                     <a href="{{ asset('frontend/img/gallery/lesa8.jpg') }}" class="gallery-show" title="строительные леса">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/gallery/lesa8.jpg') }}">
-                            <img src="{{ asset('frontend/img/gallery/lesa8.jpg') }}" width="320" height="350" alt="аренда лесов и тур">
+                            <img src="{{ asset('frontend/img/gallery/lesa8.jpg') }}" width="320" height="350" alt="фасадые работы Шуран">
                         </picture>
                     </a>
                 </div>
@@ -48,7 +48,7 @@
                     <a href="{{ asset('frontend/img/gallery/lesa7.jpg') }}" class="gallery-show" title="строительные леса">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/gallery/lesa7.jpg') }}">
-                            <img src="{{ asset('frontend/img/gallery/lesa7.jpg') }}" width="320" height="350" alt="аренда лесов и тур">
+                            <img src="{{ asset('frontend/img/gallery/lesa7.jpg') }}" width="320" height="350" alt="леса на объекте Званка">
                         </picture>
                     </a>
                 </div>
@@ -61,7 +61,7 @@
                     <a href="{{ asset('frontend/img/gallery/lesa6.jpg') }}" class="gallery-show" title="строительные леса">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/gallery/lesa6.jpg') }}">
-                            <img src="{{ asset('frontend/img/gallery/lesa6.jpg') }}" width="320" height="350" alt="аренда лесов и тур">
+                            <img src="{{ asset('frontend/img/gallery/lesa6.jpg') }}" width="320" height="350" alt="наши строительные леса на ул.Восстания">
                         </picture>
                     </a>
                 </div>
@@ -74,7 +74,7 @@
                     <a href="{{ asset('frontend/img/gallery/lesa5.jpg') }}" class="gallery-show" title="строительные леса">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/gallery/lesa5.jpg') }}">
-                            <img src="{{ asset('frontend/img/gallery/lesa5.jpg') }}" width="320" height="350" alt="аренда лесов и тур">
+                            <img src="{{ asset('frontend/img/gallery/lesa5.jpg') }}" width="320" height="350" alt="заказали строительные леса у Аренды Высоты">
                         </picture>
                     </a>
                 </div>
@@ -87,7 +87,7 @@
                     <a href="{{ asset('frontend/img/gallery/lesa4.jpg') }}" class="gallery-show" title="строительные леса">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/gallery/lesa4.jpg') }}">
-                            <img src="{{ asset('frontend/img/gallery/lesa4.jpg') }}" width="320" height="350" alt="аренда лесов и тур">
+                            <img src="{{ asset('frontend/img/gallery/lesa4.jpg') }}" width="320" height="350" alt="на улице Горького стоят наши леса">
                         </picture>
                     </a>
                 </div>
@@ -100,7 +100,7 @@
                     <a href="{{ asset('frontend/img/gallery/lesa1.jpg') }}" class="gallery-show" title="строительные леса">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/gallery/lesa1.jpg') }}">
-                            <img src="{{ asset('frontend/img/gallery/lesa1.jpg') }}" width="320" height="350" alt="аренда лесов и тур">
+                            <img src="{{ asset('frontend/img/gallery/lesa1.jpg') }}" width="320" height="350" alt="установили леса в Салмачах">
                         </picture>
                     </a>
                 </div>

@@ -25,7 +25,7 @@
     <div class="hn-content my-container">
         @if(!Request::is('/'))
             <a href="/" class="hn-logo" id="hn-logo" title="Аренда оборудования для работ на высоте">
-                <img src="{{ asset('frontend/img/logotype.svg') }}" width="280" height="53" alt="леса в аренду">
+                <img src="{{ asset('frontend/img/logotype.svg') }}" width="280" height="53" alt="логотип аренды высоты">
             </a>
         @else
             <a class="hn-logo" title="Аренда оборудования для работ на высоте">
@@ -43,7 +43,7 @@
                 @include('site.inc.menu')
             </ul>
             <button class="hn-navbar__btn btn" data-btn="Заявка на обратный звонок">
-                <img class='phone_theme'  src="{{ asset('frontend/img/icons/phone.svg') }}" width="30" height="30" alt="леса в аренду">
+                <img class='phone_theme'  src="{{ asset('frontend/img/icons/phone.svg') }}" width="30" height="30" alt="вы можете позвонить в компаню аренда высоты">
             </button>
             <button class="theme-btn">
                 <i class="fas fa-moon"></i>
