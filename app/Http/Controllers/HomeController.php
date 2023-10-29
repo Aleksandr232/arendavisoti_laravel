@@ -10,8 +10,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $scaff = PostScaff::query()->paginate(30);
-        $tours = PostImgTours::query()->paginate(30);
+        $scaff = PostScaff::query()->paginate(400);
+        $tours = PostImgTours::query()->paginate(400);
         return view('site.home.index', compact('scaff', 'tours'));
     }
 

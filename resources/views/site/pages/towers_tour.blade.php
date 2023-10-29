@@ -17,7 +17,7 @@
             <div class="tt-card__image">
                 <picture>
                     <source type="image/webp" srcset="{{ asset('frontend/img/tour-towers/balton-1.webp') }}">
-                    <img src="{{ asset('frontend/img/tour-towers/balton-1.jpg') }}" width="670" height="350" alt="аренда вышки-туры казань">
+                    <img src="{{ asset('frontend/img/tour-towers/balton-1.jpg') }}" width="670" height="350" alt="аренда вышки-туры казань" title="вышки-туры казань">
                 </picture>
             </div>
             <div class="tt-card__content">
@@ -60,7 +60,7 @@
                 <div class="tt-card__image">
                     <picture>
                         <source type="image/webp" srcset="{{ asset('frontend/img/tour-towers/balton-2.webp') }}">
-                        <img src="{{ asset('frontend/img/tour-towers/balton-2.jpg') }}" width="670" height="350" alt="аренда вышки-туры казань">
+                        <img src="{{ asset('frontend/img/tour-towers/balton-2.jpg') }}" width="670" height="350" alt="аренда вышки-туры Татарстан">
                     </picture>
                 </div>
 
@@ -70,7 +70,7 @@
             <div class="tt-card__image">
                 <picture>
                     <source type="image/webp" srcset="{{ asset('frontend/img/tour-towers/balton-3.webp') }}">
-                    <img src="{{ asset('frontend/img/tour-towers/balton-3.jpg') }}" width="670" height="350" alt="аренда вышки-туры казань">
+                    <img src="{{ asset('frontend/img/tour-towers/balton-3.jpg') }}" width="670" height="350" alt="вышки-туры в аренду недорого">
                 </picture>
             </div>
             <div class="tt-card__content">
@@ -102,7 +102,7 @@
                 @foreach ($pricetours -> reverse() as $post)
                 <picture>
                     {{-- <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/scaffolding-price.webp') }}"> --}}
-                    <img src="{{ asset('prices/' . $post->path) }}" title="цены вышки-туры" width="720" height="1280" alt="аренда вышки-туры казань">
+                    <img src="{{ asset('prices/' . $post->path) }}" title="цены вышки-туры" width="720" height="1280" alt="аренда вышки-туры прайс казань" title="прайс Аренда Высоты">
                 </picture>
                 @endforeach
             </div>
@@ -124,7 +124,7 @@
                     <a href="{{ route('gallery_tower') }}">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/tour-towers/recommendations-1.webp') }}">
-                            <img src="{{ asset('frontend/img/tour-towers/recommendations-1.jpg') }}" width="670" height="350" alt="аренда вышки-туры казань">
+                            <img src="{{ asset('frontend/img/tour-towers/recommendations-1.jpg') }}" width="670" height="350" alt="вышки-туры с доставкой по казани" title="доставка строительного оборудования">
                         </picture>
                     </a>
                     <h2 class="op-card__title">Галерея наших вышек-тур</h2>
@@ -134,7 +134,7 @@
                     <a href="{{ route('scaffolding') }}">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/tour-towers/recommendations-2.webp') }}">
-                            <img src="{{ asset('frontend/img/tour-towers/recommendations-2.jpg') }}" width="670" height="350" alt="аренда вышки-туры казань">
+                            <img src="{{ asset('frontend/img/tour-towers/recommendations-2.jpg') }}" width="670" height="350" alt="заказывайте наши строительные леса">
                         </picture>
                     </a>
                     <h2 class="op-card__title">Рамные строительные леса</h2>

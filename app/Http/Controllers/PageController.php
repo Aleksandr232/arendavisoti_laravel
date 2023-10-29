@@ -40,8 +40,8 @@ class PageController extends Controller
 
     public function gallery()
     {
-        $scaff = PostScaff::query()->paginate(30);
-        $tours = PostImgTours::query()->paginate(30);
+        $scaff = PostScaff::query()->paginate(400);
+        $tours = PostImgTours::query()->paginate(400);
 
         return view('site.pages.gallery', compact('scaff', 'tours'));
     }
@@ -54,24 +54,24 @@ class PageController extends Controller
     public function gallery_technics_bars()
     {
         $tractor = PostTractor::query()->paginate(30);
-        $tours = PostImgTours::query()->paginate(30);
-        $scaff = PostScaff::query()->paginate(30);
+        $tours = PostImgTours::query()->paginate(400);
+        $scaff = PostScaff::query()->paginate(400);
 
         return view('site.pages.gallery_technics_bars', compact('tractor', 'tours', 'scaff'));
     }
 
     public function gallery_tower()
     {
-        $tours = PostImgTours::query()->paginate(30);
-        $scaff = PostScaff::query()->paginate(30);
+        $tours = PostImgTours::query()->paginate(400);
+        $scaff = PostScaff::query()->paginate(400);
 
         return view('site.pages.gallery_tower', compact('tours', 'scaff'));
     }
 
     public function gallery_scaffolding()
     {
-        $scaff = PostScaff::query()->paginate(30);
-        $tours = PostImgTours::query()->paginate(30);
+        $scaff = PostScaff::query()->paginate(400);
+        $tours = PostImgTours::query()->paginate(400);
 
         return view('site.pages.gallery_scaffolding', compact('scaff', 'tours'));
     }

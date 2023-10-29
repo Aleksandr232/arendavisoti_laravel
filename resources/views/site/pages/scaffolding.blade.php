@@ -50,7 +50,7 @@
                 @foreach ($pricescaff -> reverse() as $post)
                 <picture>
                     {{-- <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/scaffolding-price.webp') }}"> --}}
-                    <img src="{{ asset('prices/' . $post->path) }}" title="цены аренда лесов" width="720" height="1280" alt=" леса казань">
+                    <img src="{{ asset('prices/' . $post->path) }}" title="цены аренда лесов" width="720" height="1280" alt=" прайс строительных лесов" title="прайс">
                 </picture>
                 @endforeach
             </div>
