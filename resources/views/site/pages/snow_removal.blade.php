@@ -1,6 +1,6 @@
 @extends('site.layouts.main_snow')
 
-@section('title', 'Уборка снега с крыш, и уборка барсиком ')
+@section('title', 'Уборка снега с крыш')
 @section('description', 'уборка снега с крыш, уборка снега Казань')
 @section('keywords', 'уборка снега с крыш Казань, уборка снега с крыш цена, сброс снега с крыш, чистка снега с крыш, чистка кровли от снега, уборка снега с кровли, очистка кровли от снега, уборка сосулек и наледи с крыш, уборка снега +с крыш, уборка снега казань')
 
@@ -23,19 +23,19 @@
         <div class="sr-advantages my-container">
             <div class="sra-card">
                 <div class="sra-card__icon">
-                    <img src="{{ asset('frontend/img/snow-removal/sr-1.svg') }}" width="50" height="50" alt="уборка снега с крыш Казань">
+                    <img src="{{ asset('frontend/img/snow-removal/sr-1.svg') }}" width="50" height="50" alt="уборка снега с крыш">
                 </div>
                 <h2>От заявки до старта работы - не более 24 часов</h2>
             </div>
             <div class="sra-card">
                 <div class="sra-card__icon">
-                    <img src="{{ asset('frontend/img/snow-removal/sr-2.svg') }}" width="50" height="50" alt="уборка снега с крыш Казань">
+                    <img src="{{ asset('frontend/img/snow-removal/sr-2.svg') }}" width="50" height="50" alt="уборка снега с крыш Казань недорого">
                 </div>
                 <h2>Несем материальную ответственность за сохранность кровли</h2>
             </div>
             <div class="sra-card">
                 <div class="sra-card__icon">
-                    <img src="{{ asset('frontend/img/snow-removal/sr-3.svg') }}" width="50" height="50" alt="уборка снега с крыш Казань">
+                    <img src="{{ asset('frontend/img/snow-removal/sr-3.svg') }}" width="50" height="50" alt="уборка снега с крыш профессиональными альпинистыми">
                 </div>
                 <h2>Работаем без праздников и выходных</h2>
             </div>
@@ -51,7 +51,7 @@
                     <div class="srp-card__content">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-1.webp') }}">
-                            <img src="{{ asset('frontend/img/snow-removal/sr-price-1.jpg') }}" width="280" height="280" alt="уборка снега с крыш Казань">
+                            <img src="{{ asset('frontend/img/snow-removal/sr-price-1.jpg') }}" width="280" height="280" alt="уборка снега с крыш по Татарстану">
                         </picture>
                         <h2>Уборка снега с плоской крыши</h2>
                         <p>от <span>40</span>&#8381; до <span>100</span>&#8381; / м<sup style="font-size: 70%;vertical-align: super;">2</sup></p>
@@ -63,7 +63,7 @@
                     <div class="srp-card__content">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-2.webp') }}">
-                            <img src="{{ asset('frontend/img/snow-removal/sr-price-2.jpg') }}" width="280" height="280" alt="уборка снега с крыш Казань">
+                            <img src="{{ asset('frontend/img/snow-removal/sr-price-2.jpg') }}" width="280" height="280" alt="уборка снега с крыши и барсиком">
                         </picture>
                         <h2>Уборка снега со скатной крыши</h2>
                         <p>от <span>50</span>&#8381; до <span>130</span>&#8381; / м<sup style="font-size: 70%;vertical-align: super;">2</sup></p>
@@ -75,7 +75,7 @@
                     <div class="srp-card__content">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-3.webp') }}">
-                            <img src="{{ asset('frontend/img/snow-removal/sr-price-3.jpg') }}" width="280" height="280" alt="уборка снега с крыш Казань">
+                            <img src="{{ asset('frontend/img/snow-removal/sr-price-3.jpg') }}" width="280" height="280" alt="уберем сосульки на крышах">
                         </picture>
                         <h2>Удаление сосулек <nobr>с крыш</nobr></h2>
                         <p>от <span>70</span>&#8381; до <span>130</span>&#8381; / м<sup style="font-size: 70%;vertical-align: super;">2</sup></p>
@@ -87,7 +87,7 @@
                     <div class="srp-card__content">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-4.webp') }}">
-                            <img src="{{ asset('frontend/img/snow-removal/sr-price-4.jpg') }}" width="280" height="280" alt="уборка снега с крыш Казань">
+                            <img src="{{ asset('frontend/img/snow-removal/sr-price-4.jpg') }}" width="280" height="280" alt="уборка снега на высоте">
                         </picture>
                         <div class="srp-insert__info">
                             <h3>Минимум 4 часа + доставка трактора</h3>
@@ -153,7 +153,7 @@
                     <a href="{{ route('gallery_snow_removal') }}">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/hige1.webp') }}">
-                            <img src="{{ asset('frontend/img/snow-removal/hige1.jpg') }}" width="670" height="350" alt="уборка снега с крыш Казань">
+                            <img src="{{ asset('frontend/img/snow-removal/hige1.jpg') }}" width="670" height="350" alt="альпинсты казань">
                         </picture>
                     </a>
                     <h2 class="op-card__title">Галерея уборка снега</h2>
@@ -163,7 +163,7 @@
                     <a href="{{ route('towers_tour') }}">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/main/tower.webp') }}">
-                            <img src="{{ asset('frontend/img/main/tower.jpg') }}" width="670" height="350" alt="аренда вышки-туры">
+                            <img src="{{ asset('frontend/img/main/tower.jpg') }}" width="670" height="350" alt="аренда вышки-туры  с доставкой по казани">
                         </picture>
                     </a>
                     <h2 class="op-card__title">Вышки-туры строительные</h2>
