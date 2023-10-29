@@ -90,7 +90,15 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-        
+
+        'warehouse' => [
+            'driver' => 'local',
+//            'root' => storage_path('app/public'),
+            'root' => public_path('warehouse'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
         'notebook' => [
             'driver' => 'local',
             'root' => public_path('notebook'),
