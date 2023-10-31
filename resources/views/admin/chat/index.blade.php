@@ -17,7 +17,16 @@
         <div class="container-fluid">
             <div class="card">
                 <!-- form start -->
-              
+                <div id="chat-messages">
+                    @foreach ($messages as $message)
+                        <div>{{ $message->content }}</div>
+                    @endforeach
+                </div>
+
+                <form id="chat-form">
+                    <input type="text" id="message-content">
+                    <button type="submit">Отправить сообщение</button>
+                </form>
             </div>
         </div>
     </section>

@@ -101,11 +101,26 @@
                                 <p> Статьи</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pricescaff.index') }}" class="nav-link">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p> Прайс строительные леса</p>
+                                <p>
+                                    Прайс леса
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('pricescaff.index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Фото прайса</p>
+                                    </a>
+                                    <a href="{{ route('pricescaff.index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Загрука прайса(файл)</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('pricetours.index') }}" class="nav-link">
@@ -433,6 +448,46 @@
         bsCustomFileInput.init();
     });
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/laravel-echo/1.10.0/echo.js"></script>
+    <script>
+        window.onload = function () {
+            const socket = io("http://localhost:6001");
+
+            const echo = new Echo({
+                broadcaster: 'socket.io',
+                host: window.location.hostname + ':6001',
+            });
+
+            echo.channel('chat').listen('.message-created', (message) => {
+                console.log(message);
+                appendMessage(message.content);
+            });
+
+            function appendMessage(content) {
+                const messageElement = document.createElement('div');
+                messageElement.innerText = content;
+                document.getElementById('chat-messages').appendChild(messageElement);
+            }
+
+            document.getElementById('chat-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const content = document.getElementById('message-content').value;
+
+                socket.emit('chat-message', {
+                    content: content
+                });
+
+                document.getElementById('message-content').value = '';
+            });
+
+            socket.on('chat-message', function (message) {
+                appendMessage(message.content);
+            });
+        };
+    </script>
 
 </body>
 </html>

@@ -3,22 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
     public function index()
     {
-        return view('admin.chat.index');
+        $messages = Message::all();
+        return view('admin.chat.index', compact('messages') );
     }
 
     public function sendMessage(Request $request)
     {
         $user = Auth::user();
-        $message = $request->input('message');
+        $message->content = $request->input('content');
+        $message->author = $user->name;
+        $message->save();
 
-        event(new ChatMessageSent($user, $message));
 
-        return response()->json(['success' => true]);
+        return redirect()->route('chat.index')->with('success', 'Сообщение отправлено');
     }
 }
