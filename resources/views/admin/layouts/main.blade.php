@@ -115,7 +115,7 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Фото прайса</p>
                                     </a>
-                                    <a href="{{ route('pricescaff.index') }}" class="nav-link">
+                                    <a href="{{ route('postpricefile.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Загрука прайса(файл)</p>
                                     </a>
@@ -488,6 +488,8 @@
             });
         };
     </script>
+
+
 
 </body>
 </html>

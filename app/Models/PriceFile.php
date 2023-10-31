@@ -11,5 +11,5 @@ class PriceFile extends Model
 
     protected $fillable = ['filename','filepath'];
 
-    protected $table = 'pricescaff';
+    protected $table = 'pricefile';
 }

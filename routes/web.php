@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\PostLogistController;
 use App\Http\Controllers\Admin\PostLogistStatusController;
 use App\Http\Controllers\Admin\FinaceController;
 use App\Http\Controllers\Admin\ChatController;
+use App\Http\Controllers\Admin\PostPriceFileController;
 use App\Http\Controllers\Director\DirectorController;
 use App\Http\Controllers\Director\StatController;
 use App\Http\Controllers\Director\StaffController;
@@ -97,6 +98,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/employees', PostEmployeesController::class);
     Route::resource('/pricescaff', PostPriceScaffoldingController::class);
     Route::resource('/pricetours', PostPriceToursController::class);
+    Route::resource('/postpricefile', PostPriceFileController::class);
     Route::resource('/words', WordDocumentcontroller::class);
     Route::resource('/customerbase', CustomerBaseController::class);
     Route::get('/customer/{id}', [CustomerBaseController::class, 'info'])->name('info');

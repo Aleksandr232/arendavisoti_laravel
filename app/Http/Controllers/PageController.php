@@ -9,6 +9,7 @@ use App\Models\PostTexnica;
 use App\Models\PostTractor;
 use App\Models\PriceScaff;
 use App\Models\PriceTours;
+use App\Models\PriceFile;
 use App\Models\Snow;
 use App\Models\Warehouse;
 
@@ -24,8 +25,9 @@ class PageController extends Controller
     public function scaffolding()
     {
         $pricescaff = PriceScaff::all();
+        $pricefile = PriceFile::all();
 
-        return view('site.pages.scaffolding', compact('pricescaff'));
+        return view('site.pages.scaffolding', compact('pricescaff', 'pricefile'));
     }
 
     public function technics()

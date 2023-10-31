@@ -44,7 +44,13 @@
             <h2 class="sp-title_min"> Цены могут меняться в зависимости от сезона и объема взятого в аренду оборудования</h2>
             </div>
             <div class="download-price">
-                <a href="{{ asset('frontend/doc/price.xlsx') }}" target="_blank">Скачать прайс →</a>
+                @if(isset($pricefile))
+                    @foreach($pricefile->reverse() as $post)
+                        @if($loop->first)
+                        <a href="{{ asset('prices/' . $post->filepath) }}" download="{{ $post->filename }}" target="_blank">Скачать прайс →</a>
+                        @endif
+                    @endforeach
+                @endif
             </div>
             <div class="sp-image">
                 @foreach ($pricescaff -> reverse() as $post)
