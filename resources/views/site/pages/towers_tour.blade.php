@@ -33,7 +33,7 @@
                     <li>Нормативная поверхностная нагрузка на рабочий настил: 200 кгс</li>
                 </ol>
                 <div class="tt-cc__link">
-                    <a href="{{ asset('frontend/doc/balaton-0,6x1,5.pdf') }}" target="_blank">Технический паспорт →</a>
+                    <a alt="сдаем в аренду вышки-туры, можно ознакомтся с техническим паспортом" href="{{ asset('frontend/doc/balaton-0,6x1,5.pdf') }}" target="_blank">Технический паспорт →</a>
                 </div>
             </div>
         </div>
@@ -53,14 +53,14 @@
                         <li>Нагрузка на рабочий настил при высоте свыше 13,1 м: 200 кгс</li>
                     </ol>
                     <div class="tt-cc__link">
-                        <a href="{{ asset('frontend/doc/balaton-1x2.pdf') }}" target="_blank">Технический паспорт →</a>
+                        <a alt="технический паспорт для вышек-тур" href="{{ asset('frontend/doc/balaton-1x2.pdf') }}" target="_blank">Технический паспорт →</a>
                     </div>
                 </div>
 
                 <div class="tt-card__image">
                     <picture>
                         <source type="image/webp" srcset="{{ asset('frontend/img/tour-towers/balton-2.webp') }}">
-                        <img src="{{ asset('frontend/img/tour-towers/balton-2.jpg') }}" width="670" height="350" alt="аренда вышки-туры Татарстан">
+                        <img src="{{ asset('frontend/img/tour-towers/balton-2.jpg') }}" width="670" height="350" title="вышки-туры на объекте" alt="аренда вышки-туры Татарстан">
                     </picture>
                 </div>
 
@@ -70,7 +70,7 @@
             <div class="tt-card__image">
                 <picture>
                     <source type="image/webp" srcset="{{ asset('frontend/img/tour-towers/balton-3.webp') }}">
-                    <img src="{{ asset('frontend/img/tour-towers/balton-3.jpg') }}" width="670" height="350" alt="вышки-туры в аренду недорого">
+                    <img src="{{ asset('frontend/img/tour-towers/balton-3.jpg') }}" title="вышки-туры сдаем в аренду с доставкой" width="670" height="350" alt="вышки-туры в аренду недорого">
                 </picture>
             </div>
             <div class="tt-card__content">
@@ -86,7 +86,7 @@
                     <li>Нормативная поверхностная нагрузка на рабочий настил: 400 кгс</li>
                 </ol>
                 <div class="tt-cc__link">
-                    <a href="{{ asset('frontend/doc/balaton-2x2.pdf') }}" target="_blank">Технический паспорт →</a>
+                    <a alt="заказывайте наши вышки-тур! Имеются технический паспорта" href="{{ asset('frontend/doc/balaton-2x2.pdf') }}" target="_blank">Технический паспорт →</a>
                 </div>
             </div>
         </div>
@@ -134,7 +134,7 @@
                     <a href="{{ route('scaffolding') }}">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/tour-towers/recommendations-2.webp') }}">
-                            <img src="{{ asset('frontend/img/tour-towers/recommendations-2.jpg') }}" width="670" height="350" alt="заказывайте наши строительные леса">
+                            <img src="{{ asset('frontend/img/tour-towers/recommendations-2.jpg') }}" width="670" height="350" title="выское качество наших строительных лесов" alt="заказывайте наши строительные леса">
                         </picture>
                     </a>
                     <h2 class="op-card__title">Рамные строительные леса</h2>

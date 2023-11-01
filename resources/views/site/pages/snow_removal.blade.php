@@ -50,8 +50,8 @@
                     <div class="srp-card__bg srp-cb__color__one"></div>
                     <div class="srp-card__content">
                         <picture>
-                            <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-1.webp') }}">
-                            <img src="{{ asset('frontend/img/snow-removal/sr-price-1.jpg') }}" width="280" height="280" alt="уборка снега с крыш по Татарстану">
+                            <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-1.webp') }}" alt="очистка кровли казань">
+                            <img src="{{ asset('frontend/img/snow-removal/sr-price-1.jpg') }}" width="280" height="280" title="уборка снега с плоской крыши Татарстан" alt="уборка снега с крыш по Татарстану плоской крыши">
                         </picture>
                         <h2>Уборка снега с плоской крыши</h2>
                         <p>от <span>40</span>&#8381; до <span>100</span>&#8381; / м<sup style="font-size: 70%;vertical-align: super;">2</sup></p>
@@ -62,8 +62,8 @@
                     <div class="srp-card__bg srp-cb__color__two"></div>
                     <div class="srp-card__content">
                         <picture>
-                            <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-2.webp') }}">
-                            <img src="{{ asset('frontend/img/snow-removal/sr-price-2.jpg') }}" width="280" height="280" alt="уборка снега с крыши и барсиком">
+                            <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-2.webp') }}" alt="уборка снега с крыши альпинистами">
+                            <img src="{{ asset('frontend/img/snow-removal/sr-price-2.jpg') }}" width="280" height="280" title="уборка снега со скатной крыши в Казани" alt="уборка снега со скатной крыши Татарстан">
                         </picture>
                         <h2>Уборка снега со скатной крыши</h2>
                         <p>от <span>50</span>&#8381; до <span>130</span>&#8381; / м<sup style="font-size: 70%;vertical-align: super;">2</sup></p>
@@ -74,8 +74,8 @@
                     <div class="srp-card__bg srp-cb__color__three"></div>
                     <div class="srp-card__content">
                         <picture>
-                            <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-3.webp') }}">
-                            <img src="{{ asset('frontend/img/snow-removal/sr-price-3.jpg') }}" width="280" height="280" alt="уберем сосульки на крышах">
+                            <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-3.webp') }}" alt="уберем сосульки на крышах">
+                            <img src="{{ asset('frontend/img/snow-removal/sr-price-3.jpg') }}" width="280" height="280" alt="уберем сосульки на крышах" title="убераем сосульки на крышах казань">
                         </picture>
                         <h2>Удаление сосулек <nobr>с крыш</nobr></h2>
                         <p>от <span>70</span>&#8381; до <span>130</span>&#8381; / м<sup style="font-size: 70%;vertical-align: super;">2</sup></p>
@@ -87,7 +87,7 @@
                     <div class="srp-card__content">
                         <picture>
                             <source type="image/webp" srcset="{{ asset('frontend/img/snow-removal/sr-price-4.webp') }}">
-                            <img src="{{ asset('frontend/img/snow-removal/sr-price-4.jpg') }}" width="280" height="280" alt="уборка снега на высоте">
+                            <img src="{{ asset('frontend/img/snow-removal/sr-price-4.jpg') }}" width="280" height="280" title="уборка снега барсиком" alt="уборка снега минитракторм по Казани">
                         </picture>
                         <div class="srp-insert__info">
                             <h3>Минимум 4 часа + доставка трактора</h3>

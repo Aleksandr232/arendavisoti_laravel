@@ -17,7 +17,7 @@
             <div class="scaffolding-image">
                 <picture>
                     <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/stroitelnye-lesa-1.webp') }}">
-                    <img src="{{ asset('frontend/img/stroitelnye-lesa/stroitelnye-lesa-1.jpg') }}" width="670" height="350" alt="аренда строительных лесов казань">
+                    <img src="{{ asset('frontend/img/stroitelnye-lesa/stroitelnye-lesa-1.jpg') }}" width="670" height="350" title="сдаем строительные леса по Казани и Татарстану" alt="аренда строительных лесов казань">
                 </picture>
             </div>
             <div class="scaffolding-content">
@@ -47,7 +47,7 @@
                 @if(isset($pricefile))
                     @foreach($pricefile->reverse() as $post)
                         @if($loop->first)
-                        <a href="{{ asset('prices/' . $post->filepath) }}" download="{{ $post->filename }}" target="_blank">Скачать прайс →</a>
+                        <a alt='сдаем в аренду строительные леса с прайсом можно ознакомится на сайте' title="прайс строительных лесов" href="{{ asset('prices/' . $post->filepath) }}" download="{{ $post->filename }}" target="_blank">Скачать прайс →</a>
                         @endif
                     @endforeach
                 @endif
