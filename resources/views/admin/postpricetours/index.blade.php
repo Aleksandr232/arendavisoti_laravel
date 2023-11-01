@@ -23,6 +23,7 @@
                             {{-- <a href="{{ route('pricetours.create') }}" class="btn btn-primary mb-3">Добавить прайс</a> --}}
                             @if (count($pricetours))
                                 <div class="table-responsive">
+                                    <a style="position: absolute; bottom:10px;" href="https://www.zamzar.com/ru/convert/xls-to-jpg/">тут можно конвертировать xls в jpg</a>
                                     <table class="table table-bordered table-hover text-nowrap">
                                         <thead>
                                         <tr>
