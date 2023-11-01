@@ -47,7 +47,7 @@
                 @if(isset($pricefile))
                     @foreach($pricefile->reverse() as $post)
                         @if($loop->first)
-                        <a alt='сдаем в аренду строительные леса с прайсом можно ознакомится на сайте' title="прайс строительных лесов" href="{{ asset('prices/' . $post->filepath) }}" download="{{ $post->filename }}" target="_blank">Скачать прайс →</a>
+                        <a alt='сдаем в аренду строительные леса с прайсом можно ознакомится на сайте' title="прайс строительных лесов" href="{{ asset('prices/' . $post->filepath ) }}" download="{{ $post->filename }}" target="_blank">Скачать прайс →</a>
                         @endif
                     @endforeach
                 @endif
