@@ -21,6 +21,32 @@
     display: none;
 }
 
+
+
+.dark-theme::-webkit-scrollbar {
+    width: 10px;
+    background: -webkit-linear-gradient(45deg, #5f2c82, #F5812C);
+    background: linear-gradient(45deg,  #5f2c82);
+  }
+
+.dark-theme::-webkit-scrollbar-thumb {
+    background: #0889eb;
+    border-radius: 2em;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background: -webkit-linear-gradient(45deg, #2fe606, #0889eb);
+    background: linear-gradient(45deg,  #5f2c82);
+  }
+
+body::-webkit-scrollbar-thumb {
+    background: #F5812C;
+    border-radius: 2em;
+}
+
+
+
 .submenu {
     display: none;
   }

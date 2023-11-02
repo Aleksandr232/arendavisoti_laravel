@@ -11,13 +11,13 @@
                 <input class='input-name__field' placeholder="Ваш номер" type="tel" name="phone" required />
                 <div class="inputs">
                     <input class="input_check" type="checkbox" name="order" value="леса"  >
-                    <img style="width: 100px; height:100px" src={{ asset('frontend/img/modal_cart/lesa_botan.png') }} alt="Image 1">
+                    <img style="width: 100px; height:100px" src={{ asset('frontend/img/modal_cart/lesa_botan.webp') }} alt="Image 1">
                 <input class="input_check1"  type="checkbox" name="order" value="вышки-туры"  >
-                    <img style="width: 100px" src={{ asset('frontend/img/modal_cart/turs.png') }} alt="закажите вышки-туры">
+                    <img style="width: 100px" src={{ asset('frontend/img/modal_cart/turs.webp') }} alt="закажите вышки-туры">
                 <input class="input_check2"   type="checkbox" name="order" value="грузоперевозки"  >
-                    <img style="width: 100px" src={{ asset('frontend/img/modal_cart/isuzu.png') }}  alt="закажите грузоперевозки">
+                    <img style="width: 100px" src={{ asset('frontend/img/modal_cart/isuzu.webp') }}  alt="закажите грузоперевозки">
                 <input class="input_check3"   type="checkbox" name="order" value="минитрактор"  >
-                    <img style="width: 100px" src={{ asset('frontend/img/modal_cart/texnica3.png') }}  alt="аренда минитрактора">
+                    <img style="width: 100px" src={{ asset('frontend/img/modal_cart/texnica3.webp') }}  alt="аренда минитрактора">
                 </div>
 
                     <input type="submit" name="submit" value="Оформить" class="modal-btn">

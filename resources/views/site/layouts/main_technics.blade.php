@@ -75,7 +75,7 @@
     m[i].l=1*new Date();
     for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    (window, document, "script", "ym");
 
     ym(95417663, "init", {
          clickmap:true,
@@ -98,8 +98,6 @@
     loadStyle('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&family=Oswald:wght@400;500;700&display=swap');
 </script>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=159d1b30-bef0-463b-a7f6-b69cba7ec8e9" type="text/javascript"></script>
-<!-- <script src="../../../../public/frontend/js/snowfall.js"></script>
-<script src='../../../../public/frontend/js/snow.js'></script> -->
 <script src='../../../../public/frontend/js/map.js'></script>
 <script>
     const dropdown = document.querySelector('.down');

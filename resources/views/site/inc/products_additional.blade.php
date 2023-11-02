@@ -2,8 +2,8 @@
     <div class="opa-block_one">
         <div class="op-additional__card">
             <picture>
-                <source type="image/webp" srcset="{{ asset('frontend/img/main/ladder.jpeg') }}">
-                <img src="{{ asset('frontend/img/main/ladder.jpeg') }}" width="320" height="350" alt="лестницы в аренду">
+                <source type="image/webp" srcset="{{ asset('frontend/img/main/ladder.webp') }}">
+                <img src="{{ asset('frontend/img/main/ladder.webp') }}" width="320" height="350" alt="лестницы в аренду">
             </picture>
             <div class="opa-card__info">
                 <h2>Лестницы раздвижные</h2>
@@ -45,8 +45,8 @@
         <div class="op-additional__card">
             <a href="{{ route('technics_bars') }}">
             <picture>
-                <source type="image/webp" srcset="{{ asset('frontend/img/main/tractor_snow.jpg') }}">
-                <img src="{{ asset('frontend/img/main/tractor_snow.jpg') }}" width="320" height="350" alt="аренда минитрактора">
+                <source type="image/webp" srcset="{{ asset('frontend/img/main/tractor_snow.webp') }}">
+                <img src="{{ asset('frontend/img/main/tractor_snow.webp') }}" width="320" height="350" alt="аренда минитрактора">
             </picture>
             </a>
             <div class="opa-card__info">
@@ -67,8 +67,8 @@
         <div class="op-additional__card">
             <a href="{{ route('snow_removal') }}">
                 <picture>
-                    <source type="image/webp" srcset="{{ asset('frontend/img/main/snow_alp.jpg') }}">
-                    <img src="{{ asset('frontend/img/main/snow_alp.jpg') }}" width="320" height="350" alt="уборка снега с кровли">
+                    <source type="image/webp" srcset="{{ asset('frontend/img/main/snow_alp.webp') }}">
+                    <img src="{{ asset('frontend/img/main/snow_alp.webp') }}" width="320" height="350" alt="уборка снега с кровли">
                 </picture>
             </a>
             <div class="opa-card__info">

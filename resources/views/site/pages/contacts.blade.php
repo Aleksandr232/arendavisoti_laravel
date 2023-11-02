@@ -16,10 +16,6 @@
         <div class="contacts my-container">
             <div class="contacts-image">
             <div style="position:relative; overflow:hidden;"><a href="https://yandex.ru/maps/org/arenda_vysoty/186521182233/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Аренда Высоты</a><a href="https://yandex.ru/maps/43/kazan/category/scaffolding/184107569/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Строительные леса в Казани</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUvq2t33C" width="670" height="350" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
-               <!--  <picture>
-                    <source type="image/webp" srcset="{{ asset('frontend/img/about-us.webp') }}">
-                    <img src="{{ asset('frontend/img/about-us.jpg') }}" width="670" height="350" alt="">
-                </picture> -->
             </div>
             <div class="contacts-card">
                 <div class="cc-content">
