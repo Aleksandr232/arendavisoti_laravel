@@ -112,9 +112,13 @@ class PostScaffoldingController extends Controller
      */
     public function destroy($id)
     {
-        $scaff = PostScaff::query()->find($id);
-        Storage::delete($scaff->img);
-        $scaff->delete($scaff->img);
-        return redirect()->route('posts.index')->with('success', 'Статья удалена');
+        $scaff = PostScaff::find($id);
+
+        if($scaff) {
+            $scaff->delete();
+            return redirect()->route('postscaff.index')->with('success', 'Изображение лесов удалено');
+        } else {
+            return redirect()->route('postscaff.index')->with('error', 'Запись не найдена');
+        }
     }
 }

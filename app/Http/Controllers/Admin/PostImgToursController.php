@@ -133,8 +133,15 @@ class PostImgToursController extends Controller
      * @param  \App\Models\PostImgTours  $postImgTours
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PostImgTours $tours)
+    public function destroy($id)
     {
-        $postImgTours->delete();
+        $tours = PostImgTours::find($id);
+
+        if($tours) {
+            $tours->delete();
+            return redirect()->route('postsimgtours.index')->with('success', 'Изображение вышки-туры удалено');
+        } else {
+            return redirect()->route('postsimgtours.index')->with('error', 'Запись не найдена');
+        }
     }
 }

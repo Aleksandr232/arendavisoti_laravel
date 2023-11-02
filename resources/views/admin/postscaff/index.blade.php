@@ -31,7 +31,7 @@
                                             <th>Площадь лесов на объекте</th>
                                             <th>Объект</th>
                                             <th>Дата создания</th>
-                                            {{-- <th>Действия</th> --}}
+                                            <th>Действия</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -44,12 +44,12 @@
                                                 <td>{{$post->square}}</td>
                                                 <td>{{$post->objects}}</td>
                                                 <td>{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}</td>
-                                                {{-- <td style="display: flex;">
-                                                    <a href="{{ route('posts.edit', ['post' => $scaf->id]) }}" class="btn btn-info btn-sm float-left mr-1">
+                                                <td style="display: flex;">
+                                                    {{-- <a href="{{ route('posts.edit', ['post' => $scaf->id]) }}" class="btn btn-info btn-sm float-left mr-1">
                                                         <i class="fas fa-pencil-alt"></i>
-                                                    </a>
+                                                    </a> --}}
 
-                                                    <form action="{{ route('posts.destroy', ['post' => $scaf->id]) }}" method="post" class="float-left">
+                                                    <form action="{{ route('postscaff.destroy', $post->id) }}" method="post" class="float-left">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm"
@@ -58,7 +58,7 @@
                                                                 class="fas fa-trash-alt"></i>
                                                         </button>
                                                     </form>
-                                                </td> --}}
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>

@@ -30,7 +30,7 @@
                                             <th>Назначения</th>
                                             <th>Высота</th>
                                             <th>Дата создания</th>
-                                            {{-- <th>Действия</th> --}}
+                                            <th>Действия</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -42,12 +42,8 @@
                                                 <td>{{ $tour->title }}</td>
                                                 <td>{{ $tour->height }}</td>
                                                 <td>{{$result = date('Y-m-d H:i:s', strtotime($tour->created_at) + 3 * 3600);}}</td>
-                                                {{-- <td style="display: flex;">
-                                                    <a href="{{ route('posts.edit', ['post' => $tour->id]) }}" class="btn btn-info btn-sm float-left mr-1">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                    </a>
-
-                                                    <form action="{{ route('posts.destroy', ['post' => $tour->id]) }}" method="post" class="float-left">
+                                                <td style="display: flex;">
+                                                    <form action="{{ route('postsimgtours.destroy', $tour->id) }}" method="post" class="float-left">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm"
@@ -56,7 +52,7 @@
                                                                 class="fas fa-trash-alt"></i>
                                                         </button>
                                                     </form>
-                                                </td> --}}
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
