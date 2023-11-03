@@ -80,7 +80,7 @@
             <div class="au-photo">
                 <picture>
                     <source type="image/webp" srcset="{{ asset('frontend/img/about-us.webp') }}">
-                    <img src="{{ asset('frontend/img/about-us.jpg') }}" width="644" height="300" alt="леса в аренду">
+                    <img src="{{ asset('frontend/img/about-us.webp') }}" width="644" height="300" alt="леса в аренду">
                 </picture>
             </div>
             <div class="au-content">

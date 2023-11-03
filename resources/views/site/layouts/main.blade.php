@@ -101,6 +101,7 @@
     loader.style.display = 'block';
     btnTheme.style.display="none";
     btnCard.style.display="none";
+    document.body.style.overflow = 'hidden';
     // Устанавливаем sessionStorage
     sessionStorage.setItem('visited', 'true');
     // Скрываем индикатор загрузки через 2 секунды
@@ -108,6 +109,7 @@
         loader.style.display = 'none';
         btnTheme.style.display="block";
         btnCard.style.display="block";
+        document.body.style.overflow = '';
     }, 2000);
     } else {
         var loader = document.querySelector('.loader');
@@ -115,6 +117,7 @@
         loader.style.display = 'none';
         btnTheme.style.display="block";
         btnCard.style.display="block";
+        document.body.style.overflow = '';
     }
 </script>
 

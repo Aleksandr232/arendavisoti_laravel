@@ -42,7 +42,9 @@ if(savedTheme) {
 }
 
 
+
 //  modal window
+const btnModalCard = document.getElementById('card-btn');
 const btnOpenModal = document.querySelectorAll('.btn')
     , modalWindow = document.querySelector('.modal-window')
     , closeModal = document.querySelectorAll('.close-modal, .modal-bg')
@@ -53,6 +55,8 @@ btnOpenModal.forEach(i => {
         let qwerty = modalWindow.querySelector('input[name=hidden]').value = i.getAttribute('data-btn');
         if(modalWindow.style.display !== 'block') {
             modalWindow.style.display = 'block';
+            themeBtn.style.display = 'none';
+            btnModalCard.style.display ='none';
             document.body.style.overflow = 'hidden';
             document.body.style.marginRight = `${scroll}px`;
         }
@@ -64,6 +68,8 @@ closeModal.forEach(elem => {
         if(modalWindow.style.display !== 'none') {
             modalWindow.style.display = 'none';
             document.body.style.overflow = '';
+            themeBtn.style.display = 'block';
+            btnModalCard.style.display ='block';
             document.body.style.marginRight = '0px';
         }
     });
@@ -181,12 +187,16 @@ function showAlert() {
         function openModal() {
             let modalOpen = document.getElementById('modals');
             modalOpen.style.display = 'block';
+            themeBtn.style.display = "none";
+            btnModalCard.style.display ="none";
             document.body.style.overflow = 'hidden';
 
             window.onclick = function(event) {
                 if (event.target == modalOpen ) {
                     modalOpen.style.display = "none";
                   document.body.style.overflow = '';
+                  themeBtn.style.display = "block";
+                  btnModalCard.style.display = "block";
 
                 }
               }
@@ -196,6 +206,8 @@ function showAlert() {
             let modalOpen = document.getElementById('modals');
             modalOpen.style.display = 'none';
             document.body.style.overflow = '';
+            themeBtn.style.display = "block";
+            btnModalCard.style.display = "block";
 
 
         }
@@ -205,6 +217,8 @@ function showAlert() {
             var modal = document.getElementById("modal-card");
             var moadalCart = document.getElementById('modal_card_content')
             modal.style.display = "block";
+            themeBtn.style.display = "none";
+            btnModalCard.style.display ="none";
             moadalCart.style.bottom='180px';
             if(window.innerWidth < 560){
                 moadalCart.style.bottom = '20px';
@@ -215,6 +229,8 @@ function showAlert() {
             var closeBtn = document.getElementsByClassName("close")[0];
             closeBtn.onclick = function() {
               modal.style.display = "none";
+              themeBtn.style.display = "block";
+              btnModalCard.style.display = "block";
               document.body.style.overflow = '';
 
             }
@@ -222,13 +238,15 @@ function showAlert() {
             window.onclick = function(event) {
               if (event.target == modal) {
                 modal.style.display = "none";
+                themeBtn.style.display = 'block';
+                btnModalCard.style.display = 'block';
                 document.body.style.overflow = '';
 
               }
             }
           }
 
-          
+
 
 
 
