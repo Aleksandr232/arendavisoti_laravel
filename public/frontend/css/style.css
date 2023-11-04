@@ -21,6 +21,11 @@
     display: none;
 }
 
+.product_ladder{
+    width: 320px;
+    height: 350px;
+}
+
 
 
 .dark-theme::-webkit-scrollbar {
@@ -1149,6 +1154,11 @@ video {
   }
 }
 @media screen and (max-width: 560px) {
+
+    .product_ladder{
+        width: 50%;
+        height: 50%;
+    }
 
     .menu_des{
         display: block;

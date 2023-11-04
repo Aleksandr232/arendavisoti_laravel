@@ -3,7 +3,7 @@
         <div class="op-additional__card">
             <picture>
                 <source type="image/webp" srcset="{{ asset('frontend/img/main/ladder.webp') }}">
-                <img src="{{ asset('frontend/img/main/ladder.webp') }}" width="320" height="350" alt="лестницы в аренду">
+                <img class="product_ladder" src="{{ asset('frontend/img/main/ladder.webp') }}" {{-- width="320" height="350" --}} alt="лестницы в аренду">
             </picture>
             <div class="opa-card__info">
                 <h2>Лестницы раздвижные</h2>
