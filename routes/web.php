@@ -74,6 +74,11 @@ Route::get('/статьи', [PageController::class, 'posts'])->name('posts');
 Route::get('/update-sitemap', [SitemapController::class, 'update']);
 Route::post('/письмо-отправлено', [MailController::class, 'send'])->name('send');
 Route::post('/заказ-отправлен', [OrderTgController::class, 'sendOrder'])->name('sendOrder');
+Route::get('/ip', function () {
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $data = \Location::get($ip);
+    dd($data);
+});
 
 
 Route::prefix('admin')->middleware('admin')->group(function () {
@@ -131,6 +136,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('pdf/generate/lesa', [CustomerBaseController::class, 'generatePDFlesa'])->name('pdf.generate.lesa');
     Route::get('act/lesa/{id}', [CustomerBaseController::class, 'wordExport'])->name('wordExport');
     Route::get('pdf/generate/tours', [CustmerBaseToursController::class, 'generatePDFTours'])->name('pdf.generate.Tours');
+
 });
 
 
