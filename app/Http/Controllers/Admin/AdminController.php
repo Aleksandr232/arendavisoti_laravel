@@ -29,6 +29,13 @@ class AdminController extends Controller
         $snow = Snow::all();
         $warehouse = Warehouse::all();
 
+        $userip = new UserIp;
+        $userip ->ip = $data->ip;
+        $userip->cityName= $data->cityName;
+        $userip->regionName= $data->regionName;
+        $userip->countryName= $data->countryName;
+        $userip->save();
+
         return view('admin.home.index', compact('posts' ,'tours', 'scaff', 'texnica', 'tractor', 'contact', 'logist', 'snow', 'warehouse' ));
 
     }

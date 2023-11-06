@@ -4,28 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Stevebauman\Location\Facades\Location;
 use App\Models\User;
+use App\Models\Sessions;
 
-class Sessions extends Model
+class UserIp extends Model
 {
     use HasFactory;
 
-    protected $table = 'sessions';
+    protected $table = 'user_ip';
 
     protected $fillable = [
         'id',
         'user_id',
         'ip_address',
-        'user_agent',
-        'payload',
-        'last_activity',
+        'countryName',
+        'regionName',
+        'cityName'
     ];
 
-    public function user()
+    public function sessions()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Sessions::class, 'user_id');
     }
-
-
 }
