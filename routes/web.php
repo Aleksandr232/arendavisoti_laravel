@@ -32,6 +32,7 @@ use App\Http\Controllers\Admin\PostLogistStatusController;
 use App\Http\Controllers\Admin\FinaceController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\PostPriceFileController;
+use App\Http\Controllers\Admin\PostVisitController;
 use App\Http\Controllers\Director\DirectorController;
 use App\Http\Controllers\Director\StatController;
 use App\Http\Controllers\Director\StaffController;
@@ -177,6 +178,7 @@ Route::fallback(function () {
 Route::resource('/contactspost', PostContactController::class); // контакты
 Route::resource('/status', StaisticaController::class); // статистика
 Route::resource('/orderapi', PostOrderController::class); // корзина с заказыми
+Route::resource('/visit', PostVisitController::class); //посещения сайта
 
 // api заказы из телеграмм бота
 Route::post('api/order', [PostOrderController::class, 'store']); // для телеграмм бота

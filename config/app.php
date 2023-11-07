@@ -177,7 +177,7 @@ return [
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Stevebauman\Location\LocationServiceProvider::class,
+
 
     ],
 
@@ -235,7 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
-        'Location' => 'Stevebauman\Location\Facades\Location',
+        
     ],
 
 ];
