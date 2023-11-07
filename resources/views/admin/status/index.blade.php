@@ -31,7 +31,11 @@
                                 <canvas id="myChart2"></canvas>
                             </div>
                         </div>
-
+                        <div  class="col">
+                            <div style="width: 380px">
+                                <canvas id="myChart4"></canvas>
+                            </div>
+                        </div>
                 </div>
         </div><!-- /.container-fluid -->
     </section>

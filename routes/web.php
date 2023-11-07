@@ -178,7 +178,8 @@ Route::fallback(function () {
 Route::resource('/contactspost', PostContactController::class); // контакты
 Route::resource('/status', StaisticaController::class); // статистика
 Route::resource('/orderapi', PostOrderController::class); // корзина с заказыми
-Route::resource('/visit', PostVisitController::class); //посещения сайта
+Route::resource('/visit', PostVisitController::class); //посещения сайта по городам
+Route::get('/month-visit', [PostVisitController::class, 'index2']); //общее посещения сайта по месяцам
 
 // api заказы из телеграмм бота
 Route::post('api/order', [PostOrderController::class, 'store']); // для телеграмм бота

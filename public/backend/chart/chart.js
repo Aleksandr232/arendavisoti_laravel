@@ -38,7 +38,7 @@
         }
       }
     });
-   
+
   })
   .catch(error => {
     console.error('Ошибка:', error);
@@ -112,3 +112,40 @@ fetch('/contactspost')
   .catch(error => {
     console.error('Ошибка:', error);
   });
+
+ var ctx4 = document.getElementById('myChart4').getContext('2d');
+  fetch('/month-visit') // делаем GET-запрос на сервер
+  .then(response => response.json()) // преобразуем полученный ответ в json формат
+  .then(data => {// обрабатываем полученные данные
+    var labels = data.map((idx)=>{
+        return idx.month
+    })
+    var myChart1 = new Chart(ctx4, {
+      type: 'line',
+        data:{
+        labels: labels,
+        datasets: [{
+          label: 'My First Dataset',
+          data: data.map((idx)=>{
+            return idx.count
+          }),
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      },
+      options: {
+        borderWidth:2,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+  })
+  .catch(error => {
+    console.error('Ошибка:', error);
+  });
+

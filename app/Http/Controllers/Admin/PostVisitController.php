@@ -25,6 +25,49 @@ class PostVisitController extends Controller
         return response()->json($visits);
     }
 
+    public function index2()
+    {
+        // Получаем общее количество посещений, сгруппированных по месяцу
+        $totalVisits = UserIp::selectRaw('DATE_FORMAT(created_at, "%m") as month, COUNT(*) as count')
+            ->groupBy('month')
+            ->get();
+
+        // Преобразуем числовое значение месяца в строковое значение
+        $totalVisits = $totalVisits->map(function ($visit) {
+            $visit['month'] = $this->getMonthName($visit['month']);
+            return $visit;
+        });
+
+        // Возвращаем список общего количества посещений за каждый месяц в формате JSON
+        return response()->json($totalVisits);
+    }
+
+    private function getMonthName($month)
+    {
+        $monthNames = [
+            '01' => 'Январь',
+            '02' => 'Февраль',
+            '03' => 'Март',
+            '04' => 'Апрель',
+            '05' => 'Май',
+            '06' => 'Июнь',
+            '07' => 'Июль',
+            '08' => 'Август',
+            '09' => 'Сентябрь',
+            '10' => 'Октябрь',
+            '11' => 'Ноябрь',
+            '12' => 'Декабрь',
+        ];
+
+        if (isset($monthNames[$month])) {
+            return $monthNames[$month];
+        } else {
+            return 'Неверный месяц';
+        }
+
+        return $monthNames[$month];
+    }
+
     /**
      * Show the form for creating a new resource.
      *
