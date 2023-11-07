@@ -16,16 +16,22 @@
     <section class="content">
         <div class="container-fluid">
                 <div class="row">
-                        <div class="col">
+                        <div  class="col">
+                            <div style="width: 330px">
+                                <canvas id="myChart3"></canvas>
+                            </div>
+                        </div>
+                        {{-- <div class="col">
                                 <div style="width: 330px">
                                     <canvas id="myChart1"></canvas>
                                 </div>
-                        </div>
+                        </div> --}}
                         <div  class="col">
                             <div style="width: 380px">
                                 <canvas id="myChart2"></canvas>
                             </div>
                         </div>
+
                 </div>
         </div><!-- /.container-fluid -->
     </section>

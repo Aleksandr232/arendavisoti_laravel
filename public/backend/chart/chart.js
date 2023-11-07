@@ -1,4 +1,4 @@
- var ctx1 = document.getElementById('myChart1').getContext('2d');
+ /* var ctx1 = document.getElementById('myChart1').getContext('2d');
   fetch('/status') // делаем GET-запрос на сервер
   .then(response => response.json()) // преобразуем полученный ответ в json формат
   .then(data => { // обрабатываем полученные данные
@@ -38,11 +38,11 @@
         }
       }
     });
-   /*  console.log(data); */ // выводим данные в консоль
+   
   })
   .catch(error => {
     console.error('Ошибка:', error);
-  });
+  }); */
 
 var ctx2 = document.getElementById('myChart2').getContext('2d');
 let currentDate = new Date();
@@ -79,4 +79,36 @@ fetch('/contactspost')
     console.error('Ошибка:', error);
   });
 
-
+  var ctx3 = document.getElementById('myChart3').getContext('2d');
+  fetch('/visit') // делаем GET-запрос на сервер
+  .then(response => response.json()) // преобразуем полученный ответ в json формат
+  .then(data => { // обрабатываем полученные данные
+    var colors = generateRandomColors(data.length);
+    var myChart3 = new Chart(ctx3, {
+      type: 'doughnut',
+      data: {
+        labels: data.map((idx)=>{
+            return idx.city;
+        }),
+        datasets: [{
+          label: 'Количиство',
+          data: data.map((idx) => {
+            return idx.count;
+        }),
+          backgroundColor: colors
+        }],
+      },
+      options: {
+        borderWidth:2,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+   /*  console.log(data); */ // выводим данные в консоль
+  })
+  .catch(error => {
+    console.error('Ошибка:', error);
+  });
