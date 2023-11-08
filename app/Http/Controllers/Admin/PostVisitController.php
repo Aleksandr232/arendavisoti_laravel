@@ -17,7 +17,20 @@ class PostVisitController extends Controller
     public function index()
     {
         // Получаем количество посещений, сгруппированных по дате и городу
-            $visits = UserIp::selectRaw('(cityName) as city, COUNT(*) as count')
+        $visits = UserIp::selectRaw('(CASE
+                                            WHEN cityName = "Moscow" THEN "Москва"
+                                            WHEN cityName = "St Petersburg" THEN "Санкт-Петербург"
+					    WHEN cityName = "Kazan" THEN "Казань"
+                                            WHEN cityName = "Ufa" THEN "Уфа"
+                                            WHEN cityName = "Perm" THEN "Перьм"
+                                            WHEN cityName = "Samara" THEN "Самара"
+					    WHEN cityName = "Stolbishche" THEN "Столбище"
+					    WHEN cityName = "Rostov-on-Don" THEN "Ростов-на-Дону"
+					    WHEN cityName = "Gatchina" THEN "Гатчина"
+					    WHEN cityName = "Nizhnekamsk" THEN "Нижнекамск"
+					    WHEN cityName = "Naberezhnyye Chelny" THEN "Набережные Челны"
+
+                                        END) as city, COUNT(*) as count')
             ->groupBy('city')
             ->get();
 
