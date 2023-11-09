@@ -195,3 +195,5 @@ Route::put('api/logiststatus/{id}', [PostLogistStatusController::class,'updateSt
 Route::resource('/apilogist', PostLogistController::class);
 Route::resource('/apilogiststatus', PostLogistStatusController::class);
 
+
+
