@@ -24,12 +24,12 @@ class PostVisitController extends Controller
                                             WHEN cityName = "Ufa" THEN "Уфа"
                                             WHEN cityName = "Perm" THEN "Перьм"
                                             WHEN cityName = "Samara" THEN "Самара"
-					    WHEN cityName = "Stolbishche" THEN "Столбище"
-					    WHEN cityName = "Rostov-on-Don" THEN "Ростов-на-Дону"
-					    WHEN cityName = "Gatchina" THEN "Гатчина"
-					    WHEN cityName = "Nizhnekamsk" THEN "Нижнекамск"
-					    WHEN cityName = "Naberezhnyye Chelny" THEN "Набережные Челны"
-
+                                            WHEN cityName = "Stolbishche" THEN "Столбище"
+                                            WHEN cityName = "Rostov-on-Don" THEN "Ростов-на-Дону"
+                                            WHEN cityName = "Gatchina" THEN "Гатчина"
+                                            WHEN cityName = "Nizhnekamsk" THEN "Нижнекамск"
+                                            WHEN cityName = "Naberezhnyye Chelny" THEN "Набережные Челны"
+                                            ELSE cityName
                                         END) as city, COUNT(*) as count')
             ->groupBy('city')
             ->get();
