@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserIp;
+use App\Models\UserTg;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class PostVisitController extends Controller
@@ -39,22 +41,29 @@ class PostVisitController extends Controller
     }
 
     public function index2()
-    {
-        // Получаем общее количество посещений, сгруппированных по месяцу
-        $totalVisits = UserIp::selectRaw('DATE_FORMAT(created_at, "%m") as month, COUNT(*) as count')
-            ->groupBy('month')
-            ->get();
+{
+    // Получаем общее количество посещений UserIp, сгруппированных по месяцу
+    $totalVisitsIp = UserIp::selectRaw('DATE_FORMAT(created_at, "%m") as month, COUNT(*) as count')
+        ->groupBy('month')
+        ->get();
 
-        // Преобразуем числовое значение месяца в строковое значение
-        $totalVisits = $totalVisits->map(function ($visit) {
-            $visit['month'] = $this->getMonthName($visit['month']);
-            return $visit;
-        });
+    // Получаем общее количество посещений UserTg, сгруппированных по месяцу
+    $totalVisitsTg = UserTg::selectRaw('DATE_FORMAT(created_at, "%m") as month, COUNT(*) as count_tg')
+	->groupBy('month')
+        ->get();
 
-        // Возвращаем список общего количества посещений за каждый месяц в формате JSON
-        return response()->json($totalVisits);
-    }
+    // Соединяем данные о посещениях UserIp и UserTg по месяцу
+    $totalVisits = $totalVisitsIp->concat($totalVisitsTg);
 
+    // Преобразуем числовое значение месяца в строковое значение
+    $totalVisits = $totalVisits->map(function ($visit) {
+        $visit['month'] = $this->getMonthName($visit['month']);
+        return $visit;
+    });
+
+    // Возвращаем список общего количества посещений за каждый месяц в формате JSON
+    return response()->json($totalVisits);
+}
     private function getMonthName($month)
     {
         $monthNames = [
