@@ -33,6 +33,7 @@ use App\Http\Controllers\Admin\FinaceController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\PostPriceFileController;
 use App\Http\Controllers\Admin\PostVisitController;
+use App\Http\Controllers\Admin\TgUsController;
 use App\Http\Controllers\Director\DirectorController;
 use App\Http\Controllers\Director\StatController;
 use App\Http\Controllers\Director\StaffController;
@@ -194,6 +195,9 @@ Route::post('api/updatelogist/{id}', [LogisticaController::class, 'updateLocatio
 Route::put('api/logiststatus/{id}', [PostLogistStatusController::class,'updateStatusLogist'])->name('updateStatusLogist'); */
 Route::resource('/apilogist', PostLogistController::class);
 Route::resource('/apilogiststatus', PostLogistStatusController::class);
+
+//api телеграмм для рассылки
+Route::resource('/apitg', TgUsController::class);
 
 
 

@@ -21,21 +21,6 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="phones">ID пользователя</label>
-                            @if (count($contact))
-                            <select name="phones" id="title">
-                                @foreach($contact as $post)
-                                    @if(is_numeric($post->telegram))
-                                        <option value={{ $post->telegram }}>{{ $post->name }}</option>
-                                    @endif
-                                @endforeach
-                            </select>
-
-                            @else
-                            <p>Добавьте id телеграмм клиента</p>
-                            @endif
-                        </div>
-                        <div class="form-group">
                             <label for="messages">Cообщение</label>
                             <textarea name="messages" id="title"  class="form-control @error('title') is-invalid @enderror" rows="10" placeholder="Напишите сообщение..."></textarea>
                         </div>
