@@ -80,38 +80,50 @@ fetch('/contactspost')
   });
 
   var ctx3 = document.getElementById('myChart3').getContext('2d');
-  fetch('/visit') // делаем GET-запрос на сервер
-  .then(response => response.json()) // преобразуем полученный ответ в json формат
-  .then(data => { // обрабатываем полученные данные
-    var colors = generateRandomColors(data.length);
-    var myChart3 = new Chart(ctx3, {
-      type: 'doughnut',
-      data: {
-        labels: data.map((idx)=>{
-            return idx.city;
+fetch('/visit')
+.then(response => response.json())
+.then(data => {
+  var colors = generateRandomColors(data.length); // генерируем случайные цвета для каждого сектора
+  var myChart3 = new Chart(ctx3, {
+    type: 'doughnut',
+    data: {
+      labels: data.map((idx) => {
+        return idx.city;
+      }),
+      datasets: [{
+        label: 'Количество',
+        data: data.map((idx) => {
+          return idx.count;
         }),
-        datasets: [{
-          label: 'Количиство',
-          data: data.map((idx) => {
-            return idx.count;
-        }),
-          backgroundColor: colors
-        }],
-      },
-      options: {
-        borderWidth:2,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+        backgroundColor: colors // задаем сгенерированные цвета для секторов графика
+      }],
+    },
+    options: {
+      borderWidth: 2,
+      scales: {
+        y: {
+          beginAtZero: true
         }
       }
-    });
-   /*  console.log(data); */ // выводим данные в консоль
-  })
-  .catch(error => {
-    console.error('Ошибка:', error);
+    }
   });
+})
+.catch(error => {
+  console.error('Ошибка:', error);
+});
+
+function generateRandomColors(count) {
+  var colors = [];
+  for (var i = 0; i < count; i++) {
+    var color = 'rgb(' + getRandomNumber(256) + ',' + getRandomNumber(256) + ',' + getRandomNumber(256) + ')';
+    colors.push(color);
+  }
+  return colors;
+}
+
+function getRandomNumber(max) {
+  return Math.floor(Math.random() * max);
+}
 
  var ctx4 = document.getElementById('myChart4').getContext('2d');
   fetch('/month-visit') // делаем GET-запрос на сервер
