@@ -126,46 +126,56 @@ function getRandomNumber(max) {
 }
 
 var ctx4 = document.getElementById('myChart4').getContext('2d');
-fetch('/month-visit') // делаем GET-запрос на сервер
-.then(response => response.json()) // преобразуем полученный ответ в json формат
-.then(data => { // обрабатываем полученные данные
-  var labels = data.map((idx) => {
+fetch('/month-visit')
+.then(response => response.json())
+.then(data => {
+  var labels = data.map(idx => {
     return idx.month;
   });
+  var counts = data.map(idx => {
+    return idx.count;
+  });
+  var counts_tg = data.map(idx => {
+    return idx.count_tg;
+  });
+
+  // Найдем минимальное значение среди чисел обоих массивов
+  var minValue = Math.min(...counts, ...counts_tg);
+
   var myChart1 = new Chart(ctx4, {
     type: 'line',
     data: {
       labels: labels,
-      datasets: [{
+      datasets: [
+        {
           label: 'Посетителей сайта',
-          data: data.map((idx) => {
-            return idx.count;
+          data: counts.map(val => {
+            return val - minValue; // Вычитаем минимальное значение, чтобы начать с нуля
           }),
-          fill: false,
+          fill: true,
           borderColor: 'rgb(75, 192, 192)',
           tension: 0.1
         },
         {
           label: 'Посетителей бота',
-          data: data.map((idx) => {
-            return idx.count_tg;
+          data: counts_tg.map(val => {
+            return val - minValue; // Вычитаем минимальное значение, чтобы начать с нуля
           }),
-          fill: false,
+          fill: true,
           borderColor: 'rgb(75, 192, 292)',
           tension: 0.1
         }
-        
       ],
     },
     options: {
       borderWidth: 2,
       scales: {
         x: {
-          beginAtZero: true, // график начнется с нулевого значениe по оси x
-          reverse: true // график будет строиться в обратном порядке
+          min: 0, // Минимальное значение оси x
+          max: labels.length - 1 // Максимальное значение оси x
         },
         y: {
-          beginAtZero: true
+          beginAtZero: true // Начинать отображение оси y с нуля
         }
       }
     }
