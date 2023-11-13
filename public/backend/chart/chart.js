@@ -129,18 +129,17 @@ var ctx4 = document.getElementById('myChart4').getContext('2d');
 fetch('/month-visit')
 .then(response => response.json())
 .then(data => {
-  var labels = data.map(idx => {
+  var labels = data.map((idx) => {
     return idx.month;
   });
-  var counts = data.map(idx => {
+  var counts = data.map((idx) => {
     return idx.count;
   });
-  var counts_tg = data.map(idx => {
+  var counts_tg = data.map((idx) => {
     return idx.count_tg;
   });
 
-  // Найдем минимальное значение среди чисел обоих массивов
-  var minValue = Math.min(...counts, ...counts_tg);
+
 
   var myChart1 = new Chart(ctx4, {
     type: 'line',
@@ -149,18 +148,14 @@ fetch('/month-visit')
       datasets: [
         {
           label: 'Посетителей сайта',
-          data: counts.map(val => {
-            return val - minValue; // Вычитаем минимальное значение, чтобы начать с нуля
-          }),
+          data: counts,
           fill: true,
           borderColor: 'rgb(75, 192, 192)',
           tension: 0.1
         },
         {
           label: 'Посетителей бота',
-          data: counts_tg.map(val => {
-            return val - minValue; // Вычитаем минимальное значение, чтобы начать с нуля
-          }),
+          data: counts_tg,
           fill: true,
           borderColor: 'rgb(75, 192, 292)',
           tension: 0.1
@@ -171,8 +166,7 @@ fetch('/month-visit')
       borderWidth: 2,
       scales: {
         x: {
-          min: 0, // Минимальное значение оси x
-          max: labels.length - 1 // Максимальное значение оси x
+	      beginAtZero: true,
         },
         y: {
           beginAtZero: true // Начинать отображение оси y с нуля

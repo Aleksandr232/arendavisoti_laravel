@@ -26,7 +26,7 @@
                         </div> --}}
                         <div class="form-group">
                             <label for="emails">Почта</label>
-                            <input name="emails[]"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"   type="email"  id="title" class="form-control"   placeholder="Почта"  multiple required>
+                            <input name="emails"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"   type="email"  id="title" class="form-control"   placeholder="Почта"  multiple required>
                         </div>
                         <div class="form-group">
                             <label for="message">Cообщение</label>

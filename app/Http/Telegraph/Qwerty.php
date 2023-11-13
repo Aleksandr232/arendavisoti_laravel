@@ -7,6 +7,8 @@ namespace App\Http\Telegraph;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Keyboard\Keyboard;
+use DefStudio\Telegraph\Keyboard\ReplyButton;
+use DefStudio\Telegraph\Keyboard\ReplyKeyboard;
 use Illuminate\Support\Facades\Storage;
 
 class Qwerty extends WebhookHandler
@@ -22,14 +24,22 @@ class Qwerty extends WebhookHandler
 
 	$this->chat
 		->message('Выберите услугу')
-		->keyboard(Keyboard::make()->buttons([
-                    Button::make('Строительные леса')->action('lesa')->param('value', 'lesa'),
-		            Button::make('Вышки-туры')->action('tours')->param('value', 'tours'),
+		->replyKeyboard(ReplyKeyboard::make()->buttons([
+            ReplyButton::make('Строительные леса'),
+            ReplyButton::make('Вышки-туры'),
+            ReplyButton::make('baz')->webApp('https://webapp.dev'),
             ])
-		)->send();
+            ->oneTime()
+		)
+
+        ->send();
+
+
     }
 
-    public function lesa():void{
+   
+
+    public function lesa(){
         $this->chat
             ->html('Вы хотите заказать строительные леса?')
             ->keyboard(Keyboard::make()->buttons([

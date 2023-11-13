@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="phones">Watsapp пользователя</label>
-                            @if (count($contact))
+                            {{-- @if (count($contact))
                             <select  name="phones" id="title">
                                 @foreach($contact as $post)
                                 @if(preg_match('/^7/', $post->phone))
@@ -33,7 +33,8 @@
 
                             @else
                             <p>Добавьте номер клиента</p>
-                            @endif
+                            @endif --}}
+                            <input style="position:absolute; top:42px; width:369px; left:20px" type="phone" placeholder="введите номера 790345422342,799923923492" name="phones" id="title">
                         </div>
                         <div class="form-group">
                             <label for="messages">Cообщение</label>

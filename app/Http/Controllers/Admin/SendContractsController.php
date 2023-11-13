@@ -21,6 +21,8 @@ class SendContractsController extends Controller
 {
     // Получаем данные из запроса формы контактов
     $emails = $request->input('emails');
+    $emailsArr = explode(',', $emails);
+
     $name = Auth::user()->name;
     if(Auth::user()->is_admin == true){
         $stat = 'менеджер'; // менеджер
@@ -33,10 +35,9 @@ class SendContractsController extends Controller
     // Сохраняем данные в базе данных
     $mailmessage = new MailMessage();
     $mailmessage->name = $name;
-     /* $mailmessage->emails = json_encode($emails); */
-    $mailmessage->emails = implode(',', $emails);
     $mailmessage->message = $message;
     $mailmessage->file = $file;
+
     if ($request->hasFile('file')) {
         $path = Storage::disk('mail')->putFile('mailmessage', $file);
         $mailmessage->path = $path;
@@ -44,7 +45,7 @@ class SendContractsController extends Controller
     $mailmessage->save();
 
     // Отправляем электронную почту на каждый адрес электронной почты в массиве
-    foreach ($emails as $email) {
+    foreach ($emailsArr as $email) {
         // Если есть только сообщение без прикрепленного файла
         if ($message && !$request->hasFile('file')) {
             $data =[
