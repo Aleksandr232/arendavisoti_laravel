@@ -24,9 +24,9 @@
 
 - Логистика через сторонее приложения на React, через Api
 
-**crm** ![**arenda_crm**]('./arenda_bakend.png')
-**crm** ![**arenda_crm1**]('./arenda_bakend1.png')
-**crm** ![**arenda_crm2**]('./arenda_front.png')
+**crm** ![**arenda_crm**]('arenda_bakend.png')
+**crm** ![**arenda_crm1**]('arenda_bakend1.png')
+**crm** ![**arenda_crm2**]('arenda_front.png')
 
 
 ## License
