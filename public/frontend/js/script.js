@@ -7,13 +7,22 @@ const hnNavbarBurger = document.querySelector('.hn-navbar__burger');
 const hnNavbarBurgerTitle = document.querySelector('.hn-navbar__burger__title');
 
 
+let isBurgerActive = false;
 
 hnNavbarBurgerBtn.addEventListener('click', () => {
     hnNavbarMenu.classList.toggle('active');
     hnNavbarBurger.classList.toggle('active');
     hnNavbarBurgerTitle.classList.toggle('active');
     console.log('Melnkov dev', 'https://newportfolio-sooty-kappa.vercel.app/')
-
+    if (isBurgerActive) {
+        themeBtn.style.display = 'block';
+        btnModalCard.style.display ='block';
+        isBurgerActive = false;
+    } else {
+        themeBtn.style.display = 'none';
+        btnModalCard.style.display ='none';
+        isBurgerActive = true;
+    }
 
 });
 
