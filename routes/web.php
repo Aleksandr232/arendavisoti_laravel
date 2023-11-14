@@ -34,6 +34,7 @@ use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\PostPriceFileController;
 use App\Http\Controllers\Admin\PostVisitController;
 use App\Http\Controllers\Admin\TgUsController;
+use App\Http\Controllers\Admin\ParserController;
 use App\Http\Controllers\Director\DirectorController;
 use App\Http\Controllers\Director\StatController;
 use App\Http\Controllers\Director\StaffController;
@@ -76,6 +77,7 @@ Route::get('/статьи', [PageController::class, 'posts'])->name('posts');
 Route::get('/update-sitemap', [SitemapController::class, 'update']);
 Route::post('/письмо-отправлено', [MailController::class, 'send'])->name('send');
 Route::post('/заказ-отправлен', [OrderTgController::class, 'sendOrder'])->name('sendOrder');
+Route::get('/parser', [ParserController::class, 'parse']);
 Route::get('/ip', function () {
     $ip = $_SERVER['REMOTE_ADDR'];
     $data = \Location::get($ip);
