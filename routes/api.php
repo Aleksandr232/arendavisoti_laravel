@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\StockController;
 use App\Http\Controllers\Admin\PostLogistController;
 use App\Http\Controllers\Admin\PostLogistStatusController;
 use App\Http\Controllers\Admin\LogisticaController;
+use App\Http\Controllers\Admin\TgUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,14 @@ use App\Http\Controllers\Admin\LogisticaController;
 |
 */
 
+// авторизация для мобильного приложения
 Route::post('/av-register', [PostUserController::class, 'register']);
 Route::post('/login-stock', [PostUserController::class, 'login']);
 
-/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    Route::post('/logout', [PostUserController::class, 'logout']);
-    Route::put('/stock/{id}', [StockController::class, 'updateApi']);
-}); */
+//отправка данных пользователя из бота
+Route::post('/tg_user', [TgUsController::class, 'store']);
+
+
 
 Route::middleware('auth:sanctum')->group(function () {
     // Действия, которые требуют аутентификации пользователя
