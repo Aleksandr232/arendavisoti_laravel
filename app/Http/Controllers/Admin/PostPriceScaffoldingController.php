@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\PriceScaff;
+use App\Models\PriceFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -60,6 +61,19 @@ class PostPriceScaffoldingController extends Controller
 
 
         return redirect()->route('pricescaff.index')->with('success', 'Прайс строительных лесов добавлен');
+    }
+
+
+    public function PriceLesabot(){
+        $img = PriceScaff::first();
+        $file = PriceFile::first();
+
+        $PriceScaff = [
+            'path' =>"https://xn--80aagge2ckkol0hd.xn--p1ai/prices/".$img->path,
+            'filepath'=>"https://xn--80aagge2ckkol0hd.xn--p1ai/prices/".$file->filepath
+        ];
+
+        return response()->json(['price' => $PriceScaff], 200);
     }
 
 
