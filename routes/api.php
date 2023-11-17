@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PostLogistStatusController;
 use App\Http\Controllers\Admin\LogisticaController;
 use App\Http\Controllers\Admin\TgUsController;
 use App\Http\Controllers\Admin\PostPriceScaffoldingController;
+use App\Http\Controllers\Admin\PostPriceToursController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::post('/login-stock', [PostUserController::class, 'login']);
 //отправка данных пользователя из бота
 Route::post('/tg_user', [TgUsController::class, 'store']);
 Route::get('/price_scaff', [PostPriceScaffoldingController::class, 'PriceLesabot']);
+Route::get('/price_tours', [PostPriceToursController::class, 'PriceToursBot']);
 
 
 

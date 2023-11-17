@@ -73,6 +73,17 @@ class PostPriceToursController extends Controller
         //
     }
 
+
+    public function PriceToursbot(){
+        $tours = PriceTours::first();
+
+        $PriceTours = [
+            'path' =>"https://xn--80aagge2ckkol0hd.xn--p1ai/prices/".$tours->path,
+        ];
+
+        return response()->json(['price'=>$PriceTours], 200);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
