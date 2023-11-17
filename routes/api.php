@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LogisticaController;
 use App\Http\Controllers\Admin\TgUsController;
 use App\Http\Controllers\Admin\PostPriceScaffoldingController;
 use App\Http\Controllers\Admin\PostPriceToursController;
+use App\Http\Controllers\Admin\PostScaffoldingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::post('/login-stock', [PostUserController::class, 'login']);
 Route::post('/tg_user', [TgUsController::class, 'store']);
 Route::get('/price_scaff', [PostPriceScaffoldingController::class, 'PriceLesabot']);
 Route::get('/price_tours', [PostPriceToursController::class, 'PriceToursBot']);
-
+Route::get('/photo', [PostScaffoldingController::class, 'photo']);
 
 
 Route::middleware('auth:sanctum')->group(function () {

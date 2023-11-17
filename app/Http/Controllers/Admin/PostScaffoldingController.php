@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\PostScaff;
+use App\Models\PostImgTours;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,6 +23,30 @@ class PostScaffoldingController extends Controller
 
 
         return view('admin.postscaff.index', compact('scaff') );
+    }
+
+
+    public function photo(){
+    $scaffs = PostScaff::orderBy('id', 'desc')->take(10)->get();
+    $tours = PostImgTours::orderBy('id', 'desc')->take(10)->get();
+
+    $lesaPhotos = [] ;
+    $toursPhotos = [];
+
+    foreach ($scaffs as $scaff) {
+        $lesaPhotos[] = "https://xn--80aagge2ckkol0hd.xn--p1ai/uploads/" . $scaff->img;
+    }
+
+    foreach ($tours as $tour) {
+        $toursPhotos[] = "https://xn--80aagge2ckkol0hd.xn--p1ai/uploads/" . $tour->img;
+    }
+
+    $photos = [
+        'lesa' => $lesaPhotos,
+        'tours' => $toursPhotos
+    ];
+
+        return response()->json(['photo' => $photos], 200);
     }
 
     /**
