@@ -97,10 +97,12 @@
     var loader = document.querySelector('.loader');
     var btnTheme = document.querySelector('.theme-btn');
     var btnCard = document.getElementById('card-btn');
+    var stocks = document.getElementById('runningString');
     // Показываем индикатор загрузки
     loader.style.display = 'block';
     btnTheme.style.display="none";
     btnCard.style.display="none";
+    stocks.style.display="none";
     document.body.style.overflow = 'hidden';
     // Устанавливаем sessionStorage
     sessionStorage.setItem('visited', 'true');
@@ -109,6 +111,7 @@
         loader.style.display = 'none';
         btnTheme.style.display="block";
         btnCard.style.display="block";
+        stocks.style.display="block";
         document.body.style.overflow = '';
     }, 2000);
     } else {
@@ -119,6 +122,41 @@
         btnCard.style.display="block";
         document.body.style.overflow = '';
     }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  animateRunningString();
+  hideRunningStringOnScroll();
+});
+
+let animationInterval; // Глобальная переменная для хранения интервала анимации
+
+function animateRunningString() {
+  let element = document.getElementById('runningString');
+  let position = 0;
+
+  animationInterval = setInterval(() => {
+    position++;
+    element.style.left = position + 'px';
+
+    if (position >= window.innerWidth) {
+      position = -element.offsetWidth;
+    }
+  }, 10);
+}
+
+function hideRunningStringOnScroll() {
+  let element = document.getElementById('runningString');
+
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 0) {
+      element.style.display = 'none';
+      clearInterval(animationInterval); // Останавливаем интервал анимации
+      window.removeEventListener('scroll', arguments.callee); // Удаляем обработчик прокрутки
+    }
+  });
+}
 </script>
 
 <script>

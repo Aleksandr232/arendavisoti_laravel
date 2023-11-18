@@ -91,6 +91,7 @@
     </section>
     <section id="about-comments">
         <h3>Отзывы</h3>
-        <div class="sw-app" data-app="e8ee69fc9d01afdf2b2b298d9fafd3d1"></div>
+         <div class="sw-app" data-app="e8ee69fc9d01afdf2b2b298d9fafd3d1"></div>
+
     </section>
 @endsection

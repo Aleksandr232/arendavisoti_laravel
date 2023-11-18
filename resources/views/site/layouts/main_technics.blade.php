@@ -115,5 +115,39 @@
 
     });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  animateRunningString();
+  hideRunningStringOnScroll();
+});
+
+let animationInterval; // Глобальная переменная для хранения интервала анимации
+
+function animateRunningString() {
+  let element = document.getElementById('runningString');
+  let position = 0;
+
+  animationInterval = setInterval(() => {
+    position++;
+    element.style.left = position + 'px';
+
+    if (position >= window.innerWidth) {
+      position = -element.offsetWidth;
+    }
+  }, 10);
+}
+
+function hideRunningStringOnScroll() {
+  let element = document.getElementById('runningString');
+
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 0) {
+      element.style.display = 'none';
+      clearInterval(animationInterval); // Останавливаем интервал анимации
+      window.removeEventListener('scroll', arguments.callee); // Удаляем обработчик прокрутки
+    }
+  });
+}
+</script>
 </body>
 </html>
