@@ -52,7 +52,7 @@
                     @endforeach
                 @endif
             </div>
-            <div class="sp-image">
+            <div id='targetBlock' class="sp-image">
                 @foreach ($pricescaff -> reverse() as $post)
                 <picture>
                     {{-- <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/scaffolding-price.webp') }}"> --}}

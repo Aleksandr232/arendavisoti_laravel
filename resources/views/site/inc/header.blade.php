@@ -7,7 +7,7 @@
 @else
     <a href="{{ route('login') }}" class="security"></a>
 @endif
-<div id="runningString"><a class="stocks" href="">Акция: 20% сезонная скидка на наши услуги</a></div>
+<div id="runningString"><a class="stocks" href="/строительные-леса#targetBlock">Акция: 20% сезонная скидка на наши услуги</a></div>
 <div class="header-contacts">
     <div class="hc-content my-container">
         <address>

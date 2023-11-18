@@ -960,12 +960,14 @@ button:hover {
 #runningString{
     position: fixed;
     top: 10px;
-    width: 382px;
+    width: 700px;
     z-index: 9999;
 }
 
 .stocks{
     color:red;
+    font-weight: 900;
+    font-size: 20px;
 }
 
 
