@@ -62,8 +62,10 @@
             </div>
             <div class="sp-call-to-action">
                 <h2>Арендуйте строительные леса без переплат</h2>
-                <button class="ptt-card__btn ptt-card__btn__one sp-cta__btn btn" data-btn="Заявка на аренду строительных лесов">Арендовать</button>
+                <button class="ptt-card__btn ptt-card__btn__one sp-cta__btn btn" data-btn="Заявка на аренду строительных лесов">Заказать звонок</button>
                 <button onclick="openModal()" class="btn_calc" >Рассчитать</button></a>
+                <a href="tel:+79867120059"><button class="btn_calc">Позвонить</button></a>
+                <a href="https://wa.me/+79867120059"><button class="btn_calc">Написать</button></a>
                 <div id="modals">
                     <div class="modal__content">
                       <span onclick="closesModal()" id="close">&times;</span>

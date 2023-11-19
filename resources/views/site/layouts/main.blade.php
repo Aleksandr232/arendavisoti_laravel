@@ -101,8 +101,8 @@
     // Показываем индикатор загрузки
     loader.style.display = 'block';
     btnTheme.style.display="none";
-    btnCard.style.display="none";
     stocks.style.display="none";
+    btnCard.style.display="none";
     document.body.style.overflow = 'hidden';
     // Устанавливаем sessionStorage
     sessionStorage.setItem('visited', 'true');
@@ -120,6 +120,7 @@
         loader.style.display = 'none';
         btnTheme.style.display="block";
         btnCard.style.display="block";
+        stocks.style.display="block";
         document.body.style.overflow = '';
     }
 </script>
@@ -148,12 +149,20 @@ function animateRunningString() {
 
 function hideRunningStringOnScroll() {
   let element = document.getElementById('runningString');
+  let animationInterval;
+
+  function startAnimation() {
+    // Здесь вместо animationInterval нужно использовать идентификатор интервала анимации, чтобы его можно было остановить
+    animationInterval = setInterval(/* код анимации */);
+  }
 
   window.addEventListener('scroll', function() {
     if (window.pageYOffset > 0) {
       element.style.display = 'none';
       clearInterval(animationInterval); // Останавливаем интервал анимации
-      window.removeEventListener('scroll', arguments.callee); // Удаляем обработчик прокрутки
+    } else {
+      element.style.display = 'block'; // Сбрасываем стиль display на block, чтобы бегущая строка снова отображалась
+      startAnimation(); // Запускаем анимацию
     }
   });
 }
@@ -175,6 +184,8 @@ function hideRunningStringOnScroll() {
 
     });
   </script>
+
+
 
 </body>
 

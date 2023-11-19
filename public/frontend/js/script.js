@@ -6,7 +6,6 @@ const hnNavbarMenu = document.querySelector('.hn-navbar__menu');
 const hnNavbarBurger = document.querySelector('.hn-navbar__burger');
 const hnNavbarBurgerTitle = document.querySelector('.hn-navbar__burger__title');
 
-
 let isBurgerActive = false;
 
 hnNavbarBurgerBtn.addEventListener('click', () => {
@@ -54,6 +53,7 @@ if(savedTheme) {
 
 //  modal window
 const btnModalCard = document.getElementById('card-btn');
+const runningString = document.getElementById('runningString')
 const btnOpenModal = document.querySelectorAll('.btn')
     , modalWindow = document.querySelector('.modal-window')
     , closeModal = document.querySelectorAll('.close-modal, .modal-bg')
@@ -65,6 +65,7 @@ btnOpenModal.forEach(i => {
         if(modalWindow.style.display !== 'block') {
             modalWindow.style.display = 'block';
             themeBtn.style.display = 'none';
+            runningString.style.display='none';
             btnModalCard.style.display ='none';
             document.body.style.overflow = 'hidden';
             document.body.style.marginRight = `${scroll}px`;
@@ -78,6 +79,8 @@ closeModal.forEach(elem => {
             modalWindow.style.display = 'none';
             document.body.style.overflow = '';
             themeBtn.style.display = 'block';
+            /* runningString.style.display='block'; */
+            runningString.style.display='none';
             btnModalCard.style.display ='block';
             document.body.style.marginRight = '0px';
         }
@@ -196,16 +199,18 @@ function showAlert() {
         function openModal() {
             let modalOpen = document.getElementById('modals');
             modalOpen.style.display = 'block';
-            themeBtn.style.display = "none";
+	        themeBtn.style.display = "none";
             btnModalCard.style.display ="none";
+            runningString.style.display='none';
             document.body.style.overflow = 'hidden';
 
             window.onclick = function(event) {
                 if (event.target == modalOpen ) {
                     modalOpen.style.display = "none";
+		            themeBtn.style.display = "block";
+              	    btnModalCard.style.display = "block";
+                    runningString.style.display='none';
                   document.body.style.overflow = '';
-                  themeBtn.style.display = "block";
-                  btnModalCard.style.display = "block";
 
                 }
               }
@@ -214,9 +219,10 @@ function showAlert() {
         function closesModal(e) {
             let modalOpen = document.getElementById('modals');
             modalOpen.style.display = 'none';
-            document.body.style.overflow = '';
             themeBtn.style.display = "block";
             btnModalCard.style.display = "block";
+            runningString.style.display='none';
+            document.body.style.overflow = '';
 
 
         }
@@ -228,6 +234,7 @@ function showAlert() {
             modal.style.display = "block";
             themeBtn.style.display = "none";
             btnModalCard.style.display ="none";
+            runningString.style.display='none';
             moadalCart.style.bottom='180px';
             if(window.innerWidth < 560){
                 moadalCart.style.bottom = '20px';
@@ -240,6 +247,7 @@ function showAlert() {
               modal.style.display = "none";
               themeBtn.style.display = "block";
               btnModalCard.style.display = "block";
+              runningString.style.display='none';
               document.body.style.overflow = '';
 
             }
@@ -249,6 +257,7 @@ function showAlert() {
                 modal.style.display = "none";
                 themeBtn.style.display = 'block';
                 btnModalCard.style.display = 'block';
+                runningString.style.display='none';
                 document.body.style.overflow = '';
 
               }
@@ -256,7 +265,8 @@ function showAlert() {
           }
 
 
-          
+
+
 
 
 
