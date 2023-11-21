@@ -25,7 +25,7 @@ class PostBlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.postblog.create');
     }
 
     /**

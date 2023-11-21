@@ -6,7 +6,7 @@
 
 @section('header_title')
     <div class="header-content my-container">
-        <h1>Статьи<br><span>Аренды высоты</span></h1>
+        <h1>Статьи <span>Аренды высоты</span></h1>
         <p>Предлагаем в аренду рамные строительные леса, строительные вышки-туры, раздвижные лестницы. Дополнительно оказываем услуги на минитракторе МКСМ, а также услуги строительного альпинизма по очистке снега с крыш. Осуществляем доставку оборудования нашим автотранспортом по Казани и Республике Татарстан</p>
     </div>
 @endsection
@@ -27,7 +27,7 @@
                             </div>
                             <div class="pc-content pc-content__revers">
                                 <h2>{{ $post->title }}</h2>
-                                <div>{!! $post->content !!}</div>
+                                <div class="content_text">{!! $post->content !!}</div>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="pc-content">
                                 <h2>{{ $post->title }}</h2>
-                                <div>{!! $post->content !!}</div>
+                                <div class="content_text">{!! $post->content !!}</div>
                             </div>
                         </div>
                     </div>
