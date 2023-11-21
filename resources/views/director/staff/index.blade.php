@@ -36,17 +36,17 @@
                                             <tr>
                                                 <td>{{ $post->name }}</td>
                                                 <td>{{$post->email}} </td>
-                                                @if($post->is_admin == 1)
+                                                @if($post->is_director == 1 && $post->is_admin == 1)
                                                     <td>
-                                                        Админ
+                                                        Директор | Админ
                                                     </td>
                                                 @elseif($post->is_director == 1)
                                                     <td>
                                                         Директор
                                                     </td>
-                                                @elseif($post->is_director == 1 && $post->is_admin == 1)
+                                                @elseif($post->is_admin == 1)
                                                     <td>
-                                                        Директор | Админ
+                                                        Админ
                                                     </td>
                                                 @else
                                                     <td>Сотрудник</td>
