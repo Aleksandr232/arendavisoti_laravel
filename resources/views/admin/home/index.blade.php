@@ -7,6 +7,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Главная страница</h1>
+                    @if(auth()->check() && auth()->user()->is_admin && auth()->user()->is_director)
+                    <a href="{{ route('director') }}"> Перейти в панель директора</a>
+                    @endif
                 </div>
             </div>
         </div><!-- /.container-fluid -->

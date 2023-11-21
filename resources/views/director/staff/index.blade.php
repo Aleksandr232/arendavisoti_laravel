@@ -44,6 +44,10 @@
                                                     <td>
                                                         Директор
                                                     </td>
+                                                @elseif($post->is_director == 1 && $post->is_admin == 1)
+                                                    <td>
+                                                        Директор | Админ
+                                                    </td>
                                                 @else
                                                     <td>Сотрудник</td>
                                                 @endif
