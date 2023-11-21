@@ -164,6 +164,12 @@
                                 <p>Фото складов</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('postsblog.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Блог</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <div class="nav-item has-treeview">

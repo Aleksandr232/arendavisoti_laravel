@@ -35,6 +35,7 @@ use App\Http\Controllers\Admin\PostPriceFileController;
 use App\Http\Controllers\Admin\PostVisitController;
 use App\Http\Controllers\Admin\TgUsController;
 use App\Http\Controllers\Admin\ParserController;
+use App\Http\Controllers\Admin\PostBlogController;
 use App\Http\Controllers\Director\DirectorController;
 use App\Http\Controllers\Director\StatController;
 use App\Http\Controllers\Director\StaffController;
@@ -100,6 +101,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/statistics', StatusController::class);
     Route::resource('/orders', OrderController::class);
     Route::resource('/documents', DocumentController::class);
+    Route::resource('/postsblog', PostBlogController::class);
     Route::resource('/stocks', StockController::class);
     Route::get('/stockslesa', [StockController::class, 'index1'])->name('index1');
     Route::get('/stockstours', [StockController::class, 'index2'])->name('index2');
