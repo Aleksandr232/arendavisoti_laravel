@@ -12,6 +12,7 @@ use App\Models\PriceTours;
 use App\Models\PriceFile;
 use App\Models\Snow;
 use App\Models\Warehouse;
+use App\Models\Blog;
 
 class PageController extends Controller
 {
@@ -80,8 +81,8 @@ class PageController extends Controller
 
     public function gallery_technics()
     {
-        $texnica = PostTexnica::query()->paginate(30);
-        $tours = PostImgTours::query()->paginate(30);
+        $texnica = PostTexnica::query()->paginate(400);
+        $tours = PostImgTours::query()->paginate(400);
         $scaff = PostScaff::query()->paginate(30);
 
         return view('site.pages.gallery_technics', compact('texnica', 'tours', 'scaff'));
@@ -89,8 +90,8 @@ class PageController extends Controller
 
     public function gallery_snow_removal()
     {
-        $scaff = PostScaff::query()->paginate(30);
-        $tours = PostImgTours::query()->paginate(30);
+        $scaff = PostScaff::query()->paginate(400);
+        $tours = PostImgTours::query()->paginate(400);
         $snow = Snow::query()
         ->orderByDesc('id')
         ->paginate(8);
@@ -100,8 +101,8 @@ class PageController extends Controller
 
     public function gallery_warehouse()
     {
-        $scaff = PostScaff::query()->paginate(30);
-        $tours = PostImgTours::query()->paginate(30);
+        $scaff = PostScaff::query()->paginate(400);
+        $tours = PostImgTours::query()->paginate(400);
         $warehouse = Warehouse::query()
         ->orderByDesc('id')
         ->paginate(8);
@@ -119,6 +120,15 @@ class PageController extends Controller
         $posts = Post::query()->paginate(12);
 
         return view('site.pages.posts', compact('posts'));
+    }
+
+    public function blog()
+    {
+        $blog = Blog::query()
+        ->orderByDesc('id')
+        ->paginate(8);
+
+        return view('site.pages.blog', compact('blog'));
     }
 
 

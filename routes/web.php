@@ -75,6 +75,7 @@ Route::get('/минитрактор', [PageController::class, 'technics_bars'])-
 Route::get('/галерея-минитрактор', [PageController::class, 'gallery_technics_bars'])->name('gallery_technics_bars');
 Route::get('/наши-контакты', [PageController::class, 'contacts'])->name('contacts');
 Route::get('/статьи', [PageController::class, 'posts'])->name('posts');
+Route::get('/блог', [PageController::class, 'blog'])->name('blog');
 Route::get('/update-sitemap', [SitemapController::class, 'update']);
 Route::post('/письмо-отправлено', [MailController::class, 'send'])->name('send');
 Route::post('/заказ-отправлен', [OrderTgController::class, 'sendOrder'])->name('sendOrder');
