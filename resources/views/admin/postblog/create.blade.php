@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Описание поста</label>
-                            <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="10" placeholder="Напишите статью ..."></textarea>
+                            <textarea class="editor" name="content" id="content" class="form-control @error('title') is-invalid @enderror" rows="10" placeholder="Напишите статью ..."></textarea>
                         </div>
                         <div class="form-group col-6">
                             <label for="img">Медиафайл поста</label>

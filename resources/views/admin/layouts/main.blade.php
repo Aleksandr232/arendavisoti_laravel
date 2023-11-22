@@ -495,7 +495,21 @@
         };
     </script>
 
-
+<script src="../build/ckeditor.js"></script>
+		<script>ClassicEditor
+				.create( document.querySelector( '.editor' ), {
+					licenseKey: '',
+				} )
+				.then( editor => {
+					window.editor = editor;
+				} )
+				.catch( error => {
+					console.error( 'Oops, something went wrong!' );
+					console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+					console.warn( 'Build id: 6jdakw6yb6bl-8ek9xs5l5res' );
+					console.error( error );
+				} );
+		</script>
 
 </body>
 </html>

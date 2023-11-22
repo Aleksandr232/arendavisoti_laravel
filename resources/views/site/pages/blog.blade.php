@@ -23,7 +23,13 @@
                     <div class="odd">
                         <div class="posts-card my-container">
                             <div class="pc-image pc-image__revers">
-                                <img src="{{ 'blog/' . $post->path }}" alt="аренда лесов и вышек-тур">
+                                @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                                <video  controls="controls">
+                                    <source src="{{ asset('blog/' . $post->path) }}" title="{{$post->title}}"  alt="новый пост про {{$post->title}}">
+                                </video>
+                                @else
+                                <img src="{{ 'blog/' . $post->path }}" title="{{$post->title}}" alt="новый пост про {{$post->title}}">
+                                @endif
                             </div>
                             <div class="pc-content pc-content__revers">
                                 <h2>{{ $post->title }}</h2>
@@ -35,7 +41,13 @@
                     <div class="even">
                         <div class="posts-card my-container">
                             <div class="pc-image">
-                                <img src="{{ 'blog/' . $post->path }}" alt="аренда лесов и вышек-тур">
+                                @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                                <video  controls="controls">
+                                    <source src="{{ asset('blog/' . $post->path) }}" title="{{$post->title}}"  alt="новый пост про {{$post->title}}">
+                                </video>
+                                @else
+                                <img src="{{ 'blog/' . $post->path }}" title="{{$post->title}}" alt="новый пост про {{$post->title}}">
+                                @endif
                             </div>
                             <div class="pc-content">
                                 <h2>{{ $post->title }}</h2>

@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Описание статьи</label>
-                            <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="10">{{ $post->content }}</textarea>
+                            <textarea class="editor" name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="10">{{ $post->content }}</textarea>
                         </div>
                         <div class="form-group col-6">
                             <label for="img">Фотография статьи</label>
