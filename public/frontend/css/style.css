@@ -971,6 +971,12 @@ button:hover {
     color: #9FB3BC;
 }
 
+.video_blog{
+    position: relative;
+    width: 700px;
+    height: 600px;
+}
+
 .content_text{
     font-size: 20px;
     font-family: 'Oswald',sans-serif;

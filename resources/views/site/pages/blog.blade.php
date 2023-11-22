@@ -24,7 +24,7 @@
                         <div class="posts-card my-container">
                             <div class="pc-image pc-image__revers">
                                 @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
-                                <video  controls="controls">
+                                <video class="video_blog"  controls="controls">
                                     <source src="{{ asset('blog/' . $post->path) }}" title="{{$post->title}}"  alt="новый пост про {{$post->title}}">
                                 </video>
                                 @else
@@ -33,7 +33,8 @@
                             </div>
                             <div class="pc-content pc-content__revers">
                                 <h2>{{ $post->title }}</h2>
-                                <div class="content_text">{!! $post->content !!}</div>
+                                <div id="text" class="content_text">{!! $post->content !!}</div>
+                                <div onclick="toggleText()">Показать/Скрыть текст</div>
                             </div>
                         </div>
                     </div>
@@ -42,7 +43,7 @@
                         <div class="posts-card my-container">
                             <div class="pc-image">
                                 @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
-                                <video  controls="controls">
+                                <video class="video_blog"   controls="controls">
                                     <source src="{{ asset('blog/' . $post->path) }}" title="{{$post->title}}"  alt="новый пост про {{$post->title}}">
                                 </video>
                                 @else
