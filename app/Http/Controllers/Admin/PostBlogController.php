@@ -117,9 +117,12 @@ class PostBlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        //
+        $blog = Blog::query()->find($id);
+
+
+        return view('admin.postblog.edit', compact('blog'));
     }
 
     /**
@@ -176,5 +179,5 @@ class PostBlogController extends Controller
 
         return redirect()->route('postsblog.index')->with('success', 'Медиафайл удален и sitemap обновлен');
     }
-    
+
 }
