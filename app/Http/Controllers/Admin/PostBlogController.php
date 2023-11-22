@@ -132,9 +132,84 @@ class PostBlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'media' => 'required',
+        ], [
+            'media.required' => 'Загрузите фото или видео',
+            'media.file' => 'Загруженный файл должен быть фото или видео',
+            'media.mimes' => 'Допустимые форматы файлов: JPEG, PNG, MP4, AVI, MOV',
+        ]);
+
+        $file = Blog::query()->find($id);
+
+        if (!$file) {
+            return redirect()->route('postsblog.index')->with('error', 'Запись не найдена');
+        }
+
+        if ($request->hasFile('media')) {
+            $media = $request->file('media');
+            $path = Storage::disk('blog')->putFile('blog_files', $media);
+
+            $file->media = $media->getClientOriginalExtension();
+            $file->path = $path;
+        }
+
+        $file->title = $request->input('title');
+        $file->content = $request->input('content');
+        $file->update();
+
+        // Генерация sitemap
+        $sitemapPath = public_path('sitemap.xml');
+        $sitemapXml = new \SimpleXMLElement(file_get_contents($sitemapPath));
+
+        // Найти узел с URL адресом для обновляемой записи
+        $urlNodes = $sitemapXml->xpath("//url[loc='" . url('https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B1%D0%BB%D0%BE%D0%B3') . "']");
+        if (!$urlNodes) {
+            return redirect()->route('postsblog.index')->with('error', 'Ошибка при обновлении sitemap');
+        }
+        $urlNode = $urlNodes[0];
+
+        // Обновить информацию для изображения или видео
+        $imageNode = $urlNode->xpath("image:image");
+        $videoNode = $urlNode->xpath("video:video");
+
+        if ($media->getClientOriginalExtension() == 'jpg' ||
+            $media->getClientOriginalExtension() == 'jpeg' ||
+            $media->getClientOriginalExtension() == 'png') {
+            if (!$imageNode) {
+                $imageNode = $urlNode->addChild('image:image', '', 'http://www.google.com/schemas/sitemap-image/1.1');
+            }
+            $imageNode[0]->addChild('image:loc', url('blog/' . $file->path), 'http://www.google.com/schemas/sitemap-image/1.1');
+            $imageNode[0]->addChild('image:title', 'Блог Аренды Высоты', 'http://www.google.com/schemas/sitemap-image/1.1');
+
+            // Remove video node if exists
+            if ($videoNode) {
+                unset($videoNode[0][0]);
+            }
+        } elseif ($media->getClientOriginalExtension() == 'MP4' ||
+            $media->getClientOriginalExtension() == 'mp4' ||
+            $media->getClientOriginalExtension() == 'avi' ||
+            $media->getClientOriginalExtension() == 'mov') {
+            if (!$videoNode) {
+                $videoNode = $urlNode->addChild('video:video', '', 'http://www.google.com/schemas/sitemap-video/1.1');
+            }
+            $videoNode[0]->addChild('video:thumbnail_loc', url('blog/' . $file->path), 'http://www.google.com/schemas/sitemap-video/1.1');
+            $videoNode[0]->addChild('video:title', 'Блог Аренды Высоты', 'http://www.google.com/schemas/sitemap-video/1.1');
+            $videoNode[0]->addChild('video:description', 'Наш блог', 'http://www.google.com/schemas/sitemap-video/1.1');
+            $videoNode[0]->addChild('video:content_loc', url('blog/' . $file->path), 'http://www.google.com/schemas/sitemap-video/1.1');
+
+            // Remove image node if exists
+            if ($imageNode) {
+                unset($imageNode[0][0]);
+            }
+        }
+
+        // Сохранение обновленного sitemap.xml
+        $sitemapXml->asXml($sitemapPath);
+
+        return redirect()->route('postsblog.index')->with('success', 'Медиафайл обновлен и sitemap обновлён');
     }
 
     /**
