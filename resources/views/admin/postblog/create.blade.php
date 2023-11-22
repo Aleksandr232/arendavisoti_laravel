@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="card">
                 <!-- form start -->
-                <form role="form" method="post"  enctype="multipart/form-data">
+                <form role="form" method="post" action="{{route('postsblog.store')}}"  enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
@@ -29,9 +29,9 @@
                             <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="10" placeholder="Напишите статью ..."></textarea>
                         </div>
                         <div class="form-group col-6">
-                            <label for="img">Фотография поста</label>
+                            <label for="img">Медиафайл поста</label>
                             <div class="custom-file">
-                                <input type="file" name="img" class="custom-file-input @error('title') is-invalid @enderror" id="img">
+                                <input type="file" name="media" class="custom-file-input @error('title') is-invalid @enderror" id="img">
                                 <label class="custom-file-label" for="file">Выберите фото</label>
                             </div>
                         </div>

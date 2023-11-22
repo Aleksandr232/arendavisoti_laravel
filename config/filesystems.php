@@ -91,20 +91,12 @@ return [
             'visibility' => 'public',
         ],
 
-        'warehouse' => [
+        'blog' => [
             'driver' => 'local',
 //            'root' => storage_path('app/public'),
-            'root' => public_path('warehouse'),
+            'root' => public_path('blog'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
-        ],
-
-        'notebook' => [
-            'driver' => 'local',
-            'root' => public_path('notebook'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-            'throw' => false,
         ],
 
         's3' => [
