@@ -125,7 +125,6 @@ class PageController extends Controller
     public function blog()
     {
         $blog = Blog::query()
-        ->orderByDesc('id')
         ->paginate(8);
 
         return view('site.pages.blog', compact('blog'));
