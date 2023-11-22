@@ -70,7 +70,7 @@ class PostBlogController extends Controller
 
             // Создание новой записи в sitemap для загруженного медиафайла
             $urlNode = $sitemapXml->addChild('url');
-            $urlNode->addChild('loc', url('https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F-%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BE%D0%B2'));
+            $urlNode->addChild('loc', url('https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B1%D0%BB%D0%BE%D0%B3'));
             $urlNode->addChild('lastmod', date('Y-m-d\TH:i:sP'));
             $urlNode->addChild('changefreq', 'daily');
             $urlNode->addChild('priority', '0.8');
