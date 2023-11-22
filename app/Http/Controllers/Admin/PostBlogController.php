@@ -16,7 +16,11 @@ class PostBlogController extends Controller
      */
     public function index()
     {
-        return view('admin.postblog.index');
+        $blog = Blog::query()
+        ->orderByDesc('id')
+        ->paginate(3);
+
+        return view('admin.postblog.index', compact('blog'));
     }
 
     /**
@@ -136,8 +140,41 @@ class PostBlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        $file = Blog::find($id);
+
+        if (!$file) {
+            return redirect()->route('postsblog.index')->with('error', 'Медиафайл не найден');
+        }
+
+        $path = $file->path;
+
+        // Удаление медиафайла из хранилища
+        Storage::disk('blog')->delete($path);
+
+        // Удаление записи из базы данных
+        $file->delete();
+
+        // Обновление sitemap
+        $sitemapPath = public_path('sitemap.xml');
+        $sitemapXml = new \SimpleXMLElement(file_get_contents($sitemapPath));
+
+        // Удаление соответствующей записи из sitemap
+        foreach ($sitemapXml->url as $url) {
+            $loc = (string)  $url->loc;
+
+            if (strpos($loc, '/gallery-warehouse/' . $id) !== false) {
+                $dom = dom_import_simplexml($url);
+                $dom->parentNode->removeChild($dom);
+                break;
+            }
+        }
+
+        // Сохранение обновленного sitemap.xml
+        $sitemapXml->asXml($sitemapPath);
+
+        return redirect()->route('postsblog.index')->with('success', 'Медиафайл удален и sitemap обновлен');
     }
+    
 }

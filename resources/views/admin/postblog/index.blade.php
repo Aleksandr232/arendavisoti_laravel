@@ -21,48 +21,48 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <a href="{{ route('postsblog.create') }}" class="btn btn-primary mb-3">Добавить пост</a>
-                           {{--  @if (count($posts))
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover text-nowrap">
-                                        <thead>
+                            @if (count($blog))
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>Медиа</th>
+                                        <th>Название</th>
+                                        <th>Дата создания</th>
+                                        <th>Действия</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($blog  as $post)
                                         <tr>
-                                            <th>Фото</th>
-                                            <th>Название статьи</th>
-                                            <th>Дата создания</th>
-                                            <th>Действия</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @foreach($posts -> reverse() as $post)
-                                            <tr>
-                                                <td style="width: 80px;">
-                                                    <img src="{{ asset('uploads/' . $post->img) }}" style="width: 100%; object-fit: cover" alt="">
-                                                </td>
-                                                <td>{{ $post->title }}</td>
-                                                <td>{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}</td>
-                                                <td style="display: flex;">
-                                                    <a href="{{ route('posts.edit', ['post' => $post->id]) }}" class="btn btn-info btn-sm float-left mr-1">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                    </a>
+                                            <td style="width: 50px;">
+                                            @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                                                <video style="width: 150px; height:150px" controls="controls">
+                                                    <source src="{{ asset('blog/' . $post->path) }}" style="width: 50%; height:2px; object-fit: cover" alt="">
+                                                </video>
+                                            @else
+                                                <img src="{{ asset('blog/' . $post->path) }}" style="width: 100%; object-fit: cover" alt="">
+                                            @endif
+                                            </td>
+                                            <td>{{$post->title}}</td>
+                                            <td>{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}</td>
+                                            <td><form action="{{ route('postsblog.destroy', $post->id) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
 
-                                                    <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="post" class="float-left">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm"
-                                                                onclick="return confirm('Подтвердите удаление')">
-                                                            <i
-                                                                class="fas fa-trash-alt"></i>
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            @else
-                                <p>Статей пока нет...</p>
-                            @endif --}}
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i
+                                                    class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </form></td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @else
+                            <p>Постов пока нет...</p>
+                        @endif
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer clearfix">
