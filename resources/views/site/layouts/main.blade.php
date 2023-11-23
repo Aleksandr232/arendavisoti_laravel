@@ -185,20 +185,18 @@ function hideRunningStringOnScroll() {
     });
   </script>
 
-  <script>
-    function toggleText() {
-    var textElement = document.getElementById("text");
 
-    if (textElement.style.display === "none") {
-        textElement.style.display = "block";
-    } else {
-        textElement.style.display = "none";
-    }
-}
-
-
-  </script>
-
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.content_toggle').click(function(){
+      var target = $(this).data('target');
+      $(target).toggleClass('hide');
+      $(this).html($(target).hasClass('hide') ? 'Показать' : 'Скрыть');
+      return false;
+    });
+  });
+</script>
 
 </body>
 

@@ -33,8 +33,10 @@
                             </div>
                             <div class="pc-content pc-content__revers">
                                 <h2>{{ $post->title }}</h2>
-                                <div id="text" class="content_text">{!! $post->content !!}</div>
-                                <div onclick="toggleText()">Показать/Скрыть текст</div>
+                                <div id="block1"   class="content_block hide">
+                                    <div  class="content_text">{!! $post->content !!}</div>
+                                </div>
+                                <a class="content_toggle" data-target="#block1" href="#">Подробнее</a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +54,10 @@
                             </div>
                             <div class="pc-content">
                                 <h2>{{ $post->title }}</h2>
-                                <div class="content_text">{!! $post->content !!}</div>
+                                <div id="block2"  class="content_block hide">
+                                    <div class="content_text">{!! $post->content !!}</div>
+                                </div>
+                                <a class="content_toggle" data-target="#block2" href="#">Подробнее</a>
                             </div>
                         </div>
                     </div>

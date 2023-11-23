@@ -977,6 +977,111 @@ button:hover {
     height: 600px;
 }
 
+.content_block {
+	overflow: hidden;
+	position: relative;
+}
+.content_block.hide {
+	height: 300px;
+}
+.content_block.hide:after{
+	content: "";
+	display: block;
+	height: 100px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: linear-gradient(to bottom,rgba(255,255,255,0),#fff 75%);
+}
+
+.dark-theme .content_block.hide:after{
+	content: "";
+	display: block;
+	height: 100px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: linear-gradient(to bottom,rgba(255,255,255,0),#000 75%);
+}
+
+
+.dark-theme #sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 .sw-review-box {
+    background-color: hsl(0, 0%, 0%);
+}
+
+.dark-theme #sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 {
+    background-color: hsl(0, 0%, 0%);
+}
+
+.dark-theme #sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 .sw-reviews-btn-form {
+    background: #B5C8CF;
+}
+
+#sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 .sw-reviews-btn-form {
+    background: #F5812C;
+}
+
+.dark-theme #sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 .sw-review-box .sw-reviews-rating {
+    color: #fff;
+}
+
+#sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 .sw-reviews-more {
+    background: #F5812C;
+}
+
+.dark-theme #sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 .sw-reviews-more {
+    background: #B5C8CF;
+}
+
+#sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 .sw-review-box-tabs .sw-review-box-tab.active {
+    background-color: #F5812C;
+}
+
+.dark-theme #sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 .sw-review-box-tabs .sw-review-box-tab.active {
+    background: #B5C8CF;
+}
+
+.content_toggle {
+	display: inline-block;
+	font-size: 16px;
+	text-decoration: none;
+	color: black;
+	margin-bottom: 20px;
+	border-radius: 5px;
+
+}
+
+.dark-theme .content_toggle {
+	display: inline-block;
+	font-size: 16px;
+	text-decoration: none;
+	color: #fff;
+	margin-bottom: 20px;
+	border-radius: 5px;
+
+}
+
+.content_toggle:hover {
+	color: #fff;
+	background: #0587D3;
+
+}
+
+.content_toggle:active {
+	background: #0587D3;
+}
+
+.dark-theme .content_toggle:hover {
+	color: black;
+	background: #F5812C;
+
+}
+.dark-theme .content_toggle:active {
+	background: #F5812C;
+}
+
 .content_text{
     font-size: 20px;
     font-family: 'Oswald',sans-serif;
