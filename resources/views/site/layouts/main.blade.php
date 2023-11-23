@@ -26,8 +26,10 @@
     <meta name="keywords" content="@yield('keywords')">
     <link rel="stylesheet" href="{{ asset('frontend/css/critical.css') }}">
     <script defer src="{{ asset('frontend/js/script.js') }}"></script>
-
-
+    <script src="{{ asset('frontend/js/running-string.js') }}"></script>
+    <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+    <script defer src="{{ asset('frontend/js/hidden_text.js') }}"></script>
+    <script src="https://res.smartwidgets.ru/app.js" defer></script>
 
 
     <!-- Yandex.Metrika counter -->
@@ -76,7 +78,6 @@
 
 @include('site.inc.loader')
 
-
 <script>
     function loadStyle(url) {
         let link = document.createElement('link');
@@ -90,8 +91,6 @@
 </script>
 
 
-<script src='../../../../public/frontend/js/map.js'></script>
-<script src="https://res.smartwidgets.ru/app.js" defer></script>
 <script>
     if(!sessionStorage.getItem('visited')) {
     var loader = document.querySelector('.loader');
@@ -125,48 +124,6 @@
     }
 </script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-  animateRunningString();
-  hideRunningStringOnScroll();
-});
-
-let animationInterval; // Глобальная переменная для хранения интервала анимации
-
-function animateRunningString() {
-  let element = document.getElementById('runningString');
-  let position = 0;
-
-  animationInterval = setInterval(() => {
-    position++;
-    element.style.left = position + 'px';
-
-    if (position >= window.innerWidth) {
-      position = -element.offsetWidth;
-    }
-  }, 10);
-}
-
-function hideRunningStringOnScroll() {
-  let element = document.getElementById('runningString');
-  let animationInterval;
-
-  function startAnimation() {
-    // Здесь вместо animationInterval нужно использовать идентификатор интервала анимации, чтобы его можно было остановить
-    animationInterval = setInterval(/* код анимации */);
-  }
-
-  window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 0) {
-      element.style.display = 'none';
-      clearInterval(animationInterval); // Останавливаем интервал анимации
-    } else {
-      element.style.display = 'block'; // Сбрасываем стиль display на block, чтобы бегущая строка снова отображалась
-      startAnimation(); // Запускаем анимацию
-    }
-  });
-}
-</script>
 
 <script>
     const dropdown = document.querySelector('.down');
@@ -184,20 +141,6 @@ function hideRunningStringOnScroll() {
 
     });
   </script>
-
-
-<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
-<script>
-  $(document).ready(function(){
-    $('.content_toggle').click(function(){
-      var target = $(this).data('target');
-      $(target).toggleClass('hide');
-      $(this).html($(target).hasClass('hide') ? 'Показать' : 'Скрыть');
-      return false;
-    });
-  });
-</script>
-
 </body>
 
 </html>
