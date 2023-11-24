@@ -154,8 +154,8 @@ class PostScaffoldingController extends Controller
             }
 
             $sitemapXml->asXml($sitemapPath);
-        
-        return redirect()->route('postscaff.index')->with('success', 'Фото лесов добавлена');
+
+        return redirect()->route('postscaff.index')->with('success', 'Медиа файл  добавлена');
     }
 
     }
@@ -209,7 +209,7 @@ class PostScaffoldingController extends Controller
 
         $scaff->delete(); //удаляем запись о файле из базы данных
 
-            return redirect()->route('postscaff.index')->with('success', 'Изображение лесов удалено');
+            return redirect()->route('postscaff.index')->with('success', 'Медиа файл удален');
         } else {
             return redirect()->route('postscaff.index')->with('err', 'Запись не найдена');
         }
