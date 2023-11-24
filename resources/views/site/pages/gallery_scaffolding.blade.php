@@ -17,12 +17,18 @@
             @foreach ($scaff -> reverse()  as $post)
             <div class="gallery-card" itemscope itemtype="http://schema.org/ImageObject">
                 <div class="gallery-card__image">
-                    <a href="{{ 'uploads/' . $post->path }}" class="gallery-show" title="{{$post->objects}}"  title="леса на {{$post->objects}}">
+                    @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                    <video  controls="controls">
+                        <source src="{{ asset('uploads/' . $post->path) }}"  title="наши сторительные леса на {{$post->objects}}" alt="{{$post->objects}}">
+                    </video>
+                    @else
+                    <a href="{{ 'uploads/' . $post->path }}" class="gallery-show" title="{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}">
                         <picture>
                             <source type="image/webp" srcset="{{ 'uploads/' . $post->path }}">
                             <img itemprop="contentUrl" src="{{ 'uploads/' . $post->path }}" width="320" height="350" title="наши сторительные леса на {{$post->objects}}" alt="{{$post->objects}}">
                         </picture>
                     </a>
+                    @endif
                 </div>
                 <h3><span>Площадь лесов:</span>{{$post->square}} кв.м</h3>
                 <p><span>Назначение:</span>{{ $post->appointment }}</p>

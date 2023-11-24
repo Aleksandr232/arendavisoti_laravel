@@ -131,37 +131,37 @@
                         <li class="nav-item">
                             <a href="{{ route('postsimgtours.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Фото вышки туры</p>
+                                <p>Медиа вышки туры</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('postscaff.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Фото строительные леса</p>
+                                <p>Медиа строительные леса</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('poststexnica.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Фото техника</p>
+                                <p>Медиа техника</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('poststractor.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Фото минитрактор</p>
+                                <p>Медиа минитрактор</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('postssnow.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Фото уборка снега с крыш</p>
+                                <p>Медиа уборка снега с крыш</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('postswarehouse.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Фото складов</p>
+                                <p>Медиа складов</p>
                             </a>
                         </li>
                         <li class="nav-item">

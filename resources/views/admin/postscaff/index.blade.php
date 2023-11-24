@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Фото строительные леса</h1>
+                    <h1>Медиа строительные леса</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -20,7 +20,7 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="{{ route('postscaff.create') }}" class="btn btn-primary mb-3">Добавить фото</a>
+                            <a href="{{ route('postscaff.create') }}" class="btn btn-primary mb-3">Добавить файл</a>
                             @if (count($scaff))
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover text-nowrap">
@@ -38,8 +38,14 @@
                                         @foreach($scaff   as $post)
                                             <tr>
                                                 <td style="width: 80px;">
-                                                    <img src="{{ asset('uploads/' . $post->path) }}" style="width: 100%; object-fit: cover" alt="">
-                                                </td>
+                                                    @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                                                        <video style="width: 100px; height:100px" controls="controls">
+                                                            <source src="{{ asset('uploads/' . $post->path) }}" style="width: 50%; height:2px; object-fit: cover" alt="">
+                                                        </video>
+                                                    @else
+                                                        <img src="{{ asset('uploads/' . $post->path) }}" style="width: 100%; object-fit: cover" alt="">
+                                                    @endif
+                                                    </td>
                                                 <td>{{ $post->appointment }}</td>
                                                 <td>{{$post->square}}</td>
                                                 <td>{{$post->objects}}</td>
