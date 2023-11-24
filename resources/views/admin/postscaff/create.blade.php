@@ -35,7 +35,7 @@
                         <div class="form-group col-6">
                             <label for="img">Фотография </label>
                             <div class="custom-file">
-                                <input type="file" name="img" class="custom-file-input @error('title') is-invalid @enderror" id="img">
+                                <input type="file" name="media" class="custom-file-input @error('title') is-invalid @enderror" id="img">
                                 <label class="custom-file-label" for="file">Выберите фото</label>
                             </div>
                         </div>

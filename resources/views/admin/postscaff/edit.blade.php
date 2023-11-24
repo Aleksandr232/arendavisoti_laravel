@@ -41,7 +41,7 @@
                                 <label class="custom-file-label" for="file">Выберите фото</label>
                             </div>
                             <div style="margin-top: 40px; width: 280px;">
-                                <img src="{{ asset('uploads/' . $post->img) }}" style="width: 100%; object-fit: cover" alt="">
+                                <img src="{{ asset('uploads/' . $post->path) }}" style="width: 100%; object-fit: cover" alt="">
                             </div>
                         </div>
                     </div>

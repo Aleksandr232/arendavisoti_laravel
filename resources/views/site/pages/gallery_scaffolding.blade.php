@@ -17,10 +17,10 @@
             @foreach ($scaff -> reverse()  as $post)
             <div class="gallery-card" itemscope itemtype="http://schema.org/ImageObject">
                 <div class="gallery-card__image">
-                    <a href="{{ 'uploads/' . $post->img }}" class="gallery-show" title="{{$post->objects}}"  title="леса на {{$post->objects}}">
+                    <a href="{{ 'uploads/' . $post->path }}" class="gallery-show" title="{{$post->objects}}"  title="леса на {{$post->objects}}">
                         <picture>
-                            <source type="image/webp" srcset="{{ 'uploads/' . $post->img }}">
-                            <img itemprop="contentUrl" src="{{ 'uploads/' . $post->img }}" width="320" height="350" title="наши сторительные леса на {{$post->objects}}" alt="{{$post->objects}}">
+                            <source type="image/webp" srcset="{{ 'uploads/' . $post->path }}">
+                            <img itemprop="contentUrl" src="{{ 'uploads/' . $post->path }}" width="320" height="350" title="наши сторительные леса на {{$post->objects}}" alt="{{$post->objects}}">
                         </picture>
                     </a>
                 </div>

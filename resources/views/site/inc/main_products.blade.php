@@ -5,8 +5,8 @@
                 @if(isset($scaff))
                     @foreach($scaff->reverse() as $post)
                         @if($loop->first)
-                            <source type="image/webp" srcset="{{ 'uploads/' . $post->img }}">
-                            <img src="{{ 'uploads/' . $post->img }}" width="670" height="450" alt="аренда лесов казань">
+                            <source type="image/webp" srcset="{{ 'uploads/' . $post->path }}">
+                            <img src="{{ 'uploads/' . $post->path }}" width="670" height="450" alt="аренда лесов казань">
                         @endif
                     @endforeach
                 @endif

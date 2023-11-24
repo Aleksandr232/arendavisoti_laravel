@@ -38,7 +38,7 @@
                                         @foreach($scaff   as $post)
                                             <tr>
                                                 <td style="width: 80px;">
-                                                    <img src="{{ asset('uploads/' . $post->img) }}" style="width: 100%; object-fit: cover" alt="">
+                                                    <img src="{{ asset('uploads/' . $post->path) }}" style="width: 100%; object-fit: cover" alt="">
                                                 </td>
                                                 <td>{{ $post->appointment }}</td>
                                                 <td>{{$post->square}}</td>
