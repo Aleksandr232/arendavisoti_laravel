@@ -3,12 +3,29 @@
         <a href="{{ route('scaffolding') }}">
             <picture>
                 @if(isset($scaff))
+                    @php
+                        $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+                        $latestPhoto = null;
+                    @endphp
+
                     @foreach($scaff->reverse() as $post)
-                        @if($loop->first)
-                            <source type="image/webp" srcset="{{ 'uploads/' . $post->path }}">
-                            <img src="{{ 'uploads/' . $post->path }}" width="670" height="450" alt="аренда лесов казань">
+                        @php
+                            $extension = pathinfo($post->path, PATHINFO_EXTENSION);
+                        @endphp
+
+                        @if(in_array(strtolower($extension), $allowedExtensions))
+                            @if(!$latestPhoto)
+                                @php
+                                    $latestPhoto = $post->path;
+                                @endphp
+                            @endif
                         @endif
                     @endforeach
+
+                    @if($latestPhoto)
+                        <source type="image/webp" srcset="{{ 'uploads/' . $latestPhoto }}">
+                        <img src="{{ 'uploads/' . $latestPhoto }}" width="670" height="450" alt="аренда лесов казань">
+                    @endif
                 @endif
             </picture>
         </a>

@@ -7,6 +7,7 @@ use App\Models\PostScaff;
 use App\Models\PostImgTours;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PostScaffoldingController extends Controller
 {
@@ -86,6 +87,36 @@ class PostScaffoldingController extends Controller
             $file->appointment = $request->input('appointment');
             $file->objects = $request->input('objects');
             $file->path = $path;
+
+            // Конвертирование изображения в формат WebP и сохранение только в этом формате
+            if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'webp'])) {
+                $image = Image::make($media)->encode('webp', 75);
+                $webpFilename = $media->hashName() . '.webp';
+                $webpPath = 'lesa/' . $webpFilename;
+                Storage::disk('public')->put($webpPath, $image);
+
+                $file->path = $webpPath;
+
+
+
+                // Удаление оригинального файла
+                Storage::disk('public')->delete($path);
+            }
+
+            // Проверка количества загружаемых видео
+            $videoCount = PostScaff::where('media', 'LIKE', '%mp4')
+                                ->orWhere('media','LIKE','%avi')
+                                ->orWhere('media','LIKE','%mov')
+                                ->orWhere('media','LIKE','%MP4')
+                                ->count();
+            $maxVideoCount = 10; // Максимальное количество видео
+
+            if ($media->getClientOriginalExtension() == 'mp4' ||$media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
+                if ($videoCount >= $maxVideoCount) {
+                    return redirect()->route('postscaff.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
+                }
+            }
+
             $file->save();
 
             // Генерация sitemap
@@ -106,9 +137,10 @@ class PostScaffoldingController extends Controller
             // Если файл является изображением
             if($media->getClientOriginalExtension() == 'jpg' ||
                 $media->getClientOriginalExtension() == 'jpeg' ||
+                $media->getClientOriginalExtension() == 'webp' ||
                 $media->getClientOriginalExtension() == 'png') {
                 $imageNode = $urlNode->addChild('image:image', '', 'http://www.google.com/schemas/sitemap-image/1.1');
-                $imageNode->addChild('image:loc', url('uploads/' . $path), 'http://www.google.com/schemas/sitemap-image/1.1');
+                $imageNode->addChild('image:loc', url('uploads/' . $webpPath), 'http://www.google.com/schemas/sitemap-image/1.1');
                 $imageNode->addChild('image:title', $file->appointment  .  $file->objects , 'http://www.google.com/schemas/sitemap-image/1.1');
             } else if ($media->getClientOriginalExtension() == 'MP4' ||
             $media->getClientOriginalExtension() == 'mp4' ||
@@ -117,18 +149,16 @@ class PostScaffoldingController extends Controller
             $videoNode = $urlNode->addChild('video:video', '', 'http://www.google.com/schemas/sitemap-video/1.1');
             $videoNode->addChild('video:thumbnail_loc', url('uploads/' . $path), 'http://www.google.com/schemas/sitemap-video/1.1');
             $videoNode->addChild('video:title', $file->appointment  .  $file->objects , 'http://www.google.com/schemas/sitemap-video/1.1');
-            $videoNode->addChild('video:description', 'Наш блог', 'http://www.google.com/schemas/sitemap-video/1.1');
+            $videoNode->addChild('video:description', 'аренда лесов казань', 'http://www.google.com/schemas/sitemap-video/1.1');
             $videoNode->addChild('video:content_loc', url('uploads/' . $path), 'http://www.google.com/schemas/sitemap-video/1.1');
             }
 
-            // Сохранение обновленного sitemap.xml
             $sitemapXml->asXml($sitemapPath);
-        }
-
-
+        
         return redirect()->route('postscaff.index')->with('success', 'Фото лесов добавлена');
     }
 
+    }
     /**
      * Display the specified resource.
      *
@@ -174,10 +204,14 @@ class PostScaffoldingController extends Controller
         $scaff = PostScaff::find($id);
 
         if($scaff) {
-            $scaff->delete();
+
+        Storage::disk('public')->delete($scaff->path);//удаляем файл с диска
+
+        $scaff->delete(); //удаляем запись о файле из базы данных
+
             return redirect()->route('postscaff.index')->with('success', 'Изображение лесов удалено');
         } else {
-            return redirect()->route('postscaff.index')->with('error', 'Запись не найдена');
+            return redirect()->route('postscaff.index')->with('err', 'Запись не найдена');
         }
     }
 }
