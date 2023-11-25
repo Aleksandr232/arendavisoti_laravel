@@ -141,6 +141,22 @@
 
     });
   </script>
+
+  <script>
+    const resume = document.getElementById('resume');
+    const me_site = document.getElementById('me_site');
+        resume.addEventListener('mouseenter', function() {
+        me_site.style.display="block";
+    });
+
+    resume.addEventListener('mouseleave', function() {
+        setTimeout(function() {
+            me_site.style.display = "none";
+        }, 10000);
+    });
+    
+  </script>
+
 </body>
 
 </html>

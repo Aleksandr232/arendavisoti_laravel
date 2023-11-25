@@ -1006,6 +1006,11 @@ button:hover {
 	background-image: linear-gradient(to bottom,rgba(255,255,255,0),#000 75%);
 }
 
+#me_site{
+    display: none;
+    position: relative;
+    left: 3px;
+}
 
 .dark-theme #sw-app-e8ee69fc9d01afdf2b2b298d9fafd3d1 .sw-review-box {
     background-color: hsl(0, 0%, 0%);
