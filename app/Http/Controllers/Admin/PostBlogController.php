@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PostBlogController extends Controller
 {
@@ -58,6 +59,40 @@ class PostBlogController extends Controller
             $file->title = $request->input('title');
             $file->content = $request->input('content');
             $file->path = $path;
+
+
+            // Конвертирование изображения в формат WebP и сохранение только в этом формате
+            if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'webp'])) {
+                $image = Image::make($media)->encode('webp', 75);
+                $webpFilename = $media->hashName() . '.webp';
+                $webpPath = 'blog_files/' . $webpFilename;
+                Storage::disk('blog')->put($webpPath, $image);
+
+                $file->path = $webpPath;
+
+
+
+                // Удаление оригинального файла
+                Storage::disk('blog')->delete($path);
+            }
+
+            // Проверка количества загружаемых видео
+            $videoCount = Blog::where('media', 'LIKE', '%mp4')
+                                ->orWhere('media','LIKE','%avi')
+                                ->orWhere('media','LIKE','%mov')
+                                ->orWhere('media','LIKE','%MP4')
+                                ->count();
+            $maxVideoCount = 5; // Максимальное количество видео
+
+            if ($media->getClientOriginalExtension() == 'mp4' ||$media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
+                if ($videoCount >= $maxVideoCount) {
+
+                    Storage::disk('Blog')->delete($path);
+
+                    return redirect()->route('postsblog.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
+                }
+            }
+
             $file->save();
 
             // Генерация sitemap
@@ -78,9 +113,10 @@ class PostBlogController extends Controller
             // Если файл является изображением
             if($media->getClientOriginalExtension() == 'jpg' ||
                 $media->getClientOriginalExtension() == 'jpeg' ||
+                $media->getClientOriginalExtension() == 'webp' ||
                 $media->getClientOriginalExtension() == 'png') {
                 $imageNode = $urlNode->addChild('image:image', '', 'http://www.google.com/schemas/sitemap-image/1.1');
-                $imageNode->addChild('image:loc', url('blog/' . $path), 'http://www.google.com/schemas/sitemap-image/1.1');
+                $imageNode->addChild('image:loc', url('blog/' . $webpPath), 'http://www.google.com/schemas/sitemap-image/1.1');
                 $imageNode->addChild('image:title', 'Блог Аренды Высоты', 'http://www.google.com/schemas/sitemap-image/1.1');
             } else if ($media->getClientOriginalExtension() == 'MP4' ||
             $media->getClientOriginalExtension() == 'mp4' ||
@@ -97,7 +133,7 @@ class PostBlogController extends Controller
             $sitemapXml->asXml($sitemapPath);
         }
 
-        return redirect()->route('postsblog.index')->with('success', 'Медиафайл добавлен и sitemap сгенерирован');
+        return redirect()->route('postsblog.index')->with('success', 'Пост добавлен');
     }
 
     /**
@@ -145,7 +181,7 @@ class PostBlogController extends Controller
         $file = Blog::query()->find($id);
 
         if (!$file) {
-            return redirect()->route('postsblog.index')->with('error', 'Запись не найдена');
+            return redirect()->route('postsblog.index')->with('err', 'Запись не найдена');
         }
 
         if ($request->hasFile('media')) {
@@ -158,6 +194,40 @@ class PostBlogController extends Controller
 
         $file->title = $request->input('title');
         $file->content = $request->input('content');
+
+        // Конвертирование изображения в формат WebP и сохранение только в этом формате
+        if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'webp'])) {
+            $image = Image::make($media)->encode('webp', 75);
+            $webpFilename = $media->hashName() . '.webp';
+            $webpPath = 'blog_files/' . $webpFilename;
+            Storage::disk('blog')->put($webpPath, $image);
+
+            $file->path = $webpPath;
+
+
+
+            // Удаление оригинального файла
+            Storage::disk('blog')->delete($path);
+        }
+
+        // Проверка количества загружаемых видео
+        $videoCount = Blog::where('media', 'LIKE', '%mp4')
+                            ->orWhere('media','LIKE','%avi')
+                            ->orWhere('media','LIKE','%mov')
+                            ->orWhere('media','LIKE','%MP4')
+                            ->count();
+        $maxVideoCount = 5; // Максимальное количество видео
+
+        if ($media->getClientOriginalExtension() == 'mp4' ||$media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
+            if ($videoCount >= $maxVideoCount) {
+
+                Storage::disk('Blog')->delete($path);
+
+                return redirect()->route('postsblog.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
+            }
+        }
+
+
         $file->update();
 
         // Генерация sitemap
@@ -177,11 +247,12 @@ class PostBlogController extends Controller
 
         if ($media->getClientOriginalExtension() == 'jpg' ||
             $media->getClientOriginalExtension() == 'jpeg' ||
+            $media->getClientOriginalExtension() == 'webp' ||
             $media->getClientOriginalExtension() == 'png') {
             if (!$imageNode) {
                 $imageNode = $urlNode->addChild('image:image', '', 'http://www.google.com/schemas/sitemap-image/1.1');
             }
-            $imageNode[0]->addChild('image:loc', url('blog/' . $file->path), 'http://www.google.com/schemas/sitemap-image/1.1');
+            $imageNode[0]->addChild('image:loc', url('blog/' . $file->webpPath), 'http://www.google.com/schemas/sitemap-image/1.1');
             $imageNode[0]->addChild('image:title', 'Блог Аренды Высоты', 'http://www.google.com/schemas/sitemap-image/1.1');
 
             // Remove video node if exists
@@ -209,7 +280,7 @@ class PostBlogController extends Controller
         // Сохранение обновленного sitemap.xml
         $sitemapXml->asXml($sitemapPath);
 
-        return redirect()->route('postsblog.index')->with('success', 'Медиафайл обновлен и sitemap обновлён');
+        return redirect()->route('postsblog.index')->with('success', 'Пост обновлён');
     }
 
     /**
@@ -223,7 +294,7 @@ class PostBlogController extends Controller
         $file = Blog::find($id);
 
         if (!$file) {
-            return redirect()->route('postsblog.index')->with('error', 'Медиафайл не найден');
+            return redirect()->route('postsblog.index')->with('err', 'Пост не найден');
         }
 
         $path = $file->path;
@@ -252,7 +323,7 @@ class PostBlogController extends Controller
         // Сохранение обновленного sitemap.xml
         $sitemapXml->asXml($sitemapPath);
 
-        return redirect()->route('postsblog.index')->with('success', 'Медиафайл удален и sitemap обновлен');
+        return redirect()->route('postsblog.index')->with('success', 'Пост удален');
     }
 
 }
