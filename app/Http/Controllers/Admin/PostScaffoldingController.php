@@ -109,10 +109,13 @@ class PostScaffoldingController extends Controller
                                 ->orWhere('media','LIKE','%mov')
                                 ->orWhere('media','LIKE','%MP4')
                                 ->count();
-            $maxVideoCount = 10; // Максимальное количество видео
+            $maxVideoCount = 5; // Максимальное количество видео
 
             if ($media->getClientOriginalExtension() == 'mp4' ||$media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
                 if ($videoCount >= $maxVideoCount) {
+
+                    Storage::disk('public')->delete($path);
+
                     return redirect()->route('postscaff.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
                 }
             }

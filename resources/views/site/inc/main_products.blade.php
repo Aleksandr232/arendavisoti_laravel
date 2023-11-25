@@ -36,12 +36,29 @@
         <a href="{{ route('towers_tour') }}">
             <picture>
                 @if(isset($tours))
+                    @php
+                        $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+                        $latestPhoto = null;
+                    @endphp
+
                     @foreach($tours->reverse() as $post)
-                        @if($loop->first)
-                            <source type="image/webp" srcset="{{ 'uploads/' . $post->img }}">
-                            <img src="{{ 'uploads/' . $post->img }}" width="670" height="450" alt="аренда вышек-тур казань">
+                        @php
+                            $extension = pathinfo($post->path, PATHINFO_EXTENSION);
+                        @endphp
+
+                        @if(in_array(strtolower($extension), $allowedExtensions))
+                            @if(!$latestPhoto)
+                                @php
+                                    $latestPhoto = $post->path;
+                                @endphp
+                            @endif
                         @endif
                     @endforeach
+
+                    @if($latestPhoto)
+                        <source type="image/webp" srcset="{{ 'uploads/' . $latestPhoto }}">
+                        <img src="{{ 'uploads/' . $latestPhoto }}" width="670" height="450" alt="аренда лесов казань">
+                    @endif
                 @endif
             </picture>
         </a>

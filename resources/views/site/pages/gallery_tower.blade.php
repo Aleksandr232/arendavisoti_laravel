@@ -17,12 +17,18 @@
             @foreach ($tours -> reverse() as $post)
             <div class="gallery-card">
                 <div class="gallery-card__image">
-                    <a href="{{ 'uploads/' . $post->img }}" class="gallery-show" title="вышки-туры на {{  $post->content }} ">
-                        <picture>
-                            <source type="image/webp" srcset="{{ 'uploads/' . $post->img }}">
-                            <img src="{{ 'uploads/' . $post->img }}" width="320" title="наши вышки-туры на {{  $post->content }} " height="350" alt="{{  $post->content }}">
-                        </picture>
-                    </a>
+                    @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                        <video  controls="controls">
+                            <source src="{{ asset('uploads/' . $post->path) }}"  title="наши вышки-туры на {{  $post->content }} " height="350" alt="{{  $post->content }}">>
+                        </video>
+                    @else
+                        <a href="{{ 'uploads/' . $post->path }}" class="gallery-show" title="{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}">
+                            <picture>
+                                <source type="image/webp" srcset="{{ 'uploads/' . $post->path }}">
+                                <img itemprop="contentUrl" src="{{ 'uploads/' . $post->path }}" width="320" height="350" title="наши вышки-туры на {{  $post->content }} " height="350" alt="{{  $post->content }}">>
+                            </picture>
+                        </a>
+                    @endif
                 </div>
                 <h3><span>Высота Балатон:</span> {{$post->height}} м</h3>
                 <p><span>Назначение:</span>{{ $post->title }}</p>

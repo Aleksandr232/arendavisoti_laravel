@@ -20,13 +20,13 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="{{ route('postsimgtours.create') }}" class="btn btn-primary mb-3">Добавить фото</a>
+                            <a href="{{ route('postsimgtours.create') }}" class="btn btn-primary mb-3">Добавить файл</a>
                             @if (count($tours))
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover text-nowrap">
                                         <thead>
                                         <tr>
-                                            <th>Фото</th>
+                                            <th>Медиа</th>
                                             <th>Назначения</th>
                                             <th>Высота</th>
                                             <th>Дата создания</th>
@@ -37,7 +37,13 @@
                                         @foreach($tours as $tour)
                                             <tr>
                                                 <td style="width: 80px;">
-                                                    <img src="{{ asset('uploads/' . $tour->img) }}" style="width: 100%; object-fit: cover" alt="">
+                                                    @if($tour->media == 'MP4' || $tour->media == 'mp4' || $tour->media == 'avi' || $tour->media == 'mov')
+                                                        <video style="width: 100px; height:100px" controls="controls">
+                                                            <source src="{{ asset('uploads/' . $tour->path) }}" style="width: 50%; height:2px; object-fit: cover" alt="">
+                                                        </video>
+                                                    @else
+                                                        <img src="{{ asset('uploads/' . $tour->path) }}" style="width: 100%; object-fit: cover" alt="">
+                                                    @endif
                                                 </td>
                                                 <td>{{ $tour->title }}</td>
                                                 <td>{{ $tour->height }}</td>
