@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class WarehouseController extends Controller
 {
@@ -56,6 +57,40 @@ class WarehouseController extends Controller
             $file = new Warehouse;
             $file->media = $media->getClientOriginalExtension();
             $file->path = $path;
+
+            // Конвертирование изображения в формат WebP и сохранение только в этом формате
+            if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'webp'])) {
+                $image = Image::make($media)->encode('webp', 75);
+                $webpFilename = $media->hashName() . '.webp';
+                $webpPath = 'mediafiles/' . $webpFilename;
+                Storage::disk('warehouse')->put($webpPath, $image);
+
+                $file->path = $webpPath;
+
+
+
+                // Удаление оригинального файла
+                Storage::disk('warehouse')->delete($path);
+            }
+
+            // Проверка количества загружаемых видео
+            $videoCount = Warehouse::where('media', 'LIKE', '%mp4')
+                                ->orWhere('media','LIKE','%avi')
+                                ->orWhere('media','LIKE','%mov')
+                                ->orWhere('media','LIKE','%MP4')
+                                ->count();
+            $maxVideoCount = 5; // Максимальное количество видео
+
+            if ($media->getClientOriginalExtension() == 'mp4' ||$media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
+                if ($videoCount >= $maxVideoCount) {
+
+                    Storage::disk('warehouse')->delete($path);
+
+                    return redirect()->route('postswarehouse.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
+                }
+            }
+
+
             $file->save();
 
             // Генерация sitemap
@@ -76,9 +111,10 @@ class WarehouseController extends Controller
             // Если файл является изображением
             if($media->getClientOriginalExtension() == 'jpg' ||
                 $media->getClientOriginalExtension() == 'jpeg' ||
+                $media->getClientOriginalExtension() == 'webp' ||
                 $media->getClientOriginalExtension() == 'png') {
                 $imageNode = $urlNode->addChild('image:image', '', 'http://www.google.com/schemas/sitemap-image/1.1');
-                $imageNode->addChild('image:loc', url('warehouse/' . $path), 'http://www.google.com/schemas/sitemap-image/1.1');
+                $imageNode->addChild('image:loc', url('warehouse/' . $webpPath), 'http://www.google.com/schemas/sitemap-image/1.1');
                 $imageNode->addChild('image:title', 'Фото Аренда Высоты', 'http://www.google.com/schemas/sitemap-image/1.1');
             } else if ($media->getClientOriginalExtension() == 'MP4' ||
             $media->getClientOriginalExtension() == 'mp4' ||
@@ -95,7 +131,7 @@ class WarehouseController extends Controller
             $sitemapXml->asXml($sitemapPath);
         }
 
-        return redirect()->route('postswarehouse.index')->with('success', 'Медиафайл добавлен и sitemap сгенерирован');
+        return redirect()->route('postswarehouse.index')->with('success', 'Медиа файл  добавлена');
     }
 
     /**
@@ -143,7 +179,7 @@ class WarehouseController extends Controller
         $file = Warehouse::find($id);
 
         if (!$file) {
-            return redirect()->route('postswarehouse.index')->with('error', 'Медиафайл не найден');
+            return redirect()->route('postswarehouse.index')->with('err', 'Медиафайл не найден');
         }
 
         $path = $file->path;
@@ -172,6 +208,6 @@ class WarehouseController extends Controller
         // Сохранение обновленного sitemap.xml
         $sitemapXml->asXml($sitemapPath);
 
-        return redirect()->route('postswarehouse.index')->with('success', 'Медиафайл удален и sitemap обновлен');
+        return redirect()->route('postswarehouse.index')->with('success', 'Медиафайл удален');
     }
 }
