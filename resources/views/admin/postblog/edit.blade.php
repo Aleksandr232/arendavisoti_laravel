@@ -35,6 +35,17 @@
                                 <input type="file" value="{{$blog->media}}" name="media" class="custom-file-input @error('media') is-invalid @enderror" id="img">
                                 <label class="custom-file-label" for="file">Выберите фото</label>
                             </div>
+                            @if($blog->media == 'MP4' || $blog->media == 'mp4' || $blog->media == 'avi' || $blog->media == 'mov')
+                            <div style="margin-top: 40px; width: 280px;">
+                                <video  controls="controls">
+                                    <source src="{{ asset('blog/' . $blog->path) }}" >
+                                </video>
+                            </div>
+                            @else
+                                <div style="margin-top: 40px; width: 280px;">
+                                    <img src="{{ asset('blog/' . $blog->path) }}" style="width: 100%; object-fit: cover" alt="">
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <!-- /.card-body -->
