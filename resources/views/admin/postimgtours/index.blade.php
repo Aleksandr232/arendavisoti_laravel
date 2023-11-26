@@ -37,7 +37,7 @@
                                         @foreach($tours as $tour)
                                             <tr>
                                                 <td style="width: 80px;">
-                                                    @if($tour->media == 'MP4' || $tour->media == 'mp4' || $tour->media == 'avi' || $tour->media == 'mov')
+                                                    @if($tour->media == 'MOV' || $tour->media == 'MP4' || $tour->media == 'mp4' || $tour->media == 'avi' || $tour->media == 'mov')
                                                         <video style="width: 100px; height:100px" controls="controls">
                                                             <source src="{{ asset('uploads/' . $tour->path) }}" style="width: 50%; height:2px; object-fit: cover" alt="">
                                                         </video>

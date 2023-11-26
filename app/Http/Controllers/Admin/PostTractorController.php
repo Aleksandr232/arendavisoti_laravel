@@ -77,10 +77,11 @@ class PostTractorController extends Controller
                                 ->orWhere('media','LIKE','%avi')
                                 ->orWhere('media','LIKE','%mov')
                                 ->orWhere('media','LIKE','%MP4')
+                                ->orWhere('media','LIKE','%MOV')
                                 ->count();
             $maxVideoCount = 5; // Максимальное количество видео
 
-            if ($media->getClientOriginalExtension() == 'mp4' ||$media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
+            if ($media->getClientOriginalExtension() == 'mp4' || $media->getClientOriginalExtension() == 'MOV' || $media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
                 if ($videoCount >= $maxVideoCount) {
 
                     Storage::disk('public')->delete($path);
@@ -117,6 +118,7 @@ class PostTractorController extends Controller
             } else if ($media->getClientOriginalExtension() == 'MP4' ||
             $media->getClientOriginalExtension() == 'mp4' ||
             $media->getClientOriginalExtension() == 'avi' ||
+            $media->getClientOriginalExtension() == 'MOV' ||
             $media->getClientOriginalExtension() == 'mov') {
             $videoNode = $urlNode->addChild('video:video', '', 'http://www.google.com/schemas/sitemap-video/1.1');
             $videoNode->addChild('video:thumbnail_loc', url('uploads/' . $path), 'http://www.google.com/schemas/sitemap-video/1.1');

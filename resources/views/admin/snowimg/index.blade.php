@@ -35,7 +35,7 @@
                                         @foreach($snow  as $post)
                                             <tr>
                                                 <td style="width: 80px;">
-                                                    @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                                                    @if($post->media == 'MOV' || $post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
                                                         <video style="width: 100px; height:100px" controls="controls">
                                                             <source src="{{ asset('snow/' . $post->path) }}" style="width: 50%; height:2px; object-fit: cover" alt="">
                                                         </video>
