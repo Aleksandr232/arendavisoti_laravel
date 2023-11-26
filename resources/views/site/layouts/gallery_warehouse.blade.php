@@ -127,21 +127,42 @@
     });
 </script>
 <script>
-    const dropdown = document.querySelector('.down');
-    const submenu = document.querySelector('.submenu');
+    const dropdowns = document.querySelectorAll('.down');
+    const submenus = document.querySelectorAll('.submenu');
+    let openIndex = null;
 
-    dropdown.addEventListener('click', function() {
-      submenu.classList.toggle('show');
+    dropdowns.forEach((dropdown, index) => {
+      dropdown.addEventListener('click', function (event) {
+        const submenu = submenus[index];
+        if (submenu.classList.contains('show')) {
+          submenu.classList.remove('show');
+          openIndex = null;
+        } else {
+          if (openIndex !== null && openIndex !== index) {
+            submenus[openIndex].classList.remove('show');
+          }
+          submenu.classList.add('show');
+          openIndex = index;
+        }
+        event.stopPropagation();
+      });
     });
 
-    document.addEventListener('click', function(event) {
-      const target = event.target;
-      if (!submenu.contains(target) && !dropdown.contains(target)) {
-        submenu.classList.remove('show');
-      }
+    document.addEventListener('mousedown', function (event) {
+        const target = event.target;
+        let isInsideSubmenu = false;
+        submenus.forEach((submenu) => {
+            if (submenu.contains(target)) {
+                isInsideSubmenu = true;
+            }
+        });
 
+        if (!isInsideSubmenu && openIndex !== null) {
+            submenus[openIndex].classList.remove('show');
+            openIndex = null;
+        }
     });
-  </script>
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
