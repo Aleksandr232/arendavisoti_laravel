@@ -14,7 +14,7 @@
 @section('content')
     <section id="gallery">
         <div class="gallery">
-            @foreach ($texnica as $post)
+            @foreach ($texnica->reverse() as $post)
             <div class="gallery-card">
                 <div class="gallery-card__image">
                     @if($post->media == 'MOV' || $post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
