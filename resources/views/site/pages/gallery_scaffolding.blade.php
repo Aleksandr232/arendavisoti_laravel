@@ -17,7 +17,7 @@
             @foreach ($scaff -> reverse()  as $post)
             <div class="gallery-card" itemscope itemtype="http://schema.org/ImageObject">
                 <div class="gallery-card__image">
-                    @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                    @if($post->media == 'MOV' || $post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
                     <video  controls="controls">
                         <source src="{{ asset('uploads/' . $post->path) }}"  title="наши сторительные леса на {{$post->objects}}" alt="{{$post->objects}}">
                     </video>

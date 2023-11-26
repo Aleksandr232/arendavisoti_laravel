@@ -16,7 +16,7 @@
         <div class="gallery">
             @foreach ($snow  as $post)
             <div class="gallery-card">
-                    @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                    @if($post->media == 'MOV' || $post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
                     <video  controls="controls">
                         <source src="{{ asset('snow/' . $post->path) }}"  title="" alt="}">
                     </video>

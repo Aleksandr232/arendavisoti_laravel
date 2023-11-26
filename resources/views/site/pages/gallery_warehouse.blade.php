@@ -17,7 +17,7 @@
             @foreach ($warehouse as $post)
             <div class="gallery-card">
                 <div class="gallery-card__image">
-                    @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                    @if($post->media == 'MOV' || $post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
                     <video  controls="controls">
                         <source src="{{ asset('warehouse/' . $post->path) }}"  alt="склад аренды высоты">
                     </video>
