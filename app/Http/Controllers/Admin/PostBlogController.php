@@ -221,7 +221,7 @@ class PostBlogController extends Controller
         if ($media->getClientOriginalExtension() == 'mp4' ||$media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
             if ($videoCount >= $maxVideoCount) {
 
-                Storage::disk('Blog')->delete($path);
+                Storage::disk('blog')->delete($path);
 
                 return redirect()->route('postsblog.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
             }
