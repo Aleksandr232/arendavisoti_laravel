@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Добавление фото в галерею минитрактора</h1>
+                    <h1>Добавление медиа в галерею минитрактора</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -21,10 +21,10 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group col-6">
-                            <label for="img">Фотография </label>
+                            <label for="img">Медиа </label>
                             <div class="custom-file">
-                                <input type="file" name="img" class="custom-file-input @error('title') is-invalid @enderror" id="img">
-                                <label class="custom-file-label" for="file">Выберите фото</label>
+                                <input type="file" name="media" class="custom-file-input @error('title') is-invalid @enderror" id="img">
+                                <label class="custom-file-label" for="file">Выберите файл</label>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
 
                     <div class="card-footer">
                         <a href="{{ route('poststractor.index') }}" type="button" class="btn btn-success">Назад</a>
-                        <button type="submit" class="btn btn-primary">Добавить фото</button>
+                        <button type="submit" class="btn btn-primary">Добавить файл</button>
                     </div>
                 </form>
             </div>

@@ -13,19 +13,26 @@
 
 @section('content')
 <section id="gallery">
+
     <div class="gallery">
         @foreach ($tractor -> reverse() as $post)
-            <div class="gallery-card">
+        <div class="gallery-card">
+                @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                <video  controls="controls">
+                    <source src="{{ asset('uploads/' . $post->path) }}"  title="минитрактор Казань" alt="минитрактор Казань">
+                </video>
+                @else
                 <div class="gallery-card__image">
-                    <a href="{{ 'uploads/' . $post->img }}" class="gallery-show" title="{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}">
-                        <picture>
-                            <source type="image/webp" srcset="{{ 'uploads/' . $post->img }}">
-                            <img src="{{ 'uploads/' . $post->img }}" width="320" height="350" alt="минитрактор">
-                        </picture>
-                    </a>
+                <a href="{{ 'uploads/' . $post->path }}" class="gallery-show" title="{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}">
+                    <picture>
+                        <source type="image/webp" srcset="{{ 'uploads/' . $post->path }}">
+                        <img  src="{{ 'uploads/' . $post->path }}" width="320" height="350" title="минитрактор Казань" alt="минитрактор Казань">
+                    </picture>
+                </a>
                 </div>
-            </div>
-            @endforeach
+                @endif
+        </div>
+        @endforeach
         <div class="gallery-card">
             <div class="gallery-card__image">
                 <a href="{{ asset('frontend/img/technics/texnica3.jpg') }}" class="gallery-show" title="Погрузчик, минитрактор">

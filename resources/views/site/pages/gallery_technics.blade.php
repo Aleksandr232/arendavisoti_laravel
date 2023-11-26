@@ -14,20 +14,22 @@
 @section('content')
     <section id="gallery">
         <div class="gallery">
-            @foreach ($texnica -> reverse() as $post)
+            @foreach ($texnica as $post)
             <div class="gallery-card">
                 <div class="gallery-card__image">
-                    <a href="{{ 'uploads/' . $post->img }}" class="gallery-show" title="{{$post->text_img}}   {{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}">
+                    @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                    <video  controls="controls">
+                        <source src="{{ asset('uploads/' . $post->path) }}"  alt="грузоперевозки казань {{$post->img_text}}" title="грузоперевозки казань {{$post->img_text}}">
+                    </video>
+                    @else
+                    <a href="{{ 'uploads/' . $post->path }}" class="gallery-show" title="{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}">
                         <picture>
-                            <source type="image/webp" srcset="{{ 'uploads/' . $post->img }}">
-                            <img src="{{ 'uploads/' . $post->img }}" width="320" height="350" alt="Грузоперевозки Казань">
+                            <source type="image/webp" srcset="{{ 'uploads/' . $post->path  }}">
+                            <img src="{{ 'uploads/' . $post->path }}" width="320" height="350" alt="грузоперевозки казань {{$post->img_text}}" title="грузоперевозки казань {{$post->img_text}}">
                         </picture>
                     </a>
+                    @endif
                 </div>
-                {{-- <h3><span>Высота Балатон 0,6×1,5м:</span> 12 м</h3>
-                <p><span>Назначение:</span>{{ $post->title }}</p>
-                <p><span>Объект:</span>{{  $post->content }}</p>
-                <p><span>Дата:</span>{{ $post->created_at }}</p> --}}
             </div>
             @endforeach
             <div class="gallery-card">

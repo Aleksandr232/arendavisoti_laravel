@@ -16,14 +16,20 @@
         <div class="gallery">
             @foreach ($snow  as $post)
             <div class="gallery-card">
-                <div class="gallery-card__image">
-                    <a href="{{ 'snow/' . $post->path }}" class="gallery-show" title="{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}">
-                        <picture>
-                            <source type="image/webp" srcset="{{ 'snow/' . $post->path  }}">
-                            <img src="{{ 'snow/' . $post->path }}" width="320" height="350" alt="уборка снега с крыш">
-                        </picture>
-                    </a>
-                </div>
+                    @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                    <video  controls="controls">
+                        <source src="{{ asset('snow/' . $post->path) }}"  title="" alt="}">
+                    </video>
+                    @else
+                    <div class="gallery-card__image">
+                        <a href="{{ 'snow/' . $post->path }}" class="gallery-show" title="{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}">
+                            <picture>
+                                <source type="image/webp" srcset="{{ 'snow/' . $post->path }}">
+                                <img itemprop="contentUrl" src="{{ 'snow/' . $post->path }}" width="320" height="350" title="уборка снега с крыш Казань" alt="уборка снега с крыш Казань">
+                            </picture>
+                        </a>
+                    </div>
+                    @endif
             </div>
             @endforeach
 

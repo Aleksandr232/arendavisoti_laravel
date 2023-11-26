@@ -9,7 +9,7 @@ class Snow extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['img', 'path'];
+    protected $fillable = ['media', 'path'];
 
     protected $table = 'snow';
 }
