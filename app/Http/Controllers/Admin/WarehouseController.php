@@ -60,7 +60,7 @@ class WarehouseController extends Controller
 
             // Конвертирование изображения в формат WebP и сохранение только в этом формате
             if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'webp'])) {
-                $image = Image::make($media)->encode('webp', 75);
+                $image = Image::make($media)->encode('webp', 30);
                 $webpFilename = $media->hashName() . '.webp';
                 $webpPath = 'mediafiles/' . $webpFilename;
                 Storage::disk('warehouse')->put($webpPath, $image);
