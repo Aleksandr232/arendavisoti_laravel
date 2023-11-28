@@ -33,27 +33,6 @@
                 @endif
         </div>
         @endforeach
-        <div class="gallery-card">
-            <div class="gallery-card__image">
-                <a href="{{ asset('frontend/img/technics/texnica3.jpg') }}" class="gallery-show" title="Погрузчик, минитрактор">
-                    <picture>
-                        <source type="image/webp" srcset="{{ asset('frontend/img/technics/texnica3.webp') }}">
-                        <img src="{{ asset('frontend/img/technics/texnica3.jpg') }}" width="320" height="350" alt="минитрактор аренда">
-                    </picture>
-                </a>
-            </div>
-       </div>
-       <div class="gallery-card">
-            <div class="gallery-card__image">
-                <a href="{{ asset('frontend/img/technics/bars9.jpg') }}" class="gallery-show" title="Погрузчик, минитрактор">
-                    <picture>
-                        <source type="image/webp" srcset="{{ asset('frontend/img/technics/bars9.webp') }}">
-                        <img src="{{ asset('frontend/img/technics/bars9.jpg') }}" width="320" height="350" alt="минитрактор аренда">
-                    </picture>
-
-                </a>
-            </div>
-       </div>
        <div class="gallery-card">
             <div class="gallery-card__image">
                         <div>
