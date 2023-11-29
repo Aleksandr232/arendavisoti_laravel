@@ -14,8 +14,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/img/favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('frontend/img/favicon/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ asset('frontend/img/favicon/safari-pinned-tab.svg') }}" color="#4c9017">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
     <meta name="yandex-verification" content="28995526bf02ce7b" />
     <meta name="google-site-verification" content="5-H6xsRiI339Q3cQhqAO9jUexDebDY1RUvC4l9F6mSU" />
   </head>
@@ -25,12 +23,10 @@
     <!-- favicon end -->
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/critical.css') }}">
-    <script defer src="{{ asset('frontend/js/script.js') }}"></script>
-    <script src="{{ asset('frontend/js/running-string.js') }}"></script>
-    <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
-    <script defer src="{{ asset('frontend/js/hidden_text.js') }}"></script>
-    <script src="https://res.smartwidgets.ru/app.js" defer></script>
+
 
 
     <!-- Yandex.Metrika counter -->
@@ -178,7 +174,11 @@
     });
 
   </script>
-
+<script async src="{{ asset('frontend/js/script.js') }}"></script>
+<script async src="{{ asset('frontend/js/running-string.js') }}"></script>
+<script  src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script defer src="{{ asset('frontend/js/hidden_text.js') }}"></script>
+<script async src="https://res.smartwidgets.ru/app.js" ></script>
 </body>
 
 </html>
