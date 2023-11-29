@@ -15,6 +15,7 @@
     <link rel="manifest" href="{{ asset('frontend/img/favicon/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ asset('frontend/img/favicon/safari-pinned-tab.svg') }}" color="#4c9017">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
     <meta name="yandex-verification" content="28995526bf02ce7b" />
     <meta name="google-site-verification" content="5-H6xsRiI339Q3cQhqAO9jUexDebDY1RUvC4l9F6mSU" />
   </head>

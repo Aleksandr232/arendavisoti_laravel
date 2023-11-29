@@ -18,7 +18,7 @@
                 $counter = 1;
             @endphp
 
-            @foreach ($blog -> reverse() as $post)
+            @foreach ($blog as $post)
                 @if($counter % 2 == 0)
                     <div class="odd">
                         <div class="posts-card my-container">
