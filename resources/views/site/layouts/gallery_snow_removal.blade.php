@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="manifest" href="{{ asset('frontend/img/favicon/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ asset('frontend/img/favicon/safari-pinned-tab.svg') }}" color="#4c9017">
-    <link rel="canonical" href="https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F-%D1%83%D0%B1%D0%BE%D1%80%D0%BA%D0%B0-%D1%81%D0%BD%D0%B5%D0%B3%D0%B0"/>
+    <link rel="canonical" href="https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F-%D1%83%D0%B1%D0%BE%D1%80%D0%BA%D0%B0-%D1%81%D0%BD%D0%B5%D0%B3%D0%B0?page=1"/>
+    <link rel="canonical" href="https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F-%D1%83%D0%B1%D0%BE%D1%80%D0%BA%D0%B0-%D1%81%D0%BD%D0%B5%D0%B3%D0%B0?page=2"/>
+    <link rel="canonical" href="https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F-%D1%83%D0%B1%D0%BE%D1%80%D0%BA%D0%B0-%D1%81%D0%BD%D0%B5%D0%B3%D0%B0?page=3"/>
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     <meta name="googlebot" content="all">
