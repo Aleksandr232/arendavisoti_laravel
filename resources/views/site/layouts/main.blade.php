@@ -16,16 +16,16 @@
     <link rel="mask-icon" href="{{ asset('frontend/img/favicon/safari-pinned-tab.svg') }}" color="#4c9017">
     <meta name="yandex-verification" content="28995526bf02ce7b" />
     <meta name="google-site-verification" content="5-H6xsRiI339Q3cQhqAO9jUexDebDY1RUvC4l9F6mSU" />
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="{{ asset('frontend/css/critical.css') }}">
+
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
     <!-- favicon end -->
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/critical.css') }}">
 
 
 
