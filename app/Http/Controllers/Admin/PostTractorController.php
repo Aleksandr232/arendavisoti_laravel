@@ -102,7 +102,7 @@ class PostTractorController extends Controller
 
             // Создание новой записи в sitemap для загруженного медиафайла
             $urlNode = $sitemapXml->addChild('url');
-            $urlNode->addChild('loc', url('https://xn--80aagge2ckkol0hd.xn--p1ai/%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0'));
+            $urlNode->addChild('loc', url('https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8F-%D0%BC%D0%B8%D0%BD%D0%B8%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BE%D1%80'));
             $urlNode->addChild('lastmod', date('Y-m-d\TH:i:sP'));
             $urlNode->addChild('changefreq', 'daily');
             $urlNode->addChild('priority', '0.8');
