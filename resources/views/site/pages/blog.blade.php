@@ -23,7 +23,7 @@
                     <div class="odd">
                         <div class="posts-card my-container">
                             <div class="pc-image pc-image__revers">
-                                @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                                @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov' || $post->media == 'MOV')
                                 <video class="video_blog"  controls="controls">
                                     <source src="{{ asset('blog/' . $post->path) }}" title="{{$post->title}}"  alt="новый пост про {{$post->title}}">
                                 </video>
