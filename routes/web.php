@@ -36,6 +36,7 @@ use App\Http\Controllers\Admin\PostVisitController;
 use App\Http\Controllers\Admin\TgUsController;
 use App\Http\Controllers\Admin\ParserController;
 use App\Http\Controllers\Admin\PostBlogController;
+use App\Http\Controllers\Admin\ActiveRunningString;
 use App\Http\Controllers\Director\DirectorController;
 use App\Http\Controllers\Director\StatController;
 use App\Http\Controllers\Director\StaffController;
@@ -143,6 +144,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('pdf/generate/lesa', [CustomerBaseController::class, 'generatePDFlesa'])->name('pdf.generate.lesa');
     Route::get('act/lesa/{id}', [CustomerBaseController::class, 'wordExport'])->name('wordExport');
     Route::get('pdf/generate/tours', [CustmerBaseToursController::class, 'generatePDFTours'])->name('pdf.generate.Tours');
+    Route::get('/active', [ActiveRunningString::class, 'run_string'])->name('run_string');
 
 });
 

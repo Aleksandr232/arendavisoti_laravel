@@ -355,6 +355,14 @@
                         </p>
                     </a>
                 </div>
+                <div class="nav-item has-treeview">
+                    <a href="{{ route('run_string') }}" class="nav-link">
+                        {{-- <i class="nav-icon fas fa fa-truck"></i> --}}
+                        <p>
+                            Активировать рекламу
+                        </p>
+                    </a>
+                </div>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
