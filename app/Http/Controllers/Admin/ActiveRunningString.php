@@ -13,7 +13,12 @@ class ActiveRunningString extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+    public function index(Request $request)
+    {
+        $active = RunStr::all('is_active');
+
+        return response()->json($active);
+    }
 
 
     public function run_string(Request $request)
