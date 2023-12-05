@@ -349,7 +349,7 @@
                 </div>
                  <div class="nav-item has-treeview">
                     <a href="{{ route('chat.index') }}" class="nav-link">
-                        
+
                         <p>
                             Чат
                         </p>
@@ -442,7 +442,6 @@
 <script async  src="{{ asset('backend/map/apimap.js') }}"></script>
 <script async  src="{{ asset('backend/socket/socket.js') }}"></script>
 <script async  src="{{ asset('backend/run_string/run_string.js') }}"></script>
-<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=159d1b30-bef0-463b-a7f6-b69cba7ec8e9" type="text/javascript"></script>
 
