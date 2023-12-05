@@ -17,7 +17,7 @@ class ActiveRunningString extends Controller
     {
         $active = RunStr::all('is_active');
 
-        return response()->json($active);
+        return response()->json(['active'=>$active]);
     }
 
 

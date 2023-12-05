@@ -349,20 +349,20 @@
                 </div>
                  <div class="nav-item has-treeview">
                     <a href="{{ route('chat.index') }}" class="nav-link">
-                        {{-- <i class="nav-icon fas fa fa-truck"></i> --}}
+                        
                         <p>
                             Чат
                         </p>
                     </a>
                 </div>
-                <div class="nav-item has-treeview">
+                {{-- <div class="nav-item has-treeview">
                     <a href="{{ route('run_string') }}" class="nav-link">
-                        {{-- <i class="nav-icon fas fa fa-truck"></i> --}}
-                        <p>
-                            Активировать рекламу
+
+                        <p id="advertisingStatus">
+
                         </p>
                     </a>
-                </div>
+                </div> --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -441,6 +441,7 @@
 <script async  src="{{ asset('backend/calcArea/calc.js') }}"></script>
 <script async  src="{{ asset('backend/map/apimap.js') }}"></script>
 <script async  src="{{ asset('backend/socket/socket.js') }}"></script>
+<script async  src="{{ asset('backend/run_string/run_string.js') }}"></script>
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=159d1b30-bef0-463b-a7f6-b69cba7ec8e9" type="text/javascript"></script>
@@ -463,45 +464,7 @@
     });
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/laravel-echo/1.10.0/echo.js"></script>
-    <script>
-        window.onload = function () {
-            const socket = io("http://localhost:6001");
 
-            const echo = new Echo({
-                broadcaster: 'socket.io',
-                host: window.location.hostname + ':6001',
-            });
-
-            echo.channel('chat').listen('.message-created', (message) => {
-                console.log(message);
-                appendMessage(message.content);
-            });
-
-            function appendMessage(content) {
-                const messageElement = document.createElement('div');
-                messageElement.innerText = content;
-                document.getElementById('chat-messages').appendChild(messageElement);
-            }
-
-            document.getElementById('chat-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                const content = document.getElementById('message-content').value;
-
-                socket.emit('chat-message', {
-                    content: content
-                });
-
-                document.getElementById('message-content').value = '';
-            });
-
-            socket.on('chat-message', function (message) {
-                appendMessage(message.content);
-            });
-        };
-    </script>
 
 <script src="../build/ckeditor.js"></script>
 		<script>ClassicEditor
@@ -517,7 +480,9 @@
 					console.warn( 'Build id: 6jdakw6yb6bl-8ek9xs5l5res' );
 					console.error( error );
 				} );
-		</script>
+</script>
+
+
 
 </body>
 </html>

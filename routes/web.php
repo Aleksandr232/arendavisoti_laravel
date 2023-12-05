@@ -145,7 +145,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('act/lesa/{id}', [CustomerBaseController::class, 'wordExport'])->name('wordExport');
     Route::get('pdf/generate/tours', [CustmerBaseToursController::class, 'generatePDFTours'])->name('pdf.generate.Tours');
     Route::get('/active', [ActiveRunningString::class, 'run_string'])->name('run_string');
-    
+
 
 });
 
@@ -189,6 +189,7 @@ Route::resource('/status', StaisticaController::class); // статистика
 Route::resource('/orderapi', PostOrderController::class); // корзина с заказыми
 Route::resource('/visit', PostVisitController::class); //посещения сайта по городам
 Route::get('/month-visit', [PostVisitController::class, 'index2']); //общее посещения сайта по месяцам
+Route::get('/status-string', [ActiveRunningString::class, 'index']);
 
 // api заказы из телеграмм бота
 Route::post('api/order', [PostOrderController::class, 'store']); // для телеграмм бота
