@@ -104,6 +104,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/orders', OrderController::class);
     Route::resource('/documents', DocumentController::class);
     Route::resource('/postsblog', PostBlogController::class);
+    Route::get('/seo/{id}', [PostBlogController::class, 'seo'])->name('seo');
+    Route::post('/seo-post/{id}', [PostBlogController::class, 'post_seo'])->name('post_seo');
     Route::resource('/stocks', StockController::class);
     Route::get('/stockslesa', [StockController::class, 'index1'])->name('index1');
     Route::get('/stockstours', [StockController::class, 'index2'])->name('index2');

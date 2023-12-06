@@ -24,12 +24,26 @@ class PostBlogController extends Controller
         return view('admin.postblog.index', compact('blog'));
     }
 
-    /* public function blog_seo(Request $request, $id)
+    public function seo(Request $request, $id)
     {
         $blog = Blog::query()->find($id);
 
-        return view('', compact('blog'));
-    } */
+        return view('admin.blog_seo.index', compact('blog'));
+    }
+
+    public function post_seo(Request $request, $id)
+    {
+        $blog = Blog::query()->find($id);
+
+        $blog->titles = $request->input('titles');
+        $blog->description = $request->input('description');
+        $blog->keywords = $request->input('keywords');
+
+        $blog->save();
+
+        return redirect()->route('postsblog.index')->with('success', 'SEO настройка прошла успешно');
+
+    }
 
     /**
      * Show the form for creating a new resource.

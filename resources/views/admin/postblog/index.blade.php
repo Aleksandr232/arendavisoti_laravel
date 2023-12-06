@@ -50,6 +50,9 @@
                                                 <a href="{{ route('postsblog.edit', $post->id) }}" class="btn btn-info btn-sm float-left mr-1">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
+                                                <a href="{{ route('seo', $post->id) }}" class="btn btn-info btn-sm float-left mr-1">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </a>
                                                 <form action="{{ route('postsblog.destroy', $post->id) }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
