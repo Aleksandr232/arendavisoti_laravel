@@ -18,14 +18,17 @@ class HomeController extends Controller
         $ip = $request->ip();
         $data = \Location::get($ip);
 
-        // Save user city to session model
-        $userip = new UserIp;
-        $userip ->ip = $data->ip;
-        $userip->cityName= $data->cityName;
-        $userip->regionName= $data->regionName;
-        $userip->countryName= $data->countryName;
-        $userip->save();
-
+        // Проверяем успешность получения информации о местоположении
+        if ($data) {
+            // Сохраняем информацию о городе пользователя в модели UserIp
+            $userip = new UserIp;
+            $userip->ip = $data->ip;
+            $userip->cityName= $data->cityName;
+            $userip->regionName= $data->regionName;
+            $userip->countryName= $data->countryName;
+            $userip->save();
+        }
+        
         return view('site.home.index', compact('scaff', 'tours'));
     }
 

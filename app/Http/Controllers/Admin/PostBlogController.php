@@ -24,6 +24,13 @@ class PostBlogController extends Controller
         return view('admin.postblog.index', compact('blog'));
     }
 
+    /* public function blog_seo(Request $request, $id)
+    {
+        $blog = Blog::query()->find($id);
+
+        return view('', compact('blog'));
+    } */
+
     /**
      * Show the form for creating a new resource.
      *
