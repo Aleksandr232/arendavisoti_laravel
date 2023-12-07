@@ -22,11 +22,11 @@
                     <div class="card-body">
                         <div id="form-group" class="form-group">
                             <label for="titles">Заголовок страницы</label>
-                            <input type="text" value="{{$blog->titles}}" name="titles" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title">
+                            <input type="text" value="{{$blog->titles}}" name="titles" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Заголовок страницы">
                             <label for="description">Описание страницы</label>
-                            <input type="text" value="{{$blog->description}}" name="description" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title">
+                            <input type="text" value="{{$blog->description}}" name="description" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Описание страницы">
                             <label for="keywords">Ключевые слова</label>
-                            <input type="text" value="{{$blog->keywords}}" name="keywords" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title">
+                            <input type="text" value="{{$blog->keywords}}" name="keywords" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Ключевые слова">
                         </div>
                     </div>
                     <!-- /.card-body -->
