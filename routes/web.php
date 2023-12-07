@@ -77,6 +77,7 @@ Route::get('/галерея-минитрактор', [PageController::class, 'ga
 Route::get('/наши-контакты', [PageController::class, 'contacts'])->name('contacts');
 Route::get('/статьи', [PageController::class, 'posts'])->name('posts');
 Route::get('/блог', [PageController::class, 'blog'])->name('blog');
+Route::get('/блог/{id}', [PageController::class, 'blogid'])->name('blogid');
 Route::get('/update-sitemap', [SitemapController::class, 'update']);
 Route::post('/письмо-отправлено', [MailController::class, 'send'])->name('send');
 Route::post('/заказ-отправлен', [OrderTgController::class, 'sendOrder'])->name('sendOrder');

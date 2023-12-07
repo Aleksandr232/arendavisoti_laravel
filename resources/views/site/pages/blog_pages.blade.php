@@ -1,40 +1,34 @@
 @extends('site.layouts.main')
 
-@section('title', 'Блог «Аренда высоты»')
-@section('description', 'Предлагаем в аренду передвижные строительные вышки-туры с доставкой по Казани по самым выгодным ценам «Аренда высоты»')
-@section('keywords', 'вышка тура авито, вышка тура, вышка тура казань, вышка тура строительная, вышка тура аренда, вышка тура 2 2, вышка тура передвижная, вышка тура +на колесах, вышка тура аренда казань')
+@section('title', $blogid->titles)
+@section('description', $blogid->description)
 
 @section('header_title')
     <div class="header-content my-container">
-        <h1>Блог <span>Аренды высоты</span></h1>
-        <p>Предлагаем в аренду рамные строительные леса, строительные вышки-туры, раздвижные лестницы. Дополнительно оказываем услуги на минитракторе МКСМ, а также услуги строительного альпинизма по очистке снега с крыш. Осуществляем доставку оборудования нашим автотранспортом по Казани и Республике Татарстан</p>
+        <h1>{{ $blogid->title }}</h1>
     </div>
 @endsection
 
 @section('content')
     <section id="posts">
         <div class="posts">
-            @foreach ($blog as $post)
-                        <div class="posts-card my-container">
-                            <div class="pc-image pc-image__revers">
-                                @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov' || $post->media == 'MOV')
-                                <video class="video_blog"  controls="controls">
-                                    <source src="{{ asset('blog/' . $post->path) }}" title="{{$post->title}}"  alt="новый пост про {{$post->title}}">
-                                </video>
-                                @else
-                                <img src="{{ 'blog/' . $post->path }}" title="{{$post->title}}" alt="новый пост про {{$post->title}}">
-                                @endif
-                            </div>
-                            <div class="pc-content pc-content__revers">
-                                <h2>{{ $post->title }}</h2>
-                                <div id="block{{$post->id}}"   class="content_block hide">
-                                    <div  class="content_text">{!! $post->content !!}</div>
-                                </div>
-                                <a class="content_toggle" data-target="#block{{$post->id}}" href="#">Подробнее</a>
-                            </div>
-                        </div>
+                <div class="posts-card my-container">
+                    <div class="pc-image pc-image_revers">
+                        @if($blogid->media === 'MP4' || $blogid->media === 'mp4' || $blogid->media === 'avi' || $blogid->media === 'mov' || $blogid->media === 'MOV')
+                        <video class="video_blog"  controls="controls">
+                            <source src="{{ asset('blog/' . $blogid->path) }}" title="{{$blogid->title}}"  alt="новый пост про {{$blogid->title}}">
+                        </video>
+                        @else
+                        <img src="{{ asset('blog/' . $blogid->path) }}" title="{{$blogid->title}}" alt="новый пост про {{$blogid->title}}">
+                        @endif
                     </div>
-            @endforeach
+                    <div class="pc-content pc-content_revers">
+                        <div id="block{{$blogid->id}}" class="content_block hide">
+                            <div class="content_text">{!! $blogid->content !!}</div>
+                        </div>
+                        <a class="content_toggle" data-target="#block{{$blogid->id}}" href="#">Подробнее</a>
+                    </div>
+                </div>
         </div>
     </section>
     <!-- include our-products start -->

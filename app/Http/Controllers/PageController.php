@@ -13,6 +13,7 @@ use App\Models\PriceFile;
 use App\Models\Snow;
 use App\Models\Warehouse;
 use App\Models\Blog;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -129,6 +130,13 @@ class PageController extends Controller
         ->paginate(8);
 
         return view('site.pages.blog', compact('blog'));
+    }
+
+    public function blogid(Request $request, $id)
+    {
+        $blogid = Blog::query()->find($id);
+
+        return view('site.pages.blog_pages', compact('blogid'));
     }
 
 

@@ -21,6 +21,7 @@
             @foreach ($blog as $post)
                 @if($counter % 2 == 0)
                     <div class="odd">
+                        <a href="{{ route('blogid', $post->id) }}">
                         <div class="posts-card my-container">
                             <div class="pc-image pc-image__revers">
                                 @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov' || $post->media == 'MOV')
@@ -36,13 +37,13 @@
                                 <div id="block{{$post->id}}"   class="content_block hide">
                                     <div  class="content_text">{!! $post->content !!}</div>
                                 </div>
-                                <a class="content_toggle" data-target="#block{{$post->id}}" href="#">Подробнее</a>
                             </div>
                         </div>
+                        </a>
                     </div>
                 @else
                     <div class="even">
-                        <div class="posts-card my-container">
+                        <a href="{{ route('blogid', $post->id) }}"><div class="posts-card my-container">
                             <div class="pc-image">
                                 @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov' || $post->media == 'MOV')
                                 <video class="video_blog"   controls="controls">
@@ -57,9 +58,8 @@
                                 <div id="block{{$post->id}}"  class="content_block hide">
                                     <div class="content_text">{!! $post->content !!}</div>
                                 </div>
-                                <a class="content_toggle" data-target="#block{{$post->id}}" href="#">Подробнее</a>
                             </div>
-                        </div>
+                        </div></a>
                     </div>
                 @endif
                 @php
