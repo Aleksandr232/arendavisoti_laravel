@@ -364,6 +364,13 @@
                         </p>
                     </a>
                 </div> --}}
+                <div class="nav-item has-treeview">
+                    @if(auth()->check() && auth()->user()->is_dev)
+                    <a href="{{ route('update_dev') }}" class="nav-link">
+                        Обновить карту сайта
+                    </a>
+                    @endif
+                </div>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -148,6 +148,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('act/lesa/{id}', [CustomerBaseController::class, 'wordExport'])->name('wordExport');
     Route::get('pdf/generate/tours', [CustmerBaseToursController::class, 'generatePDFTours'])->name('pdf.generate.Tours');
     Route::get('/active', [ActiveRunningString::class, 'run_string'])->name('run_string');
+    Route::get('/sitemap', [SitemapController::class, 'update_dev'])->name('update_dev');
 
 
 });
