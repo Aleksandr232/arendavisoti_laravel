@@ -17,7 +17,7 @@
         <div class="gallery-card">
                 <div class="gallery-card__image">
                      <a href="{{ route('gallery_scaffolding') }}"  class="gallery-show" title="Строительные леса">
-                            <img src="../../../../public/frontend/img/gallery/inopolis_end.jpg" width="320" height="350" alt="аренда лесов и тур">
+                            <img src="../../../../public/frontend/img/gallery/kazanskiy-kreml.webp" width="320" height="350" alt="аренда лесов и тур">
                     </a>
 
                 </div>
