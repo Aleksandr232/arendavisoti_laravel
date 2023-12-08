@@ -23,7 +23,7 @@
                 @php
                     $counter = 1;
                 @endphp
-            @foreach($posts as $post)
+            @foreach($posts->reverse() as $post)
                 @if($post->is_tabs == 0)
                     @if($counter % 2 == 0)
                     <div class="odd">
@@ -61,7 +61,7 @@
                 @php
                     $counter = 1;
                 @endphp
-            @foreach($posts as $post)
+            @foreach($posts->reverse() as $post)
                 @if($post->is_tabs == 1)
                     @if($counter % 2 == 0)
                     <div class="odd">

@@ -33,7 +33,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($posts -> reverse() as $post)
+                                        @foreach($posts as $post)
                                             <tr>
                                                 <td style="width: 80px;">
                                                     <img src="{{ asset('uploads/' . $post->img) }}" style="width: 100%; object-fit: cover" alt="">
