@@ -17,7 +17,7 @@
     <meta name="yandex-verification" content="28995526bf02ce7b" />
     <meta name="google-site-verification" content="5-H6xsRiI339Q3cQhqAO9jUexDebDY1RUvC4l9F6mSU" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <link rel="stylesheet" href="{{ asset('frontend/css/critical.css') }}">
 
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -178,6 +178,7 @@
 <script async src="{{ asset('frontend/js/running-string.js') }}"></script>
 <script  src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
 <script defer src="{{ asset('frontend/js/hidden_text.js') }}"></script>
+<script defer src="{{ asset('frontend/js/tabs.js') }}"></script>
 <script async src="https://res.smartwidgets.ru/app.js" ></script>
 </body>
 

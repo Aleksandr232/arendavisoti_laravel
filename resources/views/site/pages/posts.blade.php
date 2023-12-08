@@ -14,10 +14,14 @@
 @section('content')
     <section id="posts">
         <div class="posts">
-            @php
-                $counter = 1;
-            @endphp
-
+            <div class="tab-container">
+                <div class="tab" onclick="openTab(event, 'tab1')">Вышки-туры</div>
+                <div class="tab" onclick="openTab(event, 'tab2')">Леса</div>
+              </div>
+              <div id="tab1" class="tab-content active">
+                @php
+                    $counter = 1;
+                @endphp
             @foreach ($posts -> reverse() as $post)
                 @if($counter % 2 == 0)
                     <div class="odd">
@@ -48,6 +52,43 @@
                     $counter++;
                 @endphp
             @endforeach
+              </div>
+
+              <div id="tab2" class="tab-content">
+                @php
+                    $counter = 1;
+                @endphp
+            @foreach ($posts -> reverse() as $post)
+                @if($counter % 2 == 0)
+                    <div class="odd">
+                        <div class="posts-card my-container">
+                            <div class="pc-image pc-image__revers">
+                                <img src="{{ 'uploads/' . $post->img }}" alt="аренда лесов и вышек-тур">
+                            </div>
+                            <div class="pc-content pc-content__revers">
+                                <h2>{{ $post->title }}</h2>
+                                <div class="content_text">{!! $post->content !!}</div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="even">
+                        <div class="posts-card my-container">
+                            <div class="pc-image">
+                                <img src="{{ 'uploads/' . $post->img }}" alt="аренда лесов и вышек-тур">
+                            </div>
+                            <div class="pc-content">
+                                <h2>{{ $post->title }}</h2>
+                                <div class="content_text">{!! $post->content !!}</div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @php
+                    $counter++;
+                @endphp
+            @endforeach
+              </div>
         </div>
         <div  class="card-footer clearfix">
             {{ $posts->links()}}
