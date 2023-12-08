@@ -52,6 +52,7 @@
         @else
               2021 - {{ date('Y') }}
         @endif
+        <br/>©  ООО "АРЕНДА ВЫСОТЫ"
         </div>
     </div>
 </footer>
