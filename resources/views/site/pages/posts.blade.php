@@ -15,7 +15,7 @@
 <section id="posts">
     <div class="posts">
         <div class="tab-container">
-            <div class="tab" onclick="openTab(event, 'tab1')">Леса</div>
+            <div class="tab" onclick="openTab(event, 'tab1')">Строительные леса</div>
             <div class="tab" onclick="openTab(event, 'tab2')">Вышки-туры</div>
         </div>
 
