@@ -94,16 +94,26 @@ class PostController extends Controller
         return redirect()->route('posts.index')->with('success', 'Изменения сохранены');
     }
 
-   /*  public function destroy($id)
+
+
+    public function tabs(Request $request, $id)
     {
-        $post = Post::query()->find($id);
-        Storage::delete($post->img);
-        $post->delete();
+        $post = Post::find($id);
 
 
+        if ($post->is_tabs) {
+            $post->is_tabs = false;
+            $post->save();
 
-        return redirect()->route('posts.index')->with('success', 'Статья удалена');
-    } */
+            return redirect()->route('posts.index')->with('success', 'Добавили в раздел строительные леса');
+        }
+
+
+        $post->is_tabs = true;
+        $post->save();
+
+        return redirect()->route('posts.index')->with('success', 'Добавили в раздел вышки-туры');
+    }
 
     public function destroy($id)
     {

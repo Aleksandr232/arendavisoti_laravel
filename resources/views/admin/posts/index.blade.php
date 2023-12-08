@@ -44,7 +44,13 @@
                                                     <a href="{{ route('posts.edit', ['post' => $post->id]) }}" class="btn btn-info btn-sm float-left mr-1">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
-
+                                                    <a href="{{ route('tabs', $post->id) }}" class="btn btn-success btn-sm float-left mr-1">
+                                                        @if($post->is_tabs == 0)
+                                                            Блок леса
+                                                        @elseif($post->is_tabs == 1)
+                                                            Блок туры
+                                                        @endif
+                                                    </a>
                                                     <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="post" class="float-left">
                                                         @csrf
                                                         @method('DELETE')

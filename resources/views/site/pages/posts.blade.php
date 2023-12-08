@@ -12,18 +12,20 @@
 @endsection
 
 @section('content')
-    <section id="posts">
-        <div class="posts">
-            <div class="tab-container">
-                <div class="tab" onclick="openTab(event, 'tab1')">Вышки-туры</div>
-                <div class="tab" onclick="openTab(event, 'tab2')">Леса</div>
-              </div>
-              <div id="tab1" class="tab-content active">
+<section id="posts">
+    <div class="posts">
+        <div class="tab-container">
+            <div class="tab" onclick="openTab(event, 'tab1')">Леса</div>
+            <div class="tab" onclick="openTab(event, 'tab2')">Вышки-туры</div>
+        </div>
+
+        <div id="tab1" class="tab-content active">
                 @php
                     $counter = 1;
                 @endphp
-            @foreach ($posts -> reverse() as $post)
-                @if($counter % 2 == 0)
+            @foreach($posts as $post)
+                @if($post->is_tabs == 0)
+                    @if($counter % 2 == 0)
                     <div class="odd">
                         <div class="posts-card my-container">
                             <div class="pc-image pc-image__revers">
@@ -48,18 +50,20 @@
                         </div>
                     </div>
                 @endif
-                @php
-                    $counter++;
-                @endphp
+                    @php
+                        $counter++;
+                    @endphp
+                @endif
             @endforeach
-              </div>
+        </div>
 
-              <div id="tab2" class="tab-content">
+        <div id="tab2" class="tab-content">
                 @php
                     $counter = 1;
                 @endphp
-            @foreach ($posts -> reverse() as $post)
-                @if($counter % 2 == 0)
+            @foreach($posts as $post)
+                @if($post->is_tabs == 1)
+                    @if($counter % 2 == 0)
                     <div class="odd">
                         <div class="posts-card my-container">
                             <div class="pc-image pc-image__revers">
@@ -84,17 +88,14 @@
                         </div>
                     </div>
                 @endif
-                @php
-                    $counter++;
-                @endphp
+                    @php
+                        $counter++;
+                    @endphp
+                @endif
             @endforeach
-              </div>
         </div>
-        <div  class="card-footer clearfix">
-            {{ $posts->links()}}
-
-        </div>
-    </section>
+    </div>
+</section>
     <!-- include our-products start -->
     <section id="towers-tour__recommendations">
         <div class="our-services__title my-container">

@@ -92,6 +92,7 @@ Route::get('/ip', function () {
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/',  [AdminController::class, 'index'])->name('admin');
     Route::resource('/posts', PostController::class);
+    Route::get('/posts/{id}/tabs', [PostController::class, 'tabs'])->name('tabs');
     Route::resource('/postsimgtours', PostImgToursController::class);
     Route::resource('/postscaff', PostScaffoldingController::class);
     Route::resource('/poststexnica', PostTexnicaController::class);

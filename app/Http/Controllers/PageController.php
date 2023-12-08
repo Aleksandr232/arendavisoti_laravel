@@ -118,7 +118,7 @@ class PageController extends Controller
 
     public function posts()
     {
-        $posts = Post::query()->paginate(12);
+        $posts = Post::all();
 
         return view('site.pages.posts', compact('posts'));
     }
