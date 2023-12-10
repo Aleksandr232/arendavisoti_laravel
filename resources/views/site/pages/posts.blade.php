@@ -20,12 +20,20 @@
         </div>
 
         <div id="tab1" class="tab-content active">
-                @php
-                    $counter = 1;
-                @endphp
+            @php
+                $counter = 1;
+                $positions = [];
+            @endphp
             @foreach($posts as $post)
                 @if($post->is_tabs == 0)
-                    @if($counter % 2 == 0)
+                    @php
+                        $positions[$post->order] = $post;
+                    @endphp
+                @endif
+            @endforeach
+
+            @foreach($positions as $order => $post)
+                @if($counter % 2 == 1)
                     <div class="odd">
                         <div class="posts-card my-container">
                             <div class="pc-image pc-image__revers">
@@ -50,49 +58,55 @@
                         </div>
                     </div>
                 @endif
-                    @php
-                        $counter++;
-                    @endphp
-                @endif
+                @php
+                    $counter++;
+                @endphp
             @endforeach
         </div>
 
         <div id="tab2" class="tab-content">
+            @php
+            $counter = 1;
+            $positions = [];
+        @endphp
+        @foreach($posts as $post)
+            @if($post->is_tabs == 1)
                 @php
-                    $counter = 1;
+                    $positions[$post->order_tours] = $post;
                 @endphp
-            @foreach($posts as $post)
-                @if($post->is_tabs == 1)
-                    @if($counter % 2 == 0)
-                    <div class="odd">
-                        <div class="posts-card my-container">
-                            <div class="pc-image pc-image__revers">
-                                <img src="{{ 'uploads/' . $post->img }}" alt="аренда лесов и вышек-тур">
-                            </div>
-                            <div class="pc-content pc-content__revers">
-                                <h2>{{ $post->title }}</h2>
-                                <div class="content_text">{!! $post->content !!}</div>
-                            </div>
+            @endif
+        @endforeach
+
+        @foreach($positions as $order_tours => $post)
+            @if($counter % 2 == 1)
+                <div class="odd">
+                    <div class="posts-card my-container">
+                        <div class="pc-image pc-image__revers">
+                            <img src="{{ 'uploads/' . $post->img }}" alt="аренда лесов и вышек-тур">
+                        </div>
+                        <div class="pc-content pc-content__revers">
+                            <h2>{{ $post->title }}</h2>
+                            <div class="content_text">{!! $post->content !!}</div>
                         </div>
                     </div>
-                @else
-                    <div class="even">
-                        <div class="posts-card my-container">
-                            <div class="pc-image">
-                                <img src="{{ 'uploads/' . $post->img }}" alt="аренда лесов и вышек-тур">
-                            </div>
-                            <div class="pc-content">
-                                <h2>{{ $post->title }}</h2>
-                                <div class="content_text">{!! $post->content !!}</div>
-                            </div>
+                </div>
+            @else
+                <div class="even">
+                    <div class="posts-card my-container">
+                        <div class="pc-image">
+                            <img src="{{ 'uploads/' . $post->img }}" alt="аренда лесов и вышек-тур">
+                        </div>
+                        <div class="pc-content">
+                            <h2>{{ $post->title }}</h2>
+                            <div class="content_text">{!! $post->content !!}</div>
                         </div>
                     </div>
-                @endif
-                    @php
-                        $counter++;
-                    @endphp
-                @endif
-            @endforeach
+                </div>
+            @endif
+            @php
+                $counter++;
+            @endphp
+        @endforeach
         </div>
     </div>
 </section>

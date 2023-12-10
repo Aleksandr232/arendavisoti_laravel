@@ -93,6 +93,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/',  [AdminController::class, 'index'])->name('admin');
     Route::resource('/posts', PostController::class);
     Route::get('/posts/{id}/tabs', [PostController::class, 'tabs'])->name('tabs');
+    Route::get('/posts/{id}/order', [PostController::class, 'order'])->name('order');
+    Route::get('/posts/{id}/orders', [PostController::class, 'orders'])->name('orders');
     Route::resource('/postsimgtours', PostImgToursController::class);
     Route::resource('/postscaff', PostScaffoldingController::class);
     Route::resource('/poststexnica', PostTexnicaController::class);

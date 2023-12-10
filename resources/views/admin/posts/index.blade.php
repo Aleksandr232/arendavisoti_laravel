@@ -26,6 +26,7 @@
                                     <table class="table table-bordered table-hover text-nowrap">
                                         <thead>
                                         <tr>
+                                            <th>Порядок</th>
                                             <th>Фото</th>
                                             <th>Название статьи</th>
                                             <th>Дата создания</th>
@@ -35,6 +36,19 @@
                                         <tbody>
                                         @foreach($posts as $post)
                                             <tr>
+                                                @if($post->is_tabs == 0)
+                                                    @if($post->order == 0)
+                                                        <td>начало лесов</td>
+                                                    @else
+                                                        <td>{{$post->order}}</td>
+                                                    @endif
+                                                @else
+                                                    @if($post->order_tours == 0)
+                                                        <td>начало тур</td>
+                                                    @else
+                                                        <td>{{$post->order_tours}}</td>
+                                                    @endif
+                                                @endif
                                                 <td style="width: 80px;">
                                                     <img src="{{ asset('uploads/' . $post->img) }}" style="width: 100%; object-fit: cover" alt="">
                                                 </td>
@@ -50,6 +64,12 @@
                                                         @elseif($post->is_tabs == 1)
                                                             Блок туры
                                                         @endif
+                                                    </a>
+                                                    <a href="{{ route('order', $post->id) }}" class="btn btn-success btn-sm float-left mr-1">
+                                                        +
+                                                    </a>
+                                                    <a href="{{ route('orders', $post->id) }}" class="btn btn-danger btn-sm float-left mr-1">
+                                                        -
                                                     </a>
                                                     <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="post" class="float-left">
                                                         @csrf

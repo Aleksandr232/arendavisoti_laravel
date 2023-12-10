@@ -116,6 +116,60 @@ class PostController extends Controller
         return redirect()->route('posts.index')->with('success', 'Добавили в раздел вышки-туры');
     }
 
+
+    public function order(Request $request, $id)
+    {
+        $post = Post::find($id);
+
+        if ($post) {
+            $maxOrder = Post::max('order');
+            $maxOrderTours = Post::max('order_tours');
+
+            if ($post->is_tabs == 0) {
+                $post->order = $maxOrder + 1;
+                $post->save();
+
+                return redirect()->route('posts.index')->with('success', 'Порядок лесов изменен: ' . $post->order);
+            } else {
+                // Perform custom order handling for istabs = 1
+                // Add your own logic here
+
+                // Example: set the order to the maximum order value and save
+                $post->order_tours = $maxOrderTours + 1;
+                $post->save();
+
+                return redirect()->route('posts.index')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
+            }
+        } else {
+            return redirect()->route('posts.index')->with('error', 'Запись не найдена');
+        }
+    }
+
+    public function orders(Request $request, $id)
+    {
+        $post = Post::find($id);
+
+        if ($post) {
+            $maxOrder = Post::max('order');
+            $maxOrderTours = Post::max('order_tours');
+
+            if ($post->is_tabs == 0) {
+                $post->order = $maxOrder - 1;
+                $post->save();
+
+                return redirect()->route('posts.index')->with('success', 'Порядок лесов изменен: ' . $post->order);
+            } else {
+                $post->order_tours = $maxOrderTours - 1;
+                $post->save();
+
+                return redirect()->route('posts.index')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
+            }
+        } else {
+            return redirect()->route('posts.index')->with('error', 'Запись не найдена');
+        }
+    }
+
+
     public function destroy($id)
     {
 
