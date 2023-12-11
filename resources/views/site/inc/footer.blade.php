@@ -28,9 +28,6 @@
                 <a href="https://vk.com/arenda_visoti" title="Мы ВКонтакте" target="_blank">
                     <img src="{{ asset('frontend/img/icons/vk.svg') }}" width="23" height="23" alt="леса в аренду">
                 </a>
-                <a href="https://www.facebook.com/arenda.visoti" title="Мы в Facebook" target="_blank">
-                    <img src="{{ asset('frontend/img/icons/facebook.svg') }}" width="23" height="23" alt="леса в аренду">
-                </a>
                 <a href="https://t.me/HireHeightsbot" title="Напиши боту" target="_blank">
                     <img src="{{ asset('frontend/img/icons/telegram.svg') }}" width="24" height="24" alt="леса в аренду">
                 </a>

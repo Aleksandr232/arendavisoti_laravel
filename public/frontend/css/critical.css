@@ -362,7 +362,7 @@ p {
 }
 @media screen and (max-width: 1400px) {
   .my-container {
-    width: 115%;
+    width: 100%;
   }
 }
 .security {

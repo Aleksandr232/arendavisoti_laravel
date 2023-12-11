@@ -15,5 +15,6 @@
 <li><a class="nav_theme" href="{{ route('gallery') }}">Галерея</a></li>
 <li><a class="nav_theme" href="{{ route('posts') }}">Статьи</a></li>
 <li><a class="nav_theme" href="{{ route('blog') }}">Блог</a></li>
+<li><a class="nav_theme" href="/#about-comments">Отзывы</a></li>
 <li><a class="nav_theme" href="{{ route('contacts') }}">Контакты</a></li>
 
