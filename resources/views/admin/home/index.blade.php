@@ -59,7 +59,7 @@
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="{{ route('postsimgtours.index') }}" class="small-box-footer">фото тур<i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('postsimgtours.index') }}" class="small-box-footer">фото тур <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         @else
                             <!-- small box -->
@@ -87,7 +87,7 @@
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="{{ route('postscaff.index') }}" class="small-box-footer">фото лесов<i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('postscaff.index') }}" class="small-box-footer">фото лесов <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         @else
                             <!-- small box -->
@@ -114,7 +114,7 @@
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="{{ route('poststexnica.index') }}" class="small-box-footer">фото техника<i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('poststexnica.index') }}" class="small-box-footer">фото техника <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         @else
                             <!-- small box -->
@@ -141,7 +141,7 @@
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="{{ route('poststractor.index') }}" class="small-box-footer">фото минитрактор<i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('poststractor.index') }}" class="small-box-footer">фото минитрактор <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         @else
                             <!-- small box -->
@@ -238,21 +238,33 @@
                                 </div>
                         @endif
                     </div>
-                    {{-- <div class="col-lg-3 col-6">
+                    <div class="col-lg-3 col-6">
+                        @if(count($blog))
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    @foreach($logist as $post)
-                                    <h3> {{$post->status}} <i class="fas fa fa-truck nav-icon"></i></h3>
-                                    @endforeach
-                                    Логистика
+                                    <h3>{{ count($blog)}}</h3>
+                                    <p>Всего постов</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="{{ route('logistics.index') }}" class="small-box-footer">Логистика<i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('postsblog.index') }}" class="small-box-footer">Блог <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
-                    </div> --}}
+                        @else
+                            <!-- small box -->
+                                <div class="small-box bg-info">
+                                    <div class="inner">
+                                        <h3>0</h3>
+                                        <p>Всего постов</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-bag"></i>
+                                    </div>
+                                    <a href="{{ route('postsblog.index') }}" class="small-box-footer">Блог <i class="fas fa-arrow-circle-right"></i></a>
+                                </div>
+                        @endif
+                    </div>
                 </div>
             </div>
 

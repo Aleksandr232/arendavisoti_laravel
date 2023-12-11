@@ -13,6 +13,7 @@ use App\Models\Order;
 use App\Models\Logistatus;
 use App\Models\Snow;
 use App\Models\Warehouse;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -28,9 +29,10 @@ class AdminController extends Controller
         $logist = Logistatus::all();
         $snow = Snow::all();
         $warehouse = Warehouse::all();
+        $blog = Blog::all();
 
 
-        return view('admin.home.index', compact('posts' ,'tours', 'scaff', 'texnica', 'tractor', 'contact', 'logist', 'snow', 'warehouse' ));
+        return view('admin.home.index', compact('posts' ,'tours', 'blog', 'scaff', 'texnica', 'tractor', 'contact', 'logist', 'snow', 'warehouse' ));
 
     }
 
