@@ -30,7 +30,7 @@
                                     <table class="table table-bordered table-hover text-nowrap">
                                         <thead>
                                         <tr>
-                                            <th>Фото</th>
+                                            <th>Медиа</th>
                                             <th>Название статьи</th>
                                             <th>Дата создания</th>
                                             <th>Действия</th>
@@ -55,12 +55,6 @@
                                                             Блок туры
                                                         @endif
                                                     </a>
-                                                    {{-- <a href="{{ route('order', $post->id) }}" class="btn btn-success btn-sm float-left mr-1">
-                                                        +
-                                                    </a>
-                                                    <a href="{{ route('orders', $post->id) }}" class="btn btn-danger btn-sm float-left mr-1">
-                                                        -
-                                                    </a> --}}
                                                     <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="post" class="float-left">
                                                         @csrf
                                                         @method('DELETE')

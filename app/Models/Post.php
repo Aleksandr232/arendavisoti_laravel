@@ -11,18 +11,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'img'];
+    protected $fillable = ['title', 'content', 'media', 'path'];
 
-    public static function uploadImage(Request $request, $image = null)
-    {
-        if ($request->hasFile('img')) {
-            if ($image) Storage::delete($image);
-
-            $folder = date('Y-m-d');
-
-            return $request->file('img')->store("images/{$folder}");
-        }
-
-        return null;
-    }
+    
 }

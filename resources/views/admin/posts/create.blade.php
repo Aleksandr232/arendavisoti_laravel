@@ -29,10 +29,10 @@
                             <textarea class="editor" name="content" id="content" class="form-control @error('title') is-invalid @enderror" rows="10" placeholder="Напишите статью ..."></textarea>
                         </div>
                         <div class="form-group col-6">
-                            <label for="img">Фотография статьи</label>
+                            <label for="meida">Медиа</label>
                             <div class="custom-file">
-                                <input type="file" name="img" class="custom-file-input @error('title') is-invalid @enderror" id="img">
-                                <label class="custom-file-label" for="file">Выберите фото</label>
+                                <input type="file" name="media" class="custom-file-input @error('title') is-invalid @enderror" id="img">
+                                <label class="custom-file-label" for="file">Выберите файл</label>
                             </div>
                         </div>
                     </div>
