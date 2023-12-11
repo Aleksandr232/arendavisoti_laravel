@@ -14,12 +14,30 @@ class PostController extends Controller
 {
     public function index()
     {
+
         $posts = Post::query()
         ->orderByDesc('id')
         ->paginate(10);
 
+
         return view('admin.posts.index', compact('posts'));
 
+    }
+
+
+    public function lesa()
+    {
+        $lesa = Post::all();
+
+        return view('admin.post_lesa.index', compact('lesa'));
+    }
+
+
+    public function tours()
+    {
+        $tours = Post::all();
+
+        return view('admin.post_tours.index', compact('tours'));
     }
 
 
@@ -129,7 +147,7 @@ class PostController extends Controller
                 $post->order = $maxOrder + 1;
                 $post->save();
 
-                return redirect()->route('posts.index')->with('success', 'Порядок лесов изменен: ' . $post->order);
+                return redirect()->route('lesa')->with('success', 'Порядок лесов изменен: ' . $post->order);
             } else {
                 // Perform custom order handling for istabs = 1
                 // Add your own logic here
@@ -138,7 +156,7 @@ class PostController extends Controller
                 $post->order_tours = $maxOrderTours + 1;
                 $post->save();
 
-                return redirect()->route('posts.index')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
+                return redirect()->route('tours')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
             }
         } else {
             return redirect()->route('posts.index')->with('error', 'Запись не найдена');
@@ -157,12 +175,12 @@ class PostController extends Controller
                 $post->order = $maxOrder - 1;
                 $post->save();
 
-                return redirect()->route('posts.index')->with('success', 'Порядок лесов изменен: ' . $post->order);
+                return redirect()->route('lesa')->with('success', 'Порядок лесов изменен: ' . $post->order);
             } else {
                 $post->order_tours = $maxOrderTours - 1;
                 $post->save();
 
-                return redirect()->route('posts.index')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
+                return redirect()->route('tours')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
             }
         } else {
             return redirect()->route('posts.index')->with('error', 'Запись не найдена');

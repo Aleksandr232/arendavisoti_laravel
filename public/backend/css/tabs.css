@@ -1,0 +1,10 @@
+.tab-container {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 180px;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+
+

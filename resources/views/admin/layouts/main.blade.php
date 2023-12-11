@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('backend/css/stock.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/form_customer.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/form_worddocument.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('backend/css/tabs.css') }}">
 
 
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('frontend/img/favicon/apple-touch-icon.png') }}">
