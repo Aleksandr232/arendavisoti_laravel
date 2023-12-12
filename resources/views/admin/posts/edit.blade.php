@@ -35,14 +35,22 @@
                             <textarea class="editor" name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="10">{{ $post->content }}</textarea>
                         </div>
                         <div class="form-group col-6">
-                            <label for="img">Фотография статьи</label>
+                            <label for="media">Медиа статьи</label>
                             <div class="custom-file">
-                                <input type="file" name="img" class="custom-file-input @error('img') is-invalid @enderror" id="img" value="{{ $post->img }}">
-                                <label class="custom-file-label" for="file">Выберите фото</label>
+                                <input type="file" name="media" class="custom-file-input @error('img') is-invalid @enderror" id="img" value="{{ $post->media }}">
+                                <label class="custom-file-label" for="file">Выберите фaйл</label>
                             </div>
+                            @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
                             <div style="margin-top: 40px; width: 280px;">
-                                <img src="{{ asset('uploads/' . $post->img) }}" style="width: 100%; object-fit: cover" alt="">
+                                <video style="width: 100%; object-fit: cover"  controls="controls">
+                                    <source src="{{ asset('uploads/' . $post->path) }}" >
+                                </video>
                             </div>
+                            @else
+                                <div style="margin-top: 40px; width: 280px;">
+                                    <img src="{{ asset('uploads/' . $post->path) }}" style="width: 100%; object-fit: cover" alt="">
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <!-- /.card-body -->

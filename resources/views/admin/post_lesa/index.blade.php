@@ -30,7 +30,7 @@
                                         <thead>
                                         <tr>
                                             <th>Позиция</th>
-                                            <th>Фото</th>
+                                            <th>Медиа</th>
                                             <th>Название статьи</th>
                                             <th>Дата создания</th>
                                             <th>Действия</th>
@@ -42,7 +42,13 @@
                                                 <tr>
                                                     <td>{{$post->order}}</td>
                                                     <td style="width: 80px;">
-                                                        <img src="{{ asset('uploads/' . $post->img) }}" style="width: 100%; object-fit: cover" alt="">
+                                                        @if($post->media == 'MOV' || $post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
+                                                            <video style="width: 100px; height:100px" controls="controls">
+                                                                <source src="{{ asset('uploads/' . $post->path) }}" style="width: 50%; height:2px; object-fit: cover" alt="">
+                                                            </video>
+                                                        @else
+                                                            <img src="{{ asset('uploads/' . $post->path) }}" style="width: 100%; object-fit: cover" alt="">
+                                                        @endif
                                                     </td>
                                                     <td>{{ $post->title }}</td>
                                                     <td>{{$result = date('Y-m-d H:i:s', strtotime($post->created_at) + 3 * 3600);}}</td>

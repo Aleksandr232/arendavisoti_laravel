@@ -102,6 +102,8 @@ class PostController extends Controller
             }
         }
 
+        $file->title = $request->input('title');
+        $file->content = $request->input('content');
         $file->save();
 
         // Генерация sitemap
