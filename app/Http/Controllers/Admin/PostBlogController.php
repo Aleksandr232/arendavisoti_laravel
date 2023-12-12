@@ -82,6 +82,8 @@ class PostBlogController extends Controller
             $file->path = $path;
 
 
+
+
             // Конвертирование изображения в формат WebP и сохранение только в этом формате
             if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'webp'])) {
                 $image = Image::make($media)->encode('webp', 75);
@@ -208,6 +210,7 @@ class PostBlogController extends Controller
             $file->media = $media->getClientOriginalExtension();
             $file->path = $path;
 
+
             if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png'])) {
                 $image = Image::make($media)->encode('webp', 30);
                 $webpFilename = $media->hashName() . '.webp';
@@ -236,6 +239,10 @@ class PostBlogController extends Controller
         $file->title = $request->input('title');
         $file->content = $request->input('content');
         $file->save();
+
+        if($request -> input('title', 'content')){
+            return redirect()->route('postsblog.index')->with('success', 'Пост обновлен');
+        }
 
         // Генерация sitemap
         $sitemapPath = public_path('sitemap.xml');

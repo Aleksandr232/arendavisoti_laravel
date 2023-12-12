@@ -114,10 +114,10 @@
                         <div class="pc-image">
                             @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov' || $post->media == 'MOV')
                                 <video class="video_blog"  controls="controls">
-                                    <source src="{{ asset('blog/' . $post->path) }}" title="{{$post->title}}"  alt="новый пост про {{$post->title}}">
+                                    <source src="{{ asset('uploads/' . $post->path) }}" title="{{$post->title}}"  alt="новый пост про {{$post->title}}">
                                 </video>
                             @else
-                                <img src="{{ 'blog/' . $post->path }}" title="{{$post->title}}" alt="новый пост про {{$post->title}}">
+                                <img src="{{ 'uploads/' . $post->path }}" title="{{$post->title}}" alt="новый пост про {{$post->title}}">
                             @endif
                         </div>
                         <div class="pc-content">
