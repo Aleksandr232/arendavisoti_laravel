@@ -190,79 +190,79 @@ class PostBlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'media' => 'sometimes|file|mimes:jpeg,png,mp4,avi,mov',
-    ], [
-        'media.required' => 'Загрузите фото или видео',
-        'media.file' => 'Загруженный файл должен быть фото или видео',
-        'media.mimes' => 'Допустимые форматы файлов: JPEG, PNG, MP4, AVI, MOV',
-    ]);
+    {
+        $request->validate([
+            'media' => 'sometimes|file|mimes:jpeg,png,mp4,avi,mov',
+        ], [
+            'media.required' => 'Загрузите фото или видео',
+            'media.file' => 'Загруженный файл должен быть фото или видео',
+            'media.mimes' => 'Допустимые форматы файлов: JPEG, PNG, MP4, AVI, MOV',
+        ]);
 
-    $file = Blog::findOrFail($id);
+        $file = Blog::findOrFail($id);
 
-    if ($request->hasFile('media')) {
-        $media = $request->file('media');
-        $path = Storage::disk('blog')->putFile('blog_files', $media);
+        if ($request->hasFile('media')) {
+            $media = $request->file('media');
+            $path = Storage::disk('blog')->putFile('blog_files', $media);
 
-        $file->media = $media->getClientOriginalExtension();
-        $file->path = $path;
+            $file->media = $media->getClientOriginalExtension();
+            $file->path = $path;
 
-        if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png'])) {
-            $image = Image::make($media)->encode('webp', 30);
-            $webpFilename = $media->hashName() . '.webp';
-            $webpPath = 'blog_files/' . $webpFilename;
-            Storage::disk('blog')->put($webpPath, $image);
+            if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png'])) {
+                $image = Image::make($media)->encode('webp', 30);
+                $webpFilename = $media->hashName() . '.webp';
+                $webpPath = 'blog_files/' . $webpFilename;
+                Storage::disk('blog')->put($webpPath, $image);
 
-            $file->path = $webpPath;
+                $file->path = $webpPath;
 
-            Storage::disk('blog')->delete($path);
-        }
-
-        $videoExtensions = ['mp4', 'avi', 'mov'];
-
-        if (in_array($media->getClientOriginalExtension(), $videoExtensions)) {
-            $videoCount = Blog::whereIn('media', $videoExtensions)->count();
-            $maxVideoCount = 5; // Максимальное количество видео
-
-            if ($videoCount >= $maxVideoCount) {
                 Storage::disk('blog')->delete($path);
+            }
 
-                return redirect()->route('postsblog.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
+            $videoExtensions = ['mp4', 'avi', 'mov'];
+
+            if (in_array($media->getClientOriginalExtension(), $videoExtensions)) {
+                $videoCount = Blog::whereIn('media', $videoExtensions)->count();
+                $maxVideoCount = 5; // Максимальное количество видео
+
+                if ($videoCount >= $maxVideoCount) {
+                    Storage::disk('blog')->delete($path);
+
+                    return redirect()->route('postsblog.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
+                }
             }
         }
 
+        $file->title = $request->input('title');
+        $file->content = $request->input('content');
+        $file->save();
 
-    $file->title = $request->input('title');
-    $file->content = $request->input('content');
-    $file->save();
+        // Генерация sitemap
+        $sitemapPath = public_path('sitemap.xml');
+        $sitemapXml = new \SimpleXMLElement(file_get_contents($sitemapPath));
 
-    // Генерация sitemap
-    $sitemapPath = public_path('sitemap.xml');
-    $sitemapXml = new \SimpleXMLElement(file_get_contents($sitemapPath));
+        $urlNodes = $sitemapXml->xpath("//url[loc='" . url('https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B1%D0%BB%D0%BE%D0%B3') . "']");
+        if (!$urlNodes) {
+            return redirect()->route('postsblog.index')->with('error', 'Ошибка при обновлении sitemap');
+        }
+        $urlNode = $urlNodes[0];
 
-    $urlNodes = $sitemapXml->xpath("//url[loc='" . url('https://xn--80aagge2ckkol0hd.xn--p1ai/%D0%B1%D0%BB%D0%BE%D0%B3') . "']");
-    if (!$urlNodes) {
-        return redirect()->route('postsblog.index')->with('error', 'Ошибка при обновлении sitemap');
+        $imageNode = $urlNode->xpath("image:image");
+        $videoNode = $urlNode->xpath("video:video");
+
+        // Обновить информацию для изображения или видео
+        if ($imageNode) {
+            $imageNode[0]->loc = url($file->path);
+        }
+        if ($videoNode) {
+            $videoNode[0]->thumbnail_loc = url($file->path);
+            $videoNode[0]->content_loc = url($file->path);
+        }
+
+        $sitemapXml->asXML($sitemapPath);
+
+        return redirect()->route('postsblog.index')->with('success', 'Пост обновлен');
     }
-    $urlNode = $urlNodes[0];
-
-    $imageNode = $urlNode->xpath("image:image");
-    $videoNode = $urlNode->xpath("video:video");
-
-    // Обновить информацию для изображения или видео
-    if ($imageNode) {
-        $imageNode[0]->loc = url($file->path);
-    }
-    if ($videoNode) {
-        $videoNode[0]->thumbnail_loc = url($file->path);
-        $videoNode[0]->content_loc = url($file->path);
-    }
-
-    $sitemapXml->asXML($sitemapPath);
-    }
-    return redirect()->route('postsblog.index')->with('success', 'Пост обновлен');
-}
 
     /**
      * Remove the specified resource from storage.
