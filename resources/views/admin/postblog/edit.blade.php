@@ -37,7 +37,7 @@
                             </div>
                             @if($blog->media == 'MP4' || $blog->media == 'mp4' || $blog->media == 'avi' || $blog->media == 'mov')
                             <div style="margin-top: 40px; width: 280px;">
-                                <video  controls="controls">
+                                <video style="width: 100%; object-fit: cover"  controls="controls">
                                     <source src="{{ asset('blog/' . $blog->path) }}" >
                                 </video>
                             </div>
