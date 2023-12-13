@@ -161,27 +161,81 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'img' => 'image|max:10240',
-        ],
-        [
-            'title.required' => 'Поле заголовок статьи должно быть заполнено',
-            'content.required' => 'Поле описание статьи должно быть заполнено',
-            'img.image' => 'Фотография статьи должна быть файлом изображения',
-            'img.max' => 'Фотография статьи не должна превышать размер 10 мб',
+            'media' => 'sometimes|file|mimes:jpeg,png,mp4,avi,mov',
+        ], [
+            'media.required' => 'Загрузите фото или видео',
+            'media.file' => 'Загруженный файл должен быть фото или видео',
+            'media.mimes' => 'Допустимые форматы файлов: JPEG, PNG, MP4, AVI, MOV',
         ]);
 
-        $post = Post::query()->find($id);
-        $data = $request->all();
+        $file = Post::findOrFail($id);
 
-        if ($file = Post::uploadImage($request, $post->img)) {
-            $data['img'] = $file;
+        if ($request->hasFile('media')) {
+            $media = $request->file('media');
+            $path = Storage::disk('public')->putFile('posts', $media);
+
+            $file->media = $media->getClientOriginalExtension();
+            $file->path = $path;
+
+
+            if (in_array($media->getClientOriginalExtension(), ['jpg', 'jpeg', 'png'])) {
+                $image = Image::make($media)->encode('webp', 30);
+                $webpFilename = $media->hashName() . '.webp';
+                $webpPath = 'posts/' . $webpFilename;
+                Storage::disk('public')->put($webpPath, $image);
+
+                $file->path = $webpPath;
+
+                Storage::disk('public')->delete($path);
+            }
+
+            $videoExtensions = ['mp4', 'avi', 'mov'];
+
+            if (in_array($media->getClientOriginalExtension(), $videoExtensions)) {
+                $videoCount = Post::whereIn('media', $videoExtensions)->count();
+                $maxVideoCount = 15; // Максимальное количество видео
+
+                if ($videoCount >= $maxVideoCount) {
+                    Storage::disk('public')->delete($path);
+
+                    return redirect()->route('posts.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
+                }
+            }
         }
 
-        $post->update($data);
+        $file->title = $request->input('title');
+        $file->content = $request->input('content');
+        $file->save();
 
-        return redirect()->route('posts.index')->with('success', 'Изменения сохранены');
+        if($request -> input('title', 'content')){
+            return redirect()->route('posts.index')->with('success', 'Статья обновлена');
+        }
+
+        // Генерация sitemap
+        $sitemapPath = public_path('sitemap.xml');
+        $sitemapXml = new \SimpleXMLElement(file_get_contents($sitemapPath));
+
+        $urlNodes = $sitemapXml->xpath("//url[loc='" . url('https://xn--80aagge2ckkol0hd.xn--p1ai/%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8') . "']");
+        if (!$urlNodes) {
+            return redirect()->route('posts.index')->with('error', 'Ошибка при обновлении sitemap');
+        }
+        $urlNode = $urlNodes[0];
+
+        $imageNode = $urlNode->xpath("image:image");
+        $videoNode = $urlNode->xpath("video:video");
+
+        // Обновить информацию для изображения или видео
+        if ($imageNode) {
+            $imageNode[0]->loc = url($file->path);
+        }
+        if ($videoNode) {
+            $videoNode[0]->thumbnail_loc = url($file->path);
+            $videoNode[0]->content_loc = url($file->path);
+        }
+
+        $sitemapXml->asXML($sitemapPath);
+
+        return redirect()->route('posts.index')->with('success', 'Статья обновлена');
     }
 
 
@@ -211,20 +265,17 @@ class PostController extends Controller
         $post = Post::find($id);
 
         if ($post) {
-            /* $maxOrder = Post::max('order');
-            $maxOrderTours = Post::max('order_tours'); */
+            $maxOrder = Post::max('order');
+            $maxOrderTours = Post::max('order_tours');
 
             if ($post->is_tabs == 0) {
-                $post->order++;
+                $post-> order = $maxOrder + 1;
                 $post->save();
 
                 return redirect()->route('lesa')->with('success', 'Порядок лесов изменен: ' . $post->order);
             } else {
-                // Perform custom order handling for istabs = 1
-                // Add your own logic here
 
-                // Example: set the order to the maximum order value and save
-                $post->order_tours++;
+                $post-> order_tours = $maxOrderTours + 1;
                 $post->save();
 
                 return redirect()->route('tours')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
@@ -234,21 +285,45 @@ class PostController extends Controller
         }
     }
 
+    public function resetLesa()
+    {
+        $posts = Post::where('is_tabs', 0)->get();
+
+        foreach ($posts as $post) {
+            $post->order = 0;
+            $post->save();
+        }
+
+        return redirect()->route('lesa')->with('success', 'Порядок лесов сброшен до 0');
+    }
+
+    public function resetTours()
+    {
+        $posts = Post::where('is_tabs', 1)->get();
+
+        foreach ($posts as $post) {
+            $post->order_tours = 0;
+            $post->save();
+        }
+
+        return redirect()->route('tours')->with('success', 'Порядок вышек-тур сброшен до 0');
+    }
+
     public function orders(Request $request, $id)
     {
         $post = Post::find($id);
 
         if ($post) {
-            /* $maxOrder = Post::max('order');
-            $maxOrderTours = Post::max('order_tours'); */
+            $maxOrder = Post::max('order');
+            $maxOrderTours = Post::max('order_tours');
 
             if ($post->is_tabs == 0) {
-                $post->order--;
+                $post-> order = $maxOrder - 1;
                 $post->save();
 
                 return redirect()->route('lesa')->with('success', 'Порядок лесов изменен: ' . $post->order);
             } else {
-                $post->order_tours--;
+                $post-> order_tours = $maxOrderTours - 1;
                 $post->save();
 
                 return redirect()->route('tours')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);

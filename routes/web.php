@@ -97,6 +97,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/posts/{id}/tabs', [PostController::class, 'tabs'])->name('tabs');
     Route::get('/posts/{id}/order', [PostController::class, 'order'])->name('order');
     Route::get('/posts/{id}/orders', [PostController::class, 'orders'])->name('orders');
+    Route::get('/restlesa', [PostController::class, 'resetLesa'])->name('resetLesa');
+    Route::get('/resttours', [PostController::class, 'resetTours'])->name('resetTours');
     Route::resource('/postsimgtours', PostImgToursController::class);
     Route::resource('/postscaff', PostScaffoldingController::class);
     Route::resource('/poststexnica', PostTexnicaController::class);
