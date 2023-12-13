@@ -39,7 +39,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($tours as $post)
+                                            @foreach($tours->sortBy('order_tours') as $post)
                                             @if ($post->is_tabs == 1)
                                                 <tr>
                                                     <td>{{$post->order_tours}}</td>

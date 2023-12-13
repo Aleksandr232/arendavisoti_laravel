@@ -39,7 +39,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($lesa as $post)
+                                            @foreach($lesa->sortBy('order') as $post)
                                             @if ($post->is_tabs == 0)
                                                 <tr>
                                                     <td>{{$post->order}}</td>
@@ -67,16 +67,14 @@
                                                         <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="post" class="float-left">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-sm"
-                                                                    onclick="return confirm('Подтвердите удаление')">
-                                                                <i
-                                                                    class="fas fa-trash-alt"></i>
+                                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Подтвердите удаление')">
+                                                                <i class="fas fa-trash-alt"></i>
                                                             </button>
                                                         </form>
                                                     </td>
                                                 </tr>
                                             @endif
-                                            @endforeach
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
