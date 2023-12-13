@@ -211,11 +211,11 @@ class PostController extends Controller
         $post = Post::find($id);
 
         if ($post) {
-            $maxOrder = Post::max('order');
-            $maxOrderTours = Post::max('order_tours');
+            /* $maxOrder = Post::max('order');
+            $maxOrderTours = Post::max('order_tours'); */
 
             if ($post->is_tabs == 0) {
-                $post->order = $maxOrder + 1;
+                $post->order++;
                 $post->save();
 
                 return redirect()->route('lesa')->with('success', 'Порядок лесов изменен: ' . $post->order);
@@ -224,7 +224,7 @@ class PostController extends Controller
                 // Add your own logic here
 
                 // Example: set the order to the maximum order value and save
-                $post->order_tours = $maxOrderTours + 1;
+                $post->order_tours++;
                 $post->save();
 
                 return redirect()->route('tours')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
@@ -239,16 +239,16 @@ class PostController extends Controller
         $post = Post::find($id);
 
         if ($post) {
-            $maxOrder = Post::max('order');
-            $maxOrderTours = Post::max('order_tours');
+            /* $maxOrder = Post::max('order');
+            $maxOrderTours = Post::max('order_tours'); */
 
             if ($post->is_tabs == 0) {
-                $post->order = $maxOrder - 1;
+                $post->order--;
                 $post->save();
 
                 return redirect()->route('lesa')->with('success', 'Порядок лесов изменен: ' . $post->order);
             } else {
-                $post->order_tours = $maxOrderTours - 1;
+                $post->order_tours--;
                 $post->save();
 
                 return redirect()->route('tours')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);

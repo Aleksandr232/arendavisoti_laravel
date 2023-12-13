@@ -23,16 +23,17 @@
             @php
                 $counter = 1;
                 $positions = [];
-            @endphp
-            @foreach($posts as $post)
-                @if($post->is_tabs == 0)
-                    @php
-                        $positions[$post->order] = $post;
-                    @endphp
-                @endif
-            @endforeach
 
-            @foreach($positions as $order => $post)
+                foreach($posts as $post) {
+                    if($post->is_tabs == 0) {
+                        $positions[$post->order] = $post;
+                    }
+                }
+
+                ksort($positions);
+            @endphp
+
+            @foreach($positions as $post)
                 @if($counter % 2 == 1)
                     <div class="odd">
                         <div class="posts-card my-container">
@@ -78,18 +79,20 @@
 
         <div id="tab2" class="tab-content">
             @php
-            $counter = 1;
-            $positions = [];
-        @endphp
-        @foreach($posts as $post)
-            @if($post->is_tabs == 1)
-                @php
-                    $positions[$post->order_tours] = $post;
-                @endphp
-            @endif
-        @endforeach
+                $counter = 1;
+                $positions = [];
 
-        @foreach($positions as $order_tours => $post)
+                foreach($posts as $post) {
+                    if($post->is_tabs == 1) {
+                        $positions[$post->order_tours] = $post;
+                    }
+                }
+
+                ksort($positions);
+            @endphp
+
+
+        @foreach($positions as $post)
             @if($counter % 2 == 1)
                 <div class="odd">
                     <div class="posts-card my-container">

@@ -105,12 +105,12 @@ class PostBlogController extends Controller
                                 ->orWhere('media','LIKE','%mov')
                                 ->orWhere('media','LIKE','%MP4')
                                 ->count();
-            $maxVideoCount = 5; // Максимальное количество видео
+            $maxVideoCount = 15; // Максимальное количество видео
 
             if ($media->getClientOriginalExtension() == 'mp4' ||$media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
                 if ($videoCount >= $maxVideoCount) {
 
-                    Storage::disk('Blog')->delete($path);
+                    Storage::disk('blog')->delete($path);
 
                     return redirect()->route('postsblog.index')->with('err', 'Превышено максимальное количество видео. Удалите старые видео для загрузки нового.');
                 }
@@ -226,7 +226,7 @@ class PostBlogController extends Controller
 
             if (in_array($media->getClientOriginalExtension(), $videoExtensions)) {
                 $videoCount = Blog::whereIn('media', $videoExtensions)->count();
-                $maxVideoCount = 5; // Максимальное количество видео
+                $maxVideoCount = 15; // Максимальное количество видео
 
                 if ($videoCount >= $maxVideoCount) {
                     Storage::disk('blog')->delete($path);
