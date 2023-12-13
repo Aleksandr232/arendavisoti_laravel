@@ -24,6 +24,7 @@
                             <div class="tab-container">
                                 <a href="{{ route('lesa') }}" class="btn btn-primary mb-3">Строительные леса</a>
                                 <a href="{{ route('tours') }}" class="btn btn-primary mb-3">Вышки-туры</a>
+                                <a href="{{ route('posts.index') }}" type="button" class="btn btn-success">Назад</a>
                             </div>
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover text-nowrap">

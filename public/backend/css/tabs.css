@@ -5,6 +5,17 @@
     left: 180px;
     align-items: baseline;
     justify-content: flex-start;
+    gap: 3px;
+}
+
+@media screen and (max-width: 560px) {
+    .tab-container {
+        display: flex;
+        position: static;
+        align-items: baseline;
+        gap: 3px;
+
+    }
 }
 
 
