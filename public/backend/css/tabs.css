@@ -12,9 +12,12 @@
     .tab-container {
         display: flex;
         position: static;
-        align-items: baseline;
+        align-items: flex-start;
         gap: 3px;
-
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        align-content: center;
     }
 }
 
