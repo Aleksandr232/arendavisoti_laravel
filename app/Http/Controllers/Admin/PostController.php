@@ -247,6 +247,7 @@ class PostController extends Controller
 
         if ($post->is_tabs) {
             $post->is_tabs = false;
+            $post->order = Post::where('is_tabs', 0)->max('order') + 1;
             $post->save();
 
             return redirect()->route('posts.index')->with('success', 'Добавили в раздел строительные леса');
@@ -254,36 +255,42 @@ class PostController extends Controller
 
 
         $post->is_tabs = true;
+        $post->order_tours = Post::where('is_tabs', 1)->max('order_tours') + 1;
         $post->save();
 
         return redirect()->route('posts.index')->with('success', 'Добавили в раздел вышки-туры');
     }
 
-
-    public function order(Request $request, $id)
+    public function updateOrder(Request $request, $id)
     {
         $post = Post::find($id);
 
-        if ($post) {
-            $maxOrder = Post::max('order');
-            $maxOrderTours = Post::max('order_tours');
-
-            if ($post->is_tabs == 0) {
-                $post-> order = $maxOrder + 1;
-                $post->save();
-
-                return redirect()->route('lesa')->with('success', 'Порядок лесов изменен: ' . $post->order);
-            } else {
-
-                $post-> order_tours = $maxOrderTours + 1;
-                $post->save();
-
-                return redirect()->route('tours')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
-            }
-        } else {
-            return redirect()->route('posts.index')->with('error', 'Запись не найдена');
+        if (!$post) {
+            return response()->json(['error' => 'Запись не найдена', 404]);
         }
+
+        $post->order_tours = $request->input('order_tours');
+        $post->save();
+
+        return response()->json(['success' => 'Изменен порядок позиции: ' . $post->order_tours]);
     }
+
+    public function updateOrderLesa(Request $request, $id)
+    {
+        $post = Post::find($id);
+
+        if (!$post) {
+            return response()->json(['error' => 'Запись не найдена', 404]);
+        }
+
+        $post->order = $request->input('order');
+        $post->save();
+
+        return response()->json(['success' => 'Изменен порядок позиции: ' . $post->order]);
+    }
+
+
+
 
     public function resetLesa()
     {
@@ -309,29 +316,7 @@ class PostController extends Controller
         return redirect()->route('tours')->with('success', 'Порядок вышек-тур сброшен до 0');
     }
 
-    public function orders(Request $request, $id)
-    {
-        $post = Post::find($id);
 
-        if ($post) {
-            $maxOrder = Post::max('order');
-            $maxOrderTours = Post::max('order_tours');
-
-            if ($post->is_tabs == 0) {
-                $post-> order = $maxOrder - 1;
-                $post->save();
-
-                return redirect()->route('lesa')->with('success', 'Порядок лесов изменен: ' . $post->order);
-            } else {
-                $post-> order_tours = $maxOrderTours - 1;
-                $post->save();
-
-                return redirect()->route('tours')->with('success', 'Порядок вышек-тур изменен: ' . $post->order_tours);
-            }
-        } else {
-            return redirect()->route('posts.index')->with('error', 'Запись не найдена');
-        }
-    }
 
 
     public function destroy($id)

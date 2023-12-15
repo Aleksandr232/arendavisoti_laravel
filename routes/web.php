@@ -95,8 +95,6 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/lesa', [PostController::class, 'lesa'])->name('lesa');
     Route::get('/tours', [PostController::class, 'tours'])->name('tours');
     Route::get('/posts/{id}/tabs', [PostController::class, 'tabs'])->name('tabs');
-    Route::get('/posts/{id}/order', [PostController::class, 'order'])->name('order');
-    Route::get('/posts/{id}/orders', [PostController::class, 'orders'])->name('orders');
     Route::get('/restlesa', [PostController::class, 'resetLesa'])->name('resetLesa');
     Route::get('/resttours', [PostController::class, 'resetTours'])->name('resetTours');
     Route::resource('/postsimgtours', PostImgToursController::class);
@@ -219,5 +217,8 @@ Route::resource('/apilogiststatus', PostLogistStatusController::class);
 //api телеграмм для рассылки
 Route::resource('/apitg', TgUsController::class);
 
+//api для перетаскивания таблиц
+Route::post('posts/{id}/order-tours', [PostController::class, 'updateOrder'])->name('updateOrder');
+Route::post('posts/{id}/order-lesa', [PostController::class, 'updateOrderLesa'])->name('updateOrderLesa');
 
 

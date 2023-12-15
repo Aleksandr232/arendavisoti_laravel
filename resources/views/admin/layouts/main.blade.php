@@ -17,6 +17,7 @@
     <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/chart/chart.css') }}">
@@ -440,6 +441,9 @@
 <!-- Customer scripts -->
 <script src="{{ asset('backend/script.js') }}"></script>
 <!-- bs-custom-file-input -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
 <script src="{{ asset('backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <script async  src="{{ asset('backend/chart/chart.js') }}"></script>
 <script async  src="{{ asset('backend/chart/OrderApi.js') }}"></script>
@@ -488,7 +492,117 @@
 					console.error( error );
 				} );
 </script>
+<script>
+    $(function() {
+    $('.sortable').sortable({
+        items: 'tr',
+        update: function(event, ui) {
+            var toursId = $(ui.item).data('tours-id');
+            var newOrderTours = [];
 
+            $(this).find('tr').each(function(index) {
+                var position = index + 1; // Новая позиция
+
+                newOrderTours.push({ toursId: $(this).data('tours-id'), position: position });
+            });
+
+            // Проверка изменения позиции элемента
+            var oldPosition = $(ui.item).data('position');
+            var newPosition = $(ui.item).index() + 1;
+            if (oldPosition === newPosition) {
+                return; // Если позиция не изменилась, прекратить выполнение
+            }
+
+            // Обновление позиций объектов
+            newOrderTours.forEach(function(tour, index) {
+                tour.position = index + 1;
+            });
+
+            // Сортировка
+            newOrderTours.sort(function(a, b) {
+                return a.position - b.position;
+            });
+
+            newOrderTours.forEach(function(tour, index) {
+                var updatedToursId = tour.toursId;
+                var updatedPosition = index + 1;
+
+                console.log("Старая позиция toursId:", updatedToursId, ":", oldPosition);
+                console.log("Новая позиция toursId:", updatedToursId, ":", updatedPosition);
+
+                // Остальной код для отправки на сервер
+                $.post('/posts/' + updatedToursId + '/order-tours', {
+                    _token: "{{ csrf_token() }}",
+                    order_tours: updatedPosition,
+                    }, function(response) {
+                        console.log(response);
+                    }).fail(function(xhr) {
+                        console.log(xhr.responseText);
+                    });
+                });
+            }
+        });
+    });
+</script>
+
+<script>
+    $(function() {
+    $('.sortable_lesa').sortable({
+        items: 'tr',
+        update: function(event, ui) {
+            var lesaId = $(ui.item).data('lesa-id');
+            var newOrderLesa = [];
+
+            $(this).find('tr').each(function(index) {
+                var position = index + 1; // New position
+
+                newOrderLesa.push({ lesaId: $(this).data('lesa-id'), position: position });
+            });
+
+            // Check if the position of the item has changed
+            var oldPosition = $(ui.item).data('position');
+            var newPosition = $(ui.item).index() + 1;
+            if (oldPosition === newPosition) {
+                return; // If the position hasn't changed, stop execution
+            }
+
+            // Update positions of objects
+            newOrderLesa.forEach(function(lesa, index) {
+                lesa.position = index + 1;
+            });
+
+            // Sort
+            newOrderLesa.sort(function(a, b) {
+                return a.position - b.position;
+            });
+
+            newOrderLesa.forEach(function(lesa, index) {
+                var updatedLesaId = lesa.lesaId;
+                var updatedPosition = index + 1;
+
+                console.log("Old position:", updatedLesaId, ":", oldPosition);
+                console.log("New position:", updatedLesaId, ":", updatedPosition);
+
+                // Further code to send to the server
+                $.ajax({
+                    url: '/posts/' + updatedLesaId + '/order-lesa',
+                    type: "POST",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        order: updatedPosition,
+                    },
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        }
+    });
+});
+</script>
 
 
 </body>

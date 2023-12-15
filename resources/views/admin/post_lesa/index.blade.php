@@ -24,7 +24,6 @@
                             <div class="tab-container">
                                 <a href="{{ route('lesa') }}" class="btn btn-primary mb-3">Строительные леса</a>
                                 <a href="{{ route('tours') }}" class="btn btn-primary mb-3">Вышки-туры</a>
-                                <a href="{{ route('resetLesa') }}" class="btn btn-danger ">Очистить позиций</a>
                                 <a href="{{ route('posts.index') }}" type="button" class="btn btn-success">Назад</a>
                             </div>
                                 <div class="table-responsive">
@@ -38,10 +37,10 @@
                                             <th>Действия</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                            @foreach($lesa->sortBy('order') as $post)
+                                        <tbody class="sortable_lesa">
+                                            @foreach($lesa->sortBy("order") as $post)
                                             @if ($post->is_tabs == 0)
-                                                <tr>
+                                                <tr style="cursor: grab" data-lesa-id="{{ $post->id }}">
                                                     <td>{{$post->order}}</td>
                                                     <td style="width: 80px;">
                                                         @if($post->media == 'MOV' || $post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov')
@@ -58,16 +57,10 @@
                                                         <a href="{{ route('posts.edit', ['post' => $post->id]) }}" class="btn btn-info btn-sm float-left mr-1">
                                                             <i class="fas fa-pencil-alt"></i>
                                                         </a>
-                                                        <a href="{{ route('order', $post->id) }}" class="btn btn-success btn-sm float-left mr-1">
-                                                            +
-                                                        </a>
-                                                        <a href="{{ route('orders', $post->id) }}" class="btn btn-danger btn-sm float-left mr-1">
-                                                            -
-                                                        </a>
                                                         <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="post" class="float-left">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Подтвердите удаление')">
+                                                            <button type="submit" class="btn btn-danger btn-sm">
                                                                 <i class="fas fa-trash-alt"></i>
                                                             </button>
                                                         </form>
