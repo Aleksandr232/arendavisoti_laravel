@@ -1055,10 +1055,18 @@ main {
   font-size: 22px;
   color: #F5812C;
 }
+
+.sc-link:hover{
+    content:'';
+    transition: 0.3s;
+    transform: translateX(15px);
+}
+
 .tt-cc__link a:hover,
 .sc-link a:hover {
   color: #F69F2B;
 }
+
 .tt-card__with__bg {
   margin: 36px 0;
   padding: 36px 0;
