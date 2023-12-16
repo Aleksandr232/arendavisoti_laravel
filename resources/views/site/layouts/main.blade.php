@@ -92,13 +92,12 @@
     if(!sessionStorage.getItem('visited')) {
     var loader = document.querySelector('.loader');
     var btnTheme = document.querySelector('.theme-btn');
-    var btnCard = document.getElementById('card-btn');
+
     var stocks = document.getElementById('runningString');
     // Показываем индикатор загрузки
     loader.style.display = 'block';
     btnTheme.style.display="none";
     stocks.style.display="none";
-    btnCard.style.display="none";
     document.body.style.overflow = 'hidden';
     // Устанавливаем sessionStorage
     sessionStorage.setItem('visited', 'true');
@@ -106,7 +105,6 @@
     setTimeout(function() {
         loader.style.display = 'none';
         btnTheme.style.display="block";
-        btnCard.style.display="block";
         stocks.style.display="block";
         document.body.style.overflow = '';
     }, 2000);
@@ -115,7 +113,6 @@
         // Скрываем индикатор загрузки
         loader.style.display = 'none';
         btnTheme.style.display="block";
-        btnCard.style.display="block";
         stocks.style.display="block";
         document.body.style.overflow = '';
     }
