@@ -64,7 +64,6 @@ btnOpenModal.forEach(i => {
             modalWindow.style.display = 'block';
             themeBtn.style.display = 'none';
             runningString.style.display='none';
-            btnModalCard.style.display ='none';
             document.body.style.overflow = 'hidden';
             document.body.style.marginRight = `${scroll}px`;
         }
@@ -79,7 +78,6 @@ closeModal.forEach(elem => {
             themeBtn.style.display = 'block';
             /* runningString.style.display='block'; */
             runningString.style.display='none';
-            btnModalCard.style.display ='block';
             document.body.style.marginRight = '0px';
         }
     });
