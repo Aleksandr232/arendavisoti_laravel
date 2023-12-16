@@ -31,7 +31,7 @@
                     {{-- <input type="checkbox" name="checkbox" value="1" checked required>
                     <span class="their-checkbox"></span> --}}
                     {!! HCaptcha::display() !!}
-                    {!! HCaptcha::script() !!}
+                    {!! HCaptcha::script($locale='ru') !!}
                 </label>
                 {{-- <div class="checkbox-content">
                     <p>Нажимая на кнопку «Оставить заявку», вы даёте согласие на <a href="{{ asset('frontend/doc/privacy.pdf') }}" rel="nofollow" target="_blank" class="modal-doc">обработку своих персональных данных</a></p>
