@@ -14,6 +14,13 @@ class MailController extends Controller
 {
     public function send(Request $request)
     {
+        $this->validate($request, [
+            'hidden' => 'required',
+            'name' => 'required|min:2|max:65',
+            'phone' => 'required|min:11|max:20|',
+            /* 'h-captcha-response' => ['hcaptcha'], */
+        ]);
+
         $contact = new Contact();
         $contact->company =$request->input('company');
         $contact->address = $request->input('address');
@@ -24,12 +31,7 @@ class MailController extends Controller
         $contact->email = $request->input('email');
         $contact->save();
 
-        $this->validate($request, [
-            'hidden' => 'required',
-            'name' => 'required|min:2|max:65',
-            'phone' => 'required|min:11|max:20|',
-            'h-captcha-response' => ['required', 'hcaptcha'],
-        ]);
+
 
         $body = "<p><span style='color: #3D5368'>{$request->input('hidden')}</span></p>";
         $body .= "<p><span style='color: #3D5368'>Имя клиента:</span> {$request->input('name')}</p>";

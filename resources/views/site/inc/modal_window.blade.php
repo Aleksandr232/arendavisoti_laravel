@@ -28,14 +28,14 @@
             </label>
             <div class="checkbox-wrap">
                 <label class="checkbox">
-                    {{-- <input type="checkbox" name="checkbox" value="1" checked required>
-                    <span class="their-checkbox"></span> --}}
-                    {!! HCaptcha::display() !!}
-                    {!! HCaptcha::script($locale='ru') !!}
+                    <input type="checkbox" name="checkbox" value="1" checked required>
+                    <span class="their-checkbox"></span>
+                    {{-- {!! HCaptcha::display() !!}
+                    {!! HCaptcha::script($locale='ru') !!} --}}
                 </label>
-                {{-- <div class="checkbox-content">
+                <div class="checkbox-content">
                     <p>Нажимая на кнопку «Оставить заявку», вы даёте согласие на <a href="{{ asset('frontend/doc/privacy.pdf') }}" rel="nofollow" target="_blank" class="modal-doc">обработку своих персональных данных</a></p>
-                </div> --}}
+                </div>
             </div>
             <input type="submit" name="submit" value="Оставить заявку" class="modal-btn">
             <!-- cross close modal window start -->
