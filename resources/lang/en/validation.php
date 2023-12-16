@@ -142,6 +142,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'h-captcha-response' => [
+            'hcaptcha' => 'Пожалуйста, подтвердите, что вы человек',
+        ],
     ],
 
     /*

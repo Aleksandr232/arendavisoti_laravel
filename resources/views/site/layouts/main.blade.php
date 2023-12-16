@@ -174,12 +174,15 @@
     });
 
   </script>
+
 <script async src="{{ asset('frontend/js/script.js') }}"></script>
 <script async src="{{ asset('frontend/js/running-string.js') }}"></script>
 <script  src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
 <script defer src="{{ asset('frontend/js/hidden_text.js') }}"></script>
 <script defer src="{{ asset('frontend/js/tabs.js') }}"></script>
 <script async src="https://res.smartwidgets.ru/app.js" ></script>
+
+
 </body>
 
 </html>

@@ -50,9 +50,9 @@
                 <i class="fas fa-moon"></i>
                 <i class="fas fa-sun"></i>
             </button>
-            <button onclick="openModalCard()" id="card-btn">
+            {{-- <button onclick="openModalCard()" id="card-btn">
                 <i class='fa fa-shopping-bag'></i>
-            </button>
+            </button> --}}
         </div>
     </div>
 </div>

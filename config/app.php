@@ -178,6 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
+        Panfu\Laravel\HCaptcha\HCaptchaServiceProvider::class,
 
 
     ],
@@ -237,6 +238,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Location' => 'Stevebauman\Location\Facades\Location',
+        'HCaptcha' => Panfu\Laravel\HCaptcha\Facades\HCaptcha::class,
 
 
     ],

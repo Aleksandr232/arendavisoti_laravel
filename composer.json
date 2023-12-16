@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "anhskohbo/no-captcha": "^3.5",
         "barryvdh/laravel-dompdf": "^2.0",
         "darkaonline/l5-swagger": "^8.5",
         "defstudio/telegraph": "^1.38",
@@ -31,6 +32,7 @@
         "spatie/laravel-sitemap": "^6.2",
         "stevebauman/location": "^6.6",
         "symfony/dom-crawler": "^6.0",
+        "teampanfu/laravel-hcaptcha": "^1.1",
         "torann/geoip": "^3.0",
         "vonage/client": "^4.0"
     },

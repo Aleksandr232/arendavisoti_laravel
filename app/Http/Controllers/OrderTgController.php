@@ -32,11 +32,13 @@ class OrderTgController extends Controller
             'order' => 'required',
             'name' => 'required',
             'phone' => 'required',
+            'h-captcha-response' => ['required', 'hcaptcha'],
         ],
         [
             'order.required' => 'Укажите услугу',
             'name.required' => 'Укажите имя',
-            'phone.required' => 'Укажите номер телефона'
+            'phone.required' => 'Укажите номер телефона',
+            'h-captcha-response' => 'Пожалуйста, подтвердите, что вы человек'
         ]);
 
 
