@@ -15,11 +15,9 @@ hnNavbarBurgerBtn.addEventListener('click', () => {
     console.log('Melnkov dev', 'https://newportfolio-sooty-kappa.vercel.app/')
     if (isBurgerActive) {
         themeBtn.style.display = 'block';
-        btnModalCard.style.display ='block';
         isBurgerActive = false;
     } else {
         themeBtn.style.display = 'none';
-        btnModalCard.style.display ='none';
         isBurgerActive = true;
     }
 
@@ -200,7 +198,6 @@ function showAlert() {
             let modalOpen = document.getElementById('modals');
             modalOpen.style.display = 'block';
 	        themeBtn.style.display = "none";
-            btnModalCard.style.display ="none";
             runningString.style.display='none';
             document.body.style.overflow = 'hidden';
 
@@ -208,7 +205,6 @@ function showAlert() {
                 if (event.target == modalOpen ) {
                     modalOpen.style.display = "none";
 		            themeBtn.style.display = "block";
-              	    btnModalCard.style.display = "block";
                     runningString.style.display='none';
                   document.body.style.overflow = '';
 
@@ -220,7 +216,6 @@ function showAlert() {
             let modalOpen = document.getElementById('modals');
             modalOpen.style.display = 'none';
             themeBtn.style.display = "block";
-            btnModalCard.style.display = "block";
             runningString.style.display='none';
             document.body.style.overflow = '';
 
