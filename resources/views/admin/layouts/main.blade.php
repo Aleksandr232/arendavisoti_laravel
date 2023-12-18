@@ -366,6 +366,11 @@
                     </a>
                 </div> --}}
                 <div class="nav-item has-treeview">
+                    <a href="{{ route('hcaptcha') }}" class="nav-link">
+                        Включить HCaptcha
+                    </a>
+                </div>
+                <div class="nav-item has-treeview">
                     @if(auth()->check() && auth()->user()->is_dev)
                     <a href="{{ route('update_dev') }}" class="nav-link">
                         Обновить карту сайта

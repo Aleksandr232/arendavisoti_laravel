@@ -97,6 +97,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/posts/{id}/tabs', [PostController::class, 'tabs'])->name('tabs');
     Route::get('/restlesa', [PostController::class, 'resetLesa'])->name('resetLesa');
     Route::get('/resttours', [PostController::class, 'resetTours'])->name('resetTours');
+    Route::get('/hcaptcha', [ActiveRunningString::class, 'hcaptcha'])->name('hcaptcha');
     Route::resource('/postsimgtours', PostImgToursController::class);
     Route::resource('/postscaff', PostScaffoldingController::class);
     Route::resource('/poststexnica', PostTexnicaController::class);

@@ -26,17 +26,29 @@
             <label>
                 <input type="tel" name="phone" class="input-name__phone mask-phone" placeholder="Введите номер телефона" required>
             </label>
-            <div class="checkbox-wrap">
-                <label class="checkbox">
-                    <input type="checkbox" name="checkbox" value="1" checked required>
-                    <span class="their-checkbox"></span>
-                    {{-- {!! HCaptcha::display() !!}
-                    {!! HCaptcha::script($locale='ru') !!} --}}
-                </label>
-                <div class="checkbox-content">
-                    <p>Нажимая на кнопку «Оставить заявку», вы даёте согласие на <a href="{{ asset('frontend/doc/privacy.pdf') }}" rel="nofollow" target="_blank" class="modal-doc">обработку своих персональных данных</a></p>
-                </div>
-            </div>
+            @php
+                use App\Models\RunStr;
+                $active = RunStr::all()->first();
+
+            @endphp
+                    @if($active->is_hcaptcha == 1)
+                        <div class="checkbox-wrap">
+                            <label class="checkbox">
+                                {!! HCaptcha::display() !!}
+                                {!! HCaptcha::script($locale='ru') !!}
+                            </label>
+                        </div>
+                    @else
+                        <div  class="checkbox-wrap">
+                            <label class="checkbox">
+                                <input type="checkbox" name="checkbox" value="1" checked required>
+                                <span class="their-checkbox"></span>
+                            </label>
+                            <div class="checkbox-content">
+                                <p>Нажимая на кнопку «Оставить заявку», вы даёте согласие на <a href="{{ asset('frontend/doc/privacy.pdf') }}" rel="nofollow" target="_blank" class="modal-doc">обработку своих персональных данных</a></p>
+                            </div>
+                        </div>
+                    @endif
             <input type="submit" name="submit" value="Оставить заявку" class="modal-btn">
             <!-- cross close modal window start -->
             <svg class="close-modal" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

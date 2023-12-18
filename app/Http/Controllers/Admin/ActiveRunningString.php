@@ -44,6 +44,35 @@ class ActiveRunningString extends Controller
 
     }
 
+    public function hcaptcha(Request $request)
+    {
+        $active = RunStr::first();// выбираем первую запись из модели "RunStr"
+
+
+
+        if (!$active) {
+            $active = new RunStr(); // если записей нет, создаем новый объект модели "RunStr"
+        }
+
+        if ($active->is_hcaptcha) {
+            $active->is_hcaptcha = false;
+            $active->save();
+
+            return redirect()->route('admin')->with('err', 'HCaptcha отключена');
+
+        }elseif($active->is_hcaptcha = true){
+            $active->is_hcaptcha = true;
+            $active->save();
+            return redirect()->route('admin')->with('success', 'HCaptcha включена');
+        }
+
+
+    }
+
+
+   
+
+
 
 
 

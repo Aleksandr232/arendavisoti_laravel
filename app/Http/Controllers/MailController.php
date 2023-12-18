@@ -18,7 +18,7 @@ class MailController extends Controller
             'hidden' => 'required',
             'name' => 'required|min:2|max:65',
             'phone' => 'required|min:11|max:20|',
-            /* 'h-captcha-response' => ['hcaptcha'], */
+            'h-captcha-response' => ['hcaptcha'],
         ]);
 
         $contact = new Contact();
