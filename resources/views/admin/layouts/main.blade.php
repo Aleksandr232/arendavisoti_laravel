@@ -349,33 +349,55 @@
                         </p>
                     </a>
                 </div>
-                 <div class="nav-item has-treeview">
+                 {{-- <div class="nav-item has-treeview">
                     <a href="{{ route('chat.index') }}" class="nav-link">
 
                         <p>
                             Чат
                         </p>
                     </a>
-                </div>
-                {{-- <div class="nav-item has-treeview">
-                    <a href="{{ route('run_string') }}" class="nav-link">
-
-                        <p id="advertisingStatus">
-
-                        </p>
-                    </a>
                 </div> --}}
+                @php
+                    use App\Models\RunStr;
+                    $active = RunStr::all()->first();
+                @endphp
                 <div class="nav-item has-treeview">
-                    <a href="{{ route('hcaptcha') }}" class="nav-link">
-                        Включить HCaptcha
-                    </a>
-                </div>
-                <div class="nav-item has-treeview">
-                    @if(auth()->check() && auth()->user()->is_dev)
-                    <a href="{{ route('update_dev') }}" class="nav-link">
-                        Обновить карту сайта
-                    </a>
-                    @endif
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-gears nav-icon"></i>
+                            <p>Настройка сайта</p>
+                            <i class="right fas fa-angle-left"></i>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item has-treeview">
+                                @if($active->is_active == 1)
+                                    <a href="{{ route('run_string') }}" class="nav-link">
+                                        Отключить бегущаю строку
+                                    </a>
+                                @else
+                                    <a href="{{ route('run_string') }}" class="nav-link">
+                                        Включить бегущаю строку
+                                    </a>
+                                @endif
+                            </li>
+                            <li class="nav-item has-treeview">
+                                @if($active->is_hcaptcha == 1)
+                                    <a href="{{ route('hcaptcha') }}" class="nav-link">
+                                        Отключить HCaptcha
+                                    </a>
+                                @else
+                                    <a href="{{ route('hcaptcha') }}" class="nav-link">
+                                        Включить HCaptcha
+                                    </a>
+                                @endif
+                            </li>
+                            <li class="nav-item has-treeview">
+                                @if(auth()->check() && auth()->user()->is_dev)
+                                <a href="{{ route('update_dev') }}" class="nav-link">
+                                    Обновить карту сайта
+                                </a>
+                                @endif
+                            </li>
+                        </ul>
                 </div>
             </ul>
         </nav>
