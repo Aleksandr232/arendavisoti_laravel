@@ -34,8 +34,7 @@
                     @if($active->is_hcaptcha == 1)
                         <div class="checkbox-wrap">
                             <label class="checkbox">
-                                {!! HCaptcha::display() !!}
-                                {!! HCaptcha::script($locale='ru') !!}
+                                @include('site.layouts.hcaptcha')
                             </label>
                         </div>
                     @else
