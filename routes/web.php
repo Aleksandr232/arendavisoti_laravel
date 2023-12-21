@@ -48,6 +48,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\MarketTgController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -200,6 +201,8 @@ Route::resource('/orderapi', PostOrderController::class); // корзина с �
 Route::resource('/visit', PostVisitController::class); //посещения сайта по городам
 Route::get('/month-visit', [PostVisitController::class, 'index2']); //общее посещения сайта по месяцам
 Route::get('/status-string', [ActiveRunningString::class, 'index']);
+Route::get('/flexbe', [MarketTgController::class, 'checkConnection']);
+
 
 // api заказы из телеграмм бота
 Route::post('api/order', [PostOrderController::class, 'store']); // для телеграмм бота

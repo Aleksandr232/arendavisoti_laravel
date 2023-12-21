@@ -59,7 +59,7 @@
                         <p>ОГРН  1211600085927</p>
                         <p>ИНН 1684000706</p>
                         <div class="sc-link">
-                            <a href="{{ asset('frontend/doc/carta.pdf') }}" target="_blank">СКАЧАТЬ КАРТУ ПАРТНЕРА →</a>
+                            <a href="{{ asset('frontend/doc/Карта партнера ООО Аренда Высоты.pdf') }}" target="_blank">СКАЧАТЬ КАРТУ ПАРТНЕРА →</a>
                         </div>
                     </div>
                 </div>

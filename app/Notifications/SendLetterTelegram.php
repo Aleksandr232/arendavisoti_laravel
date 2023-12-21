@@ -42,7 +42,8 @@ class SendLetterTelegram extends Notification
            // Optional recipient user id.
             ->to(env('TELEGRAM_CHAT_ID'))
             // Markdown supported.
-            ->content("{$notifiable->input('hidden')}\n" .
+            ->content("Заявка с сайта\n" .
+                "{$notifiable->input('hidden')}\n" .
                 "Имя клиента: {$notifiable->input('name')}\n" .
                 "Телефон клиента: {$notifiable->input('phone')}");
     }
