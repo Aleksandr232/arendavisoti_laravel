@@ -64,6 +64,7 @@
 @yield('header_title')
 
 <main>
+    <div id="app"></div>
     @yield('content')
 </main>
 
@@ -178,7 +179,9 @@
 <script defer src="{{ asset('frontend/js/hidden_text.js') }}"></script>
 <script defer src="{{ asset('frontend/js/tabs.js') }}"></script>
 <script async src="https://res.smartwidgets.ru/app.js" ></script>
+{{-- <div id="app"></div> --}}
 
+<script src="{{ mix('js/app.js') }}"></script>
 
 
 </body>

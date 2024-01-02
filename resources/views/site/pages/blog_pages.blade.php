@@ -2,6 +2,7 @@
 
 @section('title', $blogid->titles)
 @section('description', $blogid->description)
+@section('keywords', $blogid->keywords)
 
 @section('header_title')
     <div class="header-content my-container">
