@@ -72,6 +72,8 @@
 
 @include('site.inc.modal_window')
 
+@include('site.inc.modal_discounts')
+
 @include('site.inc.moadal_card')
 
 @include('site.inc.loader')
@@ -178,6 +180,7 @@
 <script  src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
 <script defer src="{{ asset('frontend/js/hidden_text.js') }}"></script>
 <script defer src="{{ asset('frontend/js/tabs.js') }}"></script>
+<script defer src="{{ asset('frontend/js/modal.js') }}"></script>
 <script async src="https://res.smartwidgets.ru/app.js" ></script>
 {{-- <div id="app"></div> --}}
 

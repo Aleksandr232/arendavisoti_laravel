@@ -61,6 +61,8 @@
                             <h3>Скидки</h3>
                         </div>
                         <p>Программа лояльности<br> для клиентов</p>
+                        <br/>
+                        <button onclick="openModalDiscounts()" class="cta-form__btn">Получить скидку</button>
                     </div>
                 </div>
                 <div class="cta-advantage__card advantage-card__two">
