@@ -81,6 +81,7 @@ Route::get('/блог', [PageController::class, 'blog'])->name('blog');
 Route::get('/блог/{id}', [PageController::class, 'blogid'])->name('blogid');
 Route::get('/update-sitemap', [SitemapController::class, 'update']);
 Route::post('/письмо-отправлено', [MailController::class, 'send'])->name('send');
+Route::post('/код-отправлен', [MailController::class, 'sendDiscounts'])->name('sendDiscounts');
 Route::post('/заказ-отправлен', [OrderTgController::class, 'sendOrder'])->name('sendOrder');
 Route::get('/parser', [ParserController::class, 'parse']);
 Route::get('/ip', function () {

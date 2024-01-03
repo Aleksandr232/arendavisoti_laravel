@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendMail;
 use App\Models\Contact;
+use App\Models\Discounts;
+use App\Mail\DiscountsMail;
 use App\Notifications\SendLetterTelegram;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -43,6 +45,38 @@ class MailController extends Controller
         Notification::send($request, new SendLetterTelegram());
 
         return view('site.mail.send', ['name'=>$contact->name ]);
+    }
+
+    public function sendDiscounts(Request $request)
+    {
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+
+        $codes = ['ВЫШКА', 'ТУРА', 'ЛЕСА', 'АРЕНДА ВЫСОТЫ', 'ЛЕСА В АРЕНДУ', 'СТРОИТЕЛЬНЫЕ ЛЕСА', 'ВЫШКИ-ТУРЫ', 'МОНТАЖ ЛЕСОВ', 'ПОДНИМАЙ ВЫСОТУ ВМЕСТЕ С АРЕНДА ВЫСОТЫ'];
+        $code = $codes[array_rand($codes)];
+
+        $discount = new Discounts();
+        $discount->email = $email;
+        $discount->name = $name;
+        $discount->code = $code;
+        $discount->save();
+
+       /*  $this->validate($request, [
+            'hidden' => 'required',
+            'name' => 'required|min:2|max:65',
+            'email' => 'required',
+            'h-captcha-response' => ['hcaptcha'],
+        ]); */
+
+        $data = [
+            'code' => $code,
+        ];
+
+        $mail = new DiscountsMail($data);
+        Mail::to($email)->send($mail);
+
+        return view('site.mail.sendDiscount', ['name'=>$discount->name]);
     }
 
 

@@ -1,6 +1,6 @@
 <div id="modal-windows">
     <div class="modal">
-        <form  method="post" autocomplete="on">
+        <form action="{{ route('sendDiscounts')}}"  method="post" autocomplete="on">
             @csrf
             <h4 class="modal-title">Получить купон на скидку</h4>
             <label>
