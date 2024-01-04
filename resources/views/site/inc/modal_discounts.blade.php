@@ -9,6 +9,11 @@
             <label>
                 <input type="email" name="email" class="input-name__phone" placeholder="Введите свою почту для получения купона" required>
             </label>
+            <div class="checkbox-wrap">
+                <label class="checkbox">
+                    @include('site.layouts.hcaptcha')
+                </label>
+            </div>
             <input type="submit" name="submit" value="Получить скидку" class="modal-btn">
             <!-- cross close modal window start -->
             <svg onclick="closesModalDiscounts()" class="close-modal" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

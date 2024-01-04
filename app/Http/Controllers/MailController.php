@@ -50,6 +50,10 @@ class MailController extends Controller
     public function sendDiscounts(Request $request)
     {
 
+        $this->validate($request, [
+            'h-captcha-response' => ['hcaptcha'],
+        ]);
+
         $name = $request->input('name');
         $email = $request->input('email');
 
@@ -68,12 +72,7 @@ class MailController extends Controller
         $discount->code = $code;
         $discount->save();
 
-       /*  $this->validate($request, [
-            'hidden' => 'required',
-            'name' => 'required|min:2|max:65',
-            'email' => 'required',
-            'h-captcha-response' => ['hcaptcha'],
-        ]); */
+       
 
         $data = [
             'code' => $code,
