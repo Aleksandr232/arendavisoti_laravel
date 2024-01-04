@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\ClearExpiredDiscounts::class,
+        \App\Console\Commands\UpdateSitemap::class
     ];
 
     /**
@@ -26,7 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(UpdateSitemap::class)->weekly()->sundays()->at('00:00');
+        $schedule->command('sitemap:update')->weekly()->sundays()->at('00:00');
         $schedule->command('discounts:clear-expired')->hourly();
     }
 
