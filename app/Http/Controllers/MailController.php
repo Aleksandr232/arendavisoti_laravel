@@ -53,6 +53,12 @@ class MailController extends Controller
         $name = $request->input('name');
         $email = $request->input('email');
 
+        //проверка email и name
+        $existingDiscount = Discounts::where('name', $name)->orWhere('email', $email)->first();
+        if ($existingDiscount) {
+            return view('site.mail.sendDiscountError', ['name'=>$name]);
+        }
+
         $codes = ['ВЫШКА', 'ТУРА', 'ЛЕСА', 'АРЕНДА ВЫСОТЫ', 'ЛЕСА В АРЕНДУ', 'СТРОИТЕЛЬНЫЕ ЛЕСА', 'ВЫШКИ-ТУРЫ', 'МОНТАЖ ЛЕСОВ', 'ПОДНИМАЙ ВЫСОТУ ВМЕСТЕ С АРЕНДА ВЫСОТЫ'];
         $code = $codes[array_rand($codes)];
 
