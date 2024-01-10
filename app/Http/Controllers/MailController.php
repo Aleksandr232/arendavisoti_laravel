@@ -63,7 +63,7 @@ class MailController extends Controller
             return view('site.mail.sendDiscountError', ['name'=>$name]);
         }
 
-        $codes = ['ВЫШКА', 'ТУРА', 'ЛЕСА', 'АРЕНДА ВЫСОТЫ', 'ЛЕСА В АРЕНДУ', 'СТРОИТЕЛЬНЫЕ ЛЕСА', 'ВЫШКИ-ТУРЫ', 'МОНТАЖ ЛЕСОВ', 'ПОДНИМАЙ ВЫСОТУ ВМЕСТЕ С АРЕНДА ВЫСОТЫ'];
+        $codes = ['ВЫШКА', 'ТУРА', 'ЛЕСА', 'АРЕНДА ВЫСОТЫ', 'ЛЕСА В АРЕНДУ', 'СТРОИТЕЛЬНЫЕ ЛЕСА', 'ВЫШКИ-ТУРЫ', 'МОНТАЖ ЛЕСОВ', 'ПОДНИМАЙ ВЫСОТУ ВМЕСТЕ С АРЕНДА ВЫСОТЫ', 'АРЕНДА ТУРЫ', 'АРЕНДА ЛЕСОВ КАЗАНЬ', 'СТРОЙКА', 'РАБОТА НА ВЫСОТЕ'];
         $code = $codes[array_rand($codes)];
 
         $discount = new Discounts();
@@ -72,7 +72,7 @@ class MailController extends Controller
         $discount->code = $code;
         $discount->save();
 
-       
+
 
         $data = [
             'code' => $code,
