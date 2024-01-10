@@ -10,6 +10,7 @@ use App\Notifications\SendLetterTelegram;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Str;
 
 class MailController extends Controller
 
@@ -58,13 +59,12 @@ class MailController extends Controller
         $email = $request->input('email');
 
         //проверка email и name
-        $existingDiscount = Discounts::where('name', $name)->orWhere('email', $email)->first();
+        $existingDiscount = Discounts::orWhere('email', $email)->first();
         if ($existingDiscount) {
             return view('site.mail.sendDiscountError', ['name'=>$name]);
         }
 
-        $codes = ['ВЫШКА', 'ТУРА', 'ЛЕСА', 'АРЕНДА ВЫСОТЫ', 'ЛЕСА В АРЕНДУ', 'СТРОИТЕЛЬНЫЕ ЛЕСА', 'ВЫШКИ-ТУРЫ', 'МОНТАЖ ЛЕСОВ', 'ПОДНИМАЙ ВЫСОТУ ВМЕСТЕ С АРЕНДА ВЫСОТЫ', 'АРЕНДА ТУРЫ', 'АРЕНДА ЛЕСОВ КАЗАНЬ', 'СТРОЙКА', 'РАБОТА НА ВЫСОТЕ'];
-        $code = $codes[array_rand($codes)];
+        $code = Str::upper(Str::random(2)) . mt_rand(10, 99) . Str::upper(Str::random(2));
 
         $discount = new Discounts();
         $discount->email = $email;
