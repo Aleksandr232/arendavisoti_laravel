@@ -18,10 +18,16 @@
     @endif
 <div class="header-contacts">
     <div class="hc-content my-container">
-        <address>
-            <img src="{{ asset('frontend/img/icons/location.svg') }}" width="16" height="16" alt="леса в аренду">
-            РТ, г. Казань, ул. Мирхайдара Файзи 68
-        </address>
+        <div class="addres_header">
+            <address>
+                <img src="{{ asset('frontend/img/icons/location.svg') }}" width="16" height="16" alt="леса в аренду">
+                РТ, г. Казань, ул. Мирхайдара Файзи 68
+            </address>
+            <address>
+                <img style="color: gainsboro" src="https://yastatic.net/s3/web4static/_/v2/static/media/Clock_20.1b71efce.svg" width="16" height="16" alt="леса в аренду">
+                пн-пт 08:00–17:00  сб 09:00–15:00
+            </address>
+        </div>
         <div class="header-phone">
             <a class="number_theme" href="tel:+79867120059">8 986 712-00-59</a>
             <a href="https://wa.me/+79867120059" title="Напишите нам в Whatsapp" target="_blank">
