@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('backend/css/form_customer.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/form_worddocument.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/tabs.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/css/modal.css') }}">
 
 
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('frontend/img/favicon/apple-touch-icon.png') }}">
@@ -47,7 +48,11 @@
     </style>
 
 </head>
+
+
+
 <body class="hold-transition sidebar-mini">
+    @include('admin.inc.modal')
 <!-- Site wrapper -->
 <div class="wrapper">
     <!-- Navbar -->
@@ -212,6 +217,9 @@
                                 </li>
                             </ul>
                         </div>
+                        <li class="nav-item has-treeview">
+                            <p onclick="openModalDiscounts()" class="nav-link">Проверить код клиента</p>
+                        </li>
                     </ul>
                 </div>
                 <div class="nav-item has-treeview">
@@ -481,6 +489,7 @@
 <script async  src="{{ asset('backend/map/apimap.js') }}"></script>
 <script async  src="{{ asset('backend/socket/socket.js') }}"></script>
 <script async  src="{{ asset('backend/run_string/run_string.js') }}"></script>
+<script async  src="{{ asset('backend/modalDiscounts/modalDiscounts.js') }}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=159d1b30-bef0-463b-a7f6-b69cba7ec8e9" type="text/javascript"></script>
 
