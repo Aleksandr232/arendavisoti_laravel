@@ -76,6 +76,8 @@
 
 @include('site.inc.moadal_card')
 
+@include('site.inc.modal_lesa')
+
 @include('site.inc.loader')
 
 <script>
