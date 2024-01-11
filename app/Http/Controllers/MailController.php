@@ -84,6 +84,22 @@ class MailController extends Controller
         return view('site.mail.sendDiscount', ['name'=>$discount->name]);
     }
 
+    public function checkDiscountCode(Request $request)
+    {
+        $code = $request->input('code');
+
+        $discount = Discounts::where('code', $code)->first();
+
+        if ($discount) {
+            $response = [
+                'name' => $discount->name,
+            ];
+            return redirect()->route('admin')->with('success', 'Клиент ' . $discount->name );
+        } else {
+            return redirect()->route('admin')->with('err', 'код неправильный');
+        }
+    }
+
 
 }
 

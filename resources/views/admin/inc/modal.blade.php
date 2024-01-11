@@ -1,6 +1,6 @@
 <div id="modal-windows">
     <div class="modals">
-        <form   method="post" autocomplete="on">
+        <form action="{{ route('checkDiscountCode')}}"  method="post" autocomplete="on">
             @csrf
             <h4 class="modal-title">Проверить код</h4>
             <label>
