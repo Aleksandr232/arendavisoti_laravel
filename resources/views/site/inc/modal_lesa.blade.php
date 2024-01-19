@@ -1,6 +1,6 @@
 <div id="modal-lesa">
     <div class="modal_lesa">
-        <form   method="post" autocomplete="on">
+        <form  action="{{ route('Payment') }}"  method="post" autocomplete="on">
             @csrf
             <h4 class="modal-title">Офрмить доставку лесов</h4>
             <label>
@@ -8,6 +8,17 @@
             </label>
             <label>
                 <input type="phone" name="phone" class="input-name__phone" placeholder="Введите номер" required>
+            </label>
+            <label>
+                <select name="payment"class="input-name__phone">
+                    <option value="">Выбрать оплату</option>
+                    <option value="in_cash">Наличными</option>
+                    <option value="credit_card">Картой</option>
+                    <option value="pay_nds">НДС</option>
+                </select>
+            </label>
+            <label>
+                <input type="datetime-local" name="delivery_date" class="input-name__phone" placeholder="Введите номер" required>
             </label>
             {{-- <div class="checkbox-wrap">
                 <label class="checkbox">

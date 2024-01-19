@@ -49,6 +49,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\MarketTgController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,6 +84,7 @@ Route::get('/update-sitemap', [SitemapController::class, 'update']);
 Route::post('/письмо-отправлено', [MailController::class, 'send'])->name('send');
 Route::post('/код-отправлен', [MailController::class, 'sendDiscounts'])->name('sendDiscounts');
 Route::post('/заказ-отправлен', [OrderTgController::class, 'sendOrder'])->name('sendOrder');
+Route::post('/оплата-заказа', [PaymentController::class, 'Payment'])->name('Payment');
 Route::get('/parser', [ParserController::class, 'parse']);
 Route::get('/ip', function () {
     $ip = $_SERVER['REMOTE_ADDR'];
