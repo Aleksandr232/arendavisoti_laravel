@@ -1,6 +1,6 @@
 <div id="modal-lesa">
     <div class="modal_lesa">
-        <form  action="{{ route('Payment') }}"  method="post" autocomplete="on">
+        <form  {{-- action="{{ route('Payment') }}" --}}  method="post" autocomplete="on">
             @csrf
             <h4 class="modal-title">Офрмить доставку лесов</h4>
             <label>
@@ -8,6 +8,16 @@
             </label>
             <label>
                 <input type="phone" name="phone" class="input-name__phone" placeholder="Введите номер" required>
+            </label>
+            <label>
+                <input type="location" name="location" class="input-name__phone" placeholder="Введите объект доставки" required>
+            </label>
+            <label>
+                <select name="location_map"class="input-name__phone">
+                    <option value="">Указать на карте?</option>
+                    <option value="yes">Да</option>
+                    <option value="no">Нет</option>
+                </select>
             </label>
             <label>
                 <select name="payment"class="input-name__phone">
@@ -20,6 +30,11 @@
             <label>
                 <input type="datetime-local" name="delivery_date" class="input-name__phone" placeholder="Введите номер" required>
             </label>
+
+
+                <div id="map"></div>
+
+
             {{-- <div class="checkbox-wrap">
                 <label class="checkbox">
                     @include('site.layouts.hcaptcha')
@@ -37,6 +52,7 @@
                 </g>
             </svg>
             <!-- cross close modal window end -->
+
         </form>
     </div>
     {{-- <div class="modal-bg"></div> --}}

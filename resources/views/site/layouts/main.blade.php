@@ -47,7 +47,7 @@
  <!-- /Yandex.Metrika counter -->
 
     <style>
-        html, body, #map {
+        html, body {
             width: 100%;
             height: 50%;
             padding: 0;
@@ -177,6 +177,7 @@
 
   </script>
 
+
 <script async src="{{ asset('frontend/js/script.js') }}"></script>
 <script async src="{{ asset('frontend/js/running-string.js') }}"></script>
 <script  src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
@@ -184,6 +185,8 @@
 <script defer src="{{ asset('frontend/js/tabs.js') }}"></script>
 <script defer src="{{ asset('frontend/js/modal.js') }}"></script>
 <script async src="https://res.smartwidgets.ru/app.js" ></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=159d1b30-bef0-463b-a7f6-b69cba7ec8e9" type="text/javascript"></script>
+<script src='../../../../public/frontend/js/map_payment.js'></script>
 {{-- <div id="app"></div> --}}
 
 <script src="{{ mix('js/app.js') }}"></script>

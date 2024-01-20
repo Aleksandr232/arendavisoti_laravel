@@ -1993,6 +1993,21 @@ main {
   z-index: 1000;
 }
 
+
+
+
+#map{
+    display: none;
+    width: 100%;
+    height: 320px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 18px;
+}
+
+
+
 #modal-lesa {
     display: none;
     position: fixed;

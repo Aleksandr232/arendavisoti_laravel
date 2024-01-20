@@ -1,16 +1,33 @@
-ymaps.ready(init);
+// Находим select элемент по его name
+function initMap() {
+    var locationMapSelect = document.querySelector('select[name="location_map"]');
+    var map_payment = document.getElementById('map');
+
+    locationMapSelect.addEventListener('change', function() {
+        toggleMapDisplay(this.value, map_payment);
+    });
+}
+
+function toggleMapDisplay(value, mapElement) {
+    if (value === 'yes') {
+        mapElement.style.display = 'block';
+        init();
+    } else {
+        mapElement.style.display = 'none';
+    }
+}
 
 function init() {
     // Стоимость за километр.
     var DELIVERY_TARIFF = 65,
-    // Минимальная стоимость.
+        // Минимальная стоимость.
         MINIMUM_COST = 1500,
         myMap = new ymaps.Map('map', {
             center: [60.906882, 30.067233],
             zoom: 9,
             controls: []
         }),
-    // Создадим панель маршрутизации.
+        // Создадим панель маршрутизации.
         routePanelControl = new ymaps.control.RoutePanel({
             options: {
                 // Добавим заголовок панели.
@@ -37,7 +54,7 @@ function init() {
     routePanelControl.routePanel.state.set({
         fromEnabled: false,
         from: 'Казань, ул. Мирхайдара Файзи, 68'
-     });
+    });
 
     myMap.controls.add(routePanelControl).add(zoomControl);
 
@@ -48,7 +65,7 @@ function init() {
         route.model.setParams({results: 1}, true);
 
         // Повесим обработчик на событие построения маршрута.
-        route.model.events.add('request_success', function () {
+        route.model.events.add('requestsuccess', function () {
 
             var activeRoute = route.getActiveRoute();
             if (activeRoute) {
@@ -73,3 +90,7 @@ function init() {
         return Math.max(routeLength * DELIVERY_TARIFF - 25, MINIMUM_COST);
     }
 }
+
+window.onload = function() {
+    initMap();
+};
