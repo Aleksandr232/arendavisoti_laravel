@@ -19,6 +19,25 @@
         ☑️ Минимальный заказ всего 5000 руб<br/>
         </p>
     </div>
+    <div  class="sp-call-to-action_home">
+                <button class="ptt-card__btn ptt-card__btn__one sp-cta__btn btn" data-btn="Заявка на аренду строительных лесов">Заказать звонок</button>
+                <button onclick="openModal()" class="btn_calc" >Рассчитать</button></a>
+                <a href="https://wa.me/+79867120059"><button class="btn_calc">Написать</button></a>
+                <div id="modals">
+                    <div class="modal__content">
+                      <span onclick="closesModal()" id="close">&times;</span>
+                      <form>
+                          <label for="length">Длина:</label>
+                          <input class='input-name__field' placeholder="кратно 3" type="number" min="3" step="3" id="length" required oninput="checkLength()">
+
+                          <label for="height">Высота:</label>
+                          <input class='input-name__field' placeholder="кратно 2" type="number" min="2" step="2" id="height" required oninput="checkHeight()">
+
+                          <button class="btn_calc" id="calculate-btn">Рассчитать площадь</button>
+                      </form>
+                    </div>
+                  </div>
+    </div>
 @endsection
 
 @section('content')

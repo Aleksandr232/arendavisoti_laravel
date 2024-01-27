@@ -1306,6 +1306,16 @@ main {
   font-weight: 700;
   color: #3d5368;
 }
+
+.sp-call-to-action_home {
+    margin-top: -26px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: #3d5368;
+  }
+
+
 .sp-cta__btn {
   background: #0587D3 !important;
 }
