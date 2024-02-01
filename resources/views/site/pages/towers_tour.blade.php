@@ -94,7 +94,7 @@
     <section id="price-towers__tour">
         <div class="price-towers__tour my-container">
         <div class="sp-bg">
-            <h2 class="sp-title">Стоимость аренды вышек-туров</h2>
+            <h2 class="sp-title">Стоимость аренды вышек-тур</h2>
             <h2 class="sp-title_min"> Цены могут меняться в зависимости от сезона и объема взятого в аренду оборудования</h2>
         </div>
             <p class="ptt-description">Минимальная сумма заказа в размере арендной платы за 7 дней</p>
@@ -107,7 +107,7 @@
                 @endforeach
             </div>
             <div class="ptt-call-to-action">
-                <h2>Арендуйте вышку-тура без переплат</h2>
+                <h2>Арендуйте вышку-туры без переплат</h2>
                 <button class="ptt-card__btn ptt-card__btn__one btn" data-btn="Заявка на аренду вышек-туров">Арендовать</button>
                 {{-- <a target="_blank" href="https://calcarenda.vercel.app/"><button id='bot' class="btn_calc" >Рассчитать</button></a> --}}
             </div>
