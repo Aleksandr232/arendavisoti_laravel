@@ -38,7 +38,7 @@
         </div>
     </section>
     <section id="scaffolding-price">
-        <div class="scaffolding-price my-container">
+        <div id="price" class="scaffolding-price my-container">
             <div class="sp-bg">
             <h2 class="sp-title">Стоимость аренды лесов</h2>
             <h2 class="sp-title_min"> Цены могут меняться в зависимости от сезона и объема взятого в аренду оборудования</h2>
