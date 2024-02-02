@@ -31,7 +31,6 @@
         </a>
         <h2 class="op-card__title">Рамные строительные леса</h2>
         <a href="{{ route('scaffolding') }}" class="op-card__link">Подробнее →</a>
-        <a onclick="openModalLesa()"  class="op-card__link">Заказать →</a>
     </div>
     <div class="op-main__card">
         <a href="{{ route('towers_tour') }}">
