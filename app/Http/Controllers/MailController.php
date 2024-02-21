@@ -19,8 +19,6 @@ class MailController extends Controller
     {
         $this->validate($request, [
             'hidden' => 'required',
-            'name' => 'required|min:2|max:65',
-            'phone' => 'required|min:11|max:20|',
             'h-captcha-response' => ['hcaptcha'],
         ]);
 
@@ -28,7 +26,7 @@ class MailController extends Controller
         $contact->company =$request->input('company');
         $contact->address = $request->input('address');
         $contact->hidden = $request->input('hidden');
-        $contact->name = $request->input('name');
+        /* $contact->name = $request->input('name'); */
         $contact->phone = $request->input('phone');
         $contact->telegram = $request->input('telegram');
         $contact->email = $request->input('email');
@@ -37,7 +35,7 @@ class MailController extends Controller
 
 
         $body = "<p><span style='color: #3D5368'>{$request->input('hidden')}</span></p>";
-        $body .= "<p><span style='color: #3D5368'>Имя клиента:</span> {$request->input('name')}</p>";
+        /* $body .= "<p><span style='color: #3D5368'>Имя клиента:</span> {$request->input('name')}</p>"; */
         $body .= "<p><span style='color: #3D5368'>Телефон клиента:</span> {$request->input('phone')}</p>";
 
         $to = explode(',', env('ADMIN_EMAILS'));
@@ -45,7 +43,7 @@ class MailController extends Controller
 
         Notification::send($request, new SendLetterTelegram());
 
-        return view('site.mail.send', ['name'=>$contact->name ]);
+        return view('site.mail.send', /* ['name'=>$contact->name ] */);
     }
 
     public function sendDiscounts(Request $request)

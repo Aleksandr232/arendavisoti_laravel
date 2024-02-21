@@ -44,7 +44,7 @@ class SendLetterTelegram extends Notification
             // Markdown supported.
             ->content("Заявка с сайта\n" .
                 "{$notifiable->input('hidden')}\n" .
-                "Имя клиента: {$notifiable->input('name')}\n" .
+                /* "Имя клиента: {$notifiable->input('name')}\n" . */
                 "Телефон клиента: {$notifiable->input('phone')}");
     }
 

@@ -480,26 +480,74 @@ p {
 .hn-navbar__btn {
   background: none;
 }
-.header-content {
+.header-content-home {
   margin-top: 40px;
+  background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600");
+  background-size: 96% 99%;
+
 }
+
+.header-content{
+    margin-top: 40px;
+}
+
 .header-content h1 {
     width: 816px;
     font-size: 36px;
     font-weight: 700;
     color: #f5812c;
-    margin-bottom: 20px;
+    margin-bottom: 300px;
 }
+
+.header-content-home h1{
+    width: 816px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #f5812c;
+    margin-bottom: 300px;
+}
+
+.header-content-home p{
+    width: 1113px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.5em;
+}
+
 .header-content h1 span,
 .header-content p {
   color: #3D5368;
 }
+.header-content-home p {
+    color: #3D5368;
+  }
 .header-content p {
   width: 1113px;
   font-size: 20px;
   font-family: 'Oswald', sans-serif;
   line-height: 1.5em;
 }
+
+.dark-theme .modal_home {
+    position: absolute;
+    left: 70%;
+    bottom: -4%;
+    -webkit-transform: translate(-50%, -2%);
+    transform: translate(-50%, -2%);
+    width: 500px;
+    background: rgba(255, 255, 255, 0.9); /* Прозрачный цвет фона */
+}
+
+.modal_home {
+    position: absolute;
+    left: 70%;
+    bottom: -4%;
+    -webkit-transform: translate(-50%, -2%);
+    transform: translate(-50%, -2%);
+    width: 500px;
+    background: rgba(153, 210, 226, 0.9); /* Прозрачный цвет фона */
+}
+
 main {
   margin-bottom: 72px;
 }
@@ -2169,6 +2217,7 @@ form {
   font-size: 12px;
   font-weight: 400;
   color: #000000;
+  width: 271px;
 }
 .checkbox-content a {
   outline: none;
@@ -2190,7 +2239,7 @@ input:focus:-ms-input-placeholder {
 }
 .modal-btn {
   margin-top: 30px;
-  width: 160px;
+  width: 180px;
   height: 40px;
   border-radius: 2px;
   background: #18A9EA;

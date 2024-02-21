@@ -4,7 +4,7 @@
     <div class="modal">
         <form  action="{{ route('send')}}"     method="post" autocomplete="on">
             @csrf
-            <h4 class="modal-title">Оставьте заявку, и мы свяжемся с вами в ближайшее время</h4>
+            <h4 class="modal-title">Введите ваш номер, и мы перезвоним вам в течение 10 минут в рабочее время</h4>
             <label>
                 <input type="hidden" name="hidden">
             </label>
@@ -19,9 +19,6 @@
             </label>
             <label>
                 <input type="hidden" name="address" value="Заявка на обратный звонок">
-            </label>
-            <label>
-                <input type="text" name="name" class="input-name__field" placeholder="Введите свое имя" required>
             </label>
             <label>
                 <input type="tel" name="phone" class="input-name__phone mask-phone" placeholder="Введите номер телефона" required>
@@ -48,7 +45,7 @@
                             </div>
                         </div>
                     @endif
-            <input type="submit" name="submit" value="Оставить заявку" class="modal-btn">
+            <input type="submit" name="submit" value="Перезвоните мне" class="modal-btn">
             <!-- cross close modal window start -->
             <svg class="close-modal" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 47.971 47.971" style="enable-background:new 0 0 47.971 47.971;" xml:space="preserve">

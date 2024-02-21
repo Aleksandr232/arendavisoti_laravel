@@ -29,7 +29,7 @@
                 @endif
             </picture>
         </a>
-        <h2 class="op-card__title">Рамные строительные леса</h2>
+        <a href="{{ route('scaffolding') }}"><h2 class="op-card__title">Рамные строительные леса</h2></a>
         <a href="{{ route('scaffolding') }}" class="op-card__link">Подробнее →</a>
     </div>
     <div class="op-main__card">
@@ -62,7 +62,7 @@
                 @endif
             </picture>
         </a>
-        <h2 class="op-card__title">Вышки-туры строительные</h2>
+        <a href="{{ route('towers_tour') }}"><h2 class="op-card__title">Вышки-туры строительные</h2></a>
         <a href="{{ route('towers_tour') }}" class="op-card__link">Подробнее →</a>
     </div>
 </div>

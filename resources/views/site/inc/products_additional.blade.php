@@ -8,7 +8,7 @@
             <div class="opa-card__info">
                 <h2>Лестницы раздвижные</h2>
                 <a>Подробнее →</a>
-                <div class="opa-card__info__content">
+                {{-- <div class="opa-card__info__content">
                     <div class="opa-cic-text">
                         <h3>Предоставляем в аренду лестницы 3х-секционные раздвижные</h3>
                         <h3>Максимальная высота 9 и 12 м., в сложенном состоянии 4 и 4,5 м.</h3>
@@ -16,7 +16,7 @@
                         <h3>Минимальная сумма аренды - <span>1500</span> &#8381;</h3>
                         <button class="opa-card__info__btn btn" data-btn="Заявка на лестницы раздвижные">Связаться с нами</button>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="op-additional__card">

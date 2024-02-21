@@ -9,12 +9,11 @@ class Contact extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 'hidden','name', 'phone', 'company', 'address', 'telegram', 'email',   'created_month'];
+    protected $fillable = [ 'hidden', 'phone', 'company', 'address', 'telegram', 'email',   'created_month'];
     protected $table = 'contact';
 
     protected $casts = [
         'hidden'=>'string',
-        'name' => 'string',
         'phone' => 'string',
         'company' => 'string',
         'address' => 'string',

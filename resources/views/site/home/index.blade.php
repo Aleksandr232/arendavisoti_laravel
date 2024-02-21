@@ -5,19 +5,63 @@
 @section('keywords', 'аренда оборудования, аренда строительного оборудования, прокат оборудования, аренда строительного оборудования в казани, прокат строительного оборудования в татарстане, аренда лестницы, аренда лестницы 5 метров, лестница раздвижная в аренду, выдвижная лестница в аренду')
 
 @section('header_title')
-    <div class="header-content my-container">
-        <h1>Аренда строительного оборудования <span>в Казани</span></h1>
-        <p>Предлагаем в аренду рамные строительные леса, строительные вышки-туры, раздвижные лестницы. Дополнительно оказываем услуги на минитракторе МКСМ, а также услуги строительного альпинизма по очистке снега с крыш. Осуществляем доставку оборудования нашим автотранспортом по Казани и Республике Татарстан<br/><br/>
-        Аренда надежных строительных лесов
-        со скидкой до 40% и доставкой от 2 часов<br/>
-        ☑️ Сезонная скидка до 40%
-        в зависимости от объема<br/>
-        ☑️ Минимальный или нулевой залог<br/>
-        ☑️ Работаем с физ. и юр. лицами
-        в т.ч. с НДС<br/>
-        ☑️ Аренда выгодней покупки до 15 раз<br/>
+    <div class="header-content-home my-container">
+            <br/>
+        <h1>Аренда строительного оборудования в Казани со скидкой до <span>40%</span></h1>
+        <p>С минимальным или нулевым залогом. Доставка от 2х часов<br/>
+        ☑️ Работаем с физ. и юр. лицами в т.ч. с НДС<br/>
+        ☑️ Аренда выгоднее покупки до 15 раз<br/>
         ☑️ Минимальный заказ всего 5000 руб<br/>
+        ☑️ Доставка по РТ от 2х часов<br/>
+        <br/>
+        <br/><br/>
         </p>
+        <div class="modal_home">
+            <form action="{{ route('send')}}" method="post" autocomplete="on">
+                @csrf
+                <h4 class="modal-title">Введите ваш номер, и мы перезвоним вам в течение 10 минут в рабочее время</h4>
+                <label>
+                    <input type="hidden" name="hidden" value="Заявка на услуги с главной страницы">
+                </label>
+                <label>
+                    <input type="hidden" name="telegram" value="Заявка на обратный звонок">
+                </label>
+                <label>
+                    <input type="hidden" name="email" value="Заявка на обратный звонок">
+                </label>
+                <label>
+                    <input type="hidden" name="company" value="Заявка на обратный звонок">
+                </label>
+                <label>
+                    <input type="hidden" name="address" value="Заявка на обратный звонок">
+                </label>
+                <label>
+                    <input type="tel" name="phone" class="input-name__phone mask-phone" placeholder="Введите номер телефона" required>
+                </label>
+                @php
+                    use App\Models\RunStr;
+                    $active = RunStr::all()->first();
+                @endphp
+                @if($active->is_hcaptcha == 1)
+                    <div class="checkbox-wrap">
+                        <label class="checkbox">
+                            @include('site.layouts.hcaptcha')
+                        </label>
+                    </div>
+                @else
+                    <div class="checkbox-wrap">
+                        <label class="checkbox">
+                            <input type="checkbox" name="checkbox" value="1" checked required>
+                            <span class="their-checkbox"></span>
+                        </label>
+                        <div class="checkbox-content">
+                            <p>Нажимая на кнопку «Оставить заявку», вы даёте согласие на <a href="{{ asset('frontend/doc/privacy.pdf') }}" rel="nofollow" target="_blank" class="modal-doc">обработку своих персональных данных</a></p>
+                        </div>
+                    </div>
+                @endif
+                <input type="submit" name="submit" value="Перезвоните мне" class="modal-btn">
+            </form>
+        </div>
     </div>
 @endsection
 
@@ -40,7 +84,7 @@
         <div class="call-to__action my-container">
             <div class="cta-form">
                 <div class="cta-form__content">
-                    <h3>Свяжитесь с нами</h3>
+                    <h3>Оставьте заявку в форме ниже и получите персональную скидку до 40%</h3>
                     <p>Мы предложим самые выгодные цены на сегодняшний день</p>
                     <div class="cta-form__phone">
                         <a href="tel:+79867120059">8 986 712-00-59</a>
@@ -58,9 +102,9 @@
                     <div class="cta-advantage__card__content">
                         <div class="advantage-card__content__title">
                             <img src="{{ asset('frontend/img/icons/percent.svg') }}" width="40" height="40" alt="аренда лесов со скидкой ">
-                            <h3>Скидки</h3>
+                            <h3>Сезонные скидки</h3>
                         </div>
-                        <p>Программа лояльности<br> для клиентов</p>
+                        <p>Программа лояльности для клиентов<br></p>
                         <br/>
                         <button onclick="openModalDiscounts()" class="cta-form__btn">Получить скидку</button>
                     </div>
@@ -70,18 +114,18 @@
                     <div class="cta-advantage__card__content">
                         <div class="advantage-card__content__title">
                             <img src="{{ asset('frontend/img/icons/help.svg') }}" width="40" height="40" alt="иконка хелп аренда высоты">
-                            <h3>Помощь</h3>
+                            <h3>Персональный менеджер</h3>
                         </div>
-                        <p>Консультации,<br> поддержка</p>
+                        <p>На связи с вами по любому вопросу </p>
                     </div>
                 </div>
                 <div class="cta-advantage__card advantage-card__three">
                     <div class="cta-advantage__card__content">
                         <div class="advantage-card__content__title">
                             <img src="{{ asset('frontend/img/icons/delivery.svg') }}" width="40" height="40" alt="доставка строительных лесов по татарстану">
-                            <h3>Доставка</h3>
+                            <h3>Доставка от 2х часов</h3>
                         </div>
-                        <p>Оперативная доставка<br> 2-12 часов</p>
+                        <p>Собственным автотранспортом</p>
                     </div>
                 </div>
             </div>
