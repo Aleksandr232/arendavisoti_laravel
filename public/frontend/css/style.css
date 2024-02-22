@@ -1487,6 +1487,10 @@ video {
         top: 20px;
     }
 
+    .modal_home{
+        display: none;
+    }
+
 
 
     .video_pos5 {

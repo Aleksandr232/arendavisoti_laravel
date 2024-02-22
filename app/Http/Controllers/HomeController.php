@@ -6,12 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\PostScaff;
 use App\Models\PostImgTours;
 use App\Models\UserIp;
+use App\Models\RunStr;
 
 
 class HomeController extends Controller
 {
     public function index(Request $request)
     {
+        $active = RunStr::all()->first();
+
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+
         $scaff = PostScaff::query()->paginate(400);
         $tours = PostImgTours::query()->paginate(400);
 
@@ -28,8 +35,9 @@ class HomeController extends Controller
             $userip->countryName= $data->countryName;
             $userip->save();
         }
-        
-        return view('site.home.index', compact('scaff', 'tours'));
+
+            return view('site.home.index', compact('scaff', 'tours'));
+        }
     }
 
 

@@ -405,6 +405,19 @@
                                 </a>
                                 @endif
                             </li>
+                            <li class="nav-item has-treeview">
+                                @if(auth()->check() && auth()->user()->is_dev)
+                                    @if($active->is_technical == 1)
+                                        <a href="{{ route('page_technical') }}" class="nav-link">
+                                            Возобновить работу сайта
+                                        </a>
+                                    @else
+                                        <a href="{{ route('page_technical') }}" class="nav-link">
+                                            Остановить работу сайта
+                                        </a>
+                                    @endif
+                                @endif
+                            </li>
                         </ul>
                 </div>
             </ul>

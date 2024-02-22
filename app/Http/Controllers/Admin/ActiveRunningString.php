@@ -69,8 +69,33 @@ class ActiveRunningString extends Controller
 
     }
 
+    public function page_technical(Request $request)
+    {
+        $active = RunStr::first();// выбираем первую запись из модели "RunStr"
 
-   
+
+
+        if (!$active) {
+            $active = new RunStr(); // если записей нет, создаем новый объект модели "RunStr"
+        }
+
+        if ($active->is_technical) {
+            $active->is_technical = false;
+            $active->save();
+
+            return redirect()->route('admin')->with('success', 'Сайт работает стабильно');
+
+        }elseif($active->is_technical = true){
+            $active->is_technical = true;
+            $active->save();
+            return redirect()->route('admin')->with('err', 'Сайт временно не работает');
+        }
+
+
+    }
+
+
+
 
 
 

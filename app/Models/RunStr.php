@@ -9,7 +9,7 @@ class RunStr extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['is_active', 'is_hcaptcha'];
+    protected $fillable = ['is_active', 'is_hcaptcha', 'is_technical'];
 
     protected $table = 'run_string';
 }
