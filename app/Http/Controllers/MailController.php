@@ -17,7 +17,7 @@ class MailController extends Controller
 {
     public function send(Request $request)
     {
-        $this->validate($request, [
+         $this->validate($request, [
             'hidden' => 'required',
             'phone' => 'required',
             'h-captcha-response' => 'required|hcaptcha',
@@ -44,6 +44,8 @@ class MailController extends Controller
 
         $filename = 'catalog.pdf'; // Название вашего файла
         $file_path = storage_path('catalog.pdf');
+
+
 
         // Проверяем существование файла
         if (file_exists($file_path)) {
