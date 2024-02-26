@@ -42,7 +42,21 @@ class MailController extends Controller
 
         Notification::send($request, new SendLetterTelegram());
 
-        return view('site.mail.send');
+        $filename = 'catalog.pdf'; // Название вашего файла
+        $file_path = storage_path('catalog.pdf');
+
+        // Проверяем существование файла
+        if (file_exists($file_path)) {
+            return response()->download($file_path, $filename, [
+                'Content-Disposition' => "attachment; filename={$filename}",
+            ]);
+        } else {
+            // Если файл не найден, возвращаем ошибку 404
+            return response()->json(['error' => 'Файл не найден'], 404);
+        }
+
+
+
     }
 
     public function sendDiscounts(Request $request)

@@ -1487,12 +1487,41 @@ video {
         top: 20px;
     }
 
-    .modal_home{
-        display: none;
+    .modal_home {
+        position: absolute;
+        bottom: 43%;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-66%, 2%);
+        width: 100%;
+        background: rgba(153, 210, 226, 0.9);
+    }
+
+    .dark-theme .modal_home {
+        position: absolute;
+        bottom: 43%;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-66%, 2%);
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
     }
 
     .modal_tours{
-        display: none;
+        position: absolute;
+        bottom: 43%;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-66%, 2%);
+        width: 100%;
+        background: rgba(153, 210, 226, 0.9);
+    }
+
+    .dark-theme .modal_tours{
+        position: absolute;
+        bottom: 43%;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-66%, 2%);
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+    
     }
 
     .header-content-home h1 {
