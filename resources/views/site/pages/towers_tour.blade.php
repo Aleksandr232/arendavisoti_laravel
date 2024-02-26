@@ -5,10 +5,64 @@
 @section('keywords', 'вышка тура строительная сборно разборная, туры вышки, аренда строительной туры, строительные туры, вышка тура в аренду')
 
 @section('header_title')
-    <div class="header-content my-container">
-        <h1>Аренда вышки-туры  {{-- <span>в Казани</span> --}}</h1>
-        <p>Предлагаем в аренду передвижные строительные вышки-туры «Балатон» высотой от 2-х до 21,3 метра. Вышка-тура «Балатон» считается лидером среди конкурентов. Отличается устойчивостью и безопасностью. Производится из лучших марок стали. Подходит для наружных и внутренних строительных работ</p>
-    </div>
+<div class="header-content-tours my-container">
+    <br/>
+<h1>Аренда вышки-туры в Казани с доставкой от 2-х часов с<span>минимальным или нулевым залогом</span></h1>
+<p>
+☑️ Передвижные строительные вышки-туры «Балатон» высотой от 2-х до 21,3 м<br/>
+☑️ Вышка-тура «Балатон» отличается устойчивостью и безопасностью<br/>
+☑️ Подходит для наружных и внутренних строительных работ<br/>
+☑️ Подходит для наружных и внутренних строительных работ<br/>
+<br/>
+<br/><br/>
+</p>
+<div class="modal_tours">
+    <form action="{{ route('send')}}" method="post" autocomplete="on">
+        @csrf
+        <h4 class="modal-title">Получите каталог и прайс на аренду за 1 минуту </h4>
+        <label>
+            <input type="hidden" name="hidden" value="Заявка на услуги с главной страницы">
+        </label>
+        <label>
+            <input type="hidden" name="telegram" value="Заявка на обратный звонок">
+        </label>
+        <label>
+            <input type="hidden" name="email" value="Заявка на обратный звонок">
+        </label>
+        <label>
+            <input type="hidden" name="company" value="Заявка на обратный звонок">
+        </label>
+        <label>
+            <input type="hidden" name="address" value="Заявка на обратный звонок">
+        </label>
+        <label>
+            <input type="tel" name="phone" class="input-name__phone mask-phone" placeholder="Введите номер телефона" required>
+        </label>
+        @php
+            use App\Models\RunStr;
+            $active = RunStr::all()->first();
+        @endphp
+        @if($active->is_hcaptcha == 1)
+            <div class="checkbox-wrap">
+                <label class="checkbox">
+                    @include('site.layouts.hcaptcha')
+                </label>
+            </div>
+        @else
+            <div class="checkbox-wrap">
+                <label class="checkbox">
+                    <input type="checkbox" name="checkbox" value="1" checked required>
+                    <span class="their-checkbox"></span>
+                </label>
+                <div class="checkbox-content">
+                    <p>Нажимая на кнопку «Оставить заявку», вы даёте согласие на <a href="{{ asset('frontend/doc/privacy.pdf') }}" rel="nofollow" target="_blank" class="modal-doc">обработку своих персональных данных</a></p>
+                </div>
+            </div>
+        @endif
+        <input type="submit" name="submit" value="Получить каталог и прайс" class="modal-btn">
+    </form>
+</div>
+</div>
 @endsection
 
 @section('content')
