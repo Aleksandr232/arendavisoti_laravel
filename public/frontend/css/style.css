@@ -1308,7 +1308,7 @@ video {
   }
   .cta-advantage__card {
     margin-bottom: 16px;
-    width: 200px;
+    width: 239px;
   }
 }
 @media screen and (max-width: 800px) {
@@ -1491,7 +1491,22 @@ video {
         display: none;
     }
 
+    .header-content-home h1 {
+        width: 387px;
+        font-size: 30px;
+        font-weight: 700;
+        color: #f5812c;
+        margin-bottom: 377px;
+        position: relative;
+        top: -66px;
+    }
 
+    .header-content-home p {
+        width: 340px;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+        line-height: 1.5em;
+    }
 
     .video_pos5 {
         position: relative;
