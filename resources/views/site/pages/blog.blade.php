@@ -21,7 +21,6 @@
             @foreach ($blog as $post)
                 @if($counter % 2 == 0)
                     <div class="odd">
-                        <a href="{{ route('blogid', $post->id) }}">
                         <div class="posts-card my-container">
                             <div class="pc-image pc-image__revers">
                                 @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov' || $post->media == 'MOV')
@@ -32,18 +31,20 @@
                                 <img src="{{ 'blog/' . $post->path }}" title="{{$post->title}}" alt="новый пост про {{$post->title}}">
                                 @endif
                             </div>
-                            <div class="pc-content pc-content__revers">
-                                <h2>{{ $post->title }}</h2>
-                                <div id="block{{$post->id}}"   class="content_block hide">
-                                    <div  class="content_text">{!! $post->content !!}</div>
+                            <a href="{{ route('blogid', $post->id) }}">
+                                <div class="pc-content pc-content__revers">
+                                    <h2>{{ $post->title }}</h2>
+                                    <div id="block{{$post->id}}"   class="content_block hide">
+                                        <div  class="content_text">{!! $post->content !!}</div>
+                                    </div>
+                                    <a class="blog_toggle"  href="{{ route('blogid', $post->id) }}">Подробнее</a>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                        </a>
                     </div>
                 @else
                     <div class="even">
-                        <a href="{{ route('blogid', $post->id) }}"><div class="posts-card my-container">
+                        <div class="posts-card my-container">
                             <div class="pc-image">
                                 @if($post->media == 'MP4' || $post->media == 'mp4' || $post->media == 'avi' || $post->media == 'mov' || $post->media == 'MOV')
                                 <video class="video_blog"   controls="controls">
@@ -53,13 +54,16 @@
                                 <img src="{{ 'blog/' . $post->path }}" title="{{$post->title}}" alt="новый пост про {{$post->title}}">
                                 @endif
                             </div>
+                            <a   href="{{ route('blogid', $post->id) }}">
                             <div class="pc-content">
                                 <h2>{{ $post->title }}</h2>
                                 <div id="block{{$post->id}}"  class="content_block hide">
                                     <div class="content_text">{!! $post->content !!}</div>
                                 </div>
+                                <a class="page_toggle"  href="{{ route('blogid', $post->id) }}">Подробнее</a>
                             </div>
-                        </div></a>
+                            </a>
+                        </div>
                     </div>
                 @endif
                 @php

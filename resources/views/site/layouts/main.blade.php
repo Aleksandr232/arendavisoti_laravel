@@ -185,29 +185,56 @@
           var modalTours = document.querySelector('.modal_tours');
           if(modalHome) {
             modalHome.style.display = 'block'; // Показываем форму
-            var closeBtnHome = modalHome.querySelector('.close-modal');
+            var closeBtnHome = modalHome.querySelector('.modal-close');
+            var inputHome = modalHome.querySelector('input');
+            var inputFocusedHome = false;
+
+            inputHome.addEventListener('focus', function() {
+              inputFocusedHome = true; // Обнаружено активное взаимодействие с полем ввода
+            });
+
+            inputHome.addEventListener('blur', function() {
+              inputFocusedHome = false; // При завершении взаимодействия с полем ввода
+            });
+
             if(closeBtnHome) {
               closeBtnHome.addEventListener('click', function() {
                 modalHome.style.display = 'none'; // Скрываем форму при нажатии на кнопку "Закрыть"
               });
             }
+
             setTimeout(function() {
-              modalHome.style.display = 'none'; // Скрываем форму
-            }, 15000); // Скрываем через 15 секунд
+              if (!inputFocusedHome) {
+                modalHome.style.display = 'none'; // Скрываем форму, если не активно поле ввода
+              }
+            }, 15000); // Показываем через 15 секунд
           } else {
             console.error('Элемент .modal_home не найден');
           }
 
           if(modalTours) {
               modalTours.style.display = 'block'; // Показываем форму
-              var closeBtnTours = modalTours.querySelector('.close-modal');
+              var closeBtnTours = modalTours.querySelector('.modal-close');
+              var inputTours = modalTours.querySelector('input');
+              var inputFocusedTours = false;
+
+              inputTours.addEventListener('focus', function() {
+                inputFocusedTours = true; // Обнаружено активное взаимодействие с полем ввода
+              });
+
+              inputTours.addEventListener('blur', function() {
+                inputFocusedTours = false; // При завершении взаимодействия с полем ввода
+              });
+
               if(closeBtnTours) {
                 closeBtnTours.addEventListener('click', function() {
                   modalTours.style.display = 'none'; // Скрываем форму при нажатии на кнопку "Закрыть"
                 });
               }
               setTimeout(function() {
-                modalTours.style.display = 'none'; // Скрываем форму
+                if (!inputFocusedTours) {
+                  modalTours.style.display = 'none'; // Скрываем форму, если не активно поле ввода
+                }
               }, 15000); // Скрываем через 15 секунд
           } else {
             console.error('Элемент .modal_tours не найден');
