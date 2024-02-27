@@ -21,7 +21,7 @@
 <main>
     <div class="server-error my-container">
         <div class="server-error__content">
-            <h2>Ведуться технический работы</h2>
+            <h2>Ведутся технический работы</h2>
         </div>
     </div>
 </main>

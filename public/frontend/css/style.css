@@ -1489,39 +1489,39 @@ video {
 
     .modal_home {
         position: absolute;
-        bottom: 43%;
         -webkit-transform: translate(-50%, -2%);
-        transform: translate(-66%, 2%);
+        transform: translate(-73%, 2%);
         width: 100%;
         background: rgba(153, 210, 226, 0.9);
+        display: none;
     }
 
     .dark-theme .modal_home {
         position: absolute;
-        bottom: 43%;
         -webkit-transform: translate(-50%, -2%);
-        transform: translate(-66%, 2%);
+        transform: translate(-73%, 2%);
         width: 100%;
         background: rgba(255, 255, 255, 0.9);
+        display: none;
     }
 
     .modal_tours{
         position: absolute;
-        bottom: 43%;
         -webkit-transform: translate(-50%, -2%);
-        transform: translate(-66%, 2%);
+        transform: translate(-73%, 2%);
         width: 100%;
         background: rgba(153, 210, 226, 0.9);
+        display: none;
     }
 
     .dark-theme .modal_tours{
         position: absolute;
-        bottom: 43%;
         -webkit-transform: translate(-50%, -2%);
-        transform: translate(-66%, 2%);
+        transform: translate(-73%, 2%);
         width: 100%;
         background: rgba(255, 255, 255, 0.9);
-    
+        display: none;
+
     }
 
     .header-content-home h1 {

@@ -13,41 +13,71 @@ use App\Models\PriceFile;
 use App\Models\Snow;
 use App\Models\Warehouse;
 use App\Models\Blog;
+use App\Models\RunStr;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function towers_tour()
     {
-        $pricetours = PriceTours::all();
+        $active = RunStr::all()->first();
 
-        return view('site.pages.towers_tour', compact('pricetours'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $pricetours = PriceTours::all();
+
+            return view('site.pages.towers_tour', compact('pricetours'));
+        }
     }
 
     public function scaffolding()
     {
-        $pricescaff = PriceScaff::all();
-        $pricefile = PriceFile::all();
+        $active = RunStr::all()->first();
 
-        return view('site.pages.scaffolding', compact('pricescaff', 'pricefile'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $pricescaff = PriceScaff::all();
+            $pricefile = PriceFile::all();
+
+            return view('site.pages.scaffolding', compact('pricescaff', 'pricefile'));
+        }
     }
 
     public function technics()
     {
-        return view('site.pages.technics');
+        $active = RunStr::all()->first();
+
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            return view('site.pages.technics');
+        }
     }
 
     public function snow_removal()
     {
-        return view('site.pages.snow_removal');
+        $active = RunStr::all()->first();
+
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            return view('site.pages.snow_removal');
+        }
     }
 
     public function gallery()
-    {
-        $scaff = PostScaff::query()->paginate(400);
-        $tours = PostImgTours::query()->paginate(400);
+    {   $active = RunStr::all()->first();
 
-        return view('site.pages.gallery', compact('scaff', 'tours'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $scaff = PostScaff::query()->paginate(400);
+            $tours = PostImgTours::query()->paginate(400);
+
+            return view('site.pages.gallery', compact('scaff', 'tours'));
+        }
     }
 
     public function technics_bars()
@@ -56,87 +86,146 @@ class PageController extends Controller
     }
 
     public function gallery_technics_bars()
-    {
-        $tractor = PostTractor::query()->paginate(30);
-        $tours = PostImgTours::query()->paginate(400);
-        $scaff = PostScaff::query()->paginate(400);
+    {   $active = RunStr::all()->first();
 
-        return view('site.pages.gallery_technics_bars', compact('tractor', 'tours', 'scaff'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $tractor = PostTractor::query()->paginate(30);
+            $tours = PostImgTours::query()->paginate(400);
+            $scaff = PostScaff::query()->paginate(400);
+
+            return view('site.pages.gallery_technics_bars', compact('tractor', 'tours', 'scaff'));
+        }
     }
 
     public function gallery_tower()
     {
-        $tours = PostImgTours::query()->paginate(400);
-        $scaff = PostScaff::query()->paginate(400);
+        $active = RunStr::all()->first();
 
-        return view('site.pages.gallery_tower', compact('tours', 'scaff'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $tours = PostImgTours::query()->paginate(400);
+            $scaff = PostScaff::query()->paginate(400);
+
+            return view('site.pages.gallery_tower', compact('tours', 'scaff'));
+        }
     }
 
     public function gallery_scaffolding()
     {
-        $scaff = PostScaff::query()->paginate(400);
-        $tours = PostImgTours::query()->paginate(400);
+        $active = RunStr::all()->first();
 
-        return view('site.pages.gallery_scaffolding', compact('scaff', 'tours'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $scaff = PostScaff::query()->paginate(400);
+            $tours = PostImgTours::query()->paginate(400);
+
+            return view('site.pages.gallery_scaffolding', compact('scaff', 'tours'));
+        }
     }
 
     public function gallery_technics()
     {
-        $texnica = PostTexnica::query()->paginate(400);
-        $tours = PostImgTours::query()->paginate(400);
-        $scaff = PostScaff::query()->paginate(30);
+        $active = RunStr::all()->first();
 
-        return view('site.pages.gallery_technics', compact('texnica', 'tours', 'scaff'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $texnica = PostTexnica::query()->paginate(400);
+            $tours = PostImgTours::query()->paginate(400);
+            $scaff = PostScaff::query()->paginate(30);
+
+            return view('site.pages.gallery_technics', compact('texnica', 'tours', 'scaff'));
+        }
     }
 
     public function gallery_snow_removal()
     {
-        $scaff = PostScaff::query()->paginate(400);
-        $tours = PostImgTours::query()->paginate(400);
-        $snow = Snow::query()
-        ->orderByDesc('id')
-        ->paginate(8);
+        $active = RunStr::all()->first();
 
-        return view('site.pages.gallery_snow_removal', compact('scaff', 'tours', 'snow'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $scaff = PostScaff::query()->paginate(400);
+            $tours = PostImgTours::query()->paginate(400);
+            $snow = Snow::query()
+            ->orderByDesc('id')
+            ->paginate(8);
+
+            return view('site.pages.gallery_snow_removal', compact('scaff', 'tours', 'snow'));
+        }
     }
 
     public function gallery_warehouse()
     {
-        $scaff = PostScaff::query()->paginate(400);
-        $tours = PostImgTours::query()->paginate(400);
-        $warehouse = Warehouse::query()
-        ->orderByDesc('id')
-        ->paginate(8);
+        $active = RunStr::all()->first();
 
-        return view('site.pages.gallery_warehouse', compact('scaff', 'tours', 'warehouse'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $scaff = PostScaff::query()->paginate(400);
+            $tours = PostImgTours::query()->paginate(400);
+            $warehouse = Warehouse::query()
+            ->orderByDesc('id')
+            ->paginate(8);
+
+            return view('site.pages.gallery_warehouse', compact('scaff', 'tours', 'warehouse'));
+        }
     }
 
     public function contacts()
     {
-        return view('site.pages.contacts');
+        $active = RunStr::all()->first();
+
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            return view('site.pages.contacts');
+        }
     }
 
     public function posts()
     {
-        $posts = Post::query()->paginate(400);
+        $active = RunStr::all()->first();
 
-        return view('site.pages.posts', compact('posts'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $posts = Post::query()->paginate(400);
+
+            return view('site.pages.posts', compact('posts'));
+        }
     }
 
     public function blog()
     {
-        $blog = Blog::query()
-        ->orderByDesc('id')
-        ->paginate(8);
+        $active = RunStr::all()->first();
 
-        return view('site.pages.blog', compact('blog'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $blog = Blog::query()
+            ->orderByDesc('id')
+            ->paginate(8);
+
+            return view('site.pages.blog', compact('blog'));
+        }
     }
 
     public function blogid(Request $request, $id)
     {
-        $blogid = Blog::query()->find($id);
+        $active = RunStr::all()->first();
 
-        return view('site.pages.blog_pages', compact('blogid'));
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            $blogid = Blog::query()->find($id);
+
+            return view('site.pages.blog_pages', compact('blogid'));
+        }
     }
 
 

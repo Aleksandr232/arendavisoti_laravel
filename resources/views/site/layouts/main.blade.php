@@ -177,6 +177,45 @@
 
   </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      if(window.innerWidth <= 560) { // Проверяем, что это мобильное устройство
+        setTimeout(function() {
+          var modalHome = document.querySelector('.modal_home');
+          var modalTours = document.querySelector('.modal_tours');
+          if(modalHome) {
+            modalHome.style.display = 'block'; // Показываем форму
+            var closeBtnHome = modalHome.querySelector('.close-modal');
+            if(closeBtnHome) {
+              closeBtnHome.addEventListener('click', function() {
+                modalHome.style.display = 'none'; // Скрываем форму при нажатии на кнопку "Закрыть"
+              });
+            }
+            setTimeout(function() {
+              modalHome.style.display = 'none'; // Скрываем форму
+            }, 15000); // Скрываем через 15 секунд
+          } else {
+            console.error('Элемент .modal_home не найден');
+          }
+
+          if(modalTours) {
+              modalTours.style.display = 'block'; // Показываем форму
+              var closeBtnTours = modalTours.querySelector('.close-modal');
+              if(closeBtnTours) {
+                closeBtnTours.addEventListener('click', function() {
+                  modalTours.style.display = 'none'; // Скрываем форму при нажатии на кнопку "Закрыть"
+                });
+              }
+              setTimeout(function() {
+                modalTours.style.display = 'none'; // Скрываем форму
+              }, 15000); // Скрываем через 15 секунд
+          } else {
+            console.error('Элемент .modal_tours не найден');
+          }
+        }, 15000); // Показываем через 15 секунд
+      }
+    });
+    </script>
 
 <script async src="{{ asset('frontend/js/script.js') }}"></script>
 <script async src="{{ asset('frontend/js/running-string.js') }}"></script>
