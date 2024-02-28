@@ -104,11 +104,11 @@
     </section>
     <section id="scaffolding-price">
         <div id="price" class="scaffolding-price my-container">
-            <div class="sp-bg">
+            {{-- <div class="sp-bg">
             <h2 class="sp-title">Стоимость аренды лесов</h2>
             <h2 class="sp-title_min"> Цены могут меняться в зависимости от сезона и объема взятого в аренду оборудования</h2>
-            </div>
-            <div class="download-price">
+            </div> --}}
+            {{-- <div class="download-price">
                 @if(isset($pricefile))
                     @foreach($pricefile->reverse() as $post)
                         @if($loop->first)
@@ -116,15 +116,15 @@
                         @endif
                     @endforeach
                 @endif
-            </div>
-            <div id='targetBlock' class="sp-image">
+            </div> --}}
+            {{-- <div id='targetBlock' class="sp-image">
                 @foreach ($pricescaff -> reverse() as $post)
                 <picture>
-                    {{-- <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/scaffolding-price.webp') }}"> --}}
+                     <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/scaffolding-price.webp') }}"> 
                     <img src="{{ asset('prices/' . $post->path) }}" title="цены аренда лесов" width="720" height="1280" alt=" прайс строительных лесов" title="прайс">
                 </picture>
                 @endforeach
-            </div>
+            </div> --}}
             <div class="sp-call-to-action">
                 <h2>Арендуйте строительные леса без переплат</h2>
                 <button class="ptt-card__btn ptt-card__btn__one sp-cta__btn btn" data-btn="Заявка на аренду строительных лесов">Заказать звонок</button>

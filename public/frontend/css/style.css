@@ -213,6 +213,21 @@ body::-webkit-scrollbar-thumb {
     color: #F5812C;
 }
 
+.page_toggle{
+    background: #18A9EA;
+    font-size: 16px;
+    border-radius: 10px;
+    color: white;
+}
+
+.dark-theme .page_toggle{
+    background: #F5812C;
+    font-size: 16px;
+    border-radius: 10px;
+    color: black;
+}
+
+
 .dark-theme .ptt-card__btn{
     background: #B5C8CF !important;
     color: black
@@ -404,6 +419,43 @@ body::-webkit-scrollbar-thumb {
 .dark-theme .cta-form__content p {
     color: #B5C8CF;
 }
+
+.breadcrumbs {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+.breadcrumbs {
+    position: relative;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 50px;
+    border-radius: 5px;
+  }
+
+  .breadcrumbs a {
+    text-decoration: none;
+    color: #3d5368;
+    transition: color 0.3s ease;
+  }
+
+  .dark-theme .breadcrumbs a {
+    text-decoration: none;
+    color: #f5812c;
+    transition: color 0.3s ease;
+  }
+
+  .dark-theme .breadcrumbs span {
+    color: #B5C8CF
+  }
+
+  .breadcrumbs a:hover {
+    color: #23527c;
+  }
+
+  .breadcrumbs span {
+    color: #f5812c;
+  }
 
 .dark-theme .au-content{
     background: hsl(0, 0%, 0%);
@@ -1486,6 +1538,59 @@ video {
         left: 4px;
         top: 20px;
     }
+
+    .breadcrumbs {
+        font-size: 14px;
+        padding: 5px;
+      }
+
+    .breadcrumbs {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .breadcrumbs a {
+        text-decoration: none;
+        color: #3d5368;
+        transition: color 0.3s ease;
+      }
+
+      .dark-theme .breadcrumbs a {
+        text-decoration: none;
+        color: #f5812c;
+        transition: color 0.3s ease;
+      }
+
+      .dark-theme .breadcrumbs span {
+        color: #B5C8CF
+      }
+
+      .breadcrumbs a:hover {
+        color: #23527c;
+      }
+
+      .breadcrumbs span {
+        color: #f5812c;
+      }
+
+      /* Стили для мобильной версии */
+      @media only screen and (max-width: 600px) {
+        .breadcrumbs {
+          font-size: 14px;
+          padding: 5px;
+        }
+      }
+
+      /* Стили для ПК версии */
+      @media only screen and (min-width: 601px) {
+        .breadcrumbs {
+          font-size: 18px;
+          padding: 15px;
+        }
+      }
+
 
     .modal_home {
         position: absolute;

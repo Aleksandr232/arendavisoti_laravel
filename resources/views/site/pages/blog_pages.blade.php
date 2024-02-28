@@ -8,6 +8,14 @@
     <div class="header-content my-container">
         <h1>{{ $blogid->title }}</h1>
     </div>
+    <div class="breadcrumbs">
+        <a href="/">Главная</a>
+        <span> / </span>
+        <a href="/блог">Блог</a>
+        <span> / </span>
+        <span>{{ $blogid->title }}</span>
+    </div>
+
 @endsection
 
 @section('content')
@@ -27,7 +35,7 @@
                         <div id="block{{$blogid->id}}" class="content_block hide">
                             <div class="content_text">{!! $blogid->content !!}</div>
                         </div>
-                        <a class="content_toggle" data-target="#block{{$blogid->id}}" href="#">Подробнее</a>
+                        <a class="content_toggle" data-target="#block{{$blogid->id}}" href="#">Читать статью</a>
                     </div>
                 </div>
         </div>
