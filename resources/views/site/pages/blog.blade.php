@@ -37,7 +37,7 @@
                                     <div id="block{{$post->id}}"   class="content_block hide">
                                         <div  class="content_text">{!! $post->content !!}</div>
                                     </div>
-                                    <a class="blog_toggle"  href="{{ route('blogid', $post->id) }}">Подробнее</a>
+                                    <a class="page_toggle"  href="{{ route('blogid', $post->id) }}">Подробнее</a>
                                 </div>
                             </a>
                         </div>

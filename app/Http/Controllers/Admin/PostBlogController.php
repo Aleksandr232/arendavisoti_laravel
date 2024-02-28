@@ -105,7 +105,7 @@ class PostBlogController extends Controller
                                 ->orWhere('media','LIKE','%mov')
                                 ->orWhere('media','LIKE','%MP4')
                                 ->count();
-            $maxVideoCount = 15; // Максимальное количество видео
+            $maxVideoCount = 50; // Максимальное количество видео
 
             if ($media->getClientOriginalExtension() == 'mp4' ||$media->getClientOriginalExtension() == 'MP4' ||  $media->getClientOriginalExtension() == 'avi' || $media->getClientOriginalExtension() == 'mov') {
                 if ($videoCount >= $maxVideoCount) {
