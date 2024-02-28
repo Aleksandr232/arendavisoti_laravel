@@ -1490,7 +1490,7 @@ video {
     .modal_home {
         position: absolute;
         -webkit-transform: translate(-50%, -2%);
-        transform: translate(-73%, 2%);
+        transform: translate(-50%, 2%);
         width: 100%;
         background: rgba(153, 210, 226, 0.9);
         display: none;
@@ -1499,7 +1499,7 @@ video {
     .dark-theme .modal_home {
         position: absolute;
         -webkit-transform: translate(-50%, -2%);
-        transform: translate(-73%, 2%);
+        transform: translate(-50%, 2%);
         width: 100%;
         background: rgba(255, 255, 255, 0.9);
         display: none;
@@ -1508,7 +1508,7 @@ video {
     .modal_tours{
         position: absolute;
         -webkit-transform: translate(-50%, -2%);
-        transform: translate(-73%, 2%);
+        transform: translate(-50%, 2%);
         width: 100%;
         background: rgba(153, 210, 226, 0.9);
         display: none;
@@ -1517,14 +1517,28 @@ video {
     .dark-theme .modal_tours{
         position: absolute;
         -webkit-transform: translate(-50%, -2%);
-        transform: translate(-73%, 2%);
+        transform: translate(-50%, 2%);
         width: 100%;
         background: rgba(255, 255, 255, 0.9);
         display: none;
 
     }
 
-   
+    .header-content-home{
+        margin-top: 45px;
+        background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600") no-repeat;
+        background-size: 90%;
+        background-position-y: 78px;
+    }
+
+    .header-content-tours {
+        margin-top: 40px;
+        background: url("https://arenda-lesov-kazan.ru/img/39767072_573_q55.avif") no-repeat;
+        background-size: 50%;
+        position: relative;
+        top: 31px;
+        background-position-y: 78px;
+      }
 
     .header-content-home h1 {
         width: 387px;

@@ -480,17 +480,23 @@ p {
 .hn-navbar__btn {
   background: none;
 }
-.header-content-home {
+/* .header-content-home {
   margin-top: 40px;
   background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600");
   background-size: 96% 99%;
 
+} */
+
+.header-content-home{
+    margin-top: 45px;
+    background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600") no-repeat;
+    background-size: 50%;
 }
 
 .header-content-tours {
     margin-top: 40px;
-    background: url("https://arenda-lesov-kazan.ru/img/39767072_573_q55.avif");
-    background-size: 96% 99%;
+    background: url("https://arenda-lesov-kazan.ru/img/39767072_573_q55.avif") no-repeat;
+    background-size: 50%;
     position: relative;
     top: 31px;
   }
