@@ -177,59 +177,7 @@
 
   </script>
 
-<script>
- document.addEventListener("DOMContentLoaded", function(event) {
-  if (window.innerWidth <= 560) {
-    function setupModal(modalSelector) {
-      var modal = document.querySelector(modalSelector);
 
-      if (modal) {
-        var closeBtn = modal.querySelector('.close-modal');
-        var input = modal.querySelector('input');
-        var timerId = null;
-        var isModalOpen = false;
-
-        function showModal() {
-          modal.style.display = 'block';
-          isModalOpen = true; // Устанавливаем флаг открытого модального окна
-        }
-
-        function hideModal() {
-          modal.style.display = 'none';
-          isModalOpen = false;
-          clearTimeout(timerId);
-        }
-
-        if (input) {
-          input.addEventListener('focus', function() {
-            clearTimeout(timerId);
-          });
-          input.addEventListener('blur', function() {
-            if (isModalOpen) { // Если модальное окно открыто, устанавливаем таймер для его закрытия
-              timerId = setTimeout(hideModal, 15000);
-            }
-          });
-        }
-
-        if (closeBtn) {
-          closeBtn.addEventListener('click', function() {
-            hideModal();
-          });
-        }
-
-        modal.style.display = 'none';
-
-        setTimeout(showModal, 15000);
-      } else {
-        console.error('Элемент ' + modalSelector + ' не найден');
-      }
-    }
-
-    setupModal('.modal_home');
-    setupModal('.modal_tours');
-  }
-});
-    </script>
 
 <script async src="{{ asset('frontend/js/script.js') }}"></script>
 <script async src="{{ asset('frontend/js/running-string.js') }}"></script>
@@ -238,8 +186,8 @@
 <script defer src="{{ asset('frontend/js/tabs.js') }}"></script>
 <script defer src="{{ asset('frontend/js/modal.js') }}"></script>
 <script async src="https://res.smartwidgets.ru/app.js" ></script>
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=159d1b30-bef0-463b-a7f6-b69cba7ec8e9" type="text/javascript"></script>
-<script src='../../../../public/frontend/js/map_payment.js'></script>
+<script defer src="{{ asset('frontend/js/modalHome_Tours.js') }}"></script>
+
 {{-- <div id="app"></div> --}}
 
 <script src="{{ mix('js/app.js') }}"></script>

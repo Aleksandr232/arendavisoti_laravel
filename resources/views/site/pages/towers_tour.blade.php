@@ -21,7 +21,7 @@
         @csrf
         <h4 class="modal-title">Получите каталог и прайс на аренду за 1 минуту </h4>
         <label>
-            <input type="hidden" name="hidden" value="Заявка на услуги с главной страницы">
+            <input type="hidden" name="hidden" value="Заявка на вышки-туры">
         </label>
         <label>
             <input type="hidden" name="telegram" value="Заявка на обратный звонок">

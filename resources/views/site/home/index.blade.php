@@ -17,7 +17,7 @@
         <br/><br/>
         </p>
         <div class="modal_home">
-            <form action="{{ route('send')}}" method="post" autocomplete="on">
+            <form action="{{ route('sendHome')}}" method="post" autocomplete="on">
                 @csrf
                 <h4 class="modal-title">Введите ваш номер, и мы перезвоним вам в течение 10 минут в рабочее время</h4>
                 <label>

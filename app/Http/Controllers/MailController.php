@@ -113,6 +113,39 @@ class MailController extends Controller
         }
     }
 
+    public function sendHome(Request $request)
+    {
+         $this->validate($request, [
+            'hidden' => 'required',
+            'phone' => 'required',
+            'h-captcha-response' => 'required|hcaptcha',
+        ]);
+
+        $contact = new Contact();
+        $contact->company =$request->input('company');
+        $contact->address = $request->input('address');
+        $contact->hidden = $request->input('hidden');
+        $contact->phone = $request->input('phone');
+        $contact->telegram = $request->input('telegram');
+        $contact->email = $request->input('email');
+        $contact->save();
+
+
+
+        $body = "<p><span style='color: #3D5368'>{$request->input('hidden')}</span></p>";
+        $body .= "<p><span style='color: #3D5368'>Телефон клиента:</span> {$request->input('phone')}</p>";
+
+        $to = explode(',', env('ADMIN_EMAILS'));
+        /* Mail::to($to)->send(new SendMail($body)); */
+
+        Notification::send($request, new SendLetterTelegram());
+
+
+        return view('site.mail.send');
+
+
+    }
+
 
 }
 

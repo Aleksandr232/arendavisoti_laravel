@@ -23,7 +23,7 @@
         @csrf
         <h4 class="modal-title">Получите каталог и прайс на аренду лесов за 1 минуту </h4>
         <label>
-            <input type="hidden" name="hidden" value="Заявка на услуги с главной страницы">
+            <input type="hidden" name="hidden" value="Заявка на строительные леса">
         </label>
         <label>
             <input type="hidden" name="telegram" value="Заявка на обратный звонок">
@@ -120,7 +120,7 @@
             {{-- <div id='targetBlock' class="sp-image">
                 @foreach ($pricescaff -> reverse() as $post)
                 <picture>
-                     <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/scaffolding-price.webp') }}"> 
+                     <source type="image/webp" srcset="{{ asset('frontend/img/stroitelnye-lesa/scaffolding-price.webp') }}">
                     <img src="{{ asset('prices/' . $post->path) }}" title="цены аренда лесов" width="720" height="1280" alt=" прайс строительных лесов" title="прайс">
                 </picture>
                 @endforeach
