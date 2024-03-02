@@ -65,7 +65,9 @@ class MailController extends Controller
     {
 
         $this->validate($request, [
-            'h-captcha-response' => ['hcaptcha'],
+            'name' => 'required',
+            'email' => 'required',
+            'h-captcha-response' => 'required|hcaptcha',
         ]);
 
         $name = $request->input('name');

@@ -491,6 +491,7 @@ p {
     margin-top: 45px;
     background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600") no-repeat;
     background-size: 50%;
+    position: relative;
 }
 
 .header-content-tours {
@@ -584,7 +585,7 @@ p {
 .dark-theme .modal_home {
     position: absolute;
     left: 70%;
-    bottom: -4%;
+    bottom: 73px;
     -webkit-transform: translate(-50%, -2%);
     transform: translate(-50%, -2%);
     width: 500px;
@@ -595,7 +596,7 @@ p {
 .modal_home {
     position: absolute;
     left: 70%;
-    bottom: -4%;
+    bottom: 73px;
     -webkit-transform: translate(-50%, -2%);
     transform: translate(-50%, -2%);
     width: 500px;

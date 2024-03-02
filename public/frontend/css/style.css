@@ -1634,6 +1634,7 @@ video {
         background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600") no-repeat;
         background-size: 90%;
         background-position-y: 78px;
+        width: 100%;
     }
 
     .header-content-tours {
