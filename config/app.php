@@ -179,7 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
         Panfu\Laravel\HCaptcha\HCaptchaServiceProvider::class,
-
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
 
@@ -239,7 +239,7 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Location' => 'Stevebauman\Location\Facades\Location',
         'HCaptcha' => Panfu\Laravel\HCaptcha\Facades\HCaptcha::class,
-
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
 
     ],
 

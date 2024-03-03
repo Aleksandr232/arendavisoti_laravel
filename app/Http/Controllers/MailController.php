@@ -20,7 +20,7 @@ class MailController extends Controller
          $this->validate($request, [
             'hidden' => 'required',
             'phone' => 'required',
-            'h-captcha-response' => 'required|hcaptcha',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
 
         $contact = new Contact();
@@ -67,7 +67,7 @@ class MailController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
-            'h-captcha-response' => 'required|hcaptcha',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
 
         $name = $request->input('name');
@@ -120,7 +120,7 @@ class MailController extends Controller
          $this->validate($request, [
             'hidden' => 'required',
             'phone' => 'required',
-            'h-captcha-response' => 'required|hcaptcha',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
 
         $contact = new Contact();
