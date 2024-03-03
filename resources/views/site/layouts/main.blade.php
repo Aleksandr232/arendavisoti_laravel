@@ -97,6 +97,8 @@
     if(!sessionStorage.getItem('visited')) {
     var loader = document.querySelector('.loader');
     var btnTheme = document.querySelector('.theme-btn');
+    /* var modal_home = document.querySelector('.modal_home');
+    var modal_tours = document.querySelector('.modal_tours'); */
 
     var stocks = document.getElementById('runningString');
     // Показываем индикатор загрузки
@@ -181,7 +183,7 @@
 
 <script async src="{{ asset('frontend/js/script.js') }}"></script>
 <script async src="{{ asset('frontend/js/running-string.js') }}"></script>
-<script  src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
 <script async src="{{ asset('frontend/js/hidden_text.js') }}"></script>
 <script async src="{{ asset('frontend/js/tabs.js') }}"></script>
 <script async src="{{ asset('frontend/js/modal.js') }}"></script>
