@@ -490,14 +490,15 @@ p {
 .header-content-home{
     margin-top: 45px;
     background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600") no-repeat;
-    background-size: 50%;
+    /* background-size: 50%; */
+    background-size: contain;
     position: relative;
 }
 
 .header-content-tours {
     margin-top: 40px;
     background: url("https://arenda-lesov-kazan.ru/img/39767072_573_q55.avif") no-repeat;
-    background-size: 50%;
+    background-size: contain;
     position: relative;
     top: 31px;
   }
