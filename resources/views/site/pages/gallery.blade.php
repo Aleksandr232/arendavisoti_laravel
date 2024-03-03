@@ -21,7 +21,7 @@
                     </a>
 
                 </div>
-                <h3>Галерея строительных лесов</h3>
+                <a href="{{ route('gallery_scaffolding') }}"><h3>Галерея строительных лесов</h3></a>
         </div>
         <div class="gallery-card">
                 <div class="gallery-card__image">
@@ -30,7 +30,7 @@
                     </a>
 
                 </div>
-                <h3>Галерея вышек-тур</h3>
+                <a href="{{ route('gallery_tower') }}"><h3>Галерея вышек-тур</h3></a>
         </div>
         <div class="gallery-card">
                 <div class="gallery-card__image">
@@ -39,7 +39,7 @@
                     </a>
 
                 </div>
-                <h3>Галерея грузоперевозки</h3>
+                <a href="{{ route('gallery_technics') }}"><h3>Галерея грузоперевозки</h3></a>
         </div>
         <div class="gallery-card">
                 <div class="gallery-card__image">
@@ -48,7 +48,7 @@
                     </a>
 
                 </div>
-                <h3>Галерея минитрактор</h3>
+                <a href="{{ route('gallery_technics_bars') }}"><h3>Галерея минитрактор</h3></a>
         </div>
 
         <div class="gallery-card">
@@ -58,7 +58,7 @@
                     </a>
 
                 </div>
-                <h3>Галерея уборка снега</h3>
+                <a href="{{ route('gallery_snow_removal') }}"><h3>Галерея уборка снега</h3></a>
         </div>
 
         <div class="gallery-card">
@@ -68,7 +68,7 @@
                 </a>
 
             </div>
-            <h3>Галерея наших складов</h3>
+            <a href="{{ route('gallery_warehouse') }}"><h3>Галерея наших складов</h3></a>
     </div>
 
 
