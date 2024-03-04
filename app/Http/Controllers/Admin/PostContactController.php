@@ -19,10 +19,9 @@ class PostContactController extends Controller
         // Получить текущую дату и время
         $currentDate = Carbon::now();
 
-        // Получить список контактов, сгруппированных по месяцу создания
-        $contacts = Contact::selectRaw('COUNT(*) as total, MONTH(created_at) as month')
-            ->whereYear('created_at', $currentDate->year) // Ограничить результаты текущим годом
-            ->groupBy('month')
+        // Получить список контактов, сгруппированных по году и месяцу создания
+        $contacts = Contact::selectRaw('COUNT(*) as total, YEAR(created_at) as year, MONTH(created_at) as month')
+            ->groupBy('year', 'month')
             ->get();
 
         // Вернуть список контактов в формате JSON

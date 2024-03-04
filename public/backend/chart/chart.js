@@ -44,40 +44,44 @@
     console.error('Ошибка:', error);
   }); */
 
-var ctx2 = document.getElementById('myChart2').getContext('2d');
-let currentDate = new Date();
-let currentYear = currentDate.getFullYear();
+  var ctx2 = document.getElementById('myChart2').getContext('2d');
+  let currentDate = new Date();
 
-const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+  const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
 
-fetch('/contactspost')
-  .then(response => response.json())
-  .then(data => {
-    var myChart2 = new Chart(ctx2, {
-      type: 'bar',
-      data: {
-        labels: data.map(obj => months[obj.month-1]),
-        datasets: [{
-          label: `Клиентов через сайт в ${currentYear}`,
-          data: data.map(obj => obj.total) // Массив с данными о количестве контактов для каждого месяца
-        }],
-      },
+  fetch('/contactspost')
+    .then(response => response.json())
+    .then(data => {
+      var myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: data.map(obj => months[obj.month-1] + ' ' + obj.year), // Добавляем год к месяцу
+          datasets: [{
+            label: 'Количество контактов', // Метка для данных о количестве контактов
+            data: data.map(obj => obj.total) // Массив с данными о количестве контактов для каждого месяца
+          }],
+        },
 
-      options: {
-        borderWidth:2,
-        scales: {
-          y: {
-            beginAtZero: true
+        options: {
+          borderWidth: 2,
+          indexAxis: 'x', // Изменяем направление оси абсцисс на горизонтальное
+          scales: {
+            x: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                /* text: 'Количество клиентов' */ // Заголовок оси абсцисс
+              }
+            }
           }
         }
-      }
-    });
+      });
 
-    /* console.log(data); */ // выводим данные в консоль
-  })
-  .catch(error => {
-    console.error('Ошибка:', error);
-  });
+      /* console.log(data); */ // выводим данные в консоль
+    })
+    .catch(error => {
+      console.error('Ошибка:', error);
+    });
 
   var ctx3 = document.getElementById('myChart3').getContext('2d');
 fetch('/visit')

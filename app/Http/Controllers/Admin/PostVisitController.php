@@ -41,29 +41,34 @@ class PostVisitController extends Controller
     }
 
     public function index2()
-{
-    // Получаем общее количество посещений UserIp, сгруппированных по месяцу
-    $totalVisitsIp = UserIp::selectRaw('DATE_FORMAT(created_at, "%m") as month, COUNT(*) as count')
-        ->groupBy('month')
-        ->get();
+    {
+        $currentYear = date('Y');
 
-    // Получаем общее количество посещений UserTg, сгруппированных по месяцу
-    $totalVisitsTg = UserTg::selectRaw('DATE_FORMAT(created_at, "%m") as month, COUNT(*) as count_tg')
-	->groupBy('month')
-        ->get();
+        // Получаем общее количество посещений UserIp за текущий год, сгруппированных по месяцу
+        $totalVisitsIp = UserIp::selectRaw('DATE_FORMAT(created_at, "%m") as month, COUNT(*) as count')
+            ->whereYear('created_at', $currentYear)
+            ->groupBy('month')
+            ->get();
 
-    // Соединяем данные о посещениях UserIp и UserTg по месяцу
-    $totalVisits = $totalVisitsIp->concat($totalVisitsTg);
+        // Получаем общее количество посещений UserTg за текущий год, сгруппированных по месяцу
+        $totalVisitsTg = UserTg::selectRaw('DATE_FORMAT(created_at, "%m") as month, COUNT(*) as count_tg')
+            ->whereYear('created_at', $currentYear)
+            ->groupBy('month')
+            ->get();
 
-    // Преобразуем числовое значение месяца в строковое значение
-    $totalVisits = $totalVisits->map(function ($visit) {
-        $visit['month'] = $this->getMonthName($visit['month']);
-        return $visit;
-    });
+        // Соединяем данные о посещениях UserIp и UserTg по месяцу
+        $totalVisits = $totalVisitsIp->concat($totalVisitsTg);
 
-    // Возвращаем список общего количества посещений за каждый месяц в формате JSON
-    return response()->json($totalVisits);
-}
+        // Преобразуем числовое значение месяца в строковое значение
+        $totalVisits = $totalVisits->map(function ($visit) {
+            $visit['month'] = $this->getMonthName($visit['month']);
+            return $visit;
+        });
+
+        // Возвращаем список общего количества посещений за каждый месяц в формате JSON
+        return response()->json($totalVisits);
+    }
+
     private function getMonthName($month)
     {
         $monthNames = [

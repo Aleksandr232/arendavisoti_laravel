@@ -1647,7 +1647,7 @@ video {
       }
 
     .header-content-home h1 {
-        width: 387px;
+        width: 300px;
         font-size: 30px;
         font-weight: 700;
         color: #f5812c;
@@ -1657,14 +1657,14 @@ video {
     }
 
     .header-content-home p {
-        width: 340px;
+        width: 300px;
         font-size: 20px;
         font-family: 'Oswald', sans-serif;
         line-height: 1.5em;
     }
 
     .header-content-tours h1 {
-        width: 387px;
+        width: 300px;
         font-size: 30px;
         font-weight: 700;
         color: #f5812c;
@@ -1674,7 +1674,7 @@ video {
     }
 
     .header-content-tours p {
-        width: 340px;
+        width: 300px;
         font-size: 20px;
         font-family: 'Oswald', sans-serif;
         line-height: 1.5em;
