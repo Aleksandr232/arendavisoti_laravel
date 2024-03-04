@@ -576,6 +576,14 @@ p {
 .header-content-home p {
     color: #3D5368;
   }
+
+.dark-theme .header-content-home p {
+    color: #B5C8CF;
+  }
+
+.dark-theme address{
+    color: #F5812C;
+}
 .header-content p {
   width: 1113px;
   font-size: 20px;
@@ -1615,6 +1623,94 @@ main {
   .gallery-card {
     width: calc(100% - 0px);
   }
+
+  .header-content-home h1 {
+    width: 380px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #f5812c;
+    margin-bottom: 377px;
+    position: relative;
+    top: -66px;
+    }
+
+    .header-content-home p {
+        width: 380px;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+        line-height: 1.5em;
+    }
+
+    .modal_home {
+        position: absolute;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-70%, 2%);
+        width: 100%;
+        background: rgba(153, 210, 226, 0.9);
+        display: none;
+    }
+
+    .modal_tours {
+        position: absolute;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-70%, 2%);
+        width: 100%;
+        background: rgba(153, 210, 226, 0.9);
+        display: none;
+    }
+
+    .dark-theme .modal_tours {
+        position: absolute;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-70%, 2%);
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        display: none;
+    }
+
+    .dark-theme .modal_home {
+        position: absolute;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-70%, 2%);
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        display: none;
+    }
+
+    .header-content-tours h1 {
+        width: 380px;
+        font-size: 30px;
+        font-weight: 700;
+        color: #f5812c;
+        margin-bottom: 377px;
+        position: relative;
+        top: -66px;
+    }
+
+    .header-content-tours p {
+        width: 380px;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+        line-height: 1.5em;
+    }
+
+    .header-content-home {
+        margin-top: 45px;
+        background: url(https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600) no-repeat;
+        background-size: contain;
+        background-position-y: 85px;
+        width: 100%;
+    }
+
+    .header-content-tours {
+        margin-top: 40px;
+        background: url(https://arenda-lesov-kazan.ru/img/39767072_573_q55.avif) no-repeat;
+        background-size: contain;
+        position: relative;
+        top: 31px;
+        background-position-y: 85px;
+    }
+
 }
 #gallery-recommendations {
   margin-top: 40px;
