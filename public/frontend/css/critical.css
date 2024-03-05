@@ -487,9 +487,21 @@ p {
 
 } */
 
+.my-container {
+    width: 95%;
+}
+
 .header-content-home{
     margin-top: 45px;
     background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600") no-repeat;
+    /* background-size: 50%; */
+    background-size: contain;
+    position: relative;
+}
+
+.header-content-bars{
+    margin-top: 45px;
+    background: url("../img/technics/tractor_snow.png") no-repeat;
     /* background-size: 50%; */
     background-size: contain;
     position: relative;
@@ -521,6 +533,21 @@ p {
     font-weight: 700;
     color: #f5812c;
     margin-bottom: 300px;
+}
+
+.header-content-bars h1{
+    width: 816px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #f5812c;
+    margin-bottom: 300px;
+}
+
+.header-content-bars p{
+    width: 1113px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.5em;
 }
 
 .header-content-home p{
@@ -575,6 +602,14 @@ p {
 }
 .header-content-home p {
     color: #3D5368;
+  }
+
+.header-content-bars p {
+    color: #f5812c;
+  }
+
+  .dark-theme .header-content-bars p {
+    color: #B5C8CF;
   }
 
 .dark-theme .header-content-home p {
@@ -1698,8 +1733,7 @@ main {
         margin-top: 45px;
         background: url(https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600) no-repeat;
         background-size: contain;
-        background-position-y: 85px;
-        width: 100%;
+        background-position-y: 151px;
     }
 
     .header-content-tours {
@@ -1709,6 +1743,32 @@ main {
         position: relative;
         top: 31px;
         background-position-y: 85px;
+    }
+
+    .header-content-bars{
+        margin-top: 45px;
+        background: url("../img/technics/tractor_snow.png") no-repeat;
+        background-size: contain;
+        position: relative;
+        top: 31px;
+        background-position-y: 130px;
+    }
+
+    .header-content-bars h1 {
+        width: 380px;
+        font-size: 30px;
+        font-weight: 700;
+        color: #f5812c;
+        margin-bottom: 377px;
+        position: relative;
+        top: -66px;
+    }
+
+    .header-content-bars p {
+        width: 380px;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+        line-height: 1.5em;
     }
 
 }

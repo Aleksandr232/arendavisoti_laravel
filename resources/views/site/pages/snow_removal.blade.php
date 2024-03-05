@@ -15,8 +15,8 @@
     <div id="snow-removal">
         <div class="sr-banner my-container">
             <div class="srb-content">
-                <h2>Уберем снег с крыш в Казани и пригороде</h2>
-                <p>Бесплатный выезд оценщика</p>
+                <h2>Уборка снега с крыш в Казани и пригороде с гарантией сохранности кровли</h2>
+                <p>Бесплатный выезд оценщика уже через 2 часа</p>
                 <button class="srb-btn btn" data-btn="Заявка на выезд оценщика на уборку снега с крыш">Вызвать оценщика</button>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 <div class="sra-card__icon">
                     <img src="{{ asset('frontend/img/snow-removal/sr-2.svg') }}" width="50" height="50" alt="уборка снега с крыш Казань недорого">
                 </div>
-                <h2>Несем материальную ответственность за сохранность кровли</h2>
+                <h2>Принимаем любые формы оплаты</h2>
             </div>
             <div class="sra-card">
                 <div class="sra-card__icon">
@@ -55,7 +55,7 @@
                         </picture>
                         <h2>Уборка снега с плоской крыши</h2>
                         <p>от <span>40</span>&#8381; до <span>100</span>&#8381; / м<sup style="font-size: 70%;vertical-align: super;">2</sup></p>
-                        <button class="srp-card__btn srp-card__btn__color__one btn" data-btn="Заявка на уборку снега с плоской крыши">Заказать</button>
+                        <button class="srp-card__btn srp-card__btn__color__one btn" data-btn="Заявка на уборку снега с плоской крыши">Рассчитать точную стоимость</button>
                     </div>
                 </div>
                 <div class="sr-price__card">
@@ -67,7 +67,7 @@
                         </picture>
                         <h2>Уборка снега со скатной крыши</h2>
                         <p>от <span>50</span>&#8381; до <span>130</span>&#8381; / м<sup style="font-size: 70%;vertical-align: super;">2</sup></p>
-                        <button class="srp-card__btn srp-card__btn__color__two btn" data-btn="Заявка на уборку снега со скатной крыши">Заказать</button>
+                        <button class="srp-card__btn srp-card__btn__color__two btn" data-btn="Заявка на уборку снега со скатной крыши">Рассчитать точную стоимость</button>
                     </div>
                 </div>
                 <div class="sr-price__card">
@@ -79,7 +79,7 @@
                         </picture>
                         <h2>Удаление сосулек <nobr>с крыш</nobr></h2>
                         <p>от <span>70</span>&#8381; до <span>130</span>&#8381; / м<sup style="font-size: 70%;vertical-align: super;">2</sup></p>
-                        <button class="srp-card__btn srp-card__btn__color__three btn" data-btn="Заявка на удаление сосулек с крыши">Заказать</button>
+                        <button class="srp-card__btn srp-card__btn__color__three btn" data-btn="Заявка на удаление сосулек с крыши">Рассчитать точную стоимость</button>
                     </div>
                 </div>
                 <div class="sr-price__card">
@@ -100,7 +100,7 @@
                         <p style=font-size:14px><span>1500</span>&#8381; / в час безнал без НДС</p>
                         <p style=font-size:14px><span>1600</span>&#8381; / в час безнал  с НДС</p>
                         <p style="font-size:14px; background: -webkit-gradient(linear, left top, right top, from(rgba(255, 221, 85, 0.8)), to(rgba(255, 221, 85, 0.9)))">Принимаем все формы оплаты</p>
-                        <button class="srp-card__btn srp-card__btn__color__four btn" data-btn="Заявка на уборку и вывоз снега техникой">Заказать</button>
+                        <button class="srp-card__btn srp-card__btn__color__four btn" data-btn="Заявка на уборку и вывоз снега техникой">Рассчитать точную стоимость</button>
                     </div>
                 </div>
             </div>
