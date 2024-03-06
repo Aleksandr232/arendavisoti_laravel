@@ -204,7 +204,7 @@ function showAlert() {
                     modalOpen.style.display = "none";
 		            themeBtn.style.display = "block";
                     runningString.style.display='none';
-                  document.body.style.overflow = '';
+                    document.body.style.overflow = 'hidden';
 
                 }
               }
