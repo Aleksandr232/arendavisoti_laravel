@@ -1,4 +1,4 @@
-@extends('site.layouts.main_technics')
+@extends('site.layouts.main')
 
 
 @section('title', 'Грузоперевозки')

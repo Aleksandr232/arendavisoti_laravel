@@ -639,15 +639,20 @@ p {
     line-height: 1.5em;
 }
 
-.header-content h1 span,
-.header-content p {
-  color: #3D5368;
+.header-content p{
+    color: #3D5368;
 }
 
-.dark-theme .header-content h1 span,
-.header-content p {
-  color: #B5C8CF;
+.dark-theme .header-content p{
+    color: #B5C8CF;
 }
+
+/* .header-content h1 span,
+.header-content p {
+  color: #3D5368;
+} */
+
+
 
 .header-content-home p {
     color: #3D5368;

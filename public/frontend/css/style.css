@@ -1631,6 +1631,25 @@ video {
 
     }
 
+    .modal_technics{
+        position: absolute;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-70%, 2%);
+        width: 100%;
+        background: rgba(153, 210, 226, 0.9);
+        display: none;
+    }
+
+    .dark-theme .modal_technics{
+        position: absolute;
+        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-70%, 2%);
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        display: none;
+
+    }
+
     /* .header-content-home{
         margin-top: 45px;
         background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600") no-repeat;
