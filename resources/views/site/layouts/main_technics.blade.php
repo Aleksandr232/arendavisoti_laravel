@@ -65,9 +65,9 @@
 
 @include('site.inc.footer')
 
-@include('site.inc.modal_map')
+@include('site.inc.modal_window')
 
-@include('site.inc.moadal_card')
+@include('site.inc.loader')
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -99,6 +99,37 @@
 </script>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=159d1b30-bef0-463b-a7f6-b69cba7ec8e9" type="text/javascript"></script>
 <script src='../../../../public/frontend/js/map.js'></script>
+<script>
+    if(!sessionStorage.getItem('visited')) {
+    var loader = document.querySelector('.loader');
+    var btnTheme = document.querySelector('.theme-btn');
+    /* var modal_home = document.querySelector('.modal_home');
+    var modal_tours = document.querySelector('.modal_tours'); */
+
+    var stocks = document.getElementById('runningString');
+    // Показываем индикатор загрузки
+    loader.style.display = 'block';
+    btnTheme.style.display="none";
+    stocks.style.display="none";
+    document.body.style.overflow = 'hidden';
+    // Устанавливаем sessionStorage
+    sessionStorage.setItem('visited', 'true');
+    // Скрываем индикатор загрузки через 2 секунды
+    setTimeout(function() {
+        loader.style.display = 'none';
+        btnTheme.style.display="block";
+        stocks.style.display="block";
+        document.body.style.overflow = '';
+    }, 2000);
+    } else {
+        var loader = document.querySelector('.loader');
+        // Скрываем индикатор загрузки
+        loader.style.display = 'none';
+        btnTheme.style.display="block";
+        stocks.style.display="block";
+        document.body.style.overflow = '';
+    }
+</script>
 <script>
     const dropdowns = document.querySelectorAll('.down');
     const submenus = document.querySelectorAll('.submenu');
@@ -178,5 +209,6 @@ function hideRunningStringOnScroll() {
   });
 }
 </script>
+<script  defer src="{{ asset('frontend/js/modalHome_Tours.js') }}"></script>
 </body>
 </html>

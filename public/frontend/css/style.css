@@ -91,6 +91,7 @@ body::-webkit-scrollbar-thumb {
   .submenu.show {
     display: block;
     position: absolute;
+    z-index: 1;
   }
 
   .submenu li {
@@ -1592,6 +1593,7 @@ video {
       }
 
 
+
     .modal_home {
         position: absolute;
         -webkit-transform: translate(-50%, -2%);
@@ -1629,7 +1631,7 @@ video {
 
     }
 
-    .header-content-home{
+    /* .header-content-home{
         margin-top: 45px;
         background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600") no-repeat;
         background-size: contain;
@@ -1678,7 +1680,7 @@ video {
         font-size: 20px;
         font-family: 'Oswald', sans-serif;
         line-height: 1.5em;
-    }
+    } */
 
     .video_pos5 {
         position: relative;

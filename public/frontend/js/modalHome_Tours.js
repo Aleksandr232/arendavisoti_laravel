@@ -47,5 +47,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       setupModal('.modal_home');
       setupModal('.modal_tours');
+      setupModal('.modal_technics');
     }
 });
