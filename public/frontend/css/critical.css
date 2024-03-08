@@ -515,6 +515,14 @@ p {
     position: relative;
 }
 
+.header-content-ladder {
+    margin-top: 45px;
+    background: url("../img/main/ladder_main.png") no-repeat;
+    /* background-size: 50%; */
+    background-size: contain;
+    position: relative;
+}
+
 .header-content-tours {
     margin-top: 40px;
     background: url("https://arenda-lesov-kazan.ru/img/39767072_573_q55.avif") no-repeat;
@@ -574,6 +582,21 @@ p {
 }
 
 .header-content-home p{
+    width: 1113px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.5em;
+}
+
+.header-content-ladder h1{
+    width: 816px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #f5812c;
+    margin-bottom: 300px;
+}
+
+.header-content-ladder p{
     width: 1113px;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -1867,6 +1890,32 @@ main {
         position: relative;
         top: 31px;
         background-position-y: 130px;
+    }
+
+    .header-content-ladder {
+        margin-top: 45px;
+        background: url("../img/main/ladder_main.png") no-repeat;
+        background-size: contain;
+        position: relative;
+        top: 31px;
+        background-position-y: 130px;
+    }
+
+    .header-content-ladder p {
+        width: 380px;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+        line-height: 1.5em;
+    }
+
+    .header-content-ladder h1 {
+        width: 380px;
+        font-size: 30px;
+        font-weight: 700;
+        color: #f5812c;
+        margin-bottom: 377px;
+        position: relative;
+        top: -66px;
     }
 
 }

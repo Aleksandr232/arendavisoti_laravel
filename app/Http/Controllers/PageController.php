@@ -200,6 +200,18 @@ class PageController extends Controller
         }
     }
 
+    public function ladder()
+    {
+        $active = RunStr::all()->first();
+
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+
+            return view('site.pages.ladder');
+        }
+    }
+
     public function blog()
     {
         $active = RunStr::all()->first();

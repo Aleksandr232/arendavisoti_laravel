@@ -1,10 +1,12 @@
 <div class="op-additional">
     <div class="opa-block_one">
         <div class="op-additional__card">
-            <picture>
-                <source type="image/webp" srcset="{{ asset('frontend/img/main/ladder.webp') }}">
-                <img class="product_ladder" src="{{ asset('frontend/img/main/ladder.webp') }}" {{-- width="320" height="350" --}} alt="лестницы в аренду">
-            </picture>
+            <a href="{{route('ladder')}}">
+                <picture>
+                    <source type="image/webp" srcset="{{ asset('frontend/img/main/ladder.webp') }}">
+                    <img class="product_ladder" src="{{ asset('frontend/img/main/ladder.webp') }}" {{-- width="320" height="350" --}} alt="лестницы в аренду">
+                </picture>
+            </a>
             <div class="opa-card__info">
                 <h2>Лестницы раздвижные</h2>
                 <a>Подробнее →</a>
