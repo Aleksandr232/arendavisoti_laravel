@@ -98,8 +98,8 @@
         <div class="towers-tour__card my-container">
             <div class="tt-card__image">
                 <picture style="position:relative; top: 10px">
-                    <source type="image/webp" srcset="{{ asset('frontend/img/technics/texnica1.webp') }}">
-                    <img src="{{ asset('frontend/img/technics/texnica1.jpg') }}" width="670" height="450" alt="грузоперевозки по татарстану">
+                    <source type="image/webp" srcset="{{ asset('frontend/img/technics/texnica1.png') }}">
+                    <img src="{{ asset('frontend/img/technics/texnica1.png') }}" width="670" height="450" alt="грузоперевозки по татарстану">
                 </picture>
             </div>
             <div class="tt-card__content">
@@ -132,8 +132,8 @@
 
                 <div class="tt-card__image">
                     <picture>
-                        <source type="image/webp" srcset="{{ asset('frontend/img/technics/gaz4.webp') }}">
-                        <img src="{{ asset('frontend/img/technics/gaz4.jpg') }}" width="670" height="450" alt="грузоперевозки недорого">
+                        <source type="image/webp" srcset="{{ asset('frontend/img/technics/news15.png') }}">
+                        <img src="{{ asset('frontend/img/technics/news15.png') }}" width="670" height="450" alt="грузоперевозки недорого">
                     </picture>
                 </div>
 
@@ -142,8 +142,8 @@
         <div class="towers-tour__card my-container">
             <div class="tt-card__image">
                 <picture>
-                    <source type="image/webp" srcset="{{ asset('frontend/img/technics/texnica2.webp') }}">
-                    <img src="{{ asset('frontend/img/technics/texnica2.jpg') }}" width="670" height="450" alt="грузоперевозки по россии">
+                    <source type="image/webp" srcset="{{ asset('frontend/img/technics/texnica2.png') }}">
+                    <img src="{{ asset('frontend/img/technics/texnica2.png') }}" width="670" height="450" alt="грузоперевозки по россии">
                 </picture>
             </div>
             <div class="tt-card__content">
