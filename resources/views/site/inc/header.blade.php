@@ -9,10 +9,12 @@
 @endif
     @php
         use App\Models\RunStr;
+        use App\Models\PostDiscount;
         $active = RunStr::all()->first();
+        $dis = PostDiscount::all("discounts");
     @endphp
     @if($active->is_active == 1)
-        <div id="runningString"><a class="stocks" href="/строительные-леса#targetBlock">Акция: 20% сезонная скидка на наши услуги</a></div>
+        <div id="runningString"><a class="stocks" href="/строительные-леса">{{$dis[0]->discounts}}</a></div>
     @else
         <div id="runningString"></div>
     @endif

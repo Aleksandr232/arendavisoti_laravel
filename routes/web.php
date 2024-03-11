@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\TgUsController;
 use App\Http\Controllers\Admin\ParserController;
 use App\Http\Controllers\Admin\PostBlogController;
 use App\Http\Controllers\Admin\ActiveRunningString;
+use App\Http\Controllers\Admin\PostDiscounts;
 use App\Http\Controllers\Director\DirectorController;
 use App\Http\Controllers\Director\StatController;
 use App\Http\Controllers\Director\StaffController;
@@ -118,6 +119,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/orders', OrderController::class);
     Route::resource('/documents', DocumentController::class);
     Route::resource('/postsblog', PostBlogController::class);
+    Route::resource('/postsdiscounts', PostDiscounts::class);
     Route::get('/seo/{id}', [PostBlogController::class, 'seo'])->name('seo');
     Route::post('/seo-post/{id}', [PostBlogController::class, 'post_seo'])->name('post_seo');
     Route::resource('/stocks', StockController::class);

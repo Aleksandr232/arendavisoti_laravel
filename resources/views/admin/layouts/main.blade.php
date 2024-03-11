@@ -177,6 +177,12 @@
                                 <p>Блог</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('postsdiscounts.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Изменить скидку</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <div class="nav-item has-treeview">
