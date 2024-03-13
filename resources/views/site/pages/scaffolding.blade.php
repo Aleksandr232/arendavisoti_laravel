@@ -104,19 +104,19 @@
     </section>
     <section id="scaffolding-price">
         <div id="price" class="scaffolding-price my-container">
-            {{-- <div class="sp-bg">
+            <div id="catalog"  class="sp-bg">
             <h2 class="sp-title">Стоимость аренды лесов</h2>
             <h2 class="sp-title_min"> Цены могут меняться в зависимости от сезона и объема взятого в аренду оборудования</h2>
-            </div> --}}
-            {{-- <div class="download-price">
+            </div>
+            <div class="download-price">
                 @if(isset($pricefile))
                     @foreach($pricefile->reverse() as $post)
                         @if($loop->first)
-                        <a alt='сдаем в аренду строительные леса с прайсом можно ознакомится на сайте' title="прайс строительных лесов" href="{{ asset('prices/' . $post->filepath ) }}" download="{{ $post->filename }}" target="_blank">Скачать прайс →</a>
+                        <a alt='сдаем в аренду строительные леса с прайсом можно ознакомится на сайте' title="каталог" href="{{ asset('prices/' . $post->filepath ) }}" download="{{ $post->filename }}" target="_blank">Скачать каталог →</a>
                         @endif
                     @endforeach
                 @endif
-            </div> --}}
+            </div>
             {{-- <div id='targetBlock' class="sp-image">
                 @foreach ($pricescaff -> reverse() as $post)
                 <picture>
