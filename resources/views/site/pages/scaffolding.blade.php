@@ -104,11 +104,11 @@
     </section>
     <section id="scaffolding-price">
         <div id="price" class="scaffolding-price my-container">
-            <div id="catalog"  class="sp-bg">
+            {{-- <div   class="sp-bg">
             <h2 class="sp-title">Стоимость аренды лесов</h2>
             <h2 class="sp-title_min"> Цены могут меняться в зависимости от сезона и объема взятого в аренду оборудования</h2>
-            </div>
-            <div class="download-price">
+            </div> --}}
+            <div id="catalog" class="download-price">
                 @if(isset($pricefile))
                     @foreach($pricefile->reverse() as $post)
                         @if($loop->first)
