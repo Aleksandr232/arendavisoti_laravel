@@ -1,14 +1,16 @@
 <div class="op-additional">
     <div class="opa-block_one">
         <div class="op-additional__card">
-            <picture>
-                <source type="image/webp" srcset="{{ asset('frontend/img/main/ladder.jpeg') }}">
-                <img src="{{ asset('frontend/img/main/ladder.jpeg') }}" width="320" height="350" alt="лестницы в аренду">
-            </picture>
+            <a href="{{route('ladder')}}">
+                <picture>
+                    <source type="image/webp" srcset="{{ asset('frontend/img/main/ladder.webp') }}">
+                    <img class="product_ladder" src="{{ asset('frontend/img/main/ladder.webp') }}" {{-- width="320" height="350" --}} alt="лестницы в аренду">
+                </picture>
+            </a>
             <div class="opa-card__info">
                 <h2>Лестницы раздвижные</h2>
-                <p>Подробнее →</p>
-               {{--  <div class="opa-card__info__content">
+                <a>Подробнее →</a>
+                {{-- <div class="opa-card__info__content">
                     <div class="opa-cic-text">
                         <h3>Предоставляем в аренду лестницы 3х-секционные раздвижные</h3>
                         <h3>Максимальная высота 9 и 12 м., в сложенном состоянии 4 и 4,5 м.</h3>
