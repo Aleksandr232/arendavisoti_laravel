@@ -491,13 +491,15 @@ p {
     width: 95%;
 }
 
-.header-content-home{
+
+.header-content-home {
     margin-top: 45px;
-    background: url("https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600") no-repeat;
-    /* background-size: 50%; */
-    background-size: contain;
+    background: url(https://avatars.mds.yandex.net/get-direct/5235974/Z3YoC28OrHsmUL1XHm3A1w/x600) no-repeat;
+    background-size: 650px;
     position: relative;
+    background-position-y: 100px;
 }
+
 
 .header-content-bars{
     margin-top: 45px;
@@ -526,7 +528,7 @@ p {
 .header-content-tours {
     margin-top: 40px;
     background: url("https://arenda-lesov-kazan.ru/img/39767072_573_q55.avif") no-repeat;
-    background-size: contain;
+    background-size: 350px;
     position: relative;
     top: 31px;
   }
@@ -1834,10 +1836,10 @@ main {
     .header-content-tours {
         margin-top: 40px;
         background: url(https://arenda-lesov-kazan.ru/img/39767072_573_q55.avif) no-repeat;
-        background-size: contain;
+        background-size: 300px;
         position: relative;
         top: 31px;
-        background-position-y: 85px;
+        background-position-y: 55px;
     }
 
     .header-content-bars{
