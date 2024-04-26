@@ -39,30 +39,25 @@ class PostPriceFileController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $request->validate([
-            'filename' => 'required',
+            'filename.*' => 'required',
         ],
         [
-            'filename.required' => 'Загрузите файл прайса',
-
+            'filename.*.required' => 'Загрузите хотя бы один файл прайса',
         ]);
 
-        if($request -> hasFile('filename')){
-            $filename = $request->file('filename');
-            $filepath = Storage::disk('prices')->putFile('pricefile', $filename);
+        if ($request->hasFile('filename')) {
+            foreach ($request->file('filename') as $file) {
+                $filepath = Storage::disk('prices')->putFile('pricefile', $file);
 
-            $file = new PriceFile;
-            $file->filename = $filename->getClientOriginalName();
-            $file->filepath = $filepath;
-            $file->save();
+                $priceFile = new PriceFile;
+                $priceFile->filename = $file->getClientOriginalName();
+                $priceFile->filepath = $filepath;
+                $priceFile->save();
+            }
         }
 
-
-        return redirect()->route('postpricefile.create')->with('success', 'Файл добавлен');
-
-        /* return back()->withInput()->with('success', 'успех'); */
+        return redirect()->route('postpricefile.create')->with('success', 'Файл(ы) добавлен(ы)');
     }
 
     /**

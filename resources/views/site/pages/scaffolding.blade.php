@@ -109,13 +109,18 @@
             <h2 class="sp-title_min"> Цены могут меняться в зависимости от сезона и объема взятого в аренду оборудования</h2>
             </div> --}}
             <div id="catalog" class="download-price">
-                @if(isset($pricefile))
-                    @foreach($pricefile->reverse() as $post)
-                        @if($loop->first)
-                        <a alt='сдаем в аренду строительные леса с прайсом можно ознакомится на сайте' title="каталог" href="{{ asset('prices/' . $post->filepath ) }}" download="{{ $post->filename }}" target="_blank">Скачать прайс →</a>
-                        @endif
-                    @endforeach
-                @endif
+                <a style="cursor: pointer" id="downloadAll">Скачать каталог и прайс →</a>
+                <div class="files-list" style="display: none;">
+                    @if(isset($pricefile))
+                        @foreach($pricefile as $post)
+                            <div class="file-item">
+                                <a href="{{ asset('prices/' . $post->filepath) }}" class="file-link" data-filename="{{ $post->filename }}">
+                                    {{ $post->filename }}
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
             </div>
             {{-- <div id='targetBlock' class="sp-image">
                 @foreach ($pricescaff -> reverse() as $post)

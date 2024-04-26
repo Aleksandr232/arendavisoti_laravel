@@ -26,11 +26,12 @@
 
                                     @if($loop->first)
                                         <p style="position: absolute; bottom:44px">Последний  файл: {{ $post->filename }}</p>
-                                        <input type="file" name="filename"  class="custom-file-input" id="customFile">
+
                                     @endif
+
                                 @endforeach
                             @endif
-
+                            <input type="file" name="filename[]"  class="custom-file-input" id="customFile"  multiple>
                             <label class="custom-file-label" for="customFile">загрузить файл</label>
                           </div>
                     </div>
