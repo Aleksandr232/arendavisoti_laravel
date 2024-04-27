@@ -109,18 +109,7 @@
             <h2 class="sp-title_min"> Цены могут меняться в зависимости от сезона и объема взятого в аренду оборудования</h2>
             </div> --}}
             <div id="catalog" class="download-price">
-                <a style="cursor: pointer" id="downloadAll">Скачать каталог и прайс →</a>
-                <div class="files-list" style="display: none;">
-                    @if(isset($pricefile))
-                        @foreach($pricefile as $post)
-                            <div class="file-item">
-                                <a href="{{ asset('prices/' . $post->filepath) }}" class="file-link" data-filename="{{ $post->filename }}">
-                                    {{ $post->filename }}
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
+                <a href="{{ route('catalog_and_price') }}" style="cursor: pointer">Скачать каталог и прайс →</a>
             </div>
             {{-- <div id='targetBlock' class="sp-image">
                 @foreach ($pricescaff -> reverse() as $post)

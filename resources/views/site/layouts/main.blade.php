@@ -124,30 +124,7 @@
         document.body.style.overflow = '';
     }
 </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    var downloadAllBtn = document.getElementById('downloadAll');
-    var filesList = document.querySelector('.files-list');
-    var fileLinks = document.querySelectorAll('.file-link');
 
-    downloadAllBtn.addEventListener('click', function() {
-        fileLinks.forEach(function(link) {
-            var filename = link.dataset.filename;
-            var fileUrl = link.getAttribute('href');
-            downloadFile(fileUrl, filename);
-        });
-    });
-
-    function downloadFile(url, filename) {
-        var tempLink = document.createElement('a');
-        tempLink.href = url;
-        tempLink.setAttribute('download', filename);
-        document.body.appendChild(tempLink);
-        tempLink.click();
-        document.body.removeChild(tempLink);
-    }
-});
-</script>
 
 <script async src="{{ asset('frontend/js/main.js') }}"></script>
 <script async src="{{ asset('frontend/js/script.js') }}"></script>
