@@ -52,6 +52,7 @@ class PostPriceFileController extends Controller
 
                 $priceFile = new PriceFile;
                 $priceFile->filename = $file->getClientOriginalName();
+                $priceFile->format = $file->getClientOriginalExtension();
                 $priceFile->filepath = $filepath;
                 $priceFile->save();
             }

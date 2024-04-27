@@ -83,6 +83,7 @@ Route::get('/статьи', [PageController::class, 'posts'])->name('posts');
 Route::get('/блог', [PageController::class, 'blog'])->name('blog');
 Route::get('/блог/{id}', [PageController::class, 'blogid'])->name('blogid');
 Route::get('/лестницы', [PageController::class, 'ladder'])->name('ladder');
+Route::get('/каталог-прайс', [PageController::class, 'catalog_and_price'])->name('catalog_and_price');
 Route::get('/update-sitemap', [SitemapController::class, 'update']);
 Route::post('/письмо-отправлено', [MailController::class, 'send'])->name('send');
 Route::post('/заявка-отправлена', [MailController::class, 'sendHome'])->name('sendHome');

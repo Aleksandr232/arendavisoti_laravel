@@ -9,7 +9,7 @@ class PriceFile extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['filename','filepath'];
+    protected $fillable = ['filename','filepath', 'format'];
 
     protected $table = 'pricefile';
 }

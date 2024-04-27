@@ -108,7 +108,7 @@
                                 <p> Статьи</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
+                        {{-- <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -128,13 +128,21 @@
                                     </a>
                                 </li>
                             </ul>
+                        </li> --}}
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('postpricefile.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Прайс и каталог
+                                </p>
+                            </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('pricetours.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> Прайс вышки-туры</p>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ route('postsimgtours.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

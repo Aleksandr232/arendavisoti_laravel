@@ -240,5 +240,17 @@ class PageController extends Controller
         }
     }
 
+    public function catalog_and_price()
+    {
+        $active = RunStr::all()->first();
+        $pricefile = PriceFile::all();
+
+        if($active->is_technical == 1){
+            return view('errors.500');
+        }else{
+            return view('site.pages.catalog_and_price', compact('pricefile'));
+        }
+    }
+
 
 }

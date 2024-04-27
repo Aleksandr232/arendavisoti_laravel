@@ -23,12 +23,9 @@
                         <div class="custom-file">
                             @if(isset($pricefile))
                                 @foreach($pricefile->reverse() as $post)
-
-                                    @if($loop->first)
-                                        <p style="position: absolute; bottom:44px">Последний  файл: {{ $post->filename }}</p>
-
-                                    @endif
-
+                                <div style="position: absolute; bottom:44px;">
+                                            Всего файлов:{{count($pricefile)}}
+                                </div>
                                 @endforeach
                             @endif
                             <input type="file" name="filename[]"  class="custom-file-input" id="customFile"  multiple>
