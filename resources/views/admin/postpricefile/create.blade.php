@@ -7,6 +7,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Добавление файла прайса</h1>
+                    <a style="position: relative"  class="btn btn-danger" href="{{ route('destroy') }}">Удалить файлы</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -16,10 +17,12 @@
     <section class="content">
         <div class="container-fluid">
             <div class="card">
+
                 <!-- form start -->
                 <form role="form" method="post" action="{{ route('postpricefile.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
+
                         <div class="custom-file">
                             @if(isset($pricefile))
                                 @foreach($pricefile->reverse() as $post)

@@ -20,6 +20,7 @@
     <section id="posts">
         <div class="posts">
                 <div class="file-card my-container">
+                @if (count($pricefile))
                     @if(isset($pricefile))
                         @foreach($pricefile as $post)
                             @if($post->format === 'pdf')
@@ -39,7 +40,9 @@
                             @endif
                         @endforeach
                     @endif
-
+                @else
+                    <p>Каталог и прайс не загружены...</p>
+                @endif
                 </div>
         </div>
     </section>

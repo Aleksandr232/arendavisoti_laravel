@@ -26,7 +26,7 @@
                                     <table class="table table-bordered table-hover text-nowrap">
                                         <thead>
                                         <tr>
-                                            <th>Имя клиента</th>
+                                            <th>Заявка</th>
                                             <th>Номер клиента</th>
                                             <th>Компания</th>
                                             <th>Адрес</th>
@@ -39,7 +39,7 @@
                                         <tbody>
                                         @foreach($contact as $post)
                                             <tr>
-                                                <td>{{ $post->name }}</td>
+                                                <td>{{ $post->hidden }}</td>
                                                 <td>{{$post->phone}} <a onclick="document.location.href='tel:{{$post->phone}}'"  type="button" >&#128241;</a></td>
                                                 <td>{{ $post->company }}</td>
                                                 <td>{{ $post->address }}</td>
@@ -69,6 +69,9 @@
                             @endif
                         </div>
                         <!-- /.card-body -->
+                        <div class="card-footer clearfix">
+                            {{ $contact->links() }}
+                        </div>
                     </div>
                     <!-- /.card -->
 

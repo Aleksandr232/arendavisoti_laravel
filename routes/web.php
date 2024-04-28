@@ -158,6 +158,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::post('/watsapp', [PostWatsaapController::class, 'sendWat'])->name('sendWat');
     Route::post('/учет_налички', [FinaceController::class, 'add'])->name('add');
     Route::get('/очистить_историю', [FinaceController::class, 'deleteAll'])->name('deleteAll');
+    Route::get('/удалить_прайс_и_каталог', [PostPriceFileController::class, 'destroy'])->name('destroy');
     Route::get('pdf/preview', [FinaceController::class, 'preview'])->name('pdf.preview');
     Route::get('pdf/generate', [FinaceController::class, 'generatePDF'])->name('pdf.generate');
     Route::get('pdf/generate/lesa', [CustomerBaseController::class, 'generatePDFlesa'])->name('pdf.generate.lesa');

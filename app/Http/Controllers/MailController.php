@@ -57,7 +57,7 @@ class MailController extends Controller
             return response()->json(['error' => 'Файл не найден'], 404);
         } */
 
-        return view('site.pages.catalog_and_price');
+        return redirect()->route('catalog_and_price');
 
     }
 

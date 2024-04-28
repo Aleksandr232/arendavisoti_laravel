@@ -109,7 +109,11 @@
             <h2 class="sp-title_min"> Цены могут меняться в зависимости от сезона и объема взятого в аренду оборудования</h2>
             </div> --}}
             <div id="catalog" class="download-price">
-                <a href="{{ route('catalog_and_price') }}" style="cursor: pointer">Скачать каталог и прайс →</a>
+                <a href="{{ route('catalog_and_price') }}" style="cursor: pointer">
+                    <button class="ptt-card__btn ptt-card__btn__one sp-cta__btn">
+                        Скачать каталог и прайс
+                    </button>
+                </a>
             </div>
             {{-- <div id='targetBlock' class="sp-image">
                 @foreach ($pricescaff -> reverse() as $post)

@@ -101,8 +101,15 @@ class PostPriceFileController extends Controller
      * @param  \App\Models\PriceFile  $priceFile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PriceFile $priceFile)
+    public function destroy(Request $request)
     {
-        //
+        $priceFiles = PriceFile::query()->get();
+
+        foreach ($priceFiles as $priceFile) {
+            Storage::disk('prices')->delete($priceFile->filepath);
+            $priceFile->delete();
+        }
+
+        return redirect()->route('postpricefile.create')->with('success', 'Все файлы удалены');
     }
 }
