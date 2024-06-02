@@ -37,7 +37,7 @@
     <div class="mf-bottom">
         <div class="author">
             <a id="resume" href="http://artzakirov.ru">Сайт разработан</a>
-            <a  id="me_site" href="https://newportfolio-sooty-kappa.vercel.app/">Подджержка сайта</a>
+            <a  id="me_site" href="https://www.ritualcompass.com/">Новый проект</a>
         </div>
         <div class="footer-doc">
             <a href="{{ asset('frontend/doc/privacy.pdf') }}" rel="nofollow" target="_blank">Политика конфиденциальности</a>
