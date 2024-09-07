@@ -219,11 +219,17 @@ class PageController extends Controller
         if($active->is_technical == 1){
             return view('errors.500');
         }else{
+            $page = $request->input('page', 1);
             $blog = Blog::query()
             ->orderByDesc('id')
             ->paginate(8);
 
-            return view('site.pages.blog', compact('blog'));
+            $meta = [
+                'title' => 'Блог «Аренда высоты» старница: ' . $page,
+                'description' => 'Предлагаем в аренду передвижные строительные вышки-туры с доставкой по Казани по самым выгодным ценам «Аренда высоты»' . $page 
+            ];
+
+            return view('site.pages.blog', compact('blog', 'meta'));
         }
     }
 
